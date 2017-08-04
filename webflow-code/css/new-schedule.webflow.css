@@ -1,0 +1,2087 @@
+.editable-heading {
+  border-bottom: 3px solid #333;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.editable-heading:hover {
+  border-bottom-color: #4d4dff;
+  color: #4d4dff;
+}
+
+.filter-check-box {
+  height: 27px;
+  min-width: 120px;
+  background-color: #d8d8d8;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .5);
+  color: #4c4c4c;
+  font-size: 20px;
+}
+
+.filters {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  padding-right: 50px;
+  padding-left: 25px;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.div-block {
+  width: 27px;
+  height: 27px;
+  float: left;
+}
+
+.div-block.check-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+}
+
+.div-block.check-box.color-1 {
+  background-color: #f5a623;
+}
+
+.div-block.check-box.color-2 {
+  background-color: #4a90e2;
+}
+
+.div-block.check-box.color-3 {
+  background-color: #9b9b9b;
+}
+
+.div-block.check-box.color-4 {
+  border-radius: 50px;
+  background-color: #f8e71c;
+}
+
+.div-block.check-box-square.color-1 {
+  background-color: #f5a623;
+}
+
+.div-block.check-box-square.color-2 {
+  background-color: #4a90e2;
+}
+
+.div-block.check-box-square.color-3 {
+  background-color: #9b9b9b;
+}
+
+.div-block.check-box-square.color-4 {
+  background-color: #f8e71c;
+}
+
+.check {
+  position: static;
+  left: 0px;
+  top: 4px;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  overflow: visible;
+  margin-top: -5px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 2px;
+  float: none;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.text-block {
+  display: block;
+  float: right;
+}
+
+.text-block.text {
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-left: 34px;
+  float: none;
+  text-align: left;
+}
+
+.heading {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.filter-circle-check {
+  min-width: 150px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  color: #4c4c4c;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.day-of-week-name {
+  max-width: 90px;
+  min-width: 90px;
+  margin-right: 5px;
+  margin-left: 5px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 20px;
+  text-align: center;
+}
+
+.month-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  margin-right: -36px;
+  margin-left: 10px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-weight: 600;
+}
+
+.month-div.first-month {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.month-blocks {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  color: #d2d2d2;
+  font-size: 30px;
+}
+
+.month-blocks.integrated-month {
+  margin-top: -38px;
+}
+
+.month-bar {
+  position: static;
+  display: block;
+  height: 4px;
+  max-height: 3px;
+  margin-top: 2px;
+  margin-right: -5px;
+  margin-left: -5px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #d2d2d2;
+}
+
+.calendar-days {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  margin-top: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.calendar-days.one-week {
+  min-height: 35px;
+  margin-top: 10px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.calendar-day {
+  position: relative;
+  z-index: 3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  width: 90px;
+  min-height: 90px;
+  min-width: 90px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #fafafa;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .5);
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background-color: #d3e7ff;
+}
+
+.calendar-day.highlighted-day {
+  background-color: #d3e7ff;
+}
+
+.calendar-day.closed {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  border: 2px dashed #d2d2d2;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.calendar-day.purchased-day {
+  background-color: #52d152;
+}
+
+.calendar-day.waiting-day {
+  background-color: orange;
+}
+
+.date-number {
+  max-width: 25px;
+  clear: none;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #333;
+  font-size: 20px;
+  text-shadow: none;
+}
+
+.date-number.high-light-date {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+
+.date-icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 35px;
+  height: 35px;
+  padding-top: 5px;
+  float: right;
+  text-align: center;
+}
+
+.event-circles {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-align-content: flex-end;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+}
+
+.one-circle {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .5);
+}
+
+.one-circle.color-1 {
+  margin-right: 2px;
+  margin-left: 2px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: #f5a623;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .5);
+}
+
+.one-circle.color-2 {
+  background-color: #f8e71c;
+}
+
+.one-circle.color-3 {
+  background-color: #4a90e2;
+}
+
+.one-circle.color-4 {
+  background-color: #9b9b9b;
+}
+
+.html-embed {
+  position: static;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding-left: 3px;
+  float: right;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+
+.horizontal-connection {
+  position: relative;
+  top: -142px;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+  width: 60%;
+  height: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: #9b9b9b;
+  text-align: left;
+}
+
+.days-of-week-label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.container {
+  position: relative;
+}
+
+.connection-overlays {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  display: none;
+  margin-top: -321px;
+}
+
+.blank-day {
+  position: relative;
+  display: block;
+  width: 110px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: transparent;
+}
+
+.blank-day.highlighted-day {
+  background-color: #d3e7ff;
+}
+
+.vertical-connection {
+  position: relative;
+  left: -234px;
+  top: -60px;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+  width: 15px;
+  height: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: #e8e623;
+  text-align: left;
+}
+
+.month-name {
+  position: relative;
+  z-index: 10;
+  display: block;
+  overflow: visible;
+  margin-top: -6px;
+  padding: 3px 15px 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-style: none;
+  border-right-width: 3px;
+  border-right-color: #d2d2d2;
+  border-bottom-width: 3px;
+  border-bottom-color: #d2d2d2;
+  border-left-width: 3px;
+  border-left-color: #d2d2d2;
+  background-color: #fff;
+  color: #d2d2d2;
+  font-size: 28px;
+  text-align: center;
+}
+
+.filler-end-of-month {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  border-bottom: 3px none #d2d2d2;
+  background-color: transparent;
+}
+
+.filler-end-of-month.highlighted-day {
+  background-color: #d3e7ff;
+}
+
+.filler-with-month-name {
+  position: static;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  width: 110px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px 5px 5px 0px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-bottom: 3px none #d2d2d2;
+  background-color: transparent;
+}
+
+.filler-with-month-name.highlighted-day {
+  background-color: #d3e7ff;
+}
+
+.filler-with-bar {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  display: block;
+  width: 110px;
+  min-width: 90px;
+  padding: 5px 5px 5px 0px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-bottom: 3px none #d2d2d2;
+  background-color: transparent;
+}
+
+.filler-with-bar.highlighted-day {
+  background-color: #d3e7ff;
+}
+
+.details {
+  position: relative;
+  display: block;
+  min-height: 130px;
+  min-width: 440px;
+  margin-bottom: 45px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  line-height: 22px;
+}
+
+.info-btn {
+  position: static;
+  left: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 120px;
+  margin-top: 10px;
+  float: right;
+  clear: none;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .5);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.info-thumb {
+  position: static;
+  left: 0px;
+  top: 0px;
+  float: left;
+  clear: left;
+}
+
+.text-block-3 {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  float: right;
+  clear: none;
+}
+
+.text-block-3.info-title {
+  overflow: visible;
+  float: right;
+  clear: right;
+  font-size: 20px;
+  text-align: center;
+}
+
+.text-block-3.info-subtitle {
+  clear: right;
+  color: #949494;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: none;
+}
+
+.text-block-3.info-sub-subtitle {
+  clear: right;
+  color: #949494;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: 300;
+  text-align: center;
+}
+
+.text-block-3.waiting-title {
+  margin-bottom: 5px;
+  clear: right;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: none;
+}
+
+.text-block-4 {
+  padding-top: 0px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+.or {
+  position: static;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  min-height: 20px;
+  margin-top: 10px;
+  float: right;
+  clear: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.or-bar {
+  width: 2px;
+  height: 10px;
+  background-color: #c9c9c9;
+  color: #8d8d8d;
+}
+
+.add-to-cart-btn {
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 150px;
+  min-height: 35px;
+  margin-top: 10px;
+  padding-top: 0px;
+  float: right;
+  clear: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #61ba00;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .5);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.smaller {
+  font-size: 60%;
+  line-height: 10px;
+}
+
+.spots-left {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: -25px;
+}
+
+.text-block-5 {
+  color: #3c3c3c;
+  font-size: 12px;
+  line-height: 18px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.html-embed-2 {
+  margin-top: 21px;
+  padding-top: 0px;
+  background-color: #2c3b46;
+}
+
+.event-boxes {
+  position: static;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  margin: 13px 5px 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.event-boxes.highlight-mode {
+  opacity: 0.16;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.square-btn {
+  position: relative;
+  z-index: 5;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  width: 100%;
+  height: 20px;
+  margin: 3px 2px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .5);
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.square-btn:hover {
+  box-shadow: none;
+}
+
+.square-btn.color-1 {
+  overflow: visible;
+  margin-right: 2px;
+  margin-left: 2px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 0px;
+  background-color: #f5a623;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .5);
+}
+
+.square-btn.color-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background-color: #f8e71c;
+}
+
+.square-btn.color-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #4a90e2;
+}
+
+.square-btn.color-4 {
+  background-color: #9b9b9b;
+}
+
+.square-btn.highlight-mode {
+  opacity: 0.2;
+}
+
+.repeating-tag {
+  position: static;
+  top: 0px;
+  right: -17px;
+  bottom: 0px;
+  width: 26px;
+  float: none;
+  clear: none;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: #fafafa;
+  color: #333;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.square-btn-text {
+  position: static;
+  float: none;
+  clear: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 0px;
+  background-color: #0098ff;
+  font-size: 12px;
+}
+
+.square-btn-text.color-1 {
+  background-color: #f8e71c;
+}
+
+.square-btn-text.color-2 {
+  background-color: #f5a623;
+}
+
+.square-btn-text.color-4 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #9b9b9b;
+}
+
+.month-label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  margin-top: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.month-label.one-week {
+  min-height: 35px;
+  margin-top: 10px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.series-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 200;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #a3ceff;
+  opacity: 1;
+}
+
+.series-number {
+  position: static;
+  right: 0px;
+  bottom: 40px;
+  width: 100%;
+  height: 30px;
+  color: #fff;
+  font-size: 80px;
+  line-height: 0px;
+  text-align: right;
+}
+
+.series-number-container {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+.series-overlay-skip {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #fafafa;
+  opacity: 1;
+}
+
+.skip-icon {
+  position: static;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.month-label-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  margin-top: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.month-label-2.one-week {
+  min-height: 35px;
+  margin-top: 10px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.and-more-label {
+  height: 20px;
+  color: #333;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.month-dots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  color: #d2d2d2;
+  font-size: 30px;
+}
+
+.month-dots.integrated-month {
+  margin-top: -38px;
+}
+
+.series-overlay-blank {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #fafafa;
+  opacity: 1;
+}
+
+.more-info-panel {
+  position: fixed;
+  top: 31px;
+  right: 93px;
+  z-index: 1001;
+  display: none;
+  max-width: 500px;
+  min-width: 400px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #fff;
+  box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, .24);
+}
+
+.info-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.info-btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.more-info-thumb {
+  width: 120px;
+  height: 120px;
+  padding-right: 5px;
+  padding-left: 5px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  background-image: url('../images/example-bg.png');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.more-info-copy {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 3px;
+  margin-left: 5px;
+  padding-left: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+
+.number-needed-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 130px;
+  margin-left: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-left: 2px solid #d3d3d3;
+}
+
+.waiting-for-copy {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+  clear: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.waiting-for-copy.info-title {
+  overflow: visible;
+  float: right;
+  clear: right;
+  font-size: 20px;
+  text-align: center;
+}
+
+.waiting-for-copy.info-subtitle {
+  clear: right;
+  color: #949494;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: none;
+}
+
+.waiting-for-copy.info-sub-subtitle {
+  clear: right;
+  color: #949494;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: 300;
+  text-align: center;
+}
+
+.waiting-for-copy-info {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.biggly-text {
+  font-size: 200%;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.waiting-for-circle {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  border-radius: 100px;
+  background-color: #dadada;
+  box-shadow: inset 1px 1px 0 0 rgba(0, 0, 0, .21);
+}
+
+.waiting-for-circle.circle-filled {
+  background-color: #424141;
+  box-shadow: none;
+}
+
+.div-block-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 5px;
+  padding-left: 5px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.more-info-info-holder {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.more-info-info-holder-verts {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.more-info-info-holder-horz {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+  padding-top: 3px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  border-top: 2px solid #d3d3d3;
+}
+
+.purchased-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 200;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+  opacity: 1;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
+}
+
+.purchased-item {
+  position: static;
+  right: 0px;
+  bottom: 40px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #fff;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+
+.overlay-subtext {
+  font-size: 10px;
+  line-height: 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.waiting-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 200;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: transparent;
+  opacity: 1;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
+}
+
+.waiting-overlay.purchased-item {
+  color: #333;
+}
+
+.waiting-item {
+  position: static;
+  right: 0px;
+  bottom: 40px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #fff;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .31);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 100px;
+}
+
+.day-top-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+
+.square-btn-copy {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.sqaure-btn-additional-copy {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .heading {
+    font-size: 28px;
+    text-align: center;
+  }
+  .day-of-week-name {
+    min-width: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .month-bar {
+    margin-right: -15px;
+    margin-left: -15px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+  .calendar-days.one-week {
+    position: static;
+    float: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .calendar-day {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 90px;
+    min-height: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .calendar-day.closed {
+    margin-right: 3px;
+    margin-left: 3px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .event-circles {
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+  }
+  .one-circle {
+    width: 20px;
+    height: 20px;
+  }
+  .one-circle.color-1 {
+    width: 20px;
+    height: 20px;
+  }
+  .days-of-week-label {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .blank-day {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 90px;
+    height: 90px;
+    min-height: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .blank-day.with-name {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+  .blank-day.with-bar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .month-name {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+  .filler-end-of-month {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 90px;
+    height: 90px;
+    min-height: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .filler-with-month-name {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 90px;
+    min-width: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .filler-with-bar {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 90px;
+    margin-right: 5px;
+    margin-left: 5px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .details {
+    min-width: 300px;
+  }
+  .event-boxes {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+  }
+  .square-btn {
+    width: 20px;
+    height: 20px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    border-radius: 100px;
+  }
+  .square-btn.color-1 {
+    width: 20px;
+    height: 20px;
+  }
+  .repeating-tag {
+    display: none;
+  }
+  .square-btn-text {
+    border-radius: 100px;
+    font-size: 0px;
+  }
+  .month-label.one-week {
+    position: static;
+    float: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .month-label-2.one-week {
+    position: static;
+    float: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .and-more-label {
+    display: none;
+  }
+  .purchased-item {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .overlay-subtext {
+    font-size: 9px;
+  }
+  .waiting-item {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .dot-btn-icon {
+    display: none;
+    margin-top: 6px;
+    margin-right: auto;
+    margin-left: 2px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    opacity: 0.67;
+    font-family: Linearicons, sans-serif;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 479px) {
+  .filters {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .body {
+    font-size: 75%;
+  }
+  .filter-circle-check {
+    margin-bottom: 10px;
+  }
+  .day-of-week-name {
+    width: 35px;
+    min-width: 20px;
+    font-size: 12px;
+  }
+  .month-div {
+    font-size: 50%;
+  }
+  .calendar-days {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .calendar-days.one-week {
+    margin-top: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .calendar-day {
+    width: auto;
+    height: 35px;
+    min-height: 140px;
+    padding: 2px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .calendar-day.closed {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+  }
+  .calendar-day.purchased-day {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  .date-number {
+    position: static;
+    left: 0px;
+    top: 0px;
+    float: left;
+    font-size: 14px;
+  }
+  .event-circles {
+    display: none;
+  }
+  .html-embed {
+    display: none;
+  }
+  .blank-day {
+    display: none;
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+  }
+  .filler-end-of-month {
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+  }
+  .filler-with-month-name {
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+  }
+  .filler-with-bar {
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+  }
+  .event-boxes {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .square-btn {
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .square-btn-text {
+    border-radius: 0px;
+    font-size: 12px;
+  }
+  .square-btn-text.color-3 {
+    font-size: 12px;
+  }
+  .square-btn-text.color-4 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 12px;
+  }
+  .and-more-label {
+    display: block;
+  }
+}
+
+@font-face {
+  font-family: 'Linearicons';
+  src: url('../fonts/Linearicons.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
