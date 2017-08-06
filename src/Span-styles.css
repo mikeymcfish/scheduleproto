@@ -1,0 +1,14 @@
+.span-monday-2-to-5 {
+    grid-column: col 2;
+    grid-row: row 3  / span 5;
+}
+
+.span-tuesday-3-to-5 {
+    grid-column: col 3;
+    grid-row: row 3  / span 5;
+}
+
+.camp-span-week-2 {
+    grid-row: row 4;
+}
+

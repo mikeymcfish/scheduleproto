@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './webflow.css';
 import './App.css';
+import './Span-styles.css';
 
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
@@ -25,7 +26,27 @@ const MyCalendar = props => (
     </div>
 );
 
-//const myThing = <div>Hello World </div>;
+//testing
+
+const people = ['Rowe', 'Prevost', 'Gare'];
+
+const daysInMonth = [];
+
+for (var i = 0;i<31;i++) {
+    daysInMonth.push(i);
+}
+
+const peopleList = people.map((person,i) =>
+    // expression goes here:
+    <li key={'person_' +i}>{person}</li>
+);
+
+const daysList = daysInMonth.map((day,i) =>
+    // expression goes here:
+    <li key={'daysInMonth_' +i}>{day}</li>
+
+    
+);
 
 class App extends Component {
   render() {
@@ -104,7 +125,7 @@ class App extends Component {
                     <div className="date-icon">X</div>
                   </div>
                   <div className="event-boxes">
-                      <div className="square-btn">
+                      <div className="square-btn selectable">
                           <div className="square-btn-copy">
                               <div className="square-btn-text drop-in-color">Drop-in</div>
                               {/*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*/}
@@ -146,9 +167,9 @@ class App extends Component {
                       <div className="date-icon">X</div>
                   </div>
                   <div className="event-boxes">
-                      <div className="square-btn drop-in-color">
+                      <div className="square-btn drop-in-color selectable">
                           <div className="square-btn-copy">
-                              <div className="square-btn-text  drop-in-color">Drop-in</div>
+                              <div className="square-btn-text drop-in-color">Drop-in</div>
                               {/*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*/}
                           </div>
                           <div className="sqaure-btn-additional-copy">
@@ -217,12 +238,15 @@ class App extends Component {
               <div className="day">day</div>
               <div className="day">day</div>
 
-              <div className="spanner span-monday-friday camp-color">
-                  <div className="spanner-copy"> week of camp
+              <div className="spanner span-monday-friday camp-color camp-span-week-2 selectable">
+                  <div className="spanner-copy"> Spring Break Camp
                   </div>
               </div>
-              <div className="spanner span-six-weeks series-color">
-                  <span className="label">series</span>
+              <div className="spanner span-six-weeks series-color span-monday-2-to-5 selectable">
+                  <span className="label">Minecraft Mobs</span>
+              </div>
+              <div className="spanner span-six-weeks series-color span-tuesday-3-to-5 selectable">
+                  <span className="label">Series I</span>
               </div>
           </div>
       </div>
