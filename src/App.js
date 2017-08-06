@@ -1,54 +1,107 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
+import $ from 'jquery';
+
 
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import events from './events';
+// import events from './events';
 
 // Setup the localizer by providing the moment (or globalize) Object
 // to the correct localizer.
-BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
-
-const MyCalendar = props => (
-    <div>
-        <BigCalendar
-            events={events}
-            toolbar = 'false'
-            views = 'month'
-            startAccessor='startDate'
-            endAccessor='endDate'
-            defaultDate={new Date(2017, 3, 1)}
-
-        />
-    </div>
-);
+// BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
+//
+// const MyCalendar = props => (
+//     <div>
+//         <BigCalendar
+//             events={events}
+//             toolbar = 'false'
+//             views = 'month'
+//             startAccessor='startDate'
+//             endAccessor='endDate'
+//             defaultDate={new Date(2017, 3, 1)}
+//
+//         />
+//     </div>
+// );
 
 //testing
 
-const people = ['Rowe', 'Prevost', 'Gare'];
 
 const daysInMonth = [];
 
-for (var i = 0;i<31;i++) {
+for (var i = 1;i<31;i++) {
     daysInMonth.push(i);
 }
 
-const peopleList = people.map((person,i) =>
+var daysList = daysInMonth.map((day,i) =>
+
     // expression goes here:
-    <li key={'person_' +i}>{person}</li>
+
+        //<div key={'daysInMonth_' +i}>
+            <div className="day">
+                    <div className="day-top-container">
+                        <div className="date-number">{day}</div>
+                    </div>
+                    <div className="event-boxes">
+                        <div className="square-btn selectable">
+                            <div className="square-btn-copy">
+                                <div className="square-btn-text drop-in-color">Drop-in</div>
+                            </div>
+                            <div className="sqaure-btn-additional-copy">
+                                <div>More info goes here</div>
+                            </div>
+                        </div>
+                        <div className="square-btn selectable">
+                            <div className="square-btn-copy">
+                                <div className="square-btn-text drop-in-color">Drop-in</div>
+                            </div>
+                            <div className="sqaure-btn-additional-copy">
+                                <div>More info goes here</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        //</div>
+
 );
 
-const daysList = daysInMonth.map((day,i) =>
-    // expression goes here:
-    <li key={'daysInMonth_' +i}>{day}</li>
+class EventsList extends Component {
+    render() {
+        return (
+            <div className ='my-events'>
+                <div className='spanner span-monday-friday camp-color camp-span-week-2 selectable'>
+                    <div className='spanner-copy'> Spring Break Camp
+                    </div>
+                </div>
+                <div className='spanner span-six-weeks series-color span-monday-2-to-5 selectable'>
+                    <span className='label'>Minecraft Mobs</span>
+                </div>
+                <div className='spanner span-six-weeks series-color span-tuesday-3-to-5 selectable'>
+                    <span className='label'>Series I</span>
+                </div>
+            </div>
+        )
+    };
+}
 
-    
-);
 
 class App extends Component {
+
+
+
+    componentDidMount () {
+         // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
+         //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
+        $("#calendar").css('display','none');
+        $("#calendar").css('display','grid');
+
+    }
+
   render() {
     return (
       <div className="App">
@@ -111,7 +164,7 @@ class App extends Component {
                   <div className="month-bar"></div>
               </div>
           </div>
-          <div className="grid">
+          <div className="grid" id="calendar">
               <div className="week-names">Sun</div>
               <div className="week-names monday">Mon</div>
               <div className="week-names">Tue</div>
@@ -119,140 +172,28 @@ class App extends Component {
               <div className="week-names">Thu</div>
               <div className="week-names">Fri</div>
               <div className="week-names">Sat</div>
-              <div className="day">
-                  <div className="day-top-container">
-                    <div className="date-number">1</div>
-                    <div className="date-icon">X</div>
-                  </div>
-                  <div className="event-boxes">
-                      <div className="square-btn selectable">
-                          <div className="square-btn-copy">
-                              <div className="square-btn-text drop-in-color">Drop-in</div>
-                              {/*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*/}
-                          </div>
-                          <div className="sqaure-btn-additional-copy">
-                              <div>More info goes here</div>
-                          </div>
-                      </div>
-                      {/*<div className="square-btn">*/}
-                          {/*<div className="square-btn-copy">*/}
-                              {/*<div className="square-btn-text">Makerspace</div>*/}
-                              {/*/!*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*!/*/}
-                          {/*</div>*/}
-                          {/*<div className="sqaure-btn-additional-copy">*/}
-                              {/*<div>More info goes here</div>*/}
-                          {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                          {/*<div className="square-btn-copy">*/}
-                              {/*<div className="square-btn-text">Makerspace</div>*/}
-                              {/*/!*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*!/*/}
-                          {/*</div>*/}
-                          {/*<div className="sqaure-btn-additional-copy">*/}
-                              {/*<div>More info goes here</div>*/}
-                          {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                          {/*<div className="square-btn-text">Minecraft</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                          {/*<div className="square-btn-text">Virtual Reality</div>*/}
-                          {/*<div className="repeating-tag">1/6</div>*/}
-                      {/*</div>*/}
-                  </div>
-              </div>
-              <div className="day">
-                  <div className="day-top-container">
-                      <div className="date-number">1</div>
-                      <div className="date-icon">X</div>
-                  </div>
-                  <div className="event-boxes">
-                      <div className="square-btn drop-in-color selectable">
-                          <div className="square-btn-copy">
-                              <div className="square-btn-text drop-in-color">Drop-in</div>
-                              {/*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*/}
-                          </div>
-                          <div className="sqaure-btn-additional-copy">
-                              <div>More info goes here</div>
-                          </div>
-                      </div>
-                      <div className="and-more-label">...and 2 others</div>
 
-                      {/*<div className="square-btn">*/}
-                      {/*<div className="square-btn-copy">*/}
-                      {/*<div className="square-btn-text">Makerspace</div>*/}
-                      {/*/!*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*!/*/}
-                      {/*</div>*/}
-                      {/*<div className="sqaure-btn-additional-copy">*/}
-                      {/*<div>More info goes here</div>*/}
-                      {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                      {/*<div className="square-btn-copy">*/}
-                      {/*<div className="square-btn-text">Makerspace</div>*/}
-                      {/*/!*<div className="repeating-tag w-hidden-medium w-hidden-small w-hidden-tiny">1/6</div>*!/*/}
-                      {/*</div>*/}
-                      {/*<div className="sqaure-btn-additional-copy">*/}
-                      {/*<div>More info goes here</div>*/}
-                      {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                      {/*<div className="square-btn-text">Minecraft</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="square-btn">*/}
-                      {/*<div className="square-btn-text">Virtual Reality</div>*/}
-                      {/*<div className="repeating-tag">1/6</div>*/}
-                      {/*</div>*/}
+              {daysList}
+
+              <div className='spanner span-monday-friday camp-color camp-span-week-2 selectable'>
+                  <div className='spanner-copy'> Spring Break Camp
                   </div>
               </div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
+              <div className='spanner span-six-weeks series-color span-monday-2-to-5 selectable'>
+                  <span className='label'>Minecraft Mobs</span>
+              </div>
+              <div className='spanner span-six-weeks series-color span-tuesday-3-to-5 selectable'>
+                  <span className='label'>Series I</span>
+              </div>
               <div className="day closed">day</div>
               <div className="day closed">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
-              <div className="day">day</div>
 
-              <div className="spanner span-monday-friday camp-color camp-span-week-2 selectable">
-                  <div className="spanner-copy"> Spring Break Camp
-                  </div>
-              </div>
-              <div className="spanner span-six-weeks series-color span-monday-2-to-5 selectable">
-                  <span className="label">Minecraft Mobs</span>
-              </div>
-              <div className="spanner span-six-weeks series-color span-tuesday-3-to-5 selectable">
-                  <span className="label">Series I</span>
-              </div>
           </div>
       </div>
       </div>
     );
-  }
+  };
+
 }
 
 export default App;
