@@ -30,9 +30,9 @@
   /*font-size: 150%;*/
   z-index:10;
   justify-items: center;
-  align-items: flex-end;
-  align-content: flex-end;
-  justify-content: flex-end;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: flex-start;
   /*border: solid;*/
   border-color: #444444;
   /*border-width: 2px;*/
@@ -45,26 +45,22 @@
   /*-ms-flex: 1;*/
   /*flex: 1;*/
     flex-direction: column;
-  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .5);
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);
 
 
 }
 
 .series-color {
-  background-color: #4d4dff !important;
-    opacity: 75;
+  background-color: rgba(0,0,255,1);
 }
 .drop-in-color {
-  background-color: #5d6c7b !important;
-    opacity: 75;
+  background-color: rgb(171, 207, 7);
 }
 .camp-color {
-  background-color: #57b831 !important;
-    opacity: 75;
+  background-color: rgba(64, 25, 13, 1);
 }
 .special-color {
-  background-color: #ffb4b4 !important;
-    opacity: 75;
+  background-color: rgba(255,0,0,1);
 }
 
 .day-top-container {
@@ -203,18 +199,21 @@
 .day:nth-child(n+36):nth-child(-n+42) {
   grid-row: row 7;
 }
+.day:nth-child(n+43):nth-child(-n+49) {
+  grid-row: row 8;
+}
 
 .event-boxes {
 
     /*min-width: 80px;*/
     /*display:flex;*/
     /*flex-direction: column;*/
-    align-items: stretch;
     width: 100%;
     /*min-height: 0px;*/
+
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 
 }
 
@@ -265,4 +264,54 @@
 .selectable:hover {
     z-index: 1000 !important;
     cursor: pointer;
+}
+
+.no-day {
+    box-shadow: none !important;
+}
+
+.filters {
+    display: flex;
+    margin-top: 20px;
+    padding-right: 50px;
+    padding-left: 25px;
+    justify-content: center;
+}
+.filter-circle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:25%;
+}
+.filter-circle-filled {
+    width:22px;
+    height:22px;
+    border-radius: 100%;
+    flex-shrink: 0;
+}
+.filter-circle-filled:hover {
+    width:18px;
+    height:18px;
+    border-radius: 100%;
+    flex-shrink: 0;
+    border: solid;
+    border-color: #a1a1a1;
+    border-width: 2px;
+    cursor: pointer;
+}
+.filter-circle-empty {
+    width:18px;
+    height:18px;
+    border: solid;
+    border-color: #626262;
+    border-width: 2px;
+    background-color: transparent !important;
+    border-radius: 100%;
+    flex-shrink: 0;
+}
+.filter-circle-label {
+    flex-grow: 30%;
+    height:100%;
+    justify-content: center;
+    text-align: center;
 }

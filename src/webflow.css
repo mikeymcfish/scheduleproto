@@ -19,20 +19,7 @@
   font-size: 20px;
 }
 
-.filters {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 35px;
-  padding-right: 50px;
-  padding-left: 25px;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
+
 
 .div-block {
   width: 27px;

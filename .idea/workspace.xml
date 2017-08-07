@@ -68,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+            <state relative-caret-position="184">
+              <caret line="246" column="33" lean-forward="true" selection-start-line="246" selection-start-column="33" selection-end-line="246" selection-end-column="33" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -80,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="260">
+              <caret line="299" column="19" lean-forward="false" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -93,8 +93,8 @@
       <file leaf-file-name="webflow.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/webflow.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5803">
-              <caret line="1570" column="14" lean-forward="false" selection-start-line="1570" selection-start-column="3" selection-end-line="1570" selection-end-column="14" />
+            <state relative-caret-position="139">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,8 +103,8 @@
       <file leaf-file-name="Span-styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Span-styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="45">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -122,13 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>square-btn-te</find>
-      <find>date-i</find>
-      <find>date-icon</find>
-      <find>contain</find>
-      <find>and-more</find>
-      <find>container</find>
-      <find>top-c</find>
       <find>Septem</find>
       <find>2015</find>
       <find>hover</find>
@@ -149,9 +142,16 @@
       <find>and two</find>
       <find>event</find>
       <find>day</find>
-      <find>#0098ff</find>
-      <find>day-top</find>
       <find>day-top-con</find>
+      <find>day-top</find>
+      <find>#0098ff</find>
+      <find>RenderEvent</find>
+      <find>Series I</find>
+      <find>icon</find>
+      <find>more-in</find>
+      <find>filter</find>
+      <find>filters</find>
+      <find>check</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/webflow-code/css/new-schedule.webflow.css" />
         <option value="$PROJECT_DIR$/src/webflow.css" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
@@ -368,12 +368,12 @@
       <workItem from="1500213082581" duration="272000" />
       <workItem from="1500818546183" duration="160000" />
       <workItem from="1501679513811" duration="1491000" />
-      <workItem from="1501864727852" duration="24543000" />
+      <workItem from="1501864727852" duration="37709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29739000" />
+    <option name="totallyTimeSpent" value="42905000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -643,7 +643,7 @@
         <state relative-caret-position="285">
           <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding>
-            <element signature="e#52#1898#1" expanded="true" />
+            <element signature="e#52#1898#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -668,35 +668,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Span-styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webflow.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5803">
-          <caret line="1570" column="14" lean-forward="false" selection-start-line="1570" selection-start-column="3" selection-end-line="1570" selection-end-column="14" />
+        <state relative-caret-position="139">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        <state relative-caret-position="184">
+          <caret line="246" column="33" lean-forward="true" selection-start-line="246" selection-start-column="33" selection-end-line="246" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="299" column="19" lean-forward="false" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
