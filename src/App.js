@@ -12,6 +12,7 @@ class Day extends React.Component {
     }
 
     renderEvent(name, color) {
+
         var colorClass="";
         switch (color) {
             case "dropin" :
@@ -24,11 +25,11 @@ class Day extends React.Component {
                 break;
         }
         return(
-            <div className="square-btn selectable">
+            <div className={"square-btn selectable " + colorClass}>
                 <div className="square-btn-copy">
-                    <div className={"square-btn-text "+colorClass}>{name}</div>
+                    <div className={"square-btn-text " + colorClass}>{name}</div>
                 </div>
-                <div className="sqaure-btn-additional-copy">
+                <div className="square-btn-additional-copy">
                     <div>More info goes here</div>
                 </div>
             </div>
@@ -51,8 +52,8 @@ class Day extends React.Component {
                 </div>
                 <div className="event-boxes">
 
-                    {dropInEvents.map((item,i) => this.renderEvent(item, "dropin"))}
-                    {specialEvents.map((item,i) => this.renderEvent(item, "special"))}
+                    {dropInEvents.map((item,i) => this.renderEvent(item, "dropin"), this)}
+                    {specialEvents.map((item,i) => this.renderEvent(item, "special"), this)}
 
                 </div>
             </div>
@@ -111,6 +112,8 @@ class Month extends React.Component {
                 break;
         }
 
+
+
         return (
 
             <div className={spanType+ ' spanner selectable'} style={{
@@ -140,6 +143,7 @@ class Month extends React.Component {
             );
         }
 
+        console.log(this.props.filterSeries);
         return (
             <div>
                 <div className="month-label one-week" id="one-week">
@@ -173,7 +177,7 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Thursday")}
                     {this.RenderWeekNames("Friday")}
                     {this.RenderWeekNames("Saturday")}
-                    {allDays.map(day => <div className="day"> {day} </div>)}
+                    {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
                     {this.RenderEvent("Minecraft Mobs","six-weeks", 2, 2, 2, 6)}
                     {this.RenderEvent("Spring Break","five-days", 2, 6, 3, 3)}
                 </div>
@@ -205,6 +209,81 @@ class EventsList extends Component {
 
 class App extends Component {
 
+    toggleSeries() {
+        console.log("here");
+        if (!this.props.filterSeries)
+        {
+            this.props = {filterSeries: true};
+            $(".filter-circle-filled.series-color").addClass('filter-circle-empty');
+            $(".series-color").hide();
+            $(".filter-circle-filled.series-color").show();
+        } else {
+            this.props = {filterSeries: false};
+            $(".filter-circle-filled.series-color").removeClass('filter-circle-empty');
+            $(".series-color").show();
+        }
+
+    }
+    toggleDropin() {
+        console.log("here");
+        if (!this.props.filterDropIn)
+        {
+            this.props = {filterDropIn: true};
+            $(".filter-circle-filled.drop-in-color").addClass('filter-circle-empty');
+            $(".drop-in-color").hide();
+            $(".filter-circle-filled.drop-in-color").show();
+        } else {
+            this.props = {filterDropIn: false};
+            $(".filter-circle-filled.drop-in-color").removeClass('filter-circle-empty');
+            $(".drop-in-color").show();
+        }
+
+    }
+    toggleCamp() {
+        console.log("here");
+        if (!this.props.filterCamp)
+        {
+            this.props = {filterCamp: true};
+            $(".filter-circle-filled.camp-color").addClass('filter-circle-empty');
+            $(".camp-color").hide();
+            $(".filter-circle-filled.camp-color").show();
+        } else {
+            this.props = {filterCamp: false};
+            $(".filter-circle-filled.camp-color").removeClass('filter-circle-empty');
+            $(".camp-color").show();
+        }
+
+    }
+    toggleSpecial() {
+        console.log("here");
+        if (!this.props.filterSpecial)
+        {
+            this.props = {filterSpecial: true};
+            $(".filter-circle-filled.special-color").addClass('filter-circle-empty');
+            $(".special-color").hide();
+            $(".filter-circle-filled.special-color").show();
+        } else {
+            this.props = {filterSpecial: false};
+            $(".filter-circle-filled.special-color").removeClass('filter-circle-empty');
+            $(".special-color").show();
+        }
+
+    }
+
+
+
+    constructor() {
+        super();
+
+        this.toggleSeries = this.toggleSeries.bind(this);
+        this.props = {filterSeries: false};
+        this.toggleDropin = this.toggleDropin.bind(this);
+        this.props = {filterSeries: false};
+        this.toggleCamp = this.toggleCamp.bind(this);
+        this.props = {filterSeries: false};
+        this.toggleSpecial = this.toggleSpecial.bind(this);
+        this.props = {filterSeries: false};
+    }
 
 
     componentDidMount () {
@@ -213,10 +292,10 @@ class App extends Component {
         $("#calendar").css('display','none');
         $("#calendar").css('display','grid');
         $('div:has(> #no-day)').addClass('no-day');
-
     }
 
   render() {
+
     return (
       <div className="App">
         {/*<MyCalendar/>*/}
@@ -226,29 +305,29 @@ class App extends Component {
         <div className="container w-container">
               <h1 className="heading">Showing <span className="editable-heading">all</span> events for kids <span className="editable-heading">ages 7 to 9</span> in <span className="editable-heading">Brooklyn</span></h1>
               <div className="filters">
-                  <div className="filter-circle-container">
+                  <div className="filter-circle-container" onClick={this.toggleSeries}>
                       <div className="filter-circle-filled series-color">
                       </div>
                       <div className="filter-circle-label">
                           Series
                       </div>
                   </div>
-                  <div className="filter-circle-container">
+                  <div className="filter-circle-container" onClick={this.toggleCamp}>
                       <div className="filter-circle-filled camp-color">
                       </div>
                       <div className="filter-circle-label">
                           Camp
                       </div>
                   </div>
-                  <div className="filter-circle-container">
+                  <div className="filter-circle-container"  onClick={this.toggleDropin}>
                       <div className="filter-circle-filled drop-in-color">
                       </div>
                       <div className="filter-circle-label">
                           Drop-in
                       </div>
                   </div>
-                  <div className="filter-circle-container">
-                      <div className="filter-circle-empty special-color">
+                  <div className="filter-circle-container"  onClick={this.toggleSpecial}>
+                      <div className="filter-circle-filled special-color">
                       </div>
                       <div className="filter-circle-label">
                           Special
@@ -283,35 +362,11 @@ class App extends Component {
                       {/*<div className="text text-block">Camp</div>*/}
                   {/*</div>*/}
               </div>
-            <Month name="September" numDays="30" skipDays="5"/>
+            <Month name="September" numDays="30" skipDays="5" filterSeries={this.props.filterSeries}/>
             <Month name="October" numDays="31" skipDays="0"/>
             <Month name="November" numDays="30" skipDays="3"/>
             <Month name="December" numDays="31" skipDays="5"/>
-          {/*<div className="grid" id="calendar">*/}
-              {/*<div className="week-names">Sun</div>*/}
-              {/*<div className="week-names">Mon</div>*/}
-              {/*<div className="week-names">Tue</div>*/}
-              {/*<div className="week-names">Wed</div>*/}
-              {/*<div className="week-names">Thu</div>*/}
-              {/*<div className="week-names">Fri</div>*/}
-              {/*<div className="week-names">Sat</div>*/}
 
-              {/*<Month/>*/}
-
-              {/*<div className='spanner span-monday-friday camp-color camp-span-week-2 selectable'>*/}
-                  {/*<div className='spanner-copy'> Spring Break Camp*/}
-                  {/*</div>*/}
-              {/*</div>*/}
-              {/*<div className='spanner span-six-weeks series-color span-monday-2-to-5 selectable'>*/}
-                  {/*<span className='label'>Minecraft Mobs</span>*/}
-              {/*</div>*/}
-              {/*<div className='spanner span-six-weeks series-color span-tuesday-3-to-5 selectable'>*/}
-                  {/*<span className='label'>Series I</span>*/}
-              {/*</div>*/}
-              {/*<div className="day closed">day</div>*/}
-              {/*<div className="day closed">day</div>*/}
-
-          {/*</div>*/}
         </div>
       </div>
     );
