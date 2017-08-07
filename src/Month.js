@@ -4,6 +4,7 @@ import './App.css';
 import './Span-styles.css';
 import $ from 'jquery';
 import Day from './Day';
+import Event from './Event';
 
 
 class Month extends React.Component {
@@ -73,6 +74,20 @@ class Month extends React.Component {
         )
     }
 
+    componentDidMount() {
+
+        // var Ev = new Event();
+        // var dayNum = 5;
+        // Ev.loadEvents(this.getGridRow(5), this.getGridCol(5));
+    }
+
+    getGridRow(date) {
+        return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-row");
+    }
+    getGridCol(date) {
+        return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-column");
+    }
+
     render() {
 
         var allDays = [];
@@ -87,8 +102,6 @@ class Month extends React.Component {
                 this.RenderDay(i)
             );
         }
-
-        console.log(this.props.filterSeries);
         return (
             <div>
                 <div className="month-label one-week" id="one-week">
@@ -123,8 +136,9 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Friday")}
                     {this.RenderWeekNames("Saturday")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
-                    {this.RenderEvent("Minecraft Mobs","six-weeks", 2, 2, 4, 6)}
-                    {this.RenderEvent("Spring Break","five-days", 2, 5, 3, 3)}
+                    <Event month={this} days="12,26" name="Minecraft Mobs" spanType="six-weeks"/>
+                    {/*{this.RenderEvent("Minecraft Mobs","six-weeks", 2, 2, 4, 6)}*/}
+                    {/*{this.RenderEvent("Spring Break","five-days", 2, 5, 3, 3)}*/}
                 </div>
             </div>
         )

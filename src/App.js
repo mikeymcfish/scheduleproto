@@ -132,6 +132,7 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
+
                     <Month name="September" numDays="30" skipDays="5"/>
                     <Month name="October" numDays="31" skipDays="0"/>
                     <Month name="November" numDays="30" skipDays="3"/>
