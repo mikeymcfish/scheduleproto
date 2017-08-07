@@ -40,12 +40,15 @@ for (var i = 1;i<31;i++) {
 
 var daysList = daysInMonth.map((day,i) =>
 
-    // expression goes here:
-
-        //<div key={'daysInMonth_' +i}>
             <div className="day">
+
                     <div className="day-top-container">
-                        <div className="date-number">{day}</div>
+                        <div className="date-number">{day}
+                            {(() => {
+                                if (i%2==0)
+                                    return "*";
+                            })()}
+                                </div>
                     </div>
                     <div className="event-boxes">
                         <div className="square-btn selectable">
@@ -58,7 +61,7 @@ var daysList = daysInMonth.map((day,i) =>
                         </div>
                         <div className="square-btn selectable">
                             <div className="square-btn-copy">
-                                <div className="square-btn-text drop-in-color">Drop-in</div>
+                                <div className="square-btn-text special-color">Guest Pass</div>
                             </div>
                             <div className="sqaure-btn-additional-copy">
                                 <div>More info goes here</div>
@@ -69,6 +72,8 @@ var daysList = daysInMonth.map((day,i) =>
         //</div>
 
 );
+
+
 
 class EventsList extends Component {
     render() {
