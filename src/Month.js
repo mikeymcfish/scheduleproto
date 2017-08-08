@@ -96,10 +96,14 @@ class Month extends React.Component {
 
     componentDidMount() {
 
-        // var Ev = new Event();
-        // var dayNum = 5;
-        // Ev.loadEvents(this.getGridRow(5), this.getGridCol(5));
+
     }
+
+    componentWillUpdate() {
+        global.overlappingSeriesEvents = [];
+        global.overlappingCampEvents = [];
+    }
+
 
     getGridRow(date) {
         return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-row");
@@ -109,7 +113,8 @@ class Month extends React.Component {
     }
     constructor() {
         super();
-        global.overlappingEvents = [];
+        global.overlappingSeriesEvents = [];
+        global.overlappingCampEvents = [];
         //LOAD ALL EVENTS HERE
         global.allEvents =
             {
@@ -146,6 +151,20 @@ class Month extends React.Component {
                         month:"September",
                         days:"11,15",
                         name:"Spring Break",
+                        type:"camp",
+                        spanType:"five-days"
+                    },
+                    {
+                        month:"September",
+                        days:"11,15",
+                        name:"Other Camp Option",
+                        type:"camp",
+                        spanType:"five-days"
+                    },
+                    {
+                        month:"September",
+                        days:"18,22",
+                        name:"Booger camp",
                         type:"camp",
                         spanType:"five-days"
                     },
@@ -191,8 +210,13 @@ class Month extends React.Component {
         }
 
         var eventsList = [];
-        var tempEventsList = [];
+        var tempSeriesEventsList = [];
+        var tempCampEventsList = [];
+
         var seriesDupeDates = [];
+        var campDupeDates = [];
+
+
         if (!this.props.filterSeries) {
             //all series
             var holdingEvents = [];
@@ -203,12 +227,12 @@ class Month extends React.Component {
                     global.allEvents.events[i].skipDays =  this.props.skipDays;
                     if (holdingEvents.indexOf(global.allEvents.events[i].days)>=0) {
 
-                        global.overlappingEvents.push(global.allEvents.events[i]);
+                        global.overlappingSeriesEvents.push(global.allEvents.events[i]);
                         seriesDupeDates.push(global.allEvents.events[i].days);
 
                     } else{
                         holdingEvents.push(global.allEvents.events[i].days);
-                        tempEventsList.push(
+                        tempSeriesEventsList.push(
                             global.allEvents.events[i]
                         );
                     }
@@ -219,37 +243,71 @@ class Month extends React.Component {
                 }
             }
             //now go through again and add in the originals that caused the dupe.
-            for (var i=0; i < tempEventsList.length; i++) {
+            for (var i=0; i < tempSeriesEventsList.length; i++) {
 
-                    if (seriesDupeDates.indexOf(tempEventsList[i].days)>=0) {
+                    if (seriesDupeDates.indexOf(tempSeriesEventsList[i].days)>=0) {
 
-                        global.overlappingEvents.push(tempEventsList[i]);
+                        global.overlappingSeriesEvents.push(tempSeriesEventsList[i]);
 
                     } else{
                         eventsList.push(
-                            tempEventsList[i]
+                            tempSeriesEventsList[i]
                         );
                     }
-
-
             }
-
-
-
-            console.log("overlapping events count for month "+ this.props.name+" :" + global.overlappingEvents.length)
+            console.log("overlapping series count for month "+ this.props.name+" :" + global.overlappingSeriesEvents.length)
 
 
         }
         if (!this.props.filterCamp) {
             //all camp
+            //all series
+            var holdingEvents = [];
+
+
+            //add all dupes to an array (but originals are not there yet)
             for (var i=0; i < global.allEvents.events.length; i++) {
                 if (global.allEvents.events[i].month == this.props.name && global.allEvents.events[i].type=="camp") {
-                    global.allEvents.events[i].skipDays =  this.props.skipDays
+                    global.allEvents.events[i].skipDays =  this.props.skipDays;
+                    if (holdingEvents.indexOf(global.allEvents.events[i].days)>=0) {
+
+                        global.overlappingCampEvents.push(global.allEvents.events[i]);
+                        campDupeDates.push(global.allEvents.events[i].days);
+
+                    } else{
+                        holdingEvents.push(global.allEvents.events[i].days);
+                        tempCampEventsList.push(
+                            global.allEvents.events[i]
+                        );
+                    }
+
+                }
+                else {
+
+                }
+            }
+            //now go through again and add in the originals that caused the dupe.
+            for (var i=0; i < tempCampEventsList.length; i++) {
+
+                if (campDupeDates.indexOf(tempCampEventsList[i].days)>=0) {
+
+                    global.overlappingCampEvents.push(tempCampEventsList[i]);
+
+                } else{
                     eventsList.push(
-                        global.allEvents.events[i]
+                        tempCampEventsList[i]
                     );
                 }
             }
+
+
+
+
+
+
+            console.log("overlapping events count for month "+ this.props.name+" :" + global.overlappingCampEvents.length)
+
+
         }
 
         return (
@@ -286,7 +344,9 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Fri")}
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
-                    {seriesDupeDates.map((container, index) => <EventContainers thisDupe={container} skipDays={this.props.skipDays} type="series"/>)}
+                    {seriesDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingSeriesEvents} thisDupe={container} skipDays={this.props.skipDays} type="series"/>)}
+                    {campDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingCampEvents} thisDupe={container} skipDays={this.props.skipDays} type="camp"/>)}
+
                     {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
                 </div>
             </div>

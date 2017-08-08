@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EventContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Event.js" afterPath="$PROJECT_DIR$/src/Event.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EventContainer.js" afterPath="$PROJECT_DIR$/src/EventContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Month.js" afterPath="$PROJECT_DIR$/src/Month.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,8 +50,8 @@
       <file leaf-file-name="Event.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-712">
-              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="305">
+              <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Month.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Month.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Month.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="291" column="18" lean-forward="true" selection-start-line="291" selection-start-column="18" selection-end-line="291" selection-end-column="18" />
+            <state relative-caret-position="158">
+              <caret line="161" column="44" lean-forward="true" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -71,12 +71,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventContainer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EventContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EventContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="49" column="19" lean-forward="true" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,8 +120,8 @@
       <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="334" column="1" lean-forward="true" selection-start-line="334" selection-start-column="1" selection-end-line="334" selection-end-column="1" />
+            <state relative-caret-position="324">
+              <caret line="383" column="24" lean-forward="false" selection-start-line="383" selection-start-column="24" selection-end-line="383" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -147,12 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drop-in</find>
-      <find>Events</find>
-      <find>week-nam</find>
-      <find>day-of</find>
-      <find>data-</find>
-      <find>&lt;Day</find>
       <find>week-n</find>
       <find>svg</find>
       <find>date-num</find>
@@ -175,8 +171,14 @@
       <find>no-day</find>
       <find>inCart</find>
       <find>overl</find>
-      <find>test</find>
       <find>six</find>
+      <find>glo</find>
+      <find>series</find>
+      <find>tempEvents</find>
+      <find>test</find>
+      <find>OverlappingE</find>
+      <find>gobal</find>
+      <find>six-</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -202,11 +204,11 @@
         <option value="$PROJECT_DIR$/src/icons/CheckIcon.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Day.js" />
-        <option value="$PROJECT_DIR$/src/Event.js" />
         <option value="$PROJECT_DIR$/src/EventContainers.js" />
-        <option value="$PROJECT_DIR$/src/Month.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/EventContainer.js" />
+        <option value="$PROJECT_DIR$/src/Event.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/Month.js" />
       </list>
     </option>
   </component>
@@ -435,12 +437,12 @@
       <workItem from="1500213082581" duration="272000" />
       <workItem from="1500818546183" duration="160000" />
       <workItem from="1501679513811" duration="1491000" />
-      <workItem from="1501864727852" duration="78580000" />
+      <workItem from="1501864727852" duration="81043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83776000" />
+    <option name="totallyTimeSpent" value="86239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -804,18 +806,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-712">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="305">
+          <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Month.js">
+    <entry file="file://$PROJECT_DIR$/src/EventContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="291" column="18" lean-forward="true" selection-start-line="291" selection-start-column="18" selection-end-line="291" selection-end-column="18" />
+        <state relative-caret-position="308">
+          <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="36" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -824,17 +826,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="334" column="1" lean-forward="true" selection-start-line="334" selection-start-column="1" selection-end-line="334" selection-end-column="1" />
+        <state relative-caret-position="324">
+          <caret line="383" column="24" lean-forward="false" selection-start-line="383" selection-start-column="24" selection-end-line="383" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/Month.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="49" column="19" lean-forward="true" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="158">
+          <caret line="161" column="44" lean-forward="true" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
