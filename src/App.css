@@ -3,7 +3,7 @@
   font-family: 'Open Sans', sans-serif;
   /*font-size: 20px;*/
   font-weight: 700;
-  width: 75%;
+  width: 80%;
   margin-left: 10%;
 
 }
@@ -71,20 +71,23 @@ body {
 
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-content: stretch;
     box-shadow: none;
     min-height: 0;
     padding-top: 0;
+    background-color: transparent;
 
 }
 
 .date-number {
+  align-content: flex-start;
   color: #333;
   z-index: 1000;
-    width: 100%;
-    max-width: none;
+  width: 100%;
+  max-width: none;
+  text-align:left;
 }
 
 .date-icon {
@@ -96,7 +99,7 @@ body {
     width: 35px;
     height: 35px;
     float: right;
-    text-align: center;
+    text-align: right;
 }
 
 .grid {
@@ -274,13 +277,13 @@ body {
     flex-shrink: 0;
 }
 .filter-circle-filled:hover {
-    width:18px;
-    height:18px;
-    border-radius: 100%;
-    flex-shrink: 0;
-    border: solid;
-    border-color: #a1a1a1;
-    border-width: 2px;
+    /*width:18px;*/
+    /*height:18px;*/
+    /*border-radius: 100%;*/
+    /*flex-shrink: 0;*/
+    /*border: solid;*/
+    /*border-color: #a1a1a1;*/
+    /*border-width: 2px;*/
     cursor: pointer;
 }
 .filter-circle-empty {

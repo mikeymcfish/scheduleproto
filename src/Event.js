@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
@@ -55,8 +54,9 @@ class Event extends Component {
 
         //Sept skip days = 5
 
-        startRow = 3 + Math.floor((parseInt(days[0])+5)/7);
+        startRow = 2 + Math.ceil((parseInt(days[0])+5)/7);
         startCol = (parseInt(days[0])+5)%7;
+        startCol == 0 ? startCol = 7: startCol+=0;
 
         rowSpan = Math.floor((parseInt(days[1])+5)/7) - Math.floor((parseInt(days[0])+5)/7) + 1;
 

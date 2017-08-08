@@ -7,6 +7,7 @@ import './Span-styles.css';
 import $ from 'jquery';
 import Day from './Day';
 import Month from './Month';
+import CheckIcon from './icons/CheckIcon';
 
 
 class App extends Component {
@@ -15,12 +16,12 @@ class App extends Component {
         console.log("here");
         if (!this.props.filterSeries) {
             this.props = {filterSeries: true};
-            $(".filter-circle-filled.series-color").addClass('filter-circle-empty');
+            //$(".filter-circle-filled.series-color").addClass('filter-circle-empty');
             $(".series-color").hide();
             $(".filter-circle-filled.series-color").show();
         } else {
             this.props = {filterSeries: false};
-            $(".filter-circle-filled.series-color").removeClass('filter-circle-empty');
+            //$(".filter-circle-filled.series-color").removeClass('filter-circle-empty');
             $(".series-color").show();
         }
 
@@ -28,15 +29,12 @@ class App extends Component {
 
     toggleDropin() {
         console.log("here");
-        if (!this.props.filterDropIn) {
-            this.props = {filterDropIn: true};
-            $(".filter-circle-filled.drop-in-color").addClass('filter-circle-empty');
-            $(".drop-in-color").hide();
-            $(".filter-circle-filled.drop-in-color").show();
+        if (!this.state.filterDropIn) {
+            this.setState({filterDropIn:true});
+
         } else {
-            this.props = {filterDropIn: false};
-            $(".filter-circle-filled.drop-in-color").removeClass('filter-circle-empty');
-            $(".drop-in-color").show();
+            this.setState({filterDropIn:false});
+
         }
 
     }
@@ -58,15 +56,10 @@ class App extends Component {
 
     toggleSpecial() {
         console.log("here");
-        if (!this.props.filterSpecial) {
-            this.props = {filterSpecial: true};
-            $(".filter-circle-filled.special-color").addClass('filter-circle-empty');
-            $(".special-color").hide();
-            $(".filter-circle-filled.special-color").show();
+        if (!this.state.filterSpecial) {
+            this.setState({filterSpecial:true});
         } else {
-            this.props = {filterSpecial: false};
-            $(".filter-circle-filled.special-color").removeClass('filter-circle-empty');
-            $(".special-color").show();
+            this.setState({filterSpecial:false});
         }
 
     }
@@ -78,11 +71,15 @@ class App extends Component {
         this.toggleSeries = this.toggleSeries.bind(this);
         this.props = {filterSeries: false};
         this.toggleDropin = this.toggleDropin.bind(this);
-        this.props = {filterSeries: false};
+        this.props = {filterDropIn: false};
         this.toggleCamp = this.toggleCamp.bind(this);
-        this.props = {filterSeries: false};
+        this.props = {filterCamp: false};
         this.toggleSpecial = this.toggleSpecial.bind(this);
-        this.props = {filterSeries: false};
+        this.props = {filterSpecial: false};
+        this.state = {
+            filterDropIn: false,
+            filterSpecial: false
+        }
     }
 
 
@@ -92,9 +89,16 @@ class App extends Component {
         $("#calendar").css('display', 'none');
         $("#calendar").css('display', 'grid');
         $('div:has(> #no-day)').addClass('no-day');
+        $('div:has(> #closed-day)').addClass('closed');
     }
 
     render() {
+
+        var campFilterIcon = this.props.filterCamp ? <CheckIcon/> : "";
+        var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
+        var seriesFilterIcon = this.props.filterSeries ? <CheckIcon/> : "";
+        var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
+
 
         return (
             <div className="App">
@@ -105,6 +109,7 @@ class App extends Component {
                     <div className="filters">
                         <div className="filter-circle-container" onClick={this.toggleSeries}>
                             <div className="filter-circle-filled series-color">
+                                {seriesFilterIcon}
                             </div>
                             <div className="filter-circle-label">
                                 Series
@@ -112,6 +117,7 @@ class App extends Component {
                         </div>
                         <div className="filter-circle-container" onClick={this.toggleCamp}>
                             <div className="filter-circle-filled camp-color">
+                                {campFilterIcon}
                             </div>
                             <div className="filter-circle-label">
                                 Camp
@@ -119,6 +125,7 @@ class App extends Component {
                         </div>
                         <div className="filter-circle-container" onClick={this.toggleDropin}>
                             <div className="filter-circle-filled drop-in-color">
+                                {dropInFilterIcon}
                             </div>
                             <div className="filter-circle-label">
                                 Drop-in
@@ -126,6 +133,7 @@ class App extends Component {
                         </div>
                         <div className="filter-circle-container" onClick={this.toggleSpecial}>
                             <div className="filter-circle-filled special-color">
+                                {specialFilterIcon}
                             </div>
                             <div className="filter-circle-label">
                                 Special
@@ -133,7 +141,10 @@ class App extends Component {
                         </div>
                     </div>
 
-                    <Month name="September" numDays="30" skipDays="5"/>
+                    <Month name="September" numDays="30" skipDays="5"
+                           filterDropIn={this.state.filterDropIn}
+                           filterSpecial={this.state.filterSpecial}
+                    />
                     <Month name="October" numDays="31" skipDays="0"/>
                     <Month name="November" numDays="30" skipDays="3"/>
                     <Month name="December" numDays="31" skipDays="5"/>

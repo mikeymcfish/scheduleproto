@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
+import CartIcon from './icons/CartIcon';
 import $ from 'jquery';
 
 class Day extends React.Component {
@@ -35,17 +36,30 @@ class Day extends React.Component {
 
     }
 
+
+
     render() {
+
+        // if (this.props.closed) {
+        //     return (
+        //         <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} className="closed">
+        //         </div>
+        //     )
+        // }
 
         var dropInEvents = [];
         this.props.dropinevents ? dropInEvents=this.props.dropinevents.split(",") : dropInEvents=[];
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents.split(",") : specialEvents=[];
+        var myIcon = this.props.inCart ? <CartIcon/> : "";
+
         return (
-            <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}>
+            <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} {...this.props}>
 
                 <div className="day-top-container">
                     <div className="date-number">{this.props.value}
+                    </div>
+                    <div className="date-icon"> {myIcon}
                     </div>
                 </div>
                 <div className="event-boxes">
