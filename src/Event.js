@@ -7,78 +7,75 @@ import $ from 'jquery';
 
 class Event extends Component {
 
-
-    // loadEvents(row, col) {
-    //     if (this.isMounted) {
-    //         this.setState({eventrow : row});
-    //         this.setState({eventcol : col});
-    //         //this.state = {row: row, col: col};
-    //         console.log("able to print "+row+" and "+col);
-    //     }
-    //
-    // }
-
-    mapDate() {
-
-    }
-
     constructor() {
         super();
-        this.state = {eventrow: 0, eventcol: 0};
+        this.state = {count: 1};
+
     }
 
     render() {
 
-        var startCol = 1;
-        var colSpan = 1;
-        var startRow = 1;
-        var rowSpan = 1;
+        //CHECK IF IN A SPAN CONTAINER
 
-        var spanType;
+        if (this.props.days) {
 
-        switch (this.props.spanType) {
 
-            case 'six-weeks' :
-                spanType = 'span-six-weeks series-color ';
-                break;
-            case 'five-days' :
-                spanType = 'span-monday-friday camp-color';
-                break;
-            default :
-                spanType = '';
-                break;
+            var startCol = 1;
+            var colSpan = 1;
+            var startRow = 1;
+            var rowSpan = 1;
+            var spanType;
+
+            switch (this.props.spanType) {
+
+                case 'six-weeks' :
+                    spanType = 'span-six-weeks series-color ';
+                    break;
+                case 'five-days' :
+                    spanType = 'span-monday-friday camp-color';
+                    break;
+                default :
+                    spanType = '';
+                    break;
+            }
+
+            var days = [];
+            days = this.props.days.split(",");
+
+            var skipDays = parseInt(this.props.skipDays);
+
+            startRow = 2 + Math.ceil((parseInt(days[0]) + skipDays) / 7);
+            startCol = (parseInt(days[0]) + skipDays) % 7;
+            startCol == 0 ? startCol = 7 : startCol += 0;
+
+            rowSpan = Math.floor((parseInt(days[1]) + skipDays) / 7) - Math.floor((parseInt(days[0]) + skipDays) / 7) + 1;
+            colSpan = (parseInt(days[1]) - parseInt(days[0])) < 7 ? (parseInt(days[1]) - parseInt(days[0])) : 1;
+
+            colSpan = this.props.type == "series" ? colSpan : 5;
+            rowSpan = this.props.type == "camp" ? 1 : rowSpan;
+
+            console.log("spans " + this.props.type, startRow, startCol, rowSpan, colSpan);
+
+            return (
+
+                <div className={spanType + ' spanner selectable'} data-days={this.props.days}
+                     data-month={this.props.month} style={{
+
+                    gridColumn: "col " + startCol + " / span " + colSpan,
+                    gridRow: "row " + startRow + " / span " + rowSpan,
+                    zIndex: 100
+
+                }}>
+                    <span className='label'>{this.props.name}</span>
+                </div>
+            )
+        } else {
+            return (
+                <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}>
+                    <span className='label'>{this.props.name}</span>
+                </div>
+            )
         }
-
-        var days=[];
-        days = this.props.days.split(",");
-
-        var skipDays = parseInt(this.props.skipDays);
-
-        startRow = 2 + Math.ceil((parseInt(days[0])+skipDays)/7);
-        startCol = (parseInt(days[0])+skipDays)%7;
-        startCol == 0 ? startCol = 7: startCol+=0;
-
-        rowSpan = Math.floor((parseInt(days[1])+skipDays)/7) - Math.floor((parseInt(days[0])+skipDays)/7) + 1;
-        colSpan = (parseInt(days[1]) - parseInt(days[0])) < 7 ? (parseInt(days[1]) - parseInt(days[0])) : 1 ;
-
-        colSpan = this.props.type == "series" ? colSpan : 5;
-        rowSpan = this.props.type == "camp" ? 1 : rowSpan;
-
-        console.log("spans " + this.props.type, startRow, startCol, rowSpan, colSpan);
-
-
-        return(
-
-            <div className={spanType+ ' spanner selectable'} style={{
-
-                gridColumn: "col " + startCol + " / span " + colSpan,
-                gridRow: "row " + startRow + " / span " + rowSpan,
-                zIndex: 100
-
-            }}>
-                <span className='label'>{this.props.name}</span>
-            </div>
-        )
     }
 }
 

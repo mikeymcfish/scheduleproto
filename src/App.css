@@ -340,3 +340,46 @@ body {
 .square-btn:hover {
     box-shadow: none;
 }
+.event-container-series {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+}
+.contained-series {
+    color:white;
+    z-index: 20;
+    width:20px;
+    /*margin-top:5px;*/
+    /*margin-bottom: 5px;*/
+    margin-left:5px;
+    align-self: stretch;
+}
+
+.contained-series .label {
+    transform: rotate(90deg);
+    overflow: visible;
+    white-space: nowrap;
+}
+.event-container-camp {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.camp {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+.contained-camp {
+    color:white;
+    z-index: 20;
+    height:20px;
+    /*margin-top:5px;*/
+    /*margin-bottom: 5px;*/
+    margin-bottom:5px;
+    align-self: stretch;
+}

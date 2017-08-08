@@ -40,18 +40,12 @@ class Day extends React.Component {
 
     render() {
 
-        // if (this.props.closed) {
-        //     return (
-        //         <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}>
-        //         </div>
-        //     )
-        // }
 
         var dropInEvents = [];
         this.props.dropinevents ? dropInEvents=this.props.dropinevents.split(",") : dropInEvents=[];
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents.split(",") : specialEvents=[];
-        var myIcon = this.props.inCart ? <CartIcon/> : "";
+        var myIcon = this.props.incart ? <CartIcon/> : "";
 
         return (
             <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} {...this.props}>
