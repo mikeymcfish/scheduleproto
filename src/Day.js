@@ -24,8 +24,8 @@ class Day extends React.Component {
                 break;
         }
         return(
-            <div className={"square-btn selectable " + colorClass}>
-                <div className="square-btn-copy">
+            <div className={"square-btn " + colorClass}>
+                <div className="square-btn-copy selectable">
                     <div className={"square-btn-text " + colorClass}>{name}</div>
                 </div>
                 <div className="square-btn-additional-copy">

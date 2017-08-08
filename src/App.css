@@ -250,6 +250,9 @@ body {
 .selectable:hover {
     z-index: 1000 !important;
     cursor: pointer;
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, .5) !important;
+    transform:translate(-2px, -2px);
+
 }
 
 .no-day {

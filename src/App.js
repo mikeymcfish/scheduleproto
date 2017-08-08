@@ -13,38 +13,54 @@ import CheckIcon from './icons/CheckIcon';
 class App extends Component {
 
     toggleSeries() {
-        if (!this.state.filterSeries) {
-            this.setState({filterSeries:true});
-        } else {
-            this.setState({filterSeries:false});
-        }
+        // if (!this.state.filterSeries) {
+        //     this.setState({filterSeries:true});
+        // } else {
+        //     this.setState({filterSeries:false});
+        // }
+        this.setState({filterCamp:true});
+        this.setState({filterSeries:false});
+        this.setState({filterDropIn:true});
+        this.setState({filterSpecial:true});
 
     }
 
     toggleDropin() {
-        if (!this.state.filterDropIn) {
-            this.setState({filterDropIn:true});
-        } else {
-            this.setState({filterDropIn:false});
-        }
+        // if (!this.state.filterDropIn) {
+        //     this.setState({filterDropIn:true});
+        // } else {
+        //     this.setState({filterDropIn:false});
+        // }
+        this.setState({filterCamp:true});
+        this.setState({filterSeries:true});
+        this.setState({filterDropIn:false});
+        this.setState({filterSpecial:true});
 
     }
 
     toggleCamp() {
-        if (!this.state.filterCamp) {
-            this.setState({filterCamp:true});
-        } else {
-            this.setState({filterCamp:false});
-        }
+        // if (!this.state.filterCamp) {
+        //     this.setState({filterCamp:true});
+        // } else {
+        //     this.setState({filterCamp:false});
+        // }
+        this.setState({filterCamp:false});
+        this.setState({filterSeries:true});
+        this.setState({filterDropIn:true});
+        this.setState({filterSpecial:true});
 
     }
 
     toggleSpecial() {
-        if (!this.state.filterSpecial) {
-            this.setState({filterSpecial:true});
-        } else {
-            this.setState({filterSpecial:false});
-        }
+        // if (!this.state.filterSpecial) {
+        //     this.setState({filterSpecial:true});
+        // } else {
+        //     this.setState({filterSpecial:false});
+        // }
+        this.setState({filterCamp:true});
+        this.setState({filterSeries:true});
+        this.setState({filterDropIn:true});
+        this.setState({filterSpecial:false});
 
     }
 
@@ -57,10 +73,10 @@ class App extends Component {
         this.toggleCamp = this.toggleCamp.bind(this);
         this.toggleSpecial = this.toggleSpecial.bind(this);
         this.state = {
-            filterDropIn: false,
-            filterSpecial: false,
-            filterSeries: false,
-            filterCamp: false
+            filterDropIn: true,
+            filterSpecial: true,
+            filterSeries: true,
+            filterCamp: true
         }
     }
 
