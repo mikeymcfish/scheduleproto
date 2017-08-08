@@ -42,7 +42,7 @@ class Day extends React.Component {
 
         // if (this.props.closed) {
         //     return (
-        //         <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} className="closed">
+        //         <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}>
         //         </div>
         //     )
         // }

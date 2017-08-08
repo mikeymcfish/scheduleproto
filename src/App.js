@@ -13,49 +13,33 @@ import CheckIcon from './icons/CheckIcon';
 class App extends Component {
 
     toggleSeries() {
-        console.log("here");
-        if (!this.props.filterSeries) {
-            this.props = {filterSeries: true};
-            //$(".filter-circle-filled.series-color").addClass('filter-circle-empty');
-            $(".series-color").hide();
-            $(".filter-circle-filled.series-color").show();
+        if (!this.state.filterSeries) {
+            this.setState({filterSeries:true});
         } else {
-            this.props = {filterSeries: false};
-            //$(".filter-circle-filled.series-color").removeClass('filter-circle-empty');
-            $(".series-color").show();
+            this.setState({filterSeries:false});
         }
 
     }
 
     toggleDropin() {
-        console.log("here");
         if (!this.state.filterDropIn) {
             this.setState({filterDropIn:true});
-
         } else {
             this.setState({filterDropIn:false});
-
         }
 
     }
 
     toggleCamp() {
-        console.log("here");
-        if (!this.props.filterCamp) {
-            this.props = {filterCamp: true};
-            $(".filter-circle-filled.camp-color").addClass('filter-circle-empty');
-            $(".camp-color").hide();
-            $(".filter-circle-filled.camp-color").show();
+        if (!this.state.filterCamp) {
+            this.setState({filterCamp:true});
         } else {
-            this.props = {filterCamp: false};
-            $(".filter-circle-filled.camp-color").removeClass('filter-circle-empty');
-            $(".camp-color").show();
+            this.setState({filterCamp:false});
         }
 
     }
 
     toggleSpecial() {
-        console.log("here");
         if (!this.state.filterSpecial) {
             this.setState({filterSpecial:true});
         } else {
@@ -69,16 +53,14 @@ class App extends Component {
         super();
 
         this.toggleSeries = this.toggleSeries.bind(this);
-        this.props = {filterSeries: false};
         this.toggleDropin = this.toggleDropin.bind(this);
-        this.props = {filterDropIn: false};
         this.toggleCamp = this.toggleCamp.bind(this);
-        this.props = {filterCamp: false};
         this.toggleSpecial = this.toggleSpecial.bind(this);
-        this.props = {filterSpecial: false};
         this.state = {
             filterDropIn: false,
-            filterSpecial: false
+            filterSpecial: false,
+            filterSeries: false,
+            filterCamp: false
         }
     }
 
@@ -88,15 +70,24 @@ class App extends Component {
         //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
         $("#calendar").css('display', 'none');
         $("#calendar").css('display', 'grid');
+        this.runJquery();
+    }
+
+    componentDidUpdate() {
+        this.runJquery();
+    }
+
+    runJquery() {
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> #closed-day)').addClass('closed');
+
     }
 
     render() {
 
-        var campFilterIcon = this.props.filterCamp ? <CheckIcon/> : "";
+        var campFilterIcon = this.state.filterCamp ?  "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
-        var seriesFilterIcon = this.props.filterSeries ? <CheckIcon/> : "";
+        var seriesFilterIcon = this.state.filterSeries ? "" : <CheckIcon/>;
         var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
 
 
@@ -144,10 +135,27 @@ class App extends Component {
                     <Month name="September" numDays="30" skipDays="5"
                            filterDropIn={this.state.filterDropIn}
                            filterSpecial={this.state.filterSpecial}
+                           filterSeries={this.state.filterSeries}
+                           filterCamp={this.state.filterCamp}
                     />
-                    <Month name="October" numDays="31" skipDays="0"/>
-                    <Month name="November" numDays="30" skipDays="3"/>
-                    <Month name="December" numDays="31" skipDays="5"/>
+                    <Month name="October" numDays="31" skipDays="0"
+                           filterDropIn={this.state.filterDropIn}
+                           filterSpecial={this.state.filterSpecial}
+                           filterSeries={this.state.filterSeries}
+                           filterCamp={this.state.filterCamp}
+                    />
+                    <Month name="November" numDays="30" skipDays="3"
+                           filterDropIn={this.state.filterDropIn}
+                           filterSpecial={this.state.filterSpecial}
+                           filterSeries={this.state.filterSeries}
+                           filterCamp={this.state.filterCamp}
+                    />
+                    <Month name="December" numDays="31" skipDays="5"
+                           filterDropIn={this.state.filterDropIn}
+                           filterSpecial={this.state.filterSpecial}
+                           filterSeries={this.state.filterSeries}
+                           filterCamp={this.state.filterCamp}
+                    />
 
                 </div>
             </div>

@@ -40,6 +40,8 @@ class Month extends React.Component {
         var allDays = [];
 
         for (var i = 1; i < c; i++) {
+            console.log("i = "+ i);
+
             allDays.push(
                 this.RenderDay(i)
             );
@@ -116,6 +118,8 @@ class Month extends React.Component {
 
         for (var i = 1; i <= this.props.numDays; i++) {
 
+            console.log(i);
+
             var random1 = Math.random();
 
             //.9+ = closed
@@ -130,15 +134,62 @@ class Month extends React.Component {
 
             //RANDOM TESTING
 
-            if (random1 > .9) isclosed = true;
+            if (random1 > .9) isclosed = true; //this breaks it. probably doesnt remove old id?
             else if (random1 > .7) dropinevents = ["makerspace", "gaming"];
             else if (random1 > .6) specialevents = ["minicamp"];
             else if (random1 > .4) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"];}
+            isclosed = false;
 
             allDays.push(
-                isclosed? <div id="closed-day"></div> : this.RenderDay(i, isclosed, dropinevents, specialevents)
+                isclosed? <div id="closed-day" i={i}></div> : this.RenderDay(i, isclosed, dropinevents, specialevents)
             );
         }
+
+        var eventsList = [];
+        if (!this.props.filterSeries) {
+            //get series
+            var obj = new Object;
+
+            obj = {
+                month:"September",
+                days:"12,26",
+                name:"Minecraft Mobs",
+                type:"series",
+                spanType:"six-weeks",
+                skipDays: this.props.skipDays
+            };
+            if (this.props.name =="September") eventsList.push(
+                obj
+            );
+
+            obj = new Object;
+            obj = {
+                month:"October",
+                days:"6,27",
+                name:"Virtual Reality",
+                type:"series",
+                spanType:"six-weeks",
+                skipDays: this.props.skipDays
+            }
+            if (this.props.name =="October") eventsList.push(
+                obj
+            );
+        }
+        if (!this.props.filterCamp) {
+            obj = new Object;
+            obj = {
+                month:this.props.name,
+                days:"4,8",
+                name:"Spring Break",
+                type:"camp",
+                spanType:"five-days",
+                skipDays: this.props.skipDays
+            }
+            if (this.props.name =="September") eventsList.push(
+                obj
+            );
+        }
+
         return (
             <div>
                 <div className="month-label one-week" id="one-week">
@@ -173,9 +224,7 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Fri")}
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
-                    <Event month={this} days="12,26" name="Minecraft Mobs" spanType="six-weeks"/>
-                    {/*{this.RenderEvent("Minecraft Mobs","six-weeks", 2, 2, 4, 6)}*/}
-                    {/*{this.RenderEvent("Spring Break","five-days", 2, 5, 3, 3)}*/}
+                    {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays}/>)}
                 </div>
             </div>
         )

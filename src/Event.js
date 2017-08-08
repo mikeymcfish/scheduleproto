@@ -29,10 +29,10 @@ class Event extends Component {
 
     render() {
 
-        var startCol = 2;
-        var colSpan = 6;
-        var startRow = 4;
-        var rowSpan = 4;
+        var startCol = 1;
+        var colSpan = 1;
+        var startRow = 1;
+        var rowSpan = 1;
 
         var spanType;
 
@@ -52,15 +52,19 @@ class Event extends Component {
         var days=[];
         days = this.props.days.split(",");
 
-        //Sept skip days = 5
+        var skipDays = parseInt(this.props.skipDays);
 
-        startRow = 2 + Math.ceil((parseInt(days[0])+5)/7);
-        startCol = (parseInt(days[0])+5)%7;
+        startRow = 2 + Math.ceil((parseInt(days[0])+skipDays)/7);
+        startCol = (parseInt(days[0])+skipDays)%7;
         startCol == 0 ? startCol = 7: startCol+=0;
 
-        rowSpan = Math.floor((parseInt(days[1])+5)/7) - Math.floor((parseInt(days[0])+5)/7) + 1;
+        rowSpan = Math.floor((parseInt(days[1])+skipDays)/7) - Math.floor((parseInt(days[0])+skipDays)/7) + 1;
+        colSpan = (parseInt(days[1]) - parseInt(days[0])) < 7 ? (parseInt(days[1]) - parseInt(days[0])) : 1 ;
 
-        console.log(startRow, startCol);
+        colSpan = this.props.type == "series" ? colSpan : 5;
+        rowSpan = this.props.type == "camp" ? 1 : rowSpan;
+
+        console.log("spans " + this.props.type, startRow, startCol, rowSpan, colSpan);
 
 
         return(
