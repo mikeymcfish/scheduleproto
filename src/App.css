@@ -340,3 +340,6 @@ body {
 .square-btn:hover {
     box-shadow: none;
 }
+.event-container {
+    background-color: white;
+}
