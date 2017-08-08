@@ -7,33 +7,25 @@ import $ from 'jquery';
 
 class Event extends Component {
 
-
-    // loadEvents(row, col) {
-    //     if (this.isMounted) {
-    //         this.setState({eventrow : row});
-    //         this.setState({eventcol : col});
-    //         //this.state = {row: row, col: col};
-    //         console.log("able to print "+row+" and "+col);
-    //     }
-    //
-    // }
-
-    mapDate() {
-
-    }
-
     constructor() {
         super();
-        this.state = {eventrow: 0, eventcol: 0};
+        this.state = {count: 1};
+
+
+
     }
 
     render() {
+
+        //CHECK FOR EXISTING
+        // var others = $('div[data-days="'+this.props.days+'"]').length;
+        // others =$(this.props.monthObject).length;
+        //is there an Event in this month that has the same type and start, end?
 
         var startCol = 1;
         var colSpan = 1;
         var startRow = 1;
         var rowSpan = 1;
-
         var spanType;
 
         switch (this.props.spanType) {
@@ -69,7 +61,7 @@ class Event extends Component {
 
         return(
 
-            <div className={spanType+ ' spanner selectable'} style={{
+            <div className={spanType+ ' spanner selectable'} data-days={this.props.days} data-month={this.props.month} style={{
 
                 gridColumn: "col " + startCol + " / span " + colSpan,
                 gridRow: "row " + startRow + " / span " + rowSpan,

@@ -8,7 +8,7 @@ import Event from './Event';
 
 
 class Month extends React.Component {
-    RenderDay(i, isclosed, dropinevents, specialevents) {
+    RenderDay(i, isclosed, dropinevents, specialevents, inCart) {
         //filters
         var dropInList = "";
         var specialList = "";
@@ -22,7 +22,7 @@ class Month extends React.Component {
             specialList = specialevents.toString();
         }
 
-        return <Day month={this.props.name} value={i} dropinevents={dropInList} specialevents={specialList}/>
+        return <Day month={this.props.name} value={i} dropinevents={dropInList} specialevents={specialList} incart={inCart}/>
 
         //RANDOM TESTING
         //
@@ -106,6 +106,59 @@ class Month extends React.Component {
     getGridCol(date) {
         return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-column");
     }
+    constructor() {
+        super();
+        //LOAD ALL EVENTS HERE
+        global.allEvents =
+            {
+                events : [
+                    {
+                        month:"September",
+                        days:"12,26",
+                        name:"Minecraft Mobs",
+                        type:"series",
+                        spanType:"six-weeks"
+                    },
+                    {
+                        month:"October",
+                        days:"4,25",
+                        name:"Virtual Reality",
+                        type:"series",
+                        spanType:"six-weeks"
+                    },
+                    {
+                        month:"October",
+                        days:"4,25",
+                        name:"Overlapping Event",
+                        type:"series",
+                        spanType:"six-weeks"
+                    },
+                    {
+                        month:"September",
+                        days:"2,14",
+                        name:"Minecraft Mobs",
+                        type:"series",
+                        spanType:"six-weeks"
+                    },
+                    {
+                        month:"September",
+                        days:"11,15",
+                        name:"Spring Break",
+                        type:"camp",
+                        spanType:"five-days"
+                    },
+                    {
+                        month:"September",
+                        days:"12,26",
+                        name:"September Overlap",
+                        type:"series",
+                        spanType:"six-weeks"
+                    }
+
+                ]
+            }
+    }
+
 
     render() {
 
@@ -118,76 +171,68 @@ class Month extends React.Component {
 
         for (var i = 1; i <= this.props.numDays; i++) {
 
-            console.log(i);
-
-            var random1 = Math.random();
-
-            //.9+ = closed
-            //.7+ = two dropin
-            //.6+ = one special
-            //.4+ = two dropin one special
-            //<.4 = none
 
             var dropinevents = [];
             var specialevents = [];
             var isclosed = false;
+            var inCart = false;
 
             //RANDOM TESTING
-
-            if (random1 > .9) isclosed = true; //this breaks it. probably doesnt remove old id?
-            else if (random1 > .7) dropinevents = ["makerspace", "gaming"];
-            else if (random1 > .6) specialevents = ["minicamp"];
-            else if (random1 > .4) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"];}
-            isclosed = false;
+            if (i%4==0) isclosed = true; //this breaks it. probably doesnt remove old id?
+            else if (i%4==1) dropinevents = ["makerspace", "gaming"];
+            else if (i%4==2) specialevents = ["minicamp"];
+            else if (i%4==3) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"]; inCart = true;}
 
             allDays.push(
-                isclosed? <div id="closed-day" i={i}></div> : this.RenderDay(i, isclosed, dropinevents, specialevents)
+                isclosed? <div id="closed-day" i={i}></div> : this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
             );
         }
 
         var eventsList = [];
         if (!this.props.filterSeries) {
-            //get series
-            var obj = new Object;
+            //all series
+            var holdingEvents = [];
+            var overlappingEvents = [];
+            for (var i=0; i < global.allEvents.events.length; i++) {
+                if (global.allEvents.events[i].month == this.props.name && global.allEvents.events[i].type=="series") {
+                    global.allEvents.events[i].skipDays =  this.props.skipDays;
+                    if (holdingEvents.indexOf(global.allEvents.events[i].days)>=0) {
 
-            obj = {
-                month:"September",
-                days:"12,26",
-                name:"Minecraft Mobs",
-                type:"series",
-                spanType:"six-weeks",
-                skipDays: this.props.skipDays
-            };
-            if (this.props.name =="September") eventsList.push(
-                obj
-            );
+                        overlappingEvents.push(global.allEvents.events[i]);
 
-            obj = new Object;
-            obj = {
-                month:"October",
-                days:"6,27",
-                name:"Virtual Reality",
-                type:"series",
-                spanType:"six-weeks",
-                skipDays: this.props.skipDays
+                        overlappingEvents.push(
+                            eventsList.splice(
+                                eventsList.indexOf(holdingEvents.indexOf(global.allEvents.events[i].days,1))
+                            )
+                        );
+                    } else{
+                        holdingEvents.push(global.allEvents.events[i].days);
+                        eventsList.push(
+                            global.allEvents.events[i]
+                        );
+                    }
+                    //console.log("overlaaaaap "+ overlappingEvents[global.allEvents.events[i].days].length);
+
+                }
             }
-            if (this.props.name =="October") eventsList.push(
-                obj
-            );
+
+            //find overlapping events
+
+
+            console.log("overlapping events count for month "+ this.props.name+" :" + overlappingEvents.length)
+
+
         }
         if (!this.props.filterCamp) {
-            obj = new Object;
-            obj = {
-                month:this.props.name,
-                days:"4,8",
-                name:"Spring Break",
-                type:"camp",
-                spanType:"five-days",
-                skipDays: this.props.skipDays
+            //all camp
+            for (var i=0; i < global.allEvents.events.length; i++) {
+                if (global.allEvents.events[i].month == this.props.name && global.allEvents.events[i].type=="camp") {
+                    global.allEvents.events[i].skipDays =  this.props.skipDays
+                    eventsList.push(
+                        global.allEvents.events[i]
+                    );
+                }
             }
-            if (this.props.name =="September") eventsList.push(
-                obj
-            );
         }
 
         return (
@@ -224,7 +269,8 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Fri")}
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
-                    {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays}/>)}
+
+                    {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
                 </div>
             </div>
         )
