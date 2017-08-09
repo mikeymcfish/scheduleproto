@@ -13,13 +13,9 @@ import CheckIcon from './icons/CheckIcon';
 class App extends Component {
 
     toggleSeries() {
-        // if (!this.state.filterSeries) {
-        //     this.setState({filterSeries:true});
-        // } else {
-        //     this.setState({filterSeries:false});
-        // }
+
         this.setState({
-            //filterCamp:true,
+            filterCamp:true,
             filterSeries:false,
             filterDropIn:true,
             filterSpecial:true
@@ -112,8 +108,10 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="container w-container">
-                    <h1 className="heading">Showing <span className="editable-heading">all</span> all events <span
-                        className="editable-heading">ages 7 to 9</span> in <span
+                    <h1 className="heading">Showing events for
+                        <span className="editable-heading">anyone</span>
+                        <span
+                        className="editable-heading">age 7 to 9</span> in <span
                         className="editable-heading">Brooklyn</span></h1>
                     <div className="filters">
                         <div className="filter-circle-container" onClick={this.toggleSeries}>

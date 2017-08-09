@@ -1,0 +1,33 @@
+{
+  "name": "Series",
+  "version": "0.0.1",
+  "sessions" : {
+
+      "1" : {
+        "mondays": {
+          "name": "Minecraft Mobs",
+          "age-group" : "7-9",
+          "location" : "Brooklyn",
+          "sub-title" : "This is a one sentence dexcription",
+          "summary" : "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now."
+          "type" : "series",
+          "span-type": "vertical",
+          "dates" : {
+              "September" : [
+                25
+              ],
+              "October" : [
+                2,16,23,30
+              ],
+              "November" : [
+                6
+              ]
+          }
+
+        }
+      }
+
+
+  }
+  
+}
