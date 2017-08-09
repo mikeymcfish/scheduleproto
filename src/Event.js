@@ -59,7 +59,16 @@ class Event extends Component {
             return (
 
                 <div className={spanType + ' spanner selectable'} data-days={this.props.days}
-                     data-month={this.props.month} style={{
+                     data-modal-target="#myspecialmodal" data-name={this.props.name} data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-month={this.props.month}
+                     data-description = {this.props.description}
+                     data-spotsleft = {this.props.spotsleft}
+                     data-location = {this.props.location}
+                     data-age = {this.props.age}
+                     data-dates = {this.props.dates}
+                     data-type = {this.props.type}
+
+                     style={{
 
                     gridColumn: "col " + startCol + " / span " + colSpan,
                     gridRow: "row " + startRow + " / span " + rowSpan,
@@ -71,7 +80,15 @@ class Event extends Component {
             )
         } else {
             return (
-                <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}>
+                <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}
+                     data-modal-target="#myspecialmodal" data-name={this.props.name} data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-month={this.props.month}
+                     data-description = {this.props.description}
+                     data-spotsleft = {this.props.spotsleft}
+                     data-location = {this.props.location}
+                     data-age = {this.props.age}
+                     data-dates = {this.props.dates}
+                >
                     <span className='label'>{this.props.name}</span>
                 </div>
             )

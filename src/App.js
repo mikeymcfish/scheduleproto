@@ -8,7 +8,9 @@ import $ from 'jquery';
 import Day from './Day';
 import Month from './Month';
 import CheckIcon from './icons/CheckIcon';
-
+import { Modal } from 'carbon-components';
+import './carbon-components.css';
+import MyModal from './Modal';
 
 class App extends Component {
 
@@ -74,7 +76,9 @@ class App extends Component {
             filterDropIn: true,
             filterSpecial: true,
             filterSeries: true,
-            filterCamp: true
+            filterCamp: true,
+
+            selectedEvent: ""
         }
     }
 
@@ -94,6 +98,17 @@ class App extends Component {
     runJquery() {
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> #closed-day)').addClass('closed');
+        var myThis = this;
+        $('.selectable').click(function () {
+           myThis.setState(
+               {
+                   selectedEvent:$(this),
+                   selectedEventName: $(this).attr("data-name"),
+                   selectedEventPrice: $(this).attr("data-price"),
+                   selectedEventType: $(this).attr("data-type")
+               }
+           )
+        });
 
     }
 
@@ -108,8 +123,12 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="container w-container">
+                    {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
+
+                    <MyModal ref={this.state.selectedEvent} modalid="myspecialmodal" title={this.state.selectedEventName} description={this.state.selectedEventPrice} type={this.state.selectedEventType}/>
+
                     <h1 className="heading">Showing events for
-                        <span className="editable-heading">anyone</span>
+                        <span className="editable-heading">anyone </span>
                         <span
                         className="editable-heading">age 7 to 9</span> in <span
                         className="editable-heading">Brooklyn</span></h1>

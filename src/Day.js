@@ -10,10 +10,10 @@ class Day extends React.Component {
         super()
     }
 
-    renderEvent(name, color) {
+    renderEvent(event) {
 
         var colorClass="";
-        switch (color) {
+        switch (event.color) {
             case "dropin" :
                 colorClass = "drop-in-color";
                 break;
@@ -25,11 +25,19 @@ class Day extends React.Component {
         }
         return(
             <div className={"square-btn " + colorClass}>
-                <div className="square-btn-copy selectable">
-                    <div className={"square-btn-text " + colorClass}>{name}</div>
+                <div className="square-btn-copy selectable" data-modal-target="#myspecialmodal" data-name={event.name}
+                     data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-description = {event.description}
+                     data-spotsleft = {event.spotsleft}
+                     data-location = {event.location}
+                     data-age = {event.age}
+                     data-dates = {event.dates}
+                     data-type = {event.type}
+                >
+                    <div className={"square-btn-text " + colorClass}>{event.name}</div>
                 </div>
                 <div className="square-btn-additional-copy">
-                    <div>3 spots left</div>
+                    <div>{event.spotsleft} spots left</div>
                 </div>
             </div>
         );
@@ -42,7 +50,7 @@ class Day extends React.Component {
 
 
         var dropInEvents = [];
-        this.props.dropinevents ? dropInEvents=this.props.dropinevents.split(",") : dropInEvents=[];
+        this.props.dropinevents ? dropInEvents=this.props.dropinevents : dropInEvents=[];
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents.split(",") : specialEvents=[];
         var myIcon = this.props.incart ? <CartIcon/> : "";

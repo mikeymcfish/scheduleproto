@@ -11,12 +11,12 @@ import EventContainers from "./EventContainer";
 class Month extends React.Component {
     RenderDay(i, isclosed, dropinevents, specialevents, inCart) {
         //filters
-        var dropInList = "";
+        var dropInList = [];
         var specialList = "";
         if (isclosed) return <Day closed="true"/>
         if (!this.props.filterDropIn)
         {
-            dropInList = dropinevents.toString();
+            dropInList = dropinevents;
         }
         if (!this.props.filterSpecial)
         {
@@ -200,10 +200,20 @@ class Month extends React.Component {
             var inCart = false;
 
             //RANDOM TESTING
+
+            var dropInEvent = {
+                month:"September",
+                days:"18",
+                name:"Makerspace",
+                type:"drop-in",
+                price:"$55",
+                spotsleft:"3"
+            }
+
             if (i%4==0) isclosed = true; //this breaks it. probably doesnt remove old id?
-            else if (i%4==1) dropinevents = ["makerspace", "gaming"];
-            else if (i%4==2) specialevents = ["minicamp"];
-            else if (i%4==3) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"]; inCart = true;}
+            else if (i%4==1) dropinevents.push(dropInEvent);
+            // else if (i%4==2) specialevents = ["minicamp"];
+            // else if (i%4==3) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"]; inCart = true;}
 
             allDays.push(
                 isclosed? <div id="closed-day" i={i}></div> : this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
@@ -348,7 +358,7 @@ class Month extends React.Component {
                     {seriesDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingSeriesEvents} thisDupe={container} skipDays={this.props.skipDays} type="series"/>)}
                     {campDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingCampEvents} thisDupe={container} skipDays={this.props.skipDays} type="camp"/>)}
 
-                    {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
+                    {eventsList.map((event, index) => <Event key={index} ref={event} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
                 </div>
             </div>
         )
