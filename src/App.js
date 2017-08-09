@@ -18,10 +18,12 @@ class App extends Component {
         // } else {
         //     this.setState({filterSeries:false});
         // }
-        this.setState({filterCamp:true});
-        this.setState({filterSeries:false});
-        this.setState({filterDropIn:true});
-        this.setState({filterSpecial:true});
+        this.setState({
+            //filterCamp:true,
+            filterSeries:false,
+            filterDropIn:true,
+            filterSpecial:true
+        });
 
     }
 

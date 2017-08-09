@@ -102,6 +102,7 @@ class Month extends React.Component {
     componentWillUpdate() {
         global.overlappingSeriesEvents = [];
         global.overlappingCampEvents = [];
+
     }
 
 
