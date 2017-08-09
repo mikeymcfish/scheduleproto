@@ -1,0 +1,17 @@
+.grid {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(7, [col] auto ) ;
+    grid-template-rows: repeat(23, [row] auto ) ;
+    color: #444;
+    padding: 10px;
+
+}
+
+/*row / col / to row / to col*/
+.week-names-september {
+    grid-area: 1 / 1 / 1 / 7;
+}
+.week-names-october {
+    grid-area: 7 / 1 / 7 / 7;
+}

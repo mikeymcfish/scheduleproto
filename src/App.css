@@ -147,14 +147,7 @@ body {
     text-align: right;
 }
 
-.grid {
-  display: grid;
-  grid-gap: 8px;
-  grid-template-columns: repeat(7, [col] auto ) ;
-  color: #444;
-  padding: 10px;
 
-}
 
 
 .week-names {

@@ -105,13 +105,6 @@ class Month extends React.Component {
 
     }
 
-
-    getGridRow(date) {
-        return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-row");
-    }
-    getGridCol(date) {
-        return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-column");
-    }
     constructor() {
         super();
         global.overlappingSeriesEvents = [];
@@ -313,30 +306,29 @@ class Month extends React.Component {
 
         return (
             <div>
-                <div className="month-label one-week" id="one-week">
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-month-name">
-                        <div className="month-name">{this.props.name}</div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                </div>
-                <div className="grid" id={"calendar_" +this.props.name} >
+                {/*<div className="month-label one-week" id="one-week">*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-month-name">*/}
+                        {/*<div className="month-name">{this.props.name}</div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="filler-with-bar">*/}
+                        {/*<div className="month-bar"></div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
                     {this.RenderWeekNames("Sun")}
                     {this.RenderWeekNames("Mon")}
                     {this.RenderWeekNames("Tue")}
@@ -349,7 +341,7 @@ class Month extends React.Component {
                     {campDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingCampEvents} thisDupe={container} skipDays={this.props.skipDays} type="camp"/>)}
 
                     {eventsList.map((event, index) => <Event key={index} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
-                </div>
+
             </div>
         )
 
