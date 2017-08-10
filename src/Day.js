@@ -4,6 +4,8 @@ import './App.css';
 import './Span-styles.css';
 import CartIcon from './icons/CartIcon';
 import $ from 'jquery';
+import mineconimage from './img/minecon.png';
+
 
 class Day extends React.Component {
     constructor() {
@@ -13,8 +15,8 @@ class Day extends React.Component {
     renderEvent(event) {
 
         var colorClass="";
-        switch (event.color) {
-            case "dropin" :
+        switch (event.type) {
+            case "drop-in" :
                 colorClass = "drop-in-color";
                 break;
             case "special" :
@@ -33,6 +35,7 @@ class Day extends React.Component {
                      data-age = {event.age}
                      data-dates = {event.dates}
                      data-type = {event.type}
+                     data-id = {event.id}
                 >
                     <div className={"square-btn-text " + colorClass}>{event.name}</div>
                 </div>
@@ -48,11 +51,24 @@ class Day extends React.Component {
 
     render() {
 
+        // if (this.props.minecon=="true") {
+        //
+        //     return (
+        //         <div className="minecon" style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}
+        //              style={{
+        //                  backgroundImage: "url('./img/minecon.png')"
+        //              }}
+        //              {...this.props}>
+        //         </div>
+        //     );
+        // }
+
+
 
         var dropInEvents = [];
         this.props.dropinevents ? dropInEvents=this.props.dropinevents : dropInEvents=[];
         var specialEvents = [];
-        this.props.specialevents ? specialEvents=this.props.specialevents.split(",") : specialEvents=[];
+        this.props.specialevents ? specialEvents=this.props.specialevents : specialEvents=[];
         var myIcon = this.props.incart ? <CartIcon/> : "";
 
         return (

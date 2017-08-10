@@ -10,6 +10,16 @@ import EventContainers from "./EventContainer";
 
 class Month extends React.Component {
     RenderDay(i, isclosed, dropinevents, specialevents, inCart) {
+
+        //Hold up, is this a super special day?
+
+        if (this.props.name=="November" && i==18) {
+            //minecon
+            return <Day closed="true" minecon="true"/>
+
+        }
+
+
         //filters
         var dropInList = [];
         var specialList = "";
@@ -20,7 +30,7 @@ class Month extends React.Component {
         }
         if (!this.props.filterSpecial)
         {
-            specialList = specialevents.toString();
+            specialList = specialevents;
         }
 
         return <Day month={this.props.name} value={i} dropinevents={dropInList} specialevents={specialList} incart={inCart}/>
@@ -125,56 +135,112 @@ class Month extends React.Component {
                         days:"12,26",
                         name:"Minecraft Mobs",
                         type:"series",
-                        spanType:"six-weeks"
+                        spanType:"six-weeks",
+                        price: 3.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 2,
+                        age: "7-9"
                     },
                     {
                         month:"October",
                         days:"4,25",
                         name:"Virtual Reality",
                         type:"series",
-                        spanType:"six-weeks"
+                        spanType:"six-weeks",
+                        price: 3.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 1,
+                        age: "7-9"
                     },
                     {
                         month:"October",
                         days:"4,25",
                         name:"Overlapping Event",
                         type:"series",
-                        spanType:"six-weeks"
+                        spanType:"six-weeks",
+                        price: 3.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 0,
+                        age: "7-9"
                     },
                     {
                         month:"September",
                         days:"2,14",
                         name:"Minecraft Mobs",
                         type:"series",
-                        spanType:"six-weeks"
+                        spanType:"six-weeks",
+                        price: 3.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 3,
+                        age: "7-9"
                     },
                     {
                         month:"September",
                         days:"11,15",
                         name:"Spring Break",
                         type:"camp",
-                        spanType:"five-days"
+                        spanType:"five-days",
+                        price: 13.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 4,
+                        age: "7-9"
                     },
                     {
                         month:"September",
                         days:"11,15",
                         name:"Other Camp Option",
                         type:"camp",
-                        spanType:"five-days"
+                        spanType:"five-days",
+                        price: 3.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 2,
+                        age: "7-9"
                     },
                     {
                         month:"September",
                         days:"18,22",
                         name:"Booger camp",
                         type:"camp",
-                        spanType:"five-days"
+                        spanType:"five-days",
+                        price: 113.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: true,
+                        location: "Brooklyn",
+                        spotsLeft: 2,
+                        age: "7-9"
                     },
                     {
                         month:"September",
                         days:"12,26",
                         name:"September Overlap",
                         type:"series",
-                        spanType:"six-weeks"
+                        spanType:"six-weeks",
+                        price: 13.95,
+                        id: 1,
+                        description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
+                        doesOwn: false,
+                        location: "Brooklyn",
+                        spotsLeft: 1,
+                        age: "7-9"
                     }
 
                 ]
@@ -207,11 +273,35 @@ class Month extends React.Component {
                 name:"Makerspace",
                 type:"drop-in",
                 price:"$55",
-                spotsleft:"3"
-            }
+                spotsleft:"3",
+                id: 1,
+                age: "7-9",
+                location: "Brooklyn",
+                doesOwn: false,
+                description: "sdjnksdjnf lskdnf kjsdnf djsnf skjdbfjhdsbv jdbfjhsdbfjbfj  dfbkdfbgkjdfbg dkfbkdb dkfb sdfkbfdk."
+            };
+            var specialEvent = {
+                month:"September",
+                days:"18",
+                name:"Tournament",
+                type:"special",
+                price:"$155",
+                spotsleft:"2",
+                id: 1,
+                age: "9-11",
+                location: "Brooklyn",
+                doesOwn: false,
+                description: "sdjnksdjnf lskdnf kjsdnf djsnf skjdbfjhdsbv jdbfjhsdbfjbfj  dfbkdfbgkjdfbg dkfbkdb dkfb sdfkbfdk."
+            };
 
             if (i%4==0) isclosed = true; //this breaks it. probably doesnt remove old id?
             else if (i%4==1) dropinevents.push(dropInEvent);
+            else if (i%4==2) specialevents.push(specialEvent);
+            else if (i%4==2) {
+                dropinevents.push(dropInEvent);
+                specialevents.push(specialEvent);
+                inCart = true;
+            }
             // else if (i%4==2) specialevents = ["minicamp"];
             // else if (i%4==3) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"]; inCart = true;}
 
@@ -355,10 +445,50 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Fri")}
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
-                    {seriesDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingSeriesEvents} thisDupe={container} skipDays={this.props.skipDays} type="series"/>)}
-                    {campDupeDates.map((container, index) => <EventContainers allDupes={global.overlappingCampEvents} thisDupe={container} skipDays={this.props.skipDays} type="camp"/>)}
 
-                    {eventsList.map((event, index) => <Event key={index} ref={event} month={event.month} days={event.days} name={event.name} spanType={event.spanType} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
+                    {seriesDupeDates.map((container, index) => <EventContainers
+                        allDupes={global.overlappingSeriesEvents}
+                        thisDupe={container}
+                        skipDays={this.props.skipDays}
+                        type="series"
+                        month={container.month}
+                        name={container.name}
+                        price = {container.price}
+                        id = {container.id}
+                        age = {container.age}
+                        location = {container.location}
+                        spotsleft = {container.spotsLeft}
+                        description = {container.description}
+                    />)}
+                    {campDupeDates.map((container, index) => <EventContainers
+                        allDupes={global.overlappingCampEvents}
+                        thisDupe={container}
+                        skipDays={this.props.skipDays}
+                        type="camp"
+                        month={container.month}
+                        name={container.name}
+                        price = {container.price}
+                        id = {container.id}
+                        age = {container.age}
+                        location = {container.location}
+                        spotsleft = {container.spotsLeft}
+                        description = {container.description}
+                    />)}
+                    {eventsList.map((event, index) => <Event
+                        key={index}
+                        skipDays={this.props.skipDays}
+                        type={event.type}
+                        month={event.month}
+                        name={event.name}
+                        price = {event.price}
+                        id = {event.id}
+                        age = {event.age}
+                        location = {event.location}
+                        spotsleft = {event.spotsLeft}
+                        description = {event.description}
+                        days = {event.days}
+                        monthObject={this}
+                    />)}
                 </div>
             </div>
         )

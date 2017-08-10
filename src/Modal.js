@@ -15,10 +15,14 @@ class Modal extends React.Component {
             <div>
                 {/*<button className="bx--btn bx--btn--primary" type="button" data-modal-target={"#"+this.props.modalid}>Test</button>*/}
         
-                <div data-modal id={this.props.modalid} className="bx--modal" tabindex="-1">
-                    <div className="bx--modal-container">
+                <div data-modal id={this.props.modalid} className="bx--modal" tabindex="-1"
+
+                >
+                    <div className="bx--modal-container"
+
+                    >
                     <div className="bx--modal-header">
-                    <h4 className="bx--modal-header__label">{this.props.type}</h4>
+                    <h4 className="bx--modal-header__label">{this.props.type +" with ID: "+this.props.eventId}</h4>
                     <h2 className="bx--modal-header__heading">{this.props.title}</h2>
                 <button className="bx--modal-close" type="button" data-modal-close>
                 <svg className="bx--modal-close__icon" width="10" height="10" viewBox="0 0 10 10" fill-rule="evenodd">
@@ -33,7 +37,7 @@ class Modal extends React.Component {
         
                 <div className="bx--modal-footer">
                     <button className="bx--btn bx--btn--secondary" type="button" data-modal-close>Cancel</button>
-                    <button className="bx--btn bx--btn--primary" type="button" data-modal-primary-focus>Add to cart</button>
+                    <button className="bx--btn bx--btn--primary" type="button" data-modal-primary-focus>Add for {""+this.props.price}</button>
                 </div>
                 </div>
                 </div>

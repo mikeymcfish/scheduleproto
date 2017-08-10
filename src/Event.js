@@ -26,12 +26,12 @@ class Event extends Component {
             var rowSpan = 1;
             var spanType;
 
-            switch (this.props.spanType) {
+            switch (this.props.type) {
 
-                case 'six-weeks' :
+                case 'series' :
                     spanType = 'span-six-weeks series-color ';
                     break;
-                case 'five-days' :
+                case 'camp' :
                     spanType = 'span-monday-friday camp-color';
                     break;
                 default :
@@ -59,7 +59,9 @@ class Event extends Component {
             return (
 
                 <div className={spanType + ' spanner selectable'} data-days={this.props.days}
-                     data-modal-target="#myspecialmodal" data-name={this.props.name} data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-modal-target="#myspecialmodal"
+                     data-name={this.props.name}
+                     data-price={this.props.price}
                      data-month={this.props.month}
                      data-description = {this.props.description}
                      data-spotsleft = {this.props.spotsleft}
@@ -67,6 +69,7 @@ class Event extends Component {
                      data-age = {this.props.age}
                      data-dates = {this.props.dates}
                      data-type = {this.props.type}
+                     data-id = {this.props.id}
 
                      style={{
 
@@ -81,13 +84,17 @@ class Event extends Component {
         } else {
             return (
                 <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}
-                     data-modal-target="#myspecialmodal" data-name={this.props.name} data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-modal-target="#myspecialmodal"
+                     data-name={this.props.name}
+                     data-price={this.props.price}
                      data-month={this.props.month}
                      data-description = {this.props.description}
                      data-spotsleft = {this.props.spotsleft}
                      data-location = {this.props.location}
                      data-age = {this.props.age}
                      data-dates = {this.props.dates}
+                     data-type = {this.props.type}
+                     data-id = {this.props.id}
                 >
                     <span className='label'>{this.props.name}</span>
                 </div>

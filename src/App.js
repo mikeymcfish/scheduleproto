@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './webflow.css';
@@ -105,9 +106,21 @@ class App extends Component {
                    selectedEvent:$(this),
                    selectedEventName: $(this).attr("data-name"),
                    selectedEventPrice: $(this).attr("data-price"),
-                   selectedEventType: $(this).attr("data-type")
+                   selectedEventType: $(this).attr("data-type"),
+                   selectedEventDescription: $(this).attr("data-description"),
+                   selectedEventID: $(this).attr("data-id"),
+                   selectedEventAges: $(this).attr("data-ages"),
+                   selectedEventLocation: $(this).attr("data-location"),
+                   selectedEventColor: $(this).css("background-color")
                }
-           )
+           );
+           var myColor;
+            $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
+               myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
+            console.log("color: " + $(this).is(".drop-in-color,.special-color,.camp-color,.series-color"));
+
+           $(".bx--modal-container").css("border-color", myColor);
+
         });
 
     }
@@ -125,7 +138,17 @@ class App extends Component {
                 <div className="container w-container">
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
-                    <MyModal ref={this.state.selectedEvent} modalid="myspecialmodal" title={this.state.selectedEventName} description={this.state.selectedEventPrice} type={this.state.selectedEventType}/>
+                    <MyModal ref={this.state.selectedEvent}
+                             modalid="myspecialmodal"
+                             title={this.state.selectedEventName}
+                             description={this.state.selectedEventDescription}
+                             type={this.state.selectedEventType}
+                             eventId={this.state.selectedEventID}
+                             location={this.state.selectedEventLocation}
+                             ages={this.state.selectedEventAges}
+                             price = {this.state.selectedEventPrice}
+                             color = {this.state.selectedEventColor}
+                    />
 
                     <h1 className="heading">Showing events for
                         <span className="editable-heading">anyone </span>

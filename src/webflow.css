@@ -1576,7 +1576,7 @@
 /*}*/
 
 
-
+/* MOBILE
 @media (max-width: 991px) {
   .heading {
     font-size: 28px;
@@ -1863,7 +1863,6 @@
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     opacity: 0.67;
-    /*font-family: Linearicons, sans-serif;*/
     font-size: 16px;
   }
 }
@@ -2028,6 +2027,7 @@
     display: block;
   }
 }
+*/
 
 @font-face {
   /*font-family: 'Linearicons';*/

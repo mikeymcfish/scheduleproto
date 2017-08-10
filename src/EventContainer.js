@@ -47,7 +47,21 @@ class EventContainer extends Component {
                 zIndex: 100
 
             }}>
-                {this.props.allDupes.map((event, index) => <Event key={index} month={event.month} name={event.name} type={event.type} skipDays={event.skipDays} monthObject={this}/>)}
+                {this.props.allDupes.map((event, index) => <Event
+                    key={index}
+                    skipDays={event.skipDays}
+                    type={event.type}
+                    month={event.month}
+                    name={event.name}
+                    price = {event.price}
+                    id = {event.id}
+                    age = {event.age}
+                    location = {event.location}
+                    spotsleft = {event.spotsLeft}
+                    description = {event.description}
+                    monthObject={this}
+
+                />)}
             </div>
         )
 

@@ -5,6 +5,7 @@
 
       "1" : {
         "mondays": {
+          "id" : 24,
           "name": "Minecraft Mobs",
           "age-group" : "7-9",
           "location" : "Brooklyn",
@@ -12,6 +13,9 @@
           "summary" : "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now."
           "type" : "series",
           "span-type": "vertical",
+          "image-url" : "./img/test.jpg",
+          "price" : 145,
+          "spots-left" : 3,
           "dates" : {
               "September" : [
                 25

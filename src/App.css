@@ -159,6 +159,9 @@ body {
 
 }
 
+@media (max-width: 768px) {
+
+}
 
 .week-names {
   align-content: center;
@@ -313,6 +316,7 @@ body {
 }
 .selectable {
     transition: all 150ms ease-out;
+    margin-bottom:1px;
 }
 
 .no-day {
@@ -481,3 +485,7 @@ body {
 /*.contained-camp:hover {*/
     /*mix-blend-mode: normal;*/
 /*}*/
+
+.minecon {
+
+}
