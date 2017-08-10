@@ -1,10 +1,9 @@
 {
   "name": "Series",
   "version": "0.0.1",
-  "sessions" : {
+  "events" : [
 
-      "1" : {
-        "mondays": {
+        {
           "id" : 24,
           "name": "Minecraft Mobs",
           "age-group" : "7-9",
@@ -28,8 +27,8 @@
               ]
           }
 
-        }
-      }
+
+      ]
 
 
   }

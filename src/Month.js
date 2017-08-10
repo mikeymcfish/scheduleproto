@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Day from './Day';
 import Event from './Event';
 import EventContainers from "./EventContainer";
+import seriesJSON from "./series.json";
 
 
 class Month extends React.Component {
