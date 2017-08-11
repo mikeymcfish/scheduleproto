@@ -518,6 +518,9 @@
   background-color: rgb(247, 247, 247);
 
 }
+.month-label {
+  height: 60px;
+}
 
 .filler-end-of-month {
   position: relative;
@@ -1004,7 +1007,7 @@
 
 .month-label.one-week {
   min-height: 35px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -1111,7 +1114,7 @@
 
 .month-label-2.one-week {
   min-height: 35px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;

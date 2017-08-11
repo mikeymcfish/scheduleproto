@@ -12,6 +12,8 @@ import CheckIcon from './icons/CheckIcon';
 import { Modal } from 'carbon-components';
 import './carbon-components.css';
 import MyModal from './Modal';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 class App extends Component {
 
@@ -160,7 +162,11 @@ class App extends Component {
 
         return (
             <div className="App">
+
                 <div className="container w-container">
+
+
+
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
                     <MyModal ref={this.state.selectedEvent}
@@ -180,40 +186,56 @@ class App extends Component {
                         <span
                         className="editable-heading">age 7 to 9</span> in <span
                         className="editable-heading">Brooklyn</span></h1>
-                    <div className="filters">
-                        <div className="filter-circle-container" onClick={this.toggleSeries}>
-                            <div className="filter-circle-filled series-color">
-                                {seriesFilterIcon}
-                            </div>
-                            <div className="filter-circle-label">
-                                Series
-                            </div>
-                        </div>
-                        <div className="filter-circle-container" onClick={this.toggleCamp}>
-                            <div className="filter-circle-filled camp-color">
-                                {campFilterIcon}
-                            </div>
-                            <div className="filter-circle-label">
-                                Camp
-                            </div>
-                        </div>
-                        <div className="filter-circle-container" onClick={this.toggleDropin}>
-                            <div className="filter-circle-filled drop-in-color">
-                                {dropInFilterIcon}
-                            </div>
-                            <div className="filter-circle-label">
-                                Drop-in
-                            </div>
-                        </div>
-                        <div className="filter-circle-container" onClick={this.toggleSpecial}>
-                            <div className="filter-circle-filled special-color">
-                                {specialFilterIcon}
-                            </div>
-                            <div className="filter-circle-label">
-                                Special
-                            </div>
-                        </div>
-                    </div>
+                    <StickyContainer style={{ background:'transparent'}}>
+                        <Sticky topOffset={-20}>
+                            {
+                                ({
+                                     style,
+                                     isSticky,
+                                     wasSticky,
+                                     distanceFromTop,
+                                     distanceFromBottom,
+                                     calculatedHeight
+                                 }) => { return(
+                                    <div className="filters" style={style}>
+                                        <div className="filter-circle-container" onClick={this.toggleSeries}>
+                                            <div className="filter-circle-filled series-color">
+                                                {seriesFilterIcon}
+                                            </div>
+                                            <div className="filter-circle-label">
+                                                Series
+                                            </div>
+                                        </div>
+                                        <div className="filter-circle-container" onClick={this.toggleCamp}>
+                                            <div className="filter-circle-filled camp-color">
+                                                {campFilterIcon}
+                                            </div>
+                                            <div className="filter-circle-label">
+                                                Camp
+                                            </div>
+                                        </div>
+                                        <div className="filter-circle-container" onClick={this.toggleDropin}>
+                                            <div className="filter-circle-filled drop-in-color">
+                                                {dropInFilterIcon}
+                                            </div>
+                                            <div className="filter-circle-label">
+                                                Drop-in
+                                            </div>
+                                        </div>
+                                        <div className="filter-circle-container" onClick={this.toggleSpecial}>
+                                            <div className="filter-circle-filled special-color">
+                                                {specialFilterIcon}
+                                            </div>
+                                            <div className="filter-circle-label">
+                                                Special
+                                            </div>
+                                        </div>
+                                    </div>
+                                    )
+                                }
+                            }
+                            </Sticky>
+
 
                     <Month name="September" numDays="30" skipDays="5"
                            filterDropIn={this.state.filterDropIn}
@@ -244,7 +266,11 @@ class App extends Component {
                            myApp = {this}
                     />
 
+                    </StickyContainer>
+
+
                 </div>
+
             </div>
         );
     };

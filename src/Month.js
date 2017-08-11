@@ -8,6 +8,8 @@ import Event from './Event';
 import EventContainers from "./EventContainer";
 import seriesJSON from "./series.json";
 import App from "./App";
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 
 class Month extends React.Component {
@@ -421,29 +423,50 @@ class Month extends React.Component {
 
         return (
             <div>
-                <div className="month-label one-week" id="one-week">
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-month-name">
-                        <div className="month-name">{this.props.name}</div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                    <div className="filler-with-bar">
-                        <div className="month-bar"></div>
-                    </div>
-                </div>
+                <StickyContainer style={{ background:'transparent'}}>
+
+                    <Sticky >
+                        {
+                            ({
+                                 style,
+                                 isSticky,
+                                 wasSticky,
+                                 distanceFromTop,
+                                 distanceFromBottom,
+                                 calculatedHeight
+                             }) => {
+                                //console.log({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight });
+
+                                return (
+                                    <div className="month-label one-week" style={style}>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                        <div className="filler-with-month-name">
+                                            <div className="month-name">{this.props.name}</div>
+                                        </div>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                        <div className="filler-with-bar">
+                                            <div className="month-bar"></div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        }
+                    </Sticky>
+
+
                 <div className="grid" id={"calendar_" +this.props.name} >
                     {this.RenderWeekNames("Sun")}
                     {this.RenderWeekNames("Mon")}
@@ -482,6 +505,7 @@ class Month extends React.Component {
                         monthObject={this}
                     />)}
                 </div>
+                </StickyContainer>
             </div>
         )
 

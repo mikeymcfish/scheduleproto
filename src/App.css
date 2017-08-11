@@ -338,6 +338,9 @@ body {
     padding-right: 50px;
     padding-left: 25px;
     justify-content: center;
+    z-index: 9999;
+    background-color: rgb(247, 247, 247);
+
 }
 .filter-circle-container {
     display: flex;
@@ -496,4 +499,29 @@ body {
 
 .minecon {
 
+}
+
+.month-label {
+    z-index:9998;
+    padding-top:60px;
+    /*padding-bottom:30px;*/
+}
+.one-week {
+    margin-top: 0px !important;
+}
+.filters {
+    /*height: 200px;*/
+}
+.grid {
+    margin-top:20px;
+}
+.month-label.one-week {
+    background-color: rgb(247, 247, 247);
+}
+.month-label.one-week > div{
+    height:40px;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
