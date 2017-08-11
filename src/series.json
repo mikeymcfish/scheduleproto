@@ -1,36 +1,102 @@
 {
-  "name": "Series",
-  "version": "0.0.1",
   "events" : [
-
-        {
-          "id" : 24,
-          "name": "Minecraft Mobs",
-          "age-group" : "7-9",
-          "location" : "Brooklyn",
-          "sub-title" : "This is a one sentence dexcription",
-          "summary" : "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now."
-          "type" : "series",
-          "span-type": "vertical",
-          "image-url" : "./img/test.jpg",
-          "price" : 145,
-          "spots-left" : 3,
-          "dates" : {
-              "September" : [
-                25
-              ],
-              "October" : [
-                2,16,23,30
-              ],
-              "November" : [
-                6
-              ]
-          }
-
-
-      ]
-
-
-  }
-  
+    {
+      "id": 24,
+      "name": "Minecraft Mobs",
+      "age": "7-9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsleft": 3,
+      "daystring" : "9-25,10-2,10-16,10-23,10-30,11-65",
+      "days": {
+        "September": [
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6
+        ]
+      }
+    },{
+      "id": 26,
+      "name": "Minecraft Mobs",
+      "age": "7-9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsleft": 3,
+      "daystring" : "9-25,10-2,10-16,10-23,10-30,11-65",
+      "days": {
+        "September": [
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "name": "Virtual Reality",
+      "age": "9-11",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 225,
+      "spotsleft": 2,
+      "daystring" : "9-26,10-3,10-10,10-17,10-24,11-31",
+      "days": {
+        "September": [
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "name": "Columbus Day Mini-Camp",
+      "age": "9-11",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "camp",
+      "span-type": "camp",
+      "price": 225,
+      "spotsleft": 2,
+      "daystring" : "10-9",
+      "days": {
+        "October": [
+          9
+        ]
+      }
+    }
+  ]
 }
+  
+

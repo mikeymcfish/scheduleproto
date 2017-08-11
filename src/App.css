@@ -212,6 +212,7 @@ body {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
+    overflow: hidden;
 
   box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
 
@@ -302,6 +303,13 @@ body {
 }
 
 .selectable:hover {
+    z-index: 1000 !important;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5) !important;
+    transform: scale(1.15, 1.15);
+    transition: all 150ms ease-out;
+}
+.selectable-hover {
     z-index: 1000 !important;
     cursor: pointer;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5) !important;

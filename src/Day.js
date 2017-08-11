@@ -72,7 +72,7 @@ class Day extends React.Component {
         var myIcon = this.props.incart ? <CartIcon/> : "";
 
         return (
-            <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} {...this.props}>
+            <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}>
 
                 <div className="day-top-container">
                     <div className="date-number">{this.props.value}

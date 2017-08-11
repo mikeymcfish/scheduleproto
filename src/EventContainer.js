@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
@@ -18,25 +17,69 @@ class EventContainer extends Component {
         var containerHTML = [];
         var containers = [];
 
-        var days = [];
         var startCol = 1;
         var colSpan = 1;
         var startRow = 1;
         var rowSpan = 1;
         var spanType;
-        days = this.props.thisDupe.split(",");
+
+        var days = this.props.days;
+
+        console.log(days);
+
+        var thisMonthDays = [];
+
+        if (typeof days.September != "undefined" && this.props.month == "September") {
+            thisMonthDays = days.September;
+        }
+        else if (typeof days.October != "undefined" && this.props.month == "October") {
+            thisMonthDays = days.October;
+        }
+        else if (typeof days.November != "undefined" && this.props.month == "November") {
+            thisMonthDays = days.November;
+        }
+        else if (typeof days.December != "undefined" && this.props.month == "December") {
+            thisMonthDays = days.December;
+        }
+        else {
+
+            return(null);
+        }
 
         var skipDays = parseInt(this.props.skipDays);
 
-        startRow = 2 + Math.ceil((parseInt(days[0]) + skipDays) / 7);
-        startCol = (parseInt(days[0]) + skipDays) % 7;
-        startCol == 0 ? startCol = 7 : startCol += 0;
+        startCol = $("[data-month="+this.props.month+"][data-daynum="+thisMonthDays[0]+"]")
+            .parent()
+            .css("grid-column-start")
+            .split(" ")[0];
+        startRow = $("[data-month="+this.props.month+"][data-daynum="+thisMonthDays[0]+"]")
+            .parent()
+            .css("grid-row-start")
+            .split(" ")[0];
 
-        rowSpan = Math.floor((parseInt(days[1]) + skipDays) / 7) - Math.floor((parseInt(days[0]) + skipDays) / 7) + 1;
-        colSpan = (parseInt(days[1]) - parseInt(days[0])) < 7 ? (parseInt(days[1]) - parseInt(days[0])) : 1;
+        console.log(startRow, startCol);
 
-        colSpan = this.props.type == "series" ? colSpan : 5;
-        rowSpan = this.props.type == "camp" ? 1 : rowSpan;
+        var killFont = false;
+        //is it just one day??
+        if (thisMonthDays.length==1) {
+            colSpan = 1;
+            rowSpan = 1;
+            //make font smaller?
+            killFont = true;
+        } else {
+
+            var endRow = $("[data-month=" + this.props.month + "][data-daynum=" + thisMonthDays[thisMonthDays.length - 1] + "]")
+                .parent()
+                .css("grid-row-start")
+                .split(" ")[0];
+            var endCol = $("[data-month=" + this.props.month + "][data-daynum=" + thisMonthDays[thisMonthDays.length - 1] + "]")
+                .parent()
+                .css("grid-column-start")
+                .split(" ")[0];
+
+            colSpan = endCol - startCol + 1;
+            rowSpan = endRow - startRow + 1;
+        }
 
         return(
 
@@ -49,7 +92,7 @@ class EventContainer extends Component {
             }}>
                 {this.props.allDupes.map((event, index) => <Event
                     key={index}
-                    skipDays={event.skipDays}
+                    skipDays={this.props.skipDays}
                     type={event.type}
                     month={event.month}
                     name={event.name}
@@ -60,6 +103,7 @@ class EventContainer extends Component {
                     spotsleft = {event.spotsLeft}
                     description = {event.description}
                     monthObject={this}
+                    days={event.days}
 
                 />)}
             </div>

@@ -93,39 +93,64 @@ class App extends Component {
     }
 
     componentDidUpdate() {
+        console.log("did update");
         this.runJquery();
     }
 
     runJquery() {
+        console.log("jquery");
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> #closed-day)').addClass('closed');
         var myThis = this;
-        $('.selectable').click(function () {
-           myThis.setState(
-               {
-                   selectedEvent:$(this),
-                   selectedEventName: $(this).attr("data-name"),
-                   selectedEventPrice: $(this).attr("data-price"),
-                   selectedEventType: $(this).attr("data-type"),
-                   selectedEventDescription: $(this).attr("data-description"),
-                   selectedEventID: $(this).attr("data-id"),
-                   selectedEventAges: $(this).attr("data-ages"),
-                   selectedEventLocation: $(this).attr("data-location"),
-                   selectedEventColor: $(this).css("background-color")
-               }
-           );
-           var myColor;
-            $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
-               myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-            console.log("color: " + $(this).is(".drop-in-color,.special-color,.camp-color,.series-color"));
+        $('.selectable')
+            .click(function () {
+                console.log("clicked");
+                myThis.setState(
+                    {
+                        selectedEvent: $(this),
+                        selectedEventName: $(this).attr("data-name"),
+                        selectedEventPrice: $(this).attr("data-price"),
+                        selectedEventType: $(this).attr("data-type"),
+                        selectedEventDescription: $(this).attr("data-description"),
+                        selectedEventID: $(this).attr("data-id"),
+                        selectedEventAges: $(this).attr("data-ages"),
+                        selectedEventLocation: $(this).attr("data-location"),
+                        selectedEventColor: $(this).css("background-color")
+                    }
+                );
+                var myColor;
+                $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
+                    myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
+                console.log("color: " + $(this).is(".drop-in-color,.special-color,.camp-color,.series-color"));
 
-           $(".bx--modal-container").css("border-color", myColor);
+                $(".bx--modal-container").css("border-color", myColor);
+            });
 
-        });
+        $('.selectable')
+            .mouseenter(function () {
+                console.log("clicked");
+                $("[data-id="+$(this).attr('data-id')+"]").addClass('selectable-hover');
 
+            })
+            .mouseleave(function () {
+                console.log("clicked");
+                $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
+
+            });
+
+        // .mouseover(function (e) {
+        //     console.log("hover");
+        //
+        //     $("[data-id="+$(this).attr('data-id')+"]").trigger(e.type);
+        //     console.log($("[data-id="+$(this).attr('data-id')+"]"), e.type);
+        //
+        // });
+        //
+        // a=document.getElementsByTagName('input')
     }
 
     render() {
+
 
         var campFilterIcon = this.state.filterCamp ?  "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
@@ -195,24 +220,28 @@ class App extends Component {
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           myApp = {this}
                     />
                     <Month name="October" numDays="31" skipDays="0"
                            filterDropIn={this.state.filterDropIn}
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           myApp = {this}
                     />
                     <Month name="November" numDays="30" skipDays="3"
                            filterDropIn={this.state.filterDropIn}
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           myApp = {this}
                     />
                     <Month name="December" numDays="31" skipDays="5"
                            filterDropIn={this.state.filterDropIn}
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           myApp = {this}
                     />
 
                 </div>
