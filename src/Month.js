@@ -112,136 +112,77 @@ class Month extends React.Component {
 
     }
 
-
-    // getGridRow(date) {
-    //     return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-row");
-    // }
-    // getGridCol(date) {
-    //     return $('[data-month="September"][data-dayNum="'+date+'"').parent().css("grid-column");
-    // }
     constructor() {
         super();
         global.overlappingSeriesEvents = [];
         global.overlappingCampEvents = [];
-        //LOAD ALL EVENTS HERE
+        //TODO ALL EVENTS HERE
         global.allEvents = seriesJSON;
-            // {
-            //     events : [
-            //         {
-            //             month:"September",
-            //             days:"12,26",
-            //             name:"Minecraft Mobs",
-            //             type:"series",
-            //             spanType:"six-weeks",
-            //             price: 3.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 2,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"October",
-            //             days:"4,25",
-            //             name:"Virtual Reality",
-            //             type:"series",
-            //             spanType:"six-weeks",
-            //             price: 3.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 1,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"October",
-            //             days:"4,25",
-            //             name:"Overlapping Event",
-            //             type:"series",
-            //             spanType:"six-weeks",
-            //             price: 3.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 0,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"September",
-            //             days:"2,14",
-            //             name:"Minecraft Mobs",
-            //             type:"series",
-            //             spanType:"six-weeks",
-            //             price: 3.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 3,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"September",
-            //             days:"11,15",
-            //             name:"Spring Break",
-            //             type:"camp",
-            //             spanType:"five-days",
-            //             price: 13.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 4,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"September",
-            //             days:"11,15",
-            //             name:"Other Camp Option",
-            //             type:"camp",
-            //             spanType:"five-days",
-            //             price: 3.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 2,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"September",
-            //             days:"18,22",
-            //             name:"Booger camp",
-            //             type:"camp",
-            //             spanType:"five-days",
-            //             price: 113.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: true,
-            //             location: "Brooklyn",
-            //             spotsLeft: 2,
-            //             age: "7-9"
-            //         },
-            //         {
-            //             month:"September",
-            //             days:"12,26",
-            //             name:"September Overlap",
-            //             type:"series",
-            //             spanType:"six-weeks",
-            //             price: 13.95,
-            //             id: 1,
-            //             description: "ashfdnsdn dsojf kdnfo sjndlnsdfo lsdkj odsnf jsdnfj sdnsdnf lsdnlsd nkjdfsnds",
-            //             doesOwn: false,
-            //             location: "Brooklyn",
-            //             spotsLeft: 1,
-            //             age: "7-9"
-            //         }
-            //
-            //     ]
-            // }
+        //TODO 'DAYSTRING' for all
+    }
+
+    parseForSingleDayEvents(allEvents, checkDay, filter) {
+
+        var dropineventsforthismonth = [];
+        //add all dupes to an array (but originals are not there yet)
+        for (var i=0; i < allEvents.length; i++) {
+            //is it dropin? if not continue.
+
+
+            if (allEvents[i].type!=filter) {
+                continue;
+            }
+
+            var days = allEvents[i].days;
+
+            var thisMonthDays = [];
+
+            if (typeof days.September != "undefined" && this.props.name == "September") {
+                thisMonthDays = days.September;
+            }
+            else if (typeof days.October != "undefined" && this.props.name == "October") {
+                thisMonthDays = days.October;
+            }
+            else if (typeof days.November != "undefined" && this.props.name == "November") {
+                thisMonthDays = days.November;
+            }
+            else if (typeof days.December != "undefined" && this.props.name == "December") {
+                thisMonthDays = days.December;
+            }
+            else if (typeof days.January != "undefined" && this.props.name == "January") {
+                thisMonthDays = days.January;
+            }
+            else if (typeof days.February != "undefined" && this.props.name == "February") {
+                thisMonthDays = days.February;
+            }
+            else if (typeof days.March != "undefined" && this.props.name == "March") {
+                thisMonthDays = days.March;
+            }
+            else if (typeof days.April != "undefined" && this.props.name == "April") {
+                thisMonthDays = days.April;
+            }
+            else if (typeof days.May != "undefined" && this.props.name == "May") {
+                thisMonthDays = days.May;
+            }
+            else if (typeof days.June != "undefined" && this.props.name == "June") {
+                thisMonthDays = days.June;
+            }
+            else if (typeof days.July != "undefined" && this.props.name == "July") {
+                thisMonthDays = days.July;
+            }
+            else if (typeof days.August != "undefined" && this.props.name == "August") {
+                thisMonthDays = days.August;
+            }
+            else {
+                //if it doesnt have days this month, gtfo
+                continue;
+            }
+
+            if (thisMonthDays[0] == checkDay) dropineventsforthismonth.push(allEvents[i]);
+
+        }
+        return(dropineventsforthismonth);
+
     }
 
 
@@ -262,49 +203,14 @@ class Month extends React.Component {
             var isclosed = false;
             var inCart = false;
 
-            //RANDOM TESTING
 
-            var dropInEvent = {
-                month:"September",
-                days:"18",
-                name:"Makerspace",
-                type:"drop-in",
-                price:"$55",
-                spotsleft:"3",
-                id: 1,
-                age: "7-9",
-                location: "Brooklyn",
-                doesOwn: false,
-                description: "sdjnksdjnf lskdnf kjsdnf djsnf skjdbfjhdsbv jdbfjhsdbfjbfj  dfbkdfbgkjdfbg dkfbkdb dkfb sdfkbfdk."
-            };
-            var specialEvent = {
-                month:"September",
-                days:"18",
-                name:"Tournament",
-                type:"special",
-                price:"$155",
-                spotsleft:"2",
-                id: 1,
-                age: "9-11",
-                location: "Brooklyn",
-                doesOwn: false,
-                description: "sdjnksdjnf lskdnf kjsdnf djsnf skjdbfjhdsbv jdbfjhsdbfjbfj  dfbkdfbgkjdfbg dkfbkdb dkfb sdfkbfdk."
-            };
-
-            if (i%4==0) isclosed = true; //this breaks it. probably doesnt remove old id?
-            else if (i%4==1) dropinevents.push(dropInEvent);
-            else if (i%4==2) specialevents.push(specialEvent);
-            else if (i%4==2) {
-                dropinevents.push(dropInEvent);
-                specialevents.push(specialEvent);
-                inCart = true;
-            }
-            // else if (i%4==2) specialevents = ["minicamp"];
-            // else if (i%4==3) { dropinevents = ["makerspace", "gaming"]; specialevents = ["minicamp"]; inCart = true;}
+            dropinevents = this.parseForSingleDayEvents(global.allEvents.events, i, "drop-in");
+            specialevents = this.parseForSingleDayEvents(global.allEvents.events, i, "special");
 
             allDays.push(
                 isclosed? <div id="closed-day"></div> : this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
             );
+
         }
 
         var eventsList = [];
@@ -314,6 +220,10 @@ class Month extends React.Component {
         var seriesDupeDates = [];
         var campDupeDates = [];
 
+        var overlappingEvents = [];
+        var overlappingCamp = [];
+
+        var overlappingEventsIndex = [];
 
         if (!this.props.filterSeries) {
             //all series
@@ -325,7 +235,12 @@ class Month extends React.Component {
                     // global.allEvents.events[i].skipDays = this.props.skipDays;
                     if (holdingEvents.indexOf(global.allEvents.events[i].daystring)>=0) {
 
-                        global.overlappingSeriesEvents.push(global.allEvents.events[i]);
+                        //overlappingEvents.push(global.allEvents.events[i]);
+                        var idx = global.allEvents.events[i].daystring;
+                        console.log(idx);
+                        overlappingEventsIndex[idx] ? overlappingEventsIndex[idx] = overlappingEventsIndex[idx] : overlappingEventsIndex[idx] = [];
+                        console.log(overlappingEventsIndex);
+                        overlappingEventsIndex[idx].push(global.allEvents.events[i]);
                         seriesDupeDates.push(global.allEvents.events[i].daystring);
 
                     } else{
@@ -339,66 +254,39 @@ class Month extends React.Component {
                 else {
 
                 }
+
             }
             //now go through again and add in the originals that caused the dupe.
+
             for (var i=0; i < tempSeriesEventsList.length; i++) {
 
                     if (seriesDupeDates.indexOf(tempSeriesEventsList[i].daystring)>=0) {
+                        //overlappingEvents.push(tempSeriesEventsList[i]);
+                        var idx = tempSeriesEventsList[i].daystring;
+                        overlappingEventsIndex[idx].push(tempSeriesEventsList[i]);
 
-                        global.overlappingSeriesEvents.push(tempSeriesEventsList[i]);
-
-                    } else{
+                    } else {
                         eventsList.push(
                             tempSeriesEventsList[i]
                         );
                     }
             }
-            console.log("overlapping series count for month "+ this.props.name+" :" + global.overlappingSeriesEvents.length)
+
+            for (var i in overlappingEventsIndex) {
+
+                console.log("$$"+i);
+                overlappingEvents.push(overlappingEventsIndex[i]);
+
+            }
+
+
+            console.log(overlappingEvents.length, "overlapping series count for month "+ this.props.name+" :" + Object.keys(overlappingEventsIndex).length);
 
 
         }
         if (!this.props.filterCamp) {
             //all camp
-            //all series
-            var holdingEvents = [];
-
-
-            //add all dupes to an array (but originals are not there yet)
-            for (var i=0; i < global.allEvents.events.length; i++) {
-                if (global.allEvents.events[i].type=="camp") {
-                    // global.allEvents.events[i].skipDays =  this.props.skipDays;
-                    if (holdingEvents.indexOf(global.allEvents.events[i].daystring)>=0) {
-
-                        global.overlappingCampEvents.push(global.allEvents.events[i]);
-                        campDupeDates.push(global.allEvents.events[i].daystring);
-
-                    } else{
-                        holdingEvents.push(global.allEvents.events[i].daystring);
-                        tempCampEventsList.push(
-                            global.allEvents.events[i]
-                        );
-                    }
-
-                }
-                else {
-
-                }
-            }
-            //now go through again and add in the originals that caused the dupe.
-            for (var i=0; i < tempCampEventsList.length; i++) {
-
-                if (campDupeDates.indexOf(tempCampEventsList[i].daystring)>=0) {
-
-                    global.overlappingCampEvents.push(tempCampEventsList[i]);
-
-                } else{
-                    eventsList.push(
-                        tempCampEventsList[i]
-                    );
-                }
-            }
-            console.log("overlapping events count for month "+ this.props.name+" :" + global.overlappingCampEvents.length)
-
+            //copy from series
 
         }
 
@@ -437,23 +325,23 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
 
-                    {global.overlappingSeriesEvents.map((container, index) => <EventContainers
+                    {overlappingEvents.map((container, index) => <EventContainers
                         key = {index}
-                        allDupes={global.overlappingSeriesEvents}
-                        thisDupe={container}
+                        allDupes={container}
+                        // thisDupe={container}
                         skipDays={this.props.skipDays}
-                        type="series"
-                        name={container.name}
+                        // type="series"
+                        // name={container[0].name}
                         month={this.props.name}
-                        price = {container.price}
-                        id = {container.id}
-                        age = {container.age}
-                        location = {container.location}
-                        spotsleft = {container.spotsLeft}
-                        description = {container.description}
-                        days = {container.days}
+                        // price = {container[0].price}
+                        // id = {container[0].id}
+                        // age = {container[0].age}
+                        // location = {container[0].location}
+                        // spotsleft = {container[0].spotsLeft}
+                        // description = {container[0].description}
+                        // days = {container[0].days}
                     />)}
-                    {campDupeDates.map((container, index) => <EventContainers
+                    {overlappingCamp.map((container, index) => <EventContainers
                         key = {index}
                         allDupes={global.overlappingCampEvents}
                         thisDupe={container}

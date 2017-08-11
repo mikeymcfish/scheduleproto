@@ -22,6 +22,9 @@ class Day extends React.Component {
             case "special" :
                 colorClass = "special-color";
                 break;
+            case "camp" :
+                colorClass = "camp-color";
+                break;
             default:
                 break;
         }

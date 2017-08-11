@@ -104,7 +104,7 @@ class App extends Component {
         var myThis = this;
         $('.selectable')
             .click(function () {
-                console.log("clicked");
+                //console.log("clicked");
                 myThis.setState(
                     {
                         selectedEvent: $(this),
@@ -128,12 +128,12 @@ class App extends Component {
 
         $('.selectable')
             .mouseenter(function () {
-                console.log("clicked");
+                //console.log("clicked");
                 $("[data-id="+$(this).attr('data-id')+"]").addClass('selectable-hover');
 
             })
             .mouseleave(function () {
-                console.log("clicked");
+                //console.log("clicked");
                 $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
 
             });

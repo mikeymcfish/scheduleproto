@@ -17,6 +17,8 @@ class Event extends Component {
 
         //CHECK IF IN A SPAN CONTAINER
 
+        console.log(this.props.testing ? "*** "+this.props.days : "");
+        var killFont = false;
 
         if (this.props.days) {
 
@@ -44,6 +46,8 @@ class Event extends Component {
 
             var thisMonthDays = [];
 
+            console.log(this.props.name, this.props.month);
+
             if (typeof days.September != "undefined" && this.props.month == "September") {
                 thisMonthDays = days.September;
             }
@@ -56,8 +60,31 @@ class Event extends Component {
             else if (typeof days.December != "undefined" && this.props.month == "December") {
                 thisMonthDays = days.December;
             }
+            else if (typeof days.January != "undefined" && this.props.month == "January") {
+                thisMonthDays = days.January;
+            }
+            else if (typeof days.February != "undefined" && this.props.month == "February") {
+                thisMonthDays = days.February;
+            }
+            else if (typeof days.March != "undefined" && this.props.month == "March") {
+                thisMonthDays = days.March;
+            }
+            else if (typeof days.April != "undefined" && this.props.month == "April") {
+                thisMonthDays = days.April;
+            }
+            else if (typeof days.May != "undefined" && this.props.month == "May") {
+                thisMonthDays = days.May;
+            }
+            else if (typeof days.June != "undefined" && this.props.month == "June") {
+                thisMonthDays = days.June;
+            }
+            else if (typeof days.July != "undefined" && this.props.month == "July") {
+                thisMonthDays = days.July;
+            }
+            else if (typeof days.August != "undefined" && this.props.month == "August") {
+                thisMonthDays = days.August;
+            }
             else {
-
                 return(null);
             }
             //TODO ADD ALL MONTHS
@@ -77,7 +104,7 @@ class Event extends Component {
 
             console.log(startRow, startCol);
 
-            var killFont = false;
+
             //is it just one day??
             if (thisMonthDays.length==1) {
                 colSpan = 1;
@@ -116,6 +143,12 @@ class Event extends Component {
 
             console.log("spans " + this.props.type, startRow, startCol, rowSpan, colSpan);
 
+            if (this.props.killfont) {
+                killFont = true;
+            }
+
+            console.log("kill font: " + killFont);
+
             return (
 
                 <div className={spanType + ' spanner selectable'} data-days={this.props.days}
@@ -148,6 +181,7 @@ class Event extends Component {
                 </div>
             )
         } else {
+
             return (
                 <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}
                      data-modal-target="#myspecialmodal"
@@ -162,7 +196,13 @@ class Event extends Component {
                      data-type = {this.props.type}
                      data-id = {this.props.id}
                 >
-                    <span className='label'>{this.props.name}</span>
+                    {(() => {
+                        if (!this.props.killfont) {
+                            return (
+                                <span className='label'>{this.props.name}</span>
+                            )
+                        };
+                    })()}
                 </div>
             )
         }

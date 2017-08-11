@@ -14,6 +14,9 @@ class EventContainer extends Component {
     }
 
     render() {
+
+        console.log("im rendering a container", this.props.allDupes);
+
         var containerHTML = [];
         var containers = [];
 
@@ -22,10 +25,13 @@ class EventContainer extends Component {
         var startRow = 1;
         var rowSpan = 1;
         var spanType;
+        var killFont = false;
 
-        var days = this.props.days;
+        var usingDay = this.props.allDupes[0];
 
-        console.log(days);
+        console.log("#",Object.keys(this.props.allDupes).length, this.props.allDupes.length )
+
+        var days = usingDay.days;
 
         var thisMonthDays = [];
 
@@ -42,9 +48,9 @@ class EventContainer extends Component {
             thisMonthDays = days.December;
         }
         else {
-
             return(null);
         }
+        //TODO ADD ALL MONTHS
 
         var skipDays = parseInt(this.props.skipDays);
 
@@ -57,14 +63,11 @@ class EventContainer extends Component {
             .css("grid-row-start")
             .split(" ")[0];
 
-        console.log(startRow, startCol);
+        console.log("**", startRow, startCol);
 
-        var killFont = false;
+
         //is it just one day??
         if (thisMonthDays.length==1) {
-            colSpan = 1;
-            rowSpan = 1;
-            //make font smaller?
             killFont = true;
         } else {
 
@@ -83,7 +86,7 @@ class EventContainer extends Component {
 
         return(
 
-            <div className={'event-container-'+this.props.type} style={{
+            <div className={'event-container-'+usingDay.type} style={{
 
                 gridColumn: "col " + startCol + " / span " + colSpan,
                 gridRow: "row " + startRow + " / span " + rowSpan,
@@ -93,6 +96,7 @@ class EventContainer extends Component {
                 {this.props.allDupes.map((event, index) => <Event
                     key={index}
                     skipDays={this.props.skipDays}
+                    killfont= {killFont}
                     type={event.type}
                     month={event.month}
                     name={event.name}
@@ -102,8 +106,7 @@ class EventContainer extends Component {
                     location = {event.location}
                     spotsleft = {event.spotsLeft}
                     description = {event.description}
-                    monthObject={this}
-                    days={event.days}
+                    monthObject={this.props.month}
 
                 />)}
             </div>

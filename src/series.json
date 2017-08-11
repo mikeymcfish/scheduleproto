@@ -26,9 +26,10 @@
           6
         ]
       }
-    },{
+    },
+    {
       "id": 26,
-      "name": "Minecraft Mobs",
+      "name": "Drone Coding",
       "age": "7-9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
@@ -80,19 +81,112 @@
     },
     {
       "id": 26,
-      "name": "Columbus Day Mini-Camp",
+      "name": "Columbus Day\nMini-Camp",
       "age": "9-11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
-      "type": "camp",
-      "span-type": "camp",
+      "type": "special",
+      "span-type": "one-day",
       "price": 225,
       "spotsleft": 2,
+      "doesOwn" : true,
       "daystring" : "10-9",
       "days": {
         "October": [
           9
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "name": "Makerspace",
+      "age": "9-11",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsleft": 2,
+      "doesOwn" : true,
+      "daystring" : "10-9",
+      "days": {
+        "September": [
+          11
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "name": "Tournament",
+      "age": "9-11",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsleft": 2,
+      "doesOwn" : true,
+      "daystring" : "10-9",
+      "days": {
+        "September": [
+          11
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "name": "Drone Coding Pro",
+      "age": "7-9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsleft": 3,
+      "daystring" : "9-25,10-2,10-16,10-23,10-30,11-65",
+      "days": {
+        "September": [
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "name": "Fancy 4th thing",
+      "age": "7-9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsleft": 3,
+      "daystring" : "9-25,10-2,10-16,10-23,10-30,11-65",
+      "days": {
+        "September": [
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6
         ]
       }
     }
