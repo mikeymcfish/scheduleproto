@@ -119,6 +119,83 @@ class Month extends React.Component {
         //TODO ALL EVENTS HERE
         global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
+        this.parseDateListToString(global.allEvents);
+    }
+
+    parseDateListToString(events) {
+
+        for (var i = 0; i < Object.keys(global.allEvents.events).length; i++ ) {
+
+
+            var newString = "";
+            var thisEvent = global.allEvents.events[i];
+            var theseDays = thisEvent.days;
+            var monthNum="";
+            var thisMonth;
+            for (var month in theseDays) {
+                switch (month) {
+                    case "September" :
+                        monthNum = "9";
+                        thisMonth = theseDays.September;
+                        break;
+                    case "October" :
+                        monthNum = "10";
+                        thisMonth = theseDays.October;
+                        break;
+                    case "November" :
+                        monthNum = "11";
+                        thisMonth = theseDays.November;
+                        break;
+                    case "December" :
+                        monthNum = "12";
+                        thisMonth = theseDays.December;
+                        break;
+                    case "January" :
+                        monthNum = "1";
+                        thisMonth = theseDays.January;
+                        break;
+                    case "February" :
+                        monthNum = "2";
+                        thisMonth = theseDays.February;
+                        break;
+                    case "March" :
+                        monthNum = "3";
+                        thisMonth = theseDays.March;
+                        break;
+                    case "April" :
+                        monthNum = "4";
+                        thisMonth = theseDays.April;
+                        break;
+                    case "May" :
+                        monthNum = "5";
+                        thisMonth = theseDays.May;
+                        break;
+                    case "June" :
+                        monthNum = "6";
+                        thisMonth = theseDays.June;
+                        break;
+                    case "July" :
+                        monthNum = "7";
+                        thisMonth = theseDays.July;
+                        break;
+                    case "August" :
+                        monthNum = "8";
+                        thisMonth = theseDays.August;
+                        break;
+                    default:
+                        monthNum = "FAIL";
+                        thisMonth = theseDays.September;
+                }
+                for (var j=0; j< thisMonth.length; j++) {
+                    if (newString != "") newString+=",";
+                    newString+= monthNum + "-" + thisMonth[j];
+                }
+
+            }
+
+            thisEvent.daystring = newString;
+
+        }
     }
 
     parseForSingleDayEvents(allEvents, checkDay, filter) {
@@ -228,6 +305,7 @@ class Month extends React.Component {
         if (!this.props.filterSeries) {
             //all series
             var holdingEvents = [];
+            overlappingEventsIndex = [];
 
             //add all dupes to an array (but originals are not there yet)
             for (var i=0; i < global.allEvents.events.length; i++) {
@@ -274,19 +352,70 @@ class Month extends React.Component {
 
             for (var i in overlappingEventsIndex) {
 
-                console.log("$$"+i);
                 overlappingEvents.push(overlappingEventsIndex[i]);
 
             }
 
-
-            console.log(overlappingEvents.length, "overlapping series count for month "+ this.props.name+" :" + Object.keys(overlappingEventsIndex).length);
+            console.log("overlapping series count for month "+ this.props.name+" :" + Object.keys(overlappingEventsIndex).length);
 
 
         }
         if (!this.props.filterCamp) {
-            //all camp
-            //copy from series
+            //all camps
+            var holdingEvents = [];
+            overlappingEventsIndex = [];
+
+            //add all dupes to an array (but originals are not there yet)
+            for (var i=0; i < global.allEvents.events.length; i++) {
+                if (global.allEvents.events[i].type=="camp") {
+                    // global.allEvents.events[i].skipDays = this.props.skipDays;
+                    if (holdingEvents.indexOf(global.allEvents.events[i].daystring)>=0) {
+
+                        //overlappingEvents.push(global.allEvents.events[i]);
+                        var idx = global.allEvents.events[i].daystring;
+                        console.log(idx);
+                        overlappingEventsIndex[idx] ? overlappingEventsIndex[idx] = overlappingEventsIndex[idx] : overlappingEventsIndex[idx] = [];
+                        console.log(overlappingEventsIndex);
+                        overlappingEventsIndex[idx].push(global.allEvents.events[i]);
+                        campDupeDates.push(global.allEvents.events[i].daystring);
+
+                    } else{
+                        holdingEvents.push(global.allEvents.events[i].daystring);
+                        tempCampEventsList.push(
+                            global.allEvents.events[i]
+                        );
+                    }
+
+                }
+                else {
+
+                }
+
+            }
+            //now go through again and add in the originals that caused the dupe.
+
+            for (var i=0; i < tempCampEventsList.length; i++) {
+
+                if (campDupeDates.indexOf(tempCampEventsList[i].daystring)>=0) {
+                    //overlappingEvents.push(tempCampEventsList[i]);
+                    var idx = tempCampEventsList[i].daystring;
+                    overlappingEventsIndex[idx].push(tempCampEventsList[i]);
+
+                } else {
+                    eventsList.push(
+                        tempCampEventsList[i]
+                    );
+                }
+            }
+
+            for (var i in overlappingEventsIndex) {
+
+                overlappingCamp.push(overlappingEventsIndex[i]);
+
+            }
+
+            console.log("overlapping camp count for month "+ this.props.name+" :" + Object.keys(overlappingEventsIndex).length);
+
 
         }
 
@@ -328,34 +457,14 @@ class Month extends React.Component {
                     {overlappingEvents.map((container, index) => <EventContainers
                         key = {index}
                         allDupes={container}
-                        // thisDupe={container}
                         skipDays={this.props.skipDays}
-                        // type="series"
-                        // name={container[0].name}
                         month={this.props.name}
-                        // price = {container[0].price}
-                        // id = {container[0].id}
-                        // age = {container[0].age}
-                        // location = {container[0].location}
-                        // spotsleft = {container[0].spotsLeft}
-                        // description = {container[0].description}
-                        // days = {container[0].days}
                     />)}
                     {overlappingCamp.map((container, index) => <EventContainers
                         key = {index}
-                        allDupes={global.overlappingCampEvents}
-                        thisDupe={container}
+                        allDupes={container}
                         skipDays={this.props.skipDays}
-                        type="camp"
                         month={this.props.name}
-                        name={container.name}
-                        price = {container.price}
-                        id = {container.id}
-                        age = {container.age}
-                        location = {container.location}
-                        spotsleft = {container.spotsLeft}
-                        description = {container.description}
-                        days = {container.days}
                     />)}
                     {eventsList.map((event, index) => <Event
                         key={index}
