@@ -73,6 +73,19 @@ class Day extends React.Component {
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents : specialEvents=[];
         var myIcon = this.props.incart ? <CartIcon/> : "";
+        if (this.props.isclosed=="true") {
+            return(
+                    <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} className="close-me">
+
+                        <div className="day-top-container">
+                            <div className="date-number">{this.props.value}
+                            </div>
+                            <div className="date-icon"> {myIcon}
+                            </div>
+                        </div>
+                    </div>
+            )
+        }
 
         return (
             <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}>

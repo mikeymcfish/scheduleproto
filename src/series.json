@@ -1,4 +1,54 @@
 {
+  "closedDays" : {
+      "September": [
+        1,2,3,4,5,6,10,17,24
+      ],
+      "October": [
+        1,8,15,22,29
+      ],
+      "November": [
+        5,12,19,23,24,25,26
+      ]
+  },
+  "metaData" : {
+
+    "holidays" : [
+      {
+        "month": "September",
+        "day": 7,
+        "title": "Open House",
+        "subTitle": "3pm - 5pm",
+        "backgroundColor": "rgba(255,0,165,.5)",
+        "icon": ""
+      },
+      {
+        "month": "September",
+        "day": 8,
+        "title": "Open House",
+        "subTitle": "3pm - 5pm",
+        "backgroundColor": "rgba(255,0,165,.5)",
+        "icon": ""
+      },
+      {
+        "month": "September",
+        "day": 9,
+        "title": "Open House",
+        "subTitle": "10am - 12pm",
+        "backgroundColor": "rgba(255,0,165,.5)",
+        "icon": ""
+      },
+      {
+        "month": "November",
+        "day": 18,
+        "title": "Minecon World",
+        "subTitle": "viewing party for members",
+        "backgroundColor": "rgba(0,165,255,.5)",
+        "icon": "",
+        "backgroundImg" : ""
+      }
+    ]
+
+  },
   "events" : [
     {
       "id": 24,

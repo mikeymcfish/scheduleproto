@@ -13,6 +13,7 @@ import { Modal } from 'carbon-components';
 import './carbon-components.css';
 import MyModal from './Modal';
 import { StickyContainer, Sticky } from 'react-sticky';
+import Overlay from './Overlay';
 
 
 class App extends Component {
@@ -82,7 +83,6 @@ class App extends Component {
             filterSpecial: true,
             filterSeries: true,
             filterCamp: true,
-
             selectedEvent: ""
         }
     }
@@ -94,7 +94,31 @@ class App extends Component {
         $("#calendar").css('display', 'none');
         $("#calendar").css('display', 'grid');
         this.runJquery();
+        this.addHolidays();
 
+    }
+
+    addHolidays() {
+        var holidays = global.allEvents.metaData.holidays;
+        for (var i = 0 ; i < Object.keys(holidays).length; i++) {
+            console.log(holidays[i].month, holidays[i].day);
+            var thisHoliday = $('.day:has(> [data-month="' + holidays[i].month + '"][data-daynum="' + holidays[i].day + '"])');
+            var thisHolidayRow = thisHoliday.css("grid-row");
+            var thisHolidayCol = thisHoliday.css("grid-column");
+            thisHoliday.addClass("day-under-overlay");
+            var monthGrid = $('#calendar_' + holidays[i].month);
+            monthGrid.append(
+                "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"'>" +
+                "<div class='title'>" + holidays[i].title +
+                "</div><div class='sub-title'>" + holidays[i].subTitle +
+                "</div></div>"
+            );
+        }
+        //     thisHoliday.css("background-color", holidays[i].backgroundColor);
+        //     thisHoliday.css("mix-blend-mode", "multiply");
+        //     thisHoliday.html(
+        //         "<div class='overlay'><div class='title'>" + holidays[i].title + "</div><div class='sub-title'>" + holidays[i].subTitle + "</div></div>");
+        // }
     }
 
     changeAge() {
@@ -113,7 +137,7 @@ class App extends Component {
     runJquery() {
         console.log("jquery");
         $('div:has(> #no-day)').addClass('no-day');
-        $('div:has(> #closed-day)').addClass('closed');
+        $('div:has(> .close-me)').addClass('closed');
         var myThis = this;
         $('.selectable')
             .click(function () {

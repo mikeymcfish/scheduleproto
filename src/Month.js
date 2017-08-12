@@ -9,7 +9,7 @@ import EventContainers from "./EventContainer";
 import seriesJSON from "./series.json";
 import App from "./App";
 import { StickyContainer, Sticky } from 'react-sticky';
-
+import Overlay from "./Overlay";
 
 
 class Month extends React.Component {
@@ -27,7 +27,7 @@ class Month extends React.Component {
         //filters
         var dropInList = [];
         var specialList = "";
-        if (isclosed) return <Day closed="true"/>
+        if (isclosed) return <Day isclosed="true"/>
         if (!this.props.filterDropIn)
         {
             dropInList = dropinevents;
@@ -36,6 +36,14 @@ class Month extends React.Component {
         {
             specialList = specialevents;
         }
+
+        // if (this.getHoliday(this.props.name,i)) {
+        //     return (
+        //         <Day month={this.props.name} value={i}>
+        //             <Overlay/>
+        //         </Day>
+        //     )
+        // }
 
         return <Day month={this.props.name} value={i} dropinevents={dropInList} specialevents={specialList} incart={inCart}/>
 
@@ -48,6 +56,17 @@ class Month extends React.Component {
         //
 
         //
+    }
+
+    getHoliday(month, day) {
+        var holidays = global.allEvents.metaData.holidays;
+        for (var i = 0 ; i < Object.keys(holidays).length; i++) {
+            if (holidays[i].month==month && holidays[i].day==day){
+                return holidays[i];
+            }
+            else continue;
+        }
+        return null;
     }
 
     RenderAllDays(c) {
@@ -200,14 +219,13 @@ class Month extends React.Component {
         }
     }
 
+    //returns the single day dropinevents or special for a specific day
     parseForSingleDayEvents(allEvents, checkDay, filter) {
 
-        var dropineventsforthismonth = [];
+        var singleDayEventsThisMonth = [];
         //add all dupes to an array (but originals are not there yet)
         for (var i=0; i < allEvents.length; i++) {
             //is it dropin? if not continue.
-
-
             if (allEvents[i].type!=filter) {
                 continue;
             }
@@ -257,13 +275,27 @@ class Month extends React.Component {
                 continue;
             }
 
-            if (thisMonthDays[0] == checkDay) dropineventsforthismonth.push(allEvents[i]);
+            if (thisMonthDays[0] == checkDay) singleDayEventsThisMonth.push(allEvents[i]);
 
         }
-        return(dropineventsforthismonth);
+        return(singleDayEventsThisMonth);
 
     }
 
+    isDayClosed (day) {
+
+        for (var i in global.allEvents.closedDays) {
+
+            if (this.props.name==i){
+                if (global.allEvents.closedDays[i].indexOf(day)>=0) {
+                    return true;
+                }
+            }
+
+        }
+        return false;
+
+    }
 
     render() {
 
@@ -285,9 +317,12 @@ class Month extends React.Component {
 
             dropinevents = this.parseForSingleDayEvents(global.allEvents.events, i, "drop-in");
             specialevents = this.parseForSingleDayEvents(global.allEvents.events, i, "special");
+            isclosed = this.isDayClosed(i);
+
+
 
             allDays.push(
-                isclosed? <div id="closed-day"></div> : this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
+                this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
             );
 
         }

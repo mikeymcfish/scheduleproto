@@ -129,12 +129,14 @@ body {
 
 .date-number {
   align-content: flex-start;
-  color: #ffffff;
-  z-index: 1000;
+  color: rgba(51, 51, 51, 0.75);
+  z-index: 2;
   width: 100%;
   max-width: none;
   text-align:left;
-  text-shadow: 1px 1px rgba(72, 72, 72, 0.3);
+    margin-left: -5px;
+  /*text-shadow: 1px 1px rgba(72, 72, 72, 0.3);*/
+
 
 }
 
@@ -153,8 +155,9 @@ body {
 .grid {
   display: grid;
   grid-gap: 8px;
-  grid-template-columns: repeat(7, [col] auto ) ;
-  color: #444;
+  /*grid-template-columns: repeat(7, [col] auto ); auto makes some columns wider or shoert which is :-( */
+    grid-template-columns: [col]1fr [col]1fr [col]1fr [col]1fr [col]1fr [col]1fr [col]1fr;
+    color: #444;
   padding: 10px;
 
 }
@@ -430,7 +433,7 @@ body {
     display: flex;
     flex-direction: row;
     z-index: 999;
-    mix-blend-mode: multiply;
+    /*mix-blend-mode: multiply;*/
 }
 /*.event-container-series :hover {*/
 
@@ -532,4 +535,105 @@ body {
     /*margin-bottom: 15px;*/
     display: grid;
     grid-gap: 5px;
+    grid-template-columns: 10fr 1fr 4fr;
+    padding: 0px;
+}
+.filtering-header {
+    margin: 10px;
+    height:50px;
+    overflow: visible;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.change-age-btn {
+    display:flex;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-start;
+}
+.change-location-btn {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 140px;
+    overflow: visible;
+}
+.filtering-header .filtering-hover-text {
+    font-size:12px;
+    margin-top:5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.change-location-btn .filtering-hover-text {
+    align-self: flex-end;
+}
+.filter-selection-box {
+    height:100px;
+    width:160px;
+    background-color: white;
+    z-index: 99999;
+    margin-top:-20px;
+    display: none;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 10px;
+    cursor: pointer;
+    border-top: 3px solid #333;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);
+
+}
+.filter-option {
+    font-size: 18px;
+    padding:4px;
+}
+.filter-option:hover {
+    background-color: #333;
+    color: white;
+}
+.def-no-hover {
+    color: #333 !important;
+}
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: none;
+    min-height: 0;
+    /*mix-blend-mode: multiply;*/
+    z-index: 999;
+    /*box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5) !important;*/
+    /*transform: translateXY();*/
+    /*text-shadow: -1px -1px rgba(72, 72, 72, 0.2);*/
+    border: solid 1px #fafafa;
+    padding:5px;
+
+}
+.day-under-overlay {
+    filter: brightness(150%) blur(1px);
+}
+.overlay .title {
+    color: #333;
+    font-size: 12pt;
+    font-weight: 700;
+    /*margin:3px;*/
+    /*height:40px;*/
+    /*margin: 20px 2px 6px 2px;*/
+    /*background-color: transparent;*/
+}
+.overlay .sub-title {
+    color: rgba(51, 51, 51, 0.73);
+    font-size: 10pt;
+    font-weight: 500;
+    margin:3px;
+    /*height:20px;*/
 }
