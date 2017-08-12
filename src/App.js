@@ -75,6 +75,8 @@ class App extends Component {
         this.toggleDropin = this.toggleDropin.bind(this);
         this.toggleCamp = this.toggleCamp.bind(this);
         this.toggleSpecial = this.toggleSpecial.bind(this);
+        this.changeAge = this.changeAge.bind(this);
+        this.changeLocation = this.changeLocation.bind(this);
         this.state = {
             filterDropIn: true,
             filterSpecial: true,
@@ -92,6 +94,15 @@ class App extends Component {
         $("#calendar").css('display', 'none');
         $("#calendar").css('display', 'grid');
         this.runJquery();
+
+    }
+
+    changeAge() {
+        $(".filter-age").css("display","flex");
+    }
+
+    changeLocation() {
+        $(".filter-location").css("display","flex");
     }
 
     componentDidUpdate() {
@@ -137,8 +148,24 @@ class App extends Component {
             .mouseleave(function () {
                 //console.log("clicked");
                 $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
-
             });
+
+        $('.change-age-btn').hover(function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","#333");
+        });
+
+        $('.change-location-btn').hover(function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","#333");
+        })
+
+        $('body').click(function () {
+            $(".filter-location").css("display","none");
+            $(".filter-age").css("display","none");
+        })
 
         // .mouseover(function (e) {
         //     console.log("hover");
@@ -180,12 +207,33 @@ class App extends Component {
                              price = {this.state.selectedEventPrice}
                              color = {this.state.selectedEventColor}
                     />
+                    <h1 className="heading">
+                    <div className="filtering-header">
 
-                    <h1 className="heading">Showing events for
-                        <span className="editable-heading">anyone </span>
-                        <span
-                        className="editable-heading">age 7 to 9</span> in <span
-                        className="editable-heading">Brooklyn</span></h1>
+                        <div className="change-age-btn" onClick={this.changeAge}>
+                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">age 7 to 9</span></div>
+                            <div className="text-right filtering-hover-text">
+                                <div>click to change</div>
+                            </div>
+                            <div className="filter-selection-box filter-age">
+                                <div className="filter-option">age 7 to 9</div>
+                                <div className="filter-option">age 9 to 11</div>
+                                <div className="filter-option">age 12 to 14</div>
+                            </div>
+                        </div>
+                        <div className="text-center"> in </div>
+                        <div className="change-location-btn" onClick={this.changeLocation}>
+                            <div className="text-left"><span className="editable-heading">Brooklyn</span></div>
+                            <div className="text-center filtering-hover-text">
+                                <div>click to change</div>
+                            </div>
+                            <div className="filter-selection-box filter-location">
+                                <div className="filter-option">Brooklyn</div>
+                                <div className="filter-option">TriBeCa</div>
+                            </div>
+                        </div>
+                    </div>
+                    </h1>
                     <StickyContainer style={{ background:'transparent'}}>
                         <Sticky topOffset={-20}>
                             {
