@@ -12,13 +12,17 @@
   },
   "metaData" : {
 
+    "ownedEvents" : [
+      31,24
+    ],
+
     "holidays" : [
       {
         "month": "September",
         "day": 7,
         "title": "Open House",
         "subTitle": "3pm - 5pm",
-        "backgroundColor": "rgba(255,0,165,.5)",
+        "backgroundColor": "rgba(255,255,0,.5)",
         "icon": ""
       },
       {
@@ -26,7 +30,7 @@
         "day": 8,
         "title": "Open House",
         "subTitle": "3pm - 5pm",
-        "backgroundColor": "rgba(255,0,165,.5)",
+        "backgroundColor": "rgba(255,255,0,.5)",
         "icon": ""
       },
       {
@@ -34,7 +38,7 @@
         "day": 9,
         "title": "Open House",
         "subTitle": "10am - 12pm",
-        "backgroundColor": "rgba(255,0,165,.5)",
+        "backgroundColor": "rgba(255,255,0,.5)",
         "icon": ""
       },
       {
@@ -42,7 +46,16 @@
         "day": 18,
         "title": "Minecon World",
         "subTitle": "viewing party for members",
-        "backgroundColor": "rgba(0,165,255,.5)",
+        "backgroundColor": "rgba(255,255,0,.5)",
+        "icon": "",
+        "backgroundImg" : ""
+      },
+      {
+        "month": "October",
+        "day": 31,
+        "title": "Halloween!",
+        "subTitle": "free drop-in for members",
+        "backgroundColor": "rgba(255,125,0,.5)",
         "icon": "",
         "backgroundImg" : ""
       }
@@ -94,7 +107,7 @@
       }
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "Frosty Camp",
       "age": "7-9",
       "location": "Brooklyn",
@@ -167,6 +180,24 @@
       "days": {
         "September": [
           11
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "name": "Makerspace",
+      "age": "9-11",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsleft": 2,
+      "doesOwn" : true,
+      "days": {
+        "September": [
+          13
         ]
       }
     },

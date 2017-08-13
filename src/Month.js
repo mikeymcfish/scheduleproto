@@ -26,6 +26,7 @@ class Month extends React.Component {
         //filters
         var dropInList = [];
         var specialList = "";
+        var allList = [];
         if (isclosed) return <Day isclosed="true"/>
         if (!this.props.filterDropIn)
         {
@@ -34,6 +35,9 @@ class Month extends React.Component {
         if (!this.props.filterSpecial)
         {
             specialList = specialevents;
+        }
+        if (this.props.showAll) {
+            allList = global.allEvents;
         }
 
         // if (this.getHoliday(this.props.name,i)) {

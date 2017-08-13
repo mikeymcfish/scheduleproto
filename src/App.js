@@ -104,8 +104,14 @@ class App extends Component {
         //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
         $("#calendar").css('display', 'none');
         $("#calendar").css('display', 'grid');
+
+        $('body').click(function () {
+            $(".filter-location").css("display","none");
+            $(".filter-age").css("display","none");
+        });
         this.runJquery();
         this.addHolidays();
+        this.addOwnedDays();
 
     }
 
@@ -125,7 +131,93 @@ class App extends Component {
                 "</div></div>"
             );
         }
+    }
 
+    addOwnedDays() {
+        var ownedEvents = [];
+        ownedEvents = global.allEvents.metaData.ownedEvents;
+        var allEvents = global.allEvents.events;
+        for (var i = 0 ; i < ownedEvents.length; i++) {
+            console.log("i have " + ownedEvents.length + " events");
+            for (var j = 0; j < Object.keys(allEvents).length; j++) {
+                if (allEvents[j].id == ownedEvents[i]) {
+                    //match
+                    console.log("match "+allEvents[j].daystring);
+
+                    //check if its more than one day:
+                    var thisDayFullString = allEvents[j].daystring;
+                    var thisDayString = [];
+
+                    if (thisDayFullString.indexOf(",")>0) {
+
+                        var multiDays = thisDayFullString.split(",");
+
+                        for (var k = 0; k < multiDays.length; k++) {
+                            this.printOwnedDay(multiDays[k],"RESERVED",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")");
+
+                        }
+
+
+                    } else {
+                        this.printOwnedDay(thisDayFullString,"RESERVED",allEvents[j].name);
+                    }
+
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+    printOwnedDay(thisDayFullString,title,subTitle) {
+        var thisDayString = thisDayFullString.split("-");
+        var thisMonth = this.getMonthName(thisDayString[0]);
+        console.log(thisMonth, thisDayString[1]);
+        var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
+        var thisDayRow = thisDay.css("grid-row");
+        var thisDayCol = thisDay.css("grid-column");
+        thisDay.addClass("day-under-overlay");
+        var monthGrid = $('#calendar_' + thisMonth);
+        monthGrid.append(
+            "<div class='overlay owned-day' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
+            "<div class='title'>" + title +
+            "</div><div class='sub-title'>"+subTitle+"</div></div>"
+        );
+
+    }
+
+    getMonthName(num) {
+        num = parseInt(num);
+        switch (num) {
+            case 1:
+                return "January";
+            case 2:
+                return "February";
+            case 3:
+                return "March";
+            case 4:
+                return "April";
+            case 5:
+                return "May";
+            case 6:
+                return "June";
+            case 7:
+                return "July";
+            case 8:
+                return "August";
+            case 9:
+                return "September";
+            case 10:
+                return "October";
+            case 11:
+                return "November";
+            case 12:
+                return "December";
+            default:
+                return "NoIdea";
+        }
     }
 
 
@@ -223,31 +315,6 @@ class App extends Component {
             $('.change-location-btn > .filtering-hover-text').css("color","#333");
         });
 
-        $('body').click(function () {
-            $(".filter-location").css("display","none");
-            $(".filter-age").css("display","none");
-        });
-
-        // $('.set-age-btn')
-        //     .click(function () {
-        //         myThis.setState(
-        //             {
-        //                 currentAgeGroup: $(this).attr("data-age-group")
-        //             }
-        //
-        //         );
-        //     });
-
-        // $('.set-location-btn')
-        //     .click(function () {
-        //         myThis.setState(
-        //             {
-        //                 currentLocation: $(this).attr("data-location")
-        //             }
-        //
-        //         );
-        //         $(".filter-location").css("display","none");
-        //     });
         global.isUpdating=false;
 
 
@@ -265,8 +332,6 @@ class App extends Component {
         return (
             <div className="App">
                 <TopLinks/>
-
-
                 <div className="container w-container">
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 

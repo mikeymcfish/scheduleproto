@@ -349,10 +349,11 @@ body {
     background-color: rgb(247, 247, 247);
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    padding-top: 20px;
     padding-left: 0px;
     padding-right: 50px;
     z-index: 9999;
+    width: 100%;
 
 }
 
@@ -529,6 +530,7 @@ body {
 .month-label {
     padding-top: 60px;
     z-index: 9998;
+
     /*padding-bottom:30px;*/
 }
 
@@ -556,22 +558,7 @@ body {
     justify-content: center;
 }
 
-.filtering-header {
-    /*display: flex;*/
-    /*align-content: center;*/
-    /*justify-content:center;*/
-    /*margin-bottom: 15px;*/
-    display: grid;
-    padding: 0px;
-    grid-gap: 5px;
-    grid-template-columns: 10fr 1fr 6fr;
-}
 
-.filtering-header {
-    height: 50px;
-    margin: 10px;
-    overflow: visible;
-}
 
 .text-right {
     text-align: right;
@@ -646,10 +633,9 @@ body {
 
 .overlay {
     /*border: solid 1px #fafafa;*/
-    box-shadow: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     /*mix-blend-mode: multiply;*/
     min-height: 0;
     /*box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5) !important;*/
@@ -658,6 +644,13 @@ body {
     padding: 5px;
     z-index: 999;
     /*transform: rotateZ(8deg);*/
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .2);
+    width:90%;
+    height:90%;
+    margin-left: 5%;
+    margin-top: -3%;
+    line-height: 16px;
+
 
 }
 .day-under-overlay {
@@ -666,7 +659,7 @@ body {
 
 .overlay .title {
     color: #333;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: 700;
     /*margin:3px;*/
     /*height:40px;*/
@@ -675,9 +668,9 @@ body {
 }
 
 .overlay .sub-title {
-    color: rgba(51, 51, 51, 0.73);
-    font-size: 10pt;
-    font-weight: 500;
+    color: rgba(51, 51, 51, 0.65);
+    font-size: 9pt;
+    font-weight: 600;
     margin: 3px;
     /*height:20px;*/
 }
@@ -701,8 +694,35 @@ body {
     cursor: pointer;
 }
 .top-link:hover {
-    color:blue;
+    color: blue;
     text-decoration: underline;
+}
+
+.owned-day {
+    background-color: rgba(255, 0, 255, 0.5);
+    z-index: 999;
+
+    /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);*/
+}
+.owned-day .title {
+    color:white;
+}
+.owned-day .sub-title {
+    color:white;
+}
+.filtering-header {
+    display:flex;
+    flex-direction: row;
+    /*justify-items: center;*/
+    align-items: flex-start;
+    /*align-content: space-around;*/
+    justify-content: center;
+    height: 65px;
+    overflow: visible;
+}
+.filtering-header .text-center {
+    margin-left:10px;
+    margin-right:10px;
 }
 
 @media (max-width: 900px) {
