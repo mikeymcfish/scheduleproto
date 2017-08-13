@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
@@ -13,7 +11,11 @@ import { Modal } from 'carbon-components';
 import './carbon-components.css';
 import MyModal from './Modal';
 import { StickyContainer, Sticky } from 'react-sticky';
-import Overlay from './Overlay';
+import AlertDialog from "./AlertDialog";
+import Button from 'material-ui/Button';
+import TopLinks from "./TopLinks";
+
+
 
 
 class App extends Component {
@@ -31,40 +33,32 @@ class App extends Component {
 
     toggleDropin() {
         // if (!this.state.filterDropIn) {
-        //     this.setState({filterDropIn:true});
-        // } else {
-        //     this.setState({filterDropIn:false});
-        // }
-        this.setState({filterCamp:true});
-        this.setState({filterSeries:true});
-        this.setState({filterDropIn:false});
-        this.setState({filterSpecial:true});
+        this.setState({
+            filterCamp:true,
+            filterSeries:true,
+            filterDropIn:false,
+            filterSpecial:true
+        });
 
     }
 
     toggleCamp() {
-        // if (!this.state.filterCamp) {
-        //     this.setState({filterCamp:true});
-        // } else {
-        //     this.setState({filterCamp:false});
-        // }
-        this.setState({filterCamp:false});
-        this.setState({filterSeries:true});
-        this.setState({filterDropIn:true});
-        this.setState({filterSpecial:true});
+        this.setState({
+            filterCamp:false,
+            filterSeries:true,
+            filterDropIn:true,
+            filterSpecial:true
+        });
 
     }
 
     toggleSpecial() {
-        // if (!this.state.filterSpecial) {
-        //     this.setState({filterSpecial:true});
-        // } else {
-        //     this.setState({filterSpecial:false});
-        // }
-        this.setState({filterCamp:true});
-        this.setState({filterSeries:true});
-        this.setState({filterDropIn:true});
-        this.setState({filterSpecial:false});
+        this.setState({
+            filterCamp:true,
+            filterSeries:true,
+            filterDropIn:true,
+            filterSpecial:false
+        });
 
     }
 
@@ -78,13 +72,30 @@ class App extends Component {
         this.toggleSpecial = this.toggleSpecial.bind(this);
         this.changeAge = this.changeAge.bind(this);
         this.changeLocation = this.changeLocation.bind(this);
+        this.openAlert = this.openAlert.bind(this);
+        //this.setAgeTo = this.setAgeTo.bind(this);
         this.state = {
             filterDropIn: true,
             filterSpecial: true,
             filterSeries: true,
             filterCamp: true,
+            filter7to9: true,
+            filter9to11: true,
+            filter12to14: true,
+            filterBrooklyn: true,
+            filterTribeca: true,
+            currentLocation: "Brooklyn",
+            currentAgeGroup: "7 to 9",
             selectedEvent: ""
         }
+    }
+
+
+
+    openAlert() {
+        this.setState({
+            open: !this.state.open
+        });
     }
 
 
@@ -108,33 +119,59 @@ class App extends Component {
             thisHoliday.addClass("day-under-overlay");
             var monthGrid = $('#calendar_' + holidays[i].month);
             monthGrid.append(
-                "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"'>" +
+                "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"; transform: rotateZ("+(Math.floor(Math.random()*10)-5)+"deg)'>" +
                 "<div class='title'>" + holidays[i].title +
                 "</div><div class='sub-title'>" + holidays[i].subTitle +
                 "</div></div>"
             );
         }
-        //     thisHoliday.css("background-color", holidays[i].backgroundColor);
-        //     thisHoliday.css("mix-blend-mode", "multiply");
-        //     thisHoliday.html(
-        //         "<div class='overlay'><div class='title'>" + holidays[i].title + "</div><div class='sub-title'>" + holidays[i].subTitle + "</div></div>");
-        // }
+
     }
 
-    changeAge() {
-        $(".filter-age").css("display","flex");
-    }
 
-    changeLocation() {
-        $(".filter-location").css("display","flex");
-    }
+    changeAge = ({ target }) => {
+
+        if (target.hasAttribute("data-age-group")) {
+            this.setState(
+                {
+                    currentAgeGroup: $(target).attr("data-age-group")
+                });
+            $(".filter-age")
+                .css("display","none");
+
+        } else {
+            $(".filter-age")
+                .css("display","flex");
+        }
+
+    };
+
+    changeLocation = ({ target }) => {
+
+        if (target.hasAttribute("data-location")) {
+            this.setState(
+                {
+                    currentLocation: $(target).attr("data-location")
+                });
+            $(".filter-location")
+                .css("display","none");
+
+        } else {
+            $(".filter-location")
+                .css("display","flex");
+        }
+
+    };
+
 
     componentDidUpdate() {
         console.log("did update");
-        this.runJquery();
+        //this.runJquery();
+        if (global.isUpdating=true) this.runJquery();
     }
 
     runJquery() {
+        global.isUpdating=true;
         console.log("jquery");
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> .close-me)').addClass('closed');
@@ -184,22 +221,36 @@ class App extends Component {
             $('.change-location-btn > .filtering-hover-text').css("color","blue");
         }, function () {
             $('.change-location-btn > .filtering-hover-text').css("color","#333");
-        })
+        });
 
         $('body').click(function () {
             $(".filter-location").css("display","none");
             $(".filter-age").css("display","none");
-        })
+        });
 
-        // .mouseover(function (e) {
-        //     console.log("hover");
+        // $('.set-age-btn')
+        //     .click(function () {
+        //         myThis.setState(
+        //             {
+        //                 currentAgeGroup: $(this).attr("data-age-group")
+        //             }
         //
-        //     $("[data-id="+$(this).attr('data-id')+"]").trigger(e.type);
-        //     console.log($("[data-id="+$(this).attr('data-id')+"]"), e.type);
+        //         );
+        //     });
+
+        // $('.set-location-btn')
+        //     .click(function () {
+        //         myThis.setState(
+        //             {
+        //                 currentLocation: $(this).attr("data-location")
+        //             }
         //
-        // });
-        //
-        // a=document.getElementsByTagName('input')
+        //         );
+        //         $(".filter-location").css("display","none");
+        //     });
+        global.isUpdating=false;
+
+
     }
 
     render() {
@@ -213,11 +264,10 @@ class App extends Component {
 
         return (
             <div className="App">
+                <TopLinks/>
+
 
                 <div className="container w-container">
-
-
-
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
                     <MyModal ref={this.state.selectedEvent}
@@ -235,29 +285,32 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">age 7 to 9</span></div>
+                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">age {this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
                             <div className="filter-selection-box filter-age">
-                                <div className="filter-option">age 7 to 9</div>
-                                <div className="filter-option">age 9 to 11</div>
-                                <div className="filter-option">age 12 to 14</div>
+                                <div className="filter-option set-age-btn" data-age-group="7 to 9">age 7 to 9</div>
+                                <div className="filter-option set-age-btn" data-age-group="9 to 11">age 9 to 11</div>
+                                <div className="filter-option set-age-btn" data-age-group="12 to 14">age 12 to 14</div>
                             </div>
                         </div>
                         <div className="text-center"> in </div>
                         <div className="change-location-btn" onClick={this.changeLocation}>
-                            <div className="text-left"><span className="editable-heading">Brooklyn</span></div>
+                            <div className="text-left"><span className="editable-heading">{this.state.currentLocation}</span></div>
                             <div className="text-center filtering-hover-text">
                                 <div>click to change</div>
                             </div>
                             <div className="filter-selection-box filter-location">
-                                <div className="filter-option">Brooklyn</div>
-                                <div className="filter-option">TriBeCa</div>
+                                <div className="filter-option set-location-btn" data-location="Brooklyn">Brooklyn</div>
+                                <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
                             </div>
                         </div>
                     </div>
                     </h1>
+                    {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
+
+                    {/*<AlertDialog open={this.state.open} ref={this} />*/}
                     <StickyContainer style={{ background:'transparent'}}>
                         <Sticky topOffset={-20}>
                             {

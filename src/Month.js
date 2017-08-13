@@ -9,7 +9,6 @@ import EventContainers from "./EventContainer";
 import seriesJSON from "./series.json";
 import App from "./App";
 import { StickyContainer, Sticky } from 'react-sticky';
-import Overlay from "./Overlay";
 
 
 class Month extends React.Component {
