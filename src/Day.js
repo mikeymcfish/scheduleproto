@@ -14,6 +14,15 @@ class Day extends React.Component {
 
     renderEvent(event) {
 
+        //console.log(this.props.filterAge7to9, event.age);
+
+        var hideMe = false;
+
+        if (event.location.toUpperCase()!=this.props.filterLocation.toUpperCase()) hideMe=true;
+        if (event.age=="age 7 to 9" && this.props.filterAge7to9) hideMe=true;
+        if (event.age=="age 9 to 11" && this.props.filterAge9to11) hideMe=true;
+        if (event.age=="age 12 to 14" && this.props.filterAge12to14) hideMe=true;
+
         var colorClass="";
         switch (event.type) {
             case "drop-in" :
@@ -28,12 +37,16 @@ class Day extends React.Component {
             default:
                 break;
         }
+        var hiddenClass = "";
+        hideMe ? hiddenClass = "hide-me" : "";
+        var soldOutClass = "";
+        event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
         return(
-            <div className={"square-btn " + colorClass}>
+            <div className={"square-btn " + colorClass + " " + hiddenClass+ " " + soldOutClass}>
                 <div className="square-btn-copy selectable" data-modal-target="#myspecialmodal" data-name={event.name}
-                     data-price={"$"+ Math.floor(Math.random()*10)}
+                     data-price={event.price}
                      data-description = {event.description}
-                     data-spotsleft = {event.spotsleft}
+                     data-spotsLeft = {event.spotsLeft}
                      data-location = {event.location}
                      data-age = {event.age}
                      data-dates = {event.dates}
@@ -43,7 +56,7 @@ class Day extends React.Component {
                     <div className={"square-btn-text " + colorClass}>{event.name}</div>
                 </div>
                 <div className="square-btn-additional-copy">
-                    <div>{event.spotsleft} spots left</div>
+                    <div>{event.spotsLeft} spots left</div>
                 </div>
             </div>
         );

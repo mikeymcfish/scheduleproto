@@ -20,9 +20,9 @@ export default class AlertDialog extends Component {
     render() {
         return (
             <div>
-                <Dialog id="alert" open={this.props.open} onRequestClose={this.handleRequestClose} onClose={this.handleRequestClose}>
+                <Dialog data-id={this.props.id} id="alert" open={this.props.open} onRequestClose={this.handleRequestClose} onClose={this.handleRequestClose}>
                     <DialogTitle>
-                        {this.props.title}
+                        {this.props.title} {this.props.spotsLeft ? <span className="small-text">({this.props.spotsLeft} spots left)</span> : ""}
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText>
@@ -31,10 +31,10 @@ export default class AlertDialog extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleRequestClose} color="primary">
-                            Cancel
+                            {this.props.button1}
                         </Button>
                         <Button onClick={this.handleRequestClose} color="primary">
-                            Proceed
+                            {this.props.button2}
                         </Button>
                     </DialogActions>
                 </Dialog>

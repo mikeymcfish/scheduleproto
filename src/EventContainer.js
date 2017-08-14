@@ -104,9 +104,13 @@ class EventContainer extends Component {
                     id = {event.id}
                     age = {event.age}
                     location = {event.location}
-                    spotsleft = {event.spotsLeft}
+                    spotsLeft = {event.spotsLeft}
                     description = {event.description}
                     monthObject={this.props.month}
+                    filterAge7to9={this.props.filterAge7to9}
+                    filterAge9to11={this.props.filterAge9to11}
+                    filterAge12to14={this.props.filterAge12to14}
+                    filterLocation={this.props.filterLocation}
 
                 />)}
             </div>

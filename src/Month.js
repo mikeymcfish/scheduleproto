@@ -36,9 +36,7 @@ class Month extends React.Component {
         {
             specialList = specialevents;
         }
-        if (this.props.showAll) {
-            allList = global.allEvents;
-        }
+
 
         // if (this.getHoliday(this.props.name,i)) {
         //     return (
@@ -48,7 +46,15 @@ class Month extends React.Component {
         //     )
         // }
 
-        return <Day month={this.props.name} value={i} dropinevents={dropInList} specialevents={specialList} incart={inCart}/>
+        return <Day month={this.props.name}
+                    value={i}
+                    dropinevents={dropInList}
+                    specialevents={specialList}
+                    filterAge7to9={this.props.filterAge7to9}
+                    filterAge9to11={this.props.filterAge9to11}
+                    filterAge12to14={this.props.filterAge12to14}
+                    filterLocation={this.props.filterLocation}
+                    incart={inCart}/>
 
         //RANDOM TESTING
         //
@@ -520,12 +526,20 @@ class Month extends React.Component {
                         allDupes={container}
                         skipDays={this.props.skipDays}
                         month={this.props.name}
+                        filterAge7to9={this.props.filterAge7to9}
+                        filterAge9to11={this.props.filterAge9to11}
+                        filterAge12to14={this.props.filterAge12to14}
+                        filterLocation={this.props.filterLocation}
                     />)}
                     {overlappingCamp.map((container, index) => <EventContainers
                         key = {index}
                         allDupes={container}
                         skipDays={this.props.skipDays}
                         month={this.props.name}
+                        filterAge7to9={this.props.filterAge7to9}
+                        filterAge9to11={this.props.filterAge9to11}
+                        filterAge12to14={this.props.filterAge12to14}
+                        filterLocation={this.props.filterLocation}
                     />)}
                     {eventsList.map((event, index) => <Event
                         key={index}
@@ -537,9 +551,13 @@ class Month extends React.Component {
                         id = {event.id}
                         age = {event.age}
                         location = {event.location}
-                        spotsleft = {event.spotsLeft}
+                        spotsLeft = {event.spotsLeft}
                         description = {event.description}
                         days = {event.days}
+                        filterAge7to9={this.props.filterAge7to9}
+                        filterAge9to11={this.props.filterAge9to11}
+                        filterAge12to14={this.props.filterAge12to14}
+                        filterLocation={this.props.filterLocation}
                         monthObject={this}
                     />)}
                 </div>

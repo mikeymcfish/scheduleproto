@@ -33,7 +33,7 @@ class App extends Component {
         //     currentAgeGroup: this.state.members[0].name,
         //     ageSelectionOptions: this.state.members
         // });
-        this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.");
+        this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
 
 
@@ -79,6 +79,68 @@ class App extends Component {
 
     }
 
+    setFilterAgeByAge(age) {
+        console.log("setting filter by age "+ age);
+
+        if (age < 7) {
+
+        }
+        if (age <= 9) {
+            this.setState({
+                filter7to9: false,
+                filter9to11: true,
+                filter12to14: true
+            })
+        }
+        else if (age <= 11) {
+            this.setState({
+                filter7to9: true,
+                filter9to11: false,
+                filter12to14: true
+            })
+        }
+        else if (age <= 14) {
+            this.setState({
+                filter7to9: true,
+                filter9to11: true,
+                filter12to14: false
+            })
+        }
+        if (age==9) {
+            this.setState({
+                filter7to9: false,
+                filter9to11: false,
+                filter12to14: true
+            })
+        }
+
+    }
+
+    setFilterAgeByGroup (group) {
+        console.log("filter age by "+group);
+        if (group == "age 7 to 9") {
+            this.setState({
+                filter7to9: false,
+                filter9to11: true,
+                filter12to14: true
+            })
+        }
+        else if (group == "age 9 to 11") {
+            this.setState({
+                filter7to9: true,
+                filter9to11: false,
+                filter12to14: true
+            })
+        }
+        else if (group == "age 12 to 14") {
+            this.setState({
+                filter7to9: true,
+                filter9to11: true,
+                filter12to14: false
+            })
+        }
+    }
+
 
     constructor() {
         super();
@@ -93,17 +155,15 @@ class App extends Component {
         this.closeAlert = this.closeAlert.bind(this);
         this.testLogIn = this.testLogIn.bind(this);
 
-        //this.setAgeTo = this.setAgeTo.bind(this);
         this.state = {
             filterDropIn: true,
             filterSpecial: true,
             filterSeries: true,
             filterCamp: true,
-            filter7to9: true,
+            filter7to9: false,
             filter9to11: true,
             filter12to14: true,
-            filterBrooklyn: true,
-            filterTribeca: true,
+            filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
             currentAgeGroup: "age 7 to 9",
             ageSelectionOptions: [
@@ -117,19 +177,27 @@ class App extends Component {
             selectedMemberKey: "",
             alert: {
                 title: "",
-                text: ""
+                text: "",
+                button1: "cancel",
+                button2: "ok",
+                id: 0,
+                spotsLeft: 0
             }
         }
     }
 
 
 
-    openAlert(title, text) {
+    openAlert(title, text, btn1, btn2, spots, id) {
         this.setState({
             open: !this.state.open,
             alert: {
                 title: title,
-                text: text
+                text: text,
+                button1: btn1,
+                button2: btn2,
+                spotsLeft: spots,
+                id: id
             }
         });
     }
@@ -152,6 +220,19 @@ class App extends Component {
             $(".filter-location").css("display","none");
             $(".filter-age").css("display","none");
         });
+        $('.change-age-btn').unbind("hover");
+        $('.change-age-btn').hover(function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","#333");
+        });
+        $('.change-location-btn').unbind("hover");
+        $('.change-location-btn').hover(function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","#333");
+        });
+
         this.runJquery();
         this.addHolidays();
         this.addOwnedDays();
@@ -212,6 +293,7 @@ class App extends Component {
                     } else {
                         this.printOwnedDay(thisDayFullString,"RESERVED",allEvents[j].name);
                     }
+                    $("[data-id='"+allEvents[j].id+"']").hide();
 
                     continue;
                 }
@@ -288,8 +370,10 @@ class App extends Component {
                         currentLocation: this.state.members[member].defaultLocation,
                         selectedMemberKey: member
                     });
+                    this.setFilterAgeByAge(this.state.members[member].age);
                 }
             }
+            this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
         } else {
@@ -304,7 +388,8 @@ class App extends Component {
         if (target.hasAttribute("data-location")) {
             this.setState(
                 {
-                    currentLocation: $(target).attr("data-location")
+                    currentLocation: $(target).attr("data-location"),
+                    filterLocation: $(target).attr("data-location")
                 });
             $(".filter-location")
                 .css("display","none");
@@ -320,7 +405,7 @@ class App extends Component {
     componentDidUpdate() {
         console.log("did update");
         //this.runJquery();
-        if (global.isUpdating=true) this.runJquery();
+        if (global.isUpdating!=true) this.runJquery();
     }
 
     runJquery() {
@@ -330,28 +415,17 @@ class App extends Component {
         $('div:has(> .close-me)').addClass('closed');
         this.addOwnedDays();
         var myThis = this;
+        $('.selectable').unbind("click");
+        $('.selectable').unbind("mouseenter");
+        $('.selectable').unbind("mouseleave");
+
         $('.selectable')
             .click(function () {
-                //console.log("clicked");
-                myThis.setState(
-                    {
-                        selectedEvent: $(this),
-                        selectedEventName: $(this).attr("data-name"),
-                        selectedEventPrice: $(this).attr("data-price"),
-                        selectedEventType: $(this).attr("data-type"),
-                        selectedEventDescription: $(this).attr("data-description"),
-                        selectedEventID: $(this).attr("data-id"),
-                        selectedEventAges: $(this).attr("data-ages"),
-                        selectedEventLocation: $(this).attr("data-location"),
-                        selectedEventColor: $(this).css("background-color")
-                    }
-                );
+
                 var myColor;
                 $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
                     myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-                console.log("color: " + $(this).is(".drop-in-color,.special-color,.camp-color,.series-color"));
-
-                $(".bx--modal-container").css("border-color", myColor);
+                myThis.openAlert($(this).attr("data-name"),$(this).attr("data-description"), "cancel", "add for $"+$(this).attr("data-price"),$(this).attr("data-spotsleft"), $(this).attr("data-id"));
             });
 
         $('.selectable')
@@ -365,17 +439,6 @@ class App extends Component {
                 $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
             });
 
-        $('.change-age-btn').hover(function () {
-            $('.change-age-btn > .filtering-hover-text').css("color","blue");
-        }, function () {
-            $('.change-age-btn > .filtering-hover-text').css("color","#333");
-        });
-
-        $('.change-location-btn').hover(function () {
-            $('.change-location-btn > .filtering-hover-text').css("color","blue");
-        }, function () {
-            $('.change-location-btn > .filtering-hover-text').css("color","#333");
-        });
 
         global.isUpdating=false;
 
@@ -403,17 +466,17 @@ class App extends Component {
                 <div className="container w-container">
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
-                    <MyModal ref={this.state.selectedEvent}
-                             modalid="myspecialmodal"
-                             title={this.state.selectedEventName}
-                             description={this.state.selectedEventDescription}
-                             type={this.state.selectedEventType}
-                             eventId={this.state.selectedEventID}
-                             location={this.state.selectedEventLocation}
-                             ages={this.state.selectedEventAges}
-                             price = {this.state.selectedEventPrice}
-                             color = {this.state.selectedEventColor}
-                    />
+                    {/*<MyModal ref={this.state.selectedEvent}*/}
+                             {/*modalid="myspecialmodal"*/}
+                             {/*title={this.state.selectedEventName}*/}
+                             {/*description={this.state.selectedEventDescription}*/}
+                             {/*type={this.state.selectedEventType}*/}
+                             {/*eventId={this.state.selectedEventID}*/}
+                             {/*location={this.state.selectedEventLocation}*/}
+                             {/*ages={this.state.selectedEventAges}*/}
+                             {/*price = {this.state.selectedEventPrice}*/}
+                             {/*color = {this.state.selectedEventColor}*/}
+                    {/*/>*/}
                     <h1 className="heading">
                     <div className="filtering-header">
 
@@ -447,7 +510,15 @@ class App extends Component {
                     </h1>
                     {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
 
-                    <AlertDialog open={this.state.open} onClose={this.closeAlert} title={this.state.alert.title} text={this.state.alert.text}/>
+                    <AlertDialog open={this.state.open}
+                                 onClose={this.closeAlert}
+                                 title={this.state.alert.title}
+                                 text={this.state.alert.text}
+                                 button1={this.state.alert.button1}
+                                 button2={this.state.alert.button2}
+                                 spotsLeft={this.state.alert.spotsLeft}
+                                 id={this.state.alert.id}
+                    />
                     <StickyContainer style={{ background:'transparent'}}>
                         <Sticky topOffset={-20}>
                             {
@@ -504,6 +575,10 @@ class App extends Component {
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           filterAge7to9={this.state.filter7to9}
+                           filterAge9to11={this.state.filter9to11}
+                           filterAge12to14={this.state.filter12to14}
+                           filterLocation={this.state.filterLocation}
                            myApp = {this}
                     />
                     <Month name="October" numDays="31" skipDays="0"
@@ -511,6 +586,10 @@ class App extends Component {
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           filterAge7to9={this.state.filter7to9}
+                           filterAge9to11={this.state.filter9to11}
+                           filterAge12to14={this.state.filter12to14}
+                           filterLocation={this.state.filterLocation}
                            myApp = {this}
                     />
                     <Month name="November" numDays="30" skipDays="3"
@@ -518,6 +597,10 @@ class App extends Component {
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           filterAge7to9={this.state.filter7to9}
+                           filterAge9to11={this.state.filter9to11}
+                           filterAge12to14={this.state.filter12to14}
+                           filterLocation={this.state.filterLocation}
                            myApp = {this}
                     />
                     <Month name="December" numDays="31" skipDays="5"
@@ -525,6 +608,10 @@ class App extends Component {
                            filterSpecial={this.state.filterSpecial}
                            filterSeries={this.state.filterSeries}
                            filterCamp={this.state.filterCamp}
+                           filterAge7to9={this.state.filter7to9}
+                           filterAge9to11={this.state.filter9to11}
+                           filterAge12to14={this.state.filter12to14}
+                           filterLocation={this.state.filterLocation}
                            myApp = {this}
                     />
 

@@ -352,7 +352,7 @@ body {
     padding-top: 20px;
     padding-left: 0px;
     padding-right: 50px;
-    z-index: 9999;
+    z-index: 1000;
     width: 100%;
 
 }
@@ -529,7 +529,7 @@ body {
 
 .month-label {
     padding-top: 60px;
-    z-index: 9998;
+    z-index: 998;
 
     /*padding-bottom:30px;*/
 }
@@ -613,7 +613,7 @@ body {
     margin-top: -20px;
     padding: 10px;
     width: 250px;
-    z-index: 99999;
+    z-index: 999;
 
 }
 
@@ -642,7 +642,7 @@ body {
     /*transform: translateXY();*/
     /*text-shadow: -1px -1px rgba(72, 72, 72, 0.2);*/
     padding: 5px;
-    z-index: 999;
+    z-index: 997;
     /*transform: rotateZ(8deg);*/
     box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .2);
     width:90%;
@@ -699,6 +699,11 @@ body {
     text-decoration: underline;
 }
 
+.small-text {
+    font-size: 70%;
+    font-weight: 200;
+}
+
 .owned-day {
     background-color: rgba(255, 0, 255, 0.5);
     z-index: 999;
@@ -746,4 +751,15 @@ body {
     .filter-circle-container {
         width: 25%;
     }
+}
+
+.hide-me {
+    display:none;
+}
+.sold-out {
+    filter: grayscale(100%);
+    opacity: .3;
+    color: #333
+    box-shadow: none;
+    order: 4;
 }

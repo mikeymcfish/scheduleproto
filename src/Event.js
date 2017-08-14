@@ -15,9 +15,22 @@ class Event extends Component {
 
     render() {
 
+        //check if filtered
+        var hideMe = false;
+
+        if (this.props.location.toUpperCase()!=this.props.filterLocation.toUpperCase()) hideMe=true;
+        if (this.props.age=="age 7 to 9" && this.props.filterAge7to9) hideMe=true;
+        if (this.props.age=="age 9 to 11" && this.props.filterAge9to11) hideMe=true;
+        if (this.props.age=="age 12 to 14" && this.props.filterAge12to14) hideMe=true;
+
+        var hiddenClass = "";
+        hideMe ? hiddenClass = "hide-me" : "";
+
+        var soldOutClass = "";
+        this.props.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
+
         //CHECK IF IN A SPAN CONTAINER
 
-        console.log(this.props.testing ? "*** "+this.props.days : "");
         var killFont = false;
 
         if (this.props.days) {
@@ -149,15 +162,17 @@ class Event extends Component {
 
             console.log("kill font: " + killFont);
 
+
+
             return (
 
-                <div className={spanType + ' spanner selectable'} data-days={this.props.days}
+                <div className={spanType + ' spanner ' + hiddenClass + ' ' + soldOutClass} data-days={this.props.days}
                      data-modal-target="#myspecialmodal"
                      data-name={this.props.name}
                      data-price={this.props.price}
                      data-month={this.props.month}
                      data-description = {this.props.description}
-                     data-spotsleft = {this.props.spotsleft}
+                     data-spotsLeft = {this.props.spotsLeft}
                      data-location = {this.props.location}
                      data-age = {this.props.age}
                      data-dates = {this.props.dates}
@@ -180,16 +195,18 @@ class Event extends Component {
                     })()}
                 </div>
             )
+
+            // otherwise its a container
         } else {
 
             return (
-                <div className={this.props.type+"-color spanner selectable contained-" + this.props.type}
+                <div className={this.props.type+"-color spanner " + hiddenClass+ " "+soldOutClass+" contained-" + this.props.type}
                      data-modal-target="#myspecialmodal"
                      data-name={this.props.name}
                      data-price={this.props.price}
                      data-month={this.props.month}
                      data-description = {this.props.description}
-                     data-spotsleft = {this.props.spotsleft}
+                     data-spotsLeft = {this.props.spotsLeft}
                      data-location = {this.props.location}
                      data-age = {this.props.age}
                      data-dates = {this.props.dates}

@@ -4,15 +4,19 @@
       {
         "name" : "Mikey McFish",
         "id": 314,
+        "memberType" : "classic",
         "birthday": "10-30-83",
+        "school" : "P.S. 29",
         "age": 11,
         "defaultLocation": "Brooklyn",
-        "ownedEvents": [24]
+        "ownedEvents": [25]
       },
       {
         "name": "Johnny Downtown",
         "id": 232,
+        "memberType" : "premium",
         "birthday": "11-8-01",
+        "school" : "Hogwarts",
         "age": 8,
         "defaultLocation": "TriBeCa",
         "ownedEvents": [31]
@@ -82,14 +86,14 @@
     {
       "id": 24,
       "name": "Minecraft Mobs",
-      "age": "7-9",
+      "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
       "price": 145,
-      "spotsleft": 3,
+      "spotsLeft": 3,
       "days": {
         "September": [
           25
@@ -108,14 +112,14 @@
     {
       "id": 26,
       "name": "Winter Camp 1",
-      "age": "7-9",
+      "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "camp",
       "span-type": "horizontal",
       "price": 145,
-      "spotsleft": 3,
+      "spotsLeft": 3,
       "days": {
         "December": [
           26,27,28,29
@@ -125,14 +129,14 @@
     {
       "id": 32,
       "name": "Frosty Camp",
-      "age": "7-9",
+      "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "camp",
       "span-type": "horizontal",
       "price": 145,
-      "spotsleft": 3,
+      "spotsLeft": 3,
       "days": {
         "December": [
           26,27,28,29
@@ -142,14 +146,14 @@
     {
       "id": 25,
       "name": "Virtual Reality",
-      "age": "9-11",
+      "age": "age 9 to 11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
       "price": 225,
-      "spotsleft": 2,
+      "spotsLeft": 2,
       "days": {
         "September": [
           26
@@ -166,14 +170,14 @@
     {
       "id": 26,
       "name": "Columbus Day\nMini-Camp",
-      "age": "9-11",
+      "age": "age 9 to 11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "special",
       "span-type": "one-day",
       "price": 225,
-      "spotsleft": 2,
+      "spotsLeft": 2,
       "doesOwn" : true,
       "days": {
         "October": [
@@ -184,14 +188,14 @@
     {
       "id": 27,
       "name": "Makerspace",
-      "age": "9-11",
-      "location": "Brooklyn",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsleft": 2,
+      "spotsLeft": 2,
       "doesOwn" : true,
       "days": {
         "September": [
@@ -202,14 +206,14 @@
     {
       "id": 31,
       "name": "Makerspace",
-      "age": "9-11",
+      "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsleft": 2,
+      "spotsLeft": 2,
       "doesOwn" : true,
       "days": {
         "September": [
@@ -220,14 +224,14 @@
     {
       "id": 28,
       "name": "Tournament",
-      "age": "9-11",
+      "age": "age 9 to 11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsleft": 2,
+      "spotsLeft": 2,
       "doesOwn" : true,
       "days": {
         "September": [
@@ -238,14 +242,14 @@
     {
       "id": 29,
       "name": "Drone Coding Pro",
-      "age": "7-9",
+      "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
       "price": 145,
-      "spotsleft": 3,
+      "spotsLeft": 0,
       "days": {
         "September": [
           25
@@ -263,15 +267,15 @@
     },
     {
       "id": 30,
-      "name": "Fancy 4th thing",
-      "age": "7-9",
+      "name": "SPORTS/design",
+      "age": "age 9 to 11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
       "price": 145,
-      "spotsleft": 3,
+      "spotsLeft": 3,
       "days": {
         "September": [
           25
