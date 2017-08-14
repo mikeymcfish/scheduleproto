@@ -1,4 +1,24 @@
 {
+  "members" : [
+
+      {
+        "name" : "Mikey McFish",
+        "id": 314,
+        "birthday": "10-30-83",
+        "age": 11,
+        "defaultLocation": "Brooklyn",
+        "ownedEvents": [24]
+      },
+      {
+        "name": "Johnny Downtown",
+        "id": 232,
+        "birthday": "11-8-01",
+        "age": 8,
+        "defaultLocation": "TriBeCa",
+        "ownedEvents": [31]
+      }
+
+  ],
   "closedDays" : {
       "September": [
         1,2,3,4,5,6,10,17,24
@@ -11,10 +31,6 @@
       ]
   },
   "metaData" : {
-
-    "ownedEvents" : [
-      31,24
-    ],
 
     "holidays" : [
       {

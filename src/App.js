@@ -20,6 +20,23 @@ import TopLinks from "./TopLinks";
 
 class App extends Component {
 
+    testLogIn() {
+        //should probably put owned events in these member details.
+        this.setState({
+            loggedIn:true,
+            members:global.allEvents.members,
+            currentAgeGroup: "(choose)"
+
+        });
+        console.log(this.state.loggedIn);
+        // this.setState({
+        //     currentAgeGroup: this.state.members[0].name,
+        //     ageSelectionOptions: this.state.members
+        // });
+        this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.");
+     }
+
+
     toggleSeries() {
 
         this.setState({
@@ -73,6 +90,9 @@ class App extends Component {
         this.changeAge = this.changeAge.bind(this);
         this.changeLocation = this.changeLocation.bind(this);
         this.openAlert = this.openAlert.bind(this);
+        this.closeAlert = this.closeAlert.bind(this);
+        this.testLogIn = this.testLogIn.bind(this);
+
         //this.setAgeTo = this.setAgeTo.bind(this);
         this.state = {
             filterDropIn: true,
@@ -85,17 +105,40 @@ class App extends Component {
             filterBrooklyn: true,
             filterTribeca: true,
             currentLocation: "Brooklyn",
-            currentAgeGroup: "7 to 9",
-            selectedEvent: ""
+            currentAgeGroup: "age 7 to 9",
+            ageSelectionOptions: [
+                "age 7 to 9",
+                "age 9 to 11",
+                "age 12 to 14"
+            ],
+            selectedEvent: "",
+            loggedIn: false,
+            members: [],
+            selectedMemberKey: "",
+            alert: {
+                title: "",
+                text: ""
+            }
         }
     }
 
 
 
-    openAlert() {
+    openAlert(title, text) {
         this.setState({
-            open: !this.state.open
+            open: !this.state.open,
+            alert: {
+                title: title,
+                text: text
+            }
         });
+    }
+
+    closeAlert() {
+        this.setState({
+            open: false
+        })
+        console.log("closing alert");
     }
 
 
@@ -135,7 +178,14 @@ class App extends Component {
 
     addOwnedDays() {
         var ownedEvents = [];
-        ownedEvents = global.allEvents.metaData.ownedEvents;
+
+        //not a member? they dont own anything
+        if (!this.state.members[this.state.selectedMemberKey]) return;
+
+        //remove previous overlays
+        $(".owned-day").remove();
+        $(".day-under-overlay").removeClass("day-under-overlay");
+        ownedEvents = this.state.members[this.state.selectedMemberKey].ownedEvents;
         var allEvents = global.allEvents.events;
         for (var i = 0 ; i < ownedEvents.length; i++) {
             console.log("i have " + ownedEvents.length + " events");
@@ -153,6 +203,7 @@ class App extends Component {
                         var multiDays = thisDayFullString.split(",");
 
                         for (var k = 0; k < multiDays.length; k++) {
+
                             this.printOwnedDay(multiDays[k],"RESERVED",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")");
 
                         }
@@ -230,6 +281,16 @@ class App extends Component {
                 });
             $(".filter-age")
                 .css("display","none");
+            // is it a member?
+            for (var member in Object.keys(this.state.members)) {
+                if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
+                    this.setState({
+                        currentLocation: this.state.members[member].defaultLocation,
+                        selectedMemberKey: member
+                    });
+                }
+            }
+
 
         } else {
             $(".filter-age")
@@ -267,6 +328,7 @@ class App extends Component {
         console.log("jquery");
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> .close-me)').addClass('closed');
+        this.addOwnedDays();
         var myThis = this;
         $('.selectable')
             .click(function () {
@@ -327,11 +389,17 @@ class App extends Component {
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
         var seriesFilterIcon = this.state.filterSeries ? "" : <CheckIcon/>;
         var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
-
+        var listOfAgeSelections = this.state.ageSelectionOptions;
+        if (this.state.members.length>0) {
+            listOfAgeSelections=[];
+            for (var member in Object.keys(this.state.members)) {
+                listOfAgeSelections.push(this.state.members[member].name.split(" ")[0]);
+            }
+        }
 
         return (
             <div className="App">
-                <TopLinks/>
+                <TopLinks onLogin={this.testLogIn}/>
                 <div className="container w-container">
                     {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
@@ -350,14 +418,18 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">age {this.state.currentAgeGroup}</span></div>
+                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">{this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
                             <div className="filter-selection-box filter-age">
-                                <div className="filter-option set-age-btn" data-age-group="7 to 9">age 7 to 9</div>
-                                <div className="filter-option set-age-btn" data-age-group="9 to 11">age 9 to 11</div>
-                                <div className="filter-option set-age-btn" data-age-group="12 to 14">age 12 to 14</div>
+                                {/*//ageSelectionOptions*/}
+                                {listOfAgeSelections.map((selection, index) =>
+                                    <div className="filter-option set-age-btn" data-age-group={selection}>{selection}</div>
+                                )}
+                                {/*<div className="filter-option set-age-btn" data-age-group="age 7 to 9">age 7 to 9</div>*/}
+                                {/*<div className="filter-option set-age-btn" data-age-group="age 9 to 11">age 9 to 11</div>*/}
+                                {/*<div className="filter-option set-age-btn" data-age-group="age 12 to 14">age 12 to 14</div>*/}
                             </div>
                         </div>
                         <div className="text-center"> in </div>
@@ -375,7 +447,7 @@ class App extends Component {
                     </h1>
                     {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
 
-                    {/*<AlertDialog open={this.state.open} ref={this} />*/}
+                    <AlertDialog open={this.state.open} onClose={this.closeAlert} title={this.state.alert.title} text={this.state.alert.text}/>
                     <StickyContainer style={{ background:'transparent'}}>
                         <Sticky topOffset={-20}>
                             {
