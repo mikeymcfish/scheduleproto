@@ -302,7 +302,7 @@
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "pro-series",
       "span-type": "vertical",
-      "startTime":"5:45 p.m.",
+      "startTime":"5:45p.m.",
       "price": 145,
       "spotsLeft": 3,
       "days": {

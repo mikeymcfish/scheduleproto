@@ -29,6 +29,7 @@ class Event extends Component {
         var soldOutClass = "";
         this.props.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
 
+
         //CHECK IF IN A SPAN CONTAINER
 
         var killFont = false;
@@ -165,7 +166,9 @@ class Event extends Component {
 
             console.log("kill font: " + killFont);
 
+            //does this day have an owned container?
 
+            var hasOverlay = false;
 
             return (
 

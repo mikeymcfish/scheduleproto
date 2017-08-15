@@ -272,14 +272,19 @@ class App extends Component {
     }
 
     addHolidays() {
+        console.log("adding holidays");
+
         var holidays = global.allEvents.metaData.holidays;
         for (var i = 0 ; i < Object.keys(holidays).length; i++) {
             console.log(holidays[i].month, holidays[i].day);
-            var thisHoliday = $('.day:has(> [data-month="' + holidays[i].month + '"][data-daynum="' + holidays[i].day + '"])');
-            var thisHolidayRow = thisHoliday.css("grid-row");
-            var thisHolidayCol = thisHoliday.css("grid-column");
+            var thisHoliday;
+            thisHoliday = $('.day:has(> [data-month="' + holidays[i].month + '"][data-daynum="' + holidays[i].day + '"])');
+            console.log(thisHoliday);
+            var thisHolidayRow = thisHoliday.css("grid-row-start");
+            var thisHolidayCol = thisHoliday.css("grid-column-start");
             thisHoliday.addClass("day-under-overlay");
             var monthGrid = $('#calendar_' + holidays[i].month);
+            console.log("grid location: "+ thisHolidayRow+"," +thisHolidayCol);
             monthGrid.append(
                 "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"; transform: rotateZ("+(Math.floor(Math.random()*10)-5)+"deg)'>" +
                 "<div class='title'>" + holidays[i].title +
@@ -341,8 +346,8 @@ class App extends Component {
         var thisMonth = this.getMonthName(thisDayString[0]);
         console.log(thisMonth, thisDayString[1]);
         var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-        var thisDayRow = thisDay.css("grid-row");
-        var thisDayCol = thisDay.css("grid-column");
+        var thisDayRow = thisDay.css("grid-row-start");
+        var thisDayCol = thisDay.css("grid-column-start");
         thisDay.addClass("day-under-overlay");
         var monthGrid = $('#calendar_' + thisMonth);
         monthGrid.append(
@@ -479,6 +484,16 @@ class App extends Component {
             .mouseleave(function () {
                 //console.log("clicked");
                 $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
+            });
+        $('.event-container-series, .event-container-pro-series')
+            .mouseenter(function () {
+                //console.log("clicked");
+                $(this).addClass('container-hover');
+
+            })
+            .mouseleave(function () {
+                //console.log("clicked");
+                $(this).removeClass('container-hover');
             });
 
 

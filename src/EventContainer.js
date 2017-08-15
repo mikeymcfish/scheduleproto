@@ -89,8 +89,7 @@ class EventContainer extends Component {
             <div className={'event-container-'+usingDay.type} style={{
 
                 gridColumn: "col " + startCol + " / span " + colSpan,
-                gridRow: "row " + startRow + " / span " + rowSpan,
-                zIndex: 100
+                gridRow: "row " + startRow + " / span " + rowSpan
 
             }}>
                 {this.props.allDupes.map((event, index) => <Event

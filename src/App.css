@@ -457,10 +457,13 @@ body {
     background-color: transparent;
     display: flex;
     flex-direction: row;
-    z-index: 999;
+    z-index: 99;
     /*mix-blend-mode: multiply;*/
 }
 
+container-hover {
+    z-index:102 !important;
+}
 /*.event-container-series :hover {*/
 
 /*z-index: 2000 !important;*/
@@ -476,6 +479,12 @@ body {
     width: 20px;
     z-index: 20;
     z-index: 999;
+    /*mix-blend-mode: multiply;*/
+}
+
+.event-container-series:hover{
+
+    z-index: 102;
     /*mix-blend-mode: multiply;*/
 }
 
@@ -618,7 +627,7 @@ body {
     margin-top: -20px;
     padding: 10px;
     width: 250px;
-    z-index: 999;
+    z-index: 9999;
 
 }
 
@@ -715,7 +724,7 @@ body {
     /*background-color: rgba(255, 0, 255, 0.5);*/
     background-color: rgba(255, 255, 255, 1);
     border-top: solid #9a9a9a 10px;
-    z-index: 99;
+    z-index: 101;
 
     /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);*/
 }
@@ -795,10 +804,19 @@ body {
     cursor: pointer;
 }
 
+hr {
+    /*margin-top:10px !important;*/
+
+}
+
 .view-day-content {
     display:grid;
     grid-template-columns: 1fr 3fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top:15px;
+    margin-bottom:5px;
     /*font-size: 14pt;*/
 }
 .default-schedule-item {
@@ -814,14 +832,24 @@ body {
     color: #333;
     text-align: left;
     font-weight: 600;
+    align-self: center;
 }
 .schedule-item-subtext {
-    font-size: 90%;
+    font-size: 70%;
     color: #707070;
+    margin-top: -5px;
 }
 .schedule-item.none {
     color: rgba(255, 0, 0, 0.64);
     font-style: italic;
+    display:none;
+}
+.series-text {
+    align-self: center;
+
+}
+.pro-text {
+    align-self: center;
 }
 .time-of-day {
     color: #5f5f5f;
@@ -831,15 +859,21 @@ body {
 }
 .button-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-items: center;
 }
+.add-on-section {
+    margin-top:20px;
+}
 .pro-series-btn {
-    margin: 5px;
+    margin-right: 15px;
 }
 .add-on-link {
     text-decoration: underline;
 }
 .add-on-link:hover {
     color:blue;
+}
+.overlay:hover {
+
 }

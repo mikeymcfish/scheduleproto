@@ -33,7 +33,7 @@ export default class AlertDialog extends Component {
                         <Button onClick={this.handleRequestClose} color="primary">
                             {this.props.button1}
                         </Button>
-                        <Button onClick={this.handleRequestClose} color="primary">
+                        <Button raised onClick={this.handleRequestClose} color="primary">
                             {this.props.button2}
                         </Button>
                     </DialogActions>
