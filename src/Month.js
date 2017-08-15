@@ -9,6 +9,8 @@ import EventContainers from "./EventContainer";
 import seriesJSON from "./series.json";
 import App from "./App";
 import { StickyContainer, Sticky } from 'react-sticky';
+import ReactTooltip from 'react-tooltip'
+
 
 
 class Month extends React.Component {
@@ -563,6 +565,7 @@ class Month extends React.Component {
                     />)}
                 </div>
                 </StickyContainer>
+
             </div>
         )
 

@@ -9,6 +9,8 @@ import mineconimage from './img/minecon.png';
 import ReactHint from 'react-hint'
 import 'react-hint/css/index.css'
 
+import ReactTooltip from 'react-tooltip'
+
 class Day extends React.Component {
     constructor() {
         super()
@@ -45,7 +47,10 @@ class Day extends React.Component {
         event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
         return(
             <div className={"square-btn " + colorClass + " " + hiddenClass}>
-                <div className={"square-btn-copy " + soldOutClass}  data-modal-target="#myspecialmodal" data-name={event.name}
+                <div className={"square-btn-copy " + soldOutClass}
+                     data-modal-target="#myspecialmodal"
+                     data-tip= {event.description}
+                     data-name={event.name}
                      data-price={event.price}
                      data-description = {event.description}
                      data-spotsLeft = {event.spotsLeft}

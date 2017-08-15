@@ -173,6 +173,7 @@ class Event extends Component {
             return (
 
                 <div className={spanType + ' spanner ' + hiddenClass + ' ' + soldOutClass} data-days={this.props.days}
+                     data-tip= {this.props.description}
                      data-modal-target="#myspecialmodal"
                      data-name={this.props.name}
                      data-price={this.props.price}
@@ -209,6 +210,8 @@ class Event extends Component {
             return (
                 <div className={this.props.type+"-color spanner " + hiddenClass+ " "+soldOutClass+" contained-" + this.props.type}
                      data-modal-target="#myspecialmodal"
+                     data-tip= {this.props.description}
+
                      data-name={this.props.name}
                      data-price={this.props.price}
                      data-month={this.props.month}

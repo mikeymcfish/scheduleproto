@@ -15,6 +15,8 @@ import AlertDialog from "./AlertDialog";
 import Button from 'material-ui/Button';
 import TopLinks from "./TopLinks";
 import ViewDay from "./ViewDay";
+import ReactTooltip from 'react-tooltip'
+
 
 class App extends Component {
 
@@ -34,6 +36,7 @@ class App extends Component {
         //     currentAgeGroup: this.state.members[0].name,
         //     ageSelectionOptions: this.state.members
         // });
+        this.addInCart(27);
         this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
 
@@ -360,6 +363,65 @@ class App extends Component {
 
     }
 
+    addInCart(eventID) {
+        var inCart = [];
+
+        //not a member? they dont own anything
+
+        var allEvents = global.allEvents.events;
+            for (var j = 0; j < Object.keys(allEvents).length; j++) {
+                if (allEvents[j].id == eventID) {
+                    //match
+                    console.log("match "+allEvents[j].daystring);
+
+                    //check if its more than one day:
+                    var thisDayFullString = allEvents[j].daystring;
+                    var thisDayString = [];
+
+                    if (thisDayFullString.indexOf(",")>0) {
+
+                        var multiDays = thisDayFullString.split(",");
+
+                        for (var k = 0; k < multiDays.length; k++) {
+
+                            this.printCartedDay(multiDays[k],"IN CART",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
+
+                        }
+
+
+                    } else {
+                        this.printCartedDay(thisDayFullString,"IN CART",allEvents[j].name,allEvents[j].type,allEvents[j].startTime);
+                    }
+                    $("[data-id='"+allEvents[j].id+"']").hide();
+
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    printCartedDay(thisDayFullString,title,subTitle,type,time) {
+        var thisDayString = thisDayFullString.split("-");
+        var thisMonth = this.getMonthName(thisDayString[0]);
+        console.log(thisMonth, thisDayString[1]);
+        var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
+        var thisDayRow = thisDay.css("grid-row-start");
+        var thisDayCol = thisDay.css("grid-column-start");
+        thisDay.addClass("day-under-overlay");
+        var monthGrid = $('#calendar_' + thisMonth);
+        monthGrid.append(
+            "<div class='overlay in-cart' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
+            "<div class='title'>" + title +
+            "</div><div class='sub-title'>"+subTitle+"<br/>" +
+            "<span class='remove-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>edit</span>" +
+            "</div></div>"
+        );
+
+    }
+
+
     getMonthName(num) {
         num = parseInt(num);
         switch (num) {
@@ -446,6 +508,7 @@ class App extends Component {
     componentDidUpdate() {
         console.log("did update");
         //this.runJquery();
+        ReactTooltip.rebuild();
         if (global.isUpdating!=true) this.runJquery();
     }
 
@@ -681,6 +744,7 @@ class App extends Component {
                     />
 
                     </StickyContainer>
+                    <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>
 
 
                 </div>
