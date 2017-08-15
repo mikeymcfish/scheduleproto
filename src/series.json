@@ -19,7 +19,7 @@
         "school" : "Hogwarts",
         "age": 8,
         "defaultLocation": "TriBeCa",
-        "ownedEvents": [31]
+        "ownedEvents": [31,24]
       }
 
   ],
@@ -92,6 +92,7 @@
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
+      "startTime":"4:00 p.m.",
       "price": 145,
       "spotsLeft": 3,
       "days": {
@@ -154,6 +155,7 @@
       "span-type": "vertical",
       "price": 225,
       "spotsLeft": 2,
+      "startTime" : "4:00 p.m.",
       "days": {
         "September": [
           26
@@ -213,7 +215,7 @@
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsLeft": 2,
+      "spotsLeft": 0,
       "doesOwn" : true,
       "days": {
         "September": [
@@ -274,6 +276,33 @@
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
+      "price": 145,
+      "spotsLeft": 3,
+      "days": {
+        "September": [
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "name": "PRO: Build a Gaming Computer",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "pro-series",
+      "span-type": "vertical",
+      "startTime":"5:45 p.m.",
       "price": 145,
       "spotsLeft": 3,
       "days": {

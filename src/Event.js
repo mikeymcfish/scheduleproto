@@ -47,6 +47,9 @@ class Event extends Component {
                 case 'series' :
                     spanType = 'span-six-weeks series-color ';
                     break;
+                case 'pro-series' :
+                    spanType = 'span-six-weeks pro-series-color ';
+                    break;
                 case 'camp' :
                     spanType = 'span-monday-friday camp-color';
                     break;
@@ -151,7 +154,7 @@ class Event extends Component {
             // rowSpan = Math.floor((parseInt(days[1]) + skipDays) / 7) - Math.floor((parseInt(days[0]) + skipDays) / 7) + 1;
             // colSpan = (parseInt(days[1]) - parseInt(days[0])) < 7 ? (parseInt(days[1]) - parseInt(days[0])) : 1;
 
-            colSpan = this.props.type == "series" ? colSpan : 5;
+            colSpan = this.props.type == "series" || this.props.type == "pro-series" ? colSpan : 5;
             rowSpan = this.props.type == "camp" ? 1 : rowSpan;
 
             console.log("spans " + this.props.type, startRow, startCol, rowSpan, colSpan);
@@ -178,6 +181,7 @@ class Event extends Component {
                      data-dates = {this.props.dates}
                      data-type = {this.props.type}
                      data-id = {this.props.id}
+                     data-startTime = {this.props.startTime}
 
                      style={{
 
@@ -189,7 +193,7 @@ class Event extends Component {
                     {(() => {
                         if (!killFont) {
                             return (
-                                <span className='label'>{this.props.name}</span>
+                                <span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>
                             )
                         };
                     })()}
@@ -212,11 +216,12 @@ class Event extends Component {
                      data-dates = {this.props.dates}
                      data-type = {this.props.type}
                      data-id = {this.props.id}
+                     data-startTime = {this.props.startTime}
                 >
                     {(() => {
                         if (!this.props.killfont) {
                             return (
-                                <span className='label'>{this.props.name}</span>
+                                <span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>
                             )
                         };
                     })()}

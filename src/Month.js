@@ -355,7 +355,7 @@ class Month extends React.Component {
 
             //add all dupes to an array (but originals are not there yet)
             for (var i=0; i < global.allEvents.events.length; i++) {
-                if (global.allEvents.events[i].type=="series") {
+                if (global.allEvents.events[i].type=="series" || global.allEvents.events[i].type=="pro-series") {
                     // global.allEvents.events[i].skipDays = this.props.skipDays;
                     if (holdingEvents.indexOf(global.allEvents.events[i].daystring)>=0) {
 
@@ -554,6 +554,7 @@ class Month extends React.Component {
                         spotsLeft = {event.spotsLeft}
                         description = {event.description}
                         days = {event.days}
+                        startTime = {event.startTime}
                         filterAge7to9={this.props.filterAge7to9}
                         filterAge9to11={this.props.filterAge9to11}
                         filterAge12to14={this.props.filterAge12to14}

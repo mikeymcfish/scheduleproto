@@ -14,9 +14,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import AlertDialog from "./AlertDialog";
 import Button from 'material-ui/Button';
 import TopLinks from "./TopLinks";
-
-
-
+import ViewDay from "./ViewDay";
 
 class App extends Component {
 
@@ -25,9 +23,12 @@ class App extends Component {
         this.setState({
             loggedIn:true,
             members:global.allEvents.members,
-            currentAgeGroup: "(choose)"
+            currentAgeGroup: "(click to select)"
 
         });
+        // $(".editable-age-group").css("color","rgb(150,150,150");
+        // $(".editable-age-group").css("background-color","#333");
+
         console.log(this.state.loggedIn);
         // this.setState({
         //     currentAgeGroup: this.state.members[0].name,
@@ -154,6 +155,8 @@ class App extends Component {
         this.openAlert = this.openAlert.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
         this.testLogIn = this.testLogIn.bind(this);
+        this.openFullDay = this.openFullDay.bind(this);
+        this.closeFullDay = this.closeFullDay.bind(this);
 
         this.state = {
             filterDropIn: true,
@@ -182,6 +185,14 @@ class App extends Component {
                 button2: "ok",
                 id: 0,
                 spotsLeft: 0
+            },
+            viewOpen: false,
+            view: {
+                title: "",
+                text: "",
+                button1: "close",
+                button2: "ok",
+                id: 0
             }
         }
     }
@@ -207,6 +218,27 @@ class App extends Component {
             open: false
         })
         console.log("closing alert");
+    }
+
+    openFullDay(title, text, btn1, btn2, id) {
+        this.setState({
+            viewOpen: !this.state.viewOpen,
+            view: {
+                title: title,
+                text: text,
+                button1: btn1,
+                button2: btn2,
+                id: id
+            }
+        });
+        console.log("opened");
+
+    }
+
+    closeFullDay() {
+        this.setState({
+            viewOpen: false
+        })
     }
 
 
@@ -285,13 +317,13 @@ class App extends Component {
 
                         for (var k = 0; k < multiDays.length; k++) {
 
-                            this.printOwnedDay(multiDays[k],"RESERVED",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")");
+                            this.printOwnedDay(multiDays[k],"RESERVED",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
 
                         }
 
 
                     } else {
-                        this.printOwnedDay(thisDayFullString,"RESERVED",allEvents[j].name);
+                        this.printOwnedDay(thisDayFullString,"RESERVED",allEvents[j].name,allEvents[j].type,allEvents[j].startTime);
                     }
                     $("[data-id='"+allEvents[j].id+"']").hide();
 
@@ -304,7 +336,7 @@ class App extends Component {
         }
 
     }
-    printOwnedDay(thisDayFullString,title,subTitle) {
+    printOwnedDay(thisDayFullString,title,subTitle,type,time) {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
         console.log(thisMonth, thisDayString[1]);
@@ -316,7 +348,9 @@ class App extends Component {
         monthGrid.append(
             "<div class='overlay owned-day' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
             "<div class='title'>" + title +
-            "</div><div class='sub-title'>"+subTitle+"</div></div>"
+            "</div><div class='sub-title'>"+subTitle+". Starts at "+time+"<br/>" +
+            "<span class='view-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>view this day</span>" +
+            "</div></div>"
         );
 
     }
@@ -380,6 +414,8 @@ class App extends Component {
             $(".filter-age")
                 .css("display","flex");
         }
+        $(".editable-age-group").css("color","inherit");
+        $(".editable-age-group").css("background-color","inherit");
 
     };
 
@@ -415,6 +451,12 @@ class App extends Component {
         $('div:has(> .close-me)').addClass('closed');
         this.addOwnedDays();
         var myThis = this;
+        $('.view-day').unbind("click");
+        $('.view-day')
+            .click(function () {
+                myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
+                    ,"Here is where all the info and more buying options are","close","checkout",0);
+            });
         $('.selectable').unbind("click");
         $('.selectable').unbind("mouseenter");
         $('.selectable').unbind("mouseleave");
@@ -481,7 +523,7 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading">{this.state.currentAgeGroup}</span></div>
+                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
@@ -518,6 +560,14 @@ class App extends Component {
                                  button2={this.state.alert.button2}
                                  spotsLeft={this.state.alert.spotsLeft}
                                  id={this.state.alert.id}
+                    />
+                    <ViewDay open={this.state.viewOpen}
+                             onClose={this.closeFullDay}
+                             title={this.state.view.title}
+                             text={this.state.view.text}
+                             button1={this.state.view.button1}
+                             button2={this.state.view.button2}
+                             id={this.state.view.id}
                     />
                     <StickyContainer style={{ background:'transparent'}}>
                         <Sticky topOffset={-20}>

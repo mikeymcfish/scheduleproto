@@ -6,6 +6,8 @@ import CartIcon from './icons/CartIcon';
 import $ from 'jquery';
 import mineconimage from './img/minecon.png';
 
+import ReactHint from 'react-hint'
+import 'react-hint/css/index.css'
 
 class Day extends React.Component {
     constructor() {
@@ -42,8 +44,8 @@ class Day extends React.Component {
         var soldOutClass = "";
         event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
         return(
-            <div className={"square-btn " + colorClass + " " + hiddenClass+ " " + soldOutClass}>
-                <div className="square-btn-copy selectable" data-modal-target="#myspecialmodal" data-name={event.name}
+            <div className={"square-btn " + colorClass + " " + hiddenClass}>
+                <div className={"square-btn-copy " + soldOutClass}  data-modal-target="#myspecialmodal" data-name={event.name}
                      data-price={event.price}
                      data-description = {event.description}
                      data-spotsLeft = {event.spotsLeft}
@@ -52,11 +54,17 @@ class Day extends React.Component {
                      data-dates = {event.dates}
                      data-type = {event.type}
                      data-id = {event.id}
+                     data-startTime = {event.startTime}
                 >
                     <div className={"square-btn-text " + colorClass}>{event.name}</div>
                 </div>
                 <div className="square-btn-additional-copy">
-                    <div>{event.spotsLeft} spots left</div>
+                    {event.spotsLeft<=0 ?
+                        <div>SOLD OUT</div>
+                        :
+                        <div>{event.spotsLeft} spots left</div>
+                    }
+
                 </div>
             </div>
         );
