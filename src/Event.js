@@ -128,7 +128,12 @@ class Event extends Component {
                 rowSpan = 1;
                 //make font smaller?
                 killFont = true;
-            } else {
+            }
+            else {
+
+                if (thisMonthDays.length<=2) {
+                    killFont = true;
+                }
 
                 var endRow = $("[data-month="+this.props.month+"][data-daynum="+thisMonthDays[thisMonthDays.length-1]+"]")
                     .parent()

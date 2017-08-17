@@ -47,7 +47,8 @@ class App extends Component {
             filterCamp:true,
             filterSeries:false,
             filterDropIn:true,
-            filterSpecial:true
+            filterSpecial:true,
+            eventFilter: "series"
         });
 
     }
@@ -58,7 +59,8 @@ class App extends Component {
             filterCamp:true,
             filterSeries:true,
             filterDropIn:false,
-            filterSpecial:true
+            filterSpecial:true,
+            eventFilter: "drop-in days"
         });
 
     }
@@ -68,7 +70,8 @@ class App extends Component {
             filterCamp:false,
             filterSeries:true,
             filterDropIn:true,
-            filterSpecial:true
+            filterSpecial:true,
+            eventFilter: "camps"
         });
 
     }
@@ -78,7 +81,8 @@ class App extends Component {
             filterCamp:true,
             filterSeries:true,
             filterDropIn:true,
-            filterSpecial:false
+            filterSpecial:false,
+            eventFilter: "everything else"
         });
 
     }
@@ -155,6 +159,7 @@ class App extends Component {
         this.toggleSpecial = this.toggleSpecial.bind(this);
         this.changeAge = this.changeAge.bind(this);
         this.changeLocation = this.changeLocation.bind(this);
+        this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
         this.testLogIn = this.testLogIn.bind(this);
@@ -169,9 +174,11 @@ class App extends Component {
             filter7to9: false,
             filter9to11: true,
             filter12to14: true,
+            eventFilter: "events",
             filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
             currentAgeGroup: "age 7 to 9",
+            currentView: "year",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -254,6 +261,7 @@ class App extends Component {
         $('body').click(function () {
             $(".filter-location").css("display","none");
             $(".filter-age").css("display","none");
+            $(".filter-view").css("display","none");
         });
         $('.change-age-btn').unbind("hover");
         $('.change-age-btn').hover(function () {
@@ -266,6 +274,12 @@ class App extends Component {
             $('.change-location-btn > .filtering-hover-text').css("color","blue");
         }, function () {
             $('.change-location-btn > .filtering-hover-text').css("color","#333");
+        });
+        $('.change-view-btn').unbind("hover");
+        $('.change-view-btn').hover(function () {
+            $('.change-view-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-view-btn > .filtering-hover-text').css("color","#333");
         });
 
         this.runJquery();
@@ -469,6 +483,7 @@ class App extends Component {
                 if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
                     this.setState({
                         currentLocation: this.state.members[member].defaultLocation,
+                        filterLocation: this.state.members[member].defaultLocation,
                         selectedMemberKey: member
                     });
                     this.setFilterAgeByAge(this.state.members[member].age);
@@ -483,6 +498,12 @@ class App extends Component {
         }
         $(".editable-age-group").css("color","inherit");
         $(".editable-age-group").css("background-color","inherit");
+        // $('.change-age-btn').unbind("hover");
+        // $('.change-age-btn').hover(function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
+        // }, function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color","#333");
+        // });
 
     };
 
@@ -499,6 +520,23 @@ class App extends Component {
 
         } else {
             $(".filter-location")
+                .css("display","flex");
+        }
+
+    };
+
+    changeView = ({ target }) => {
+
+        if (target.hasAttribute("data-view")) {
+            this.setState(
+                {
+                    currentView: $(target).attr("data-view")
+                })
+            $(".filter-view")
+                .css("display","none");
+
+        } else {
+            $(".filter-view")
                 .css("display","flex");
         }
 
@@ -601,7 +639,7 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
+                            <div className="text-right"><span class="def-no-hover">Showing {this.state.eventFilter} for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
@@ -610,14 +648,11 @@ class App extends Component {
                                 {listOfAgeSelections.map((selection, index) =>
                                     <div className="filter-option set-age-btn" data-age-group={selection}>{selection}</div>
                                 )}
-                                {/*<div className="filter-option set-age-btn" data-age-group="age 7 to 9">age 7 to 9</div>*/}
-                                {/*<div className="filter-option set-age-btn" data-age-group="age 9 to 11">age 9 to 11</div>*/}
-                                {/*<div className="filter-option set-age-btn" data-age-group="age 12 to 14">age 12 to 14</div>*/}
                             </div>
                         </div>
                         <div className="text-center"> in </div>
                         <div className="change-location-btn" onClick={this.changeLocation}>
-                            <div className="text-left"><span className="editable-heading">{this.state.currentLocation}</span></div>
+                            <div className="text-left"><span className="editable-heading">{this.state.currentLocation} </span></div>
                             <div className="text-center filtering-hover-text">
                                 <div>click to change</div>
                             </div>
@@ -626,6 +661,23 @@ class App extends Component {
                                 <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
                             </div>
                         </div>
+                        <div className="change-view-btn space-me-5" onClick={this.changeView}>
+                            <div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>
+                            <div className="text-item-center filtering-hover-text">
+                                <div>click to change</div>
+                            </div>
+                            <div className="filter-selection-box filter-view">
+                                <div className="filter-option set-view-btn" data-view="Year">year</div>
+                                <div className="filter-option set-view-btn" data-view="Week">week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="age-notification">
+                        { this.state.selectedMemberKey!="" ?
+                            <div className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></div>
+                            :
+                            ""
+                        }
                     </div>
                     </h1>
                     {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
@@ -648,7 +700,7 @@ class App extends Component {
                              id={this.state.view.id}
                     />
                     <StickyContainer style={{ background:'transparent'}}>
-                        <Sticky topOffset={-20}>
+                        <Sticky topOffset={-20} style={{}}>
                             {
                                 ({
                                      style,
@@ -688,7 +740,7 @@ class App extends Component {
                                                 {specialFilterIcon}
                                             </div>
                                             <div className="filter-circle-label">
-                                                Special
+                                                Everything else
                                             </div>
                                         </div>
                                     </div>
@@ -698,6 +750,7 @@ class App extends Component {
                             </Sticky>
 
 
+                        {/*Below is the monthly view:*/}
                     <Month name="September" numDays="30" skipDays="5"
                            filterDropIn={this.state.filterDropIn}
                            filterSpecial={this.state.filterSpecial}

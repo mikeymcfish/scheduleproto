@@ -19,7 +19,7 @@
         "school" : "Hogwarts",
         "age": 8,
         "defaultLocation": "TriBeCa",
-        "ownedEvents": [31,24]
+        "ownedEvents": [31, 24]
       }
 
   ],
@@ -37,6 +37,14 @@
   "metaData" : {
 
     "holidays" : [
+      {
+        "month": "October",
+        "day": 9,
+        "title": "Mini-Camp",
+        "subTitle": "9am - 3pm",
+        "backgroundColor": "rgba(255,0,255,.5)",
+        "icon": ""
+      },
       {
         "month": "September",
         "day": 7,
@@ -85,7 +93,7 @@
   "events" : [
     {
       "id": 24,
-      "name": "Minecraft Mobs",
+      "name": "Monday Option 1",
       "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
@@ -97,16 +105,13 @@
       "spotsLeft": 3,
       "days": {
         "September": [
-          25
+          18, 25
         ],
         "October": [
           2,
           16,
           23,
           30
-        ],
-        "November": [
-          6
         ]
       }
     },
@@ -146,7 +151,7 @@
     },
     {
       "id": 25,
-      "name": "Virtual Reality",
+      "name": "Monday Option 2",
       "age": "age 9 to 11",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
@@ -158,14 +163,13 @@
       "startTime" : "4:00 p.m.",
       "days": {
         "September": [
-          26
+          18, 25
         ],
         "October": [
-          3,
-          10,
-          17,
-          24,
-          31
+          2,
+          16,
+          23,
+          30
         ]
       }
     },
@@ -206,20 +210,92 @@
       }
     },
     {
-      "id": 31,
+      "id": 27,
       "name": "Makerspace",
-      "age": "age 7 to 9",
-      "location": "Brooklyn",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsLeft": 0,
+      "spotsLeft": 2,
+      "doesOwn" : true,
+      "days": {
+        "September": [
+          11
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "name": "Makerspace",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsLeft": 2,
+      "doesOwn" : true,
+      "days": {
+        "September": [
+          12
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "name": "Makerspace",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsLeft": 2,
       "doesOwn" : true,
       "days": {
         "September": [
           13
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "name": "Makerspace",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsLeft": 2,
+      "doesOwn" : true,
+      "days": {
+        "September": [
+          14
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "name": "Makerspace",
+      "age": "age 9 to 11",
+      "location": "Tribeca",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "drop-in",
+      "span-type": "drop-in",
+      "price": 225,
+      "spotsLeft": 2,
+      "doesOwn" : true,
+      "days": {
+        "September": [
+          15
         ]
       }
     },
@@ -242,8 +318,8 @@
       }
     },
     {
-      "id": 29,
-      "name": "Drone Coding Pro",
+      "id": 50,
+      "name": "Tuesday Option 1",
       "age": "age 7 to 9",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
@@ -251,19 +327,62 @@
       "type": "series",
       "span-type": "vertical",
       "price": 145,
-      "spotsLeft": 0,
+      "spotsLeft": 2,
       "days": {
         "September": [
-          25
+          19, 26
         ],
         "October": [
-          2,
-          16,
-          23,
-          30
+          3,
+          10,
+          17,
+          24
+        ]
+      }
+    },
+    {
+      "id": 51,
+      "name": "Tuesday Option 2",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsLeft": 3,
+      "days": {
+        "September": [
+          19, 26
         ],
-        "November": [
-          6
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "name": "Tuesday Option 3",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "This is a one sentence dexcription",
+      "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
+      "type": "series",
+      "span-type": "vertical",
+      "price": 145,
+      "spotsLeft": 4,
+      "days": {
+        "September": [
+          19, 26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
         ]
       }
     },
@@ -280,21 +399,18 @@
       "spotsLeft": 3,
       "days": {
         "September": [
-          25
+          19, 26
         ],
         "October": [
-          2,
-          16,
-          23,
-          30
-        ],
-        "November": [
-          6
+          3,
+          10,
+          17,
+          24
         ]
       }
     },
     {
-      "id": 32,
+      "id": 55,
       "name": "PRO: Build a Gaming Computer",
       "age": "age 7 to 9",
       "location": "Brooklyn",
@@ -307,16 +423,14 @@
       "spotsLeft": 3,
       "days": {
         "September": [
-          25
+          20,
+          27
         ],
         "October": [
-          2,
-          16,
-          23,
-          30
-        ],
-        "November": [
-          6
+          4,
+          11,
+          18,
+          25
         ]
       }
     }
