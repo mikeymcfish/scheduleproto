@@ -6,6 +6,7 @@ import './Span-styles.css';
 import $ from 'jquery';
 import Day from './Day';
 import Month from './Month';
+import Week from './Week';
 import CheckIcon from './icons/CheckIcon';
 import { Modal } from 'carbon-components';
 import './carbon-components.css';
@@ -16,6 +17,9 @@ import Button from 'material-ui/Button';
 import TopLinks from "./TopLinks";
 import ViewDay from "./ViewDay";
 import ReactTooltip from 'react-tooltip'
+import seriesJSON from "./series.json";
+import BigDay from "./BigDay";
+import Moment from "moment";
 
 
 class App extends Component {
@@ -178,7 +182,7 @@ class App extends Component {
             filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
             currentAgeGroup: "age 7 to 9",
-            currentView: "year",
+            currentView: "week",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -205,8 +209,87 @@ class App extends Component {
                 id: 0
             }
         }
+
+        global.allEvents = seriesJSON;
+        //TODO 'DAYSTRING' for all
+        this.parseDateListToString(global.allEvents);
     }
 
+    parseDateListToString(events) {
+
+        for (var i = 0; i < Object.keys(global.allEvents.events).length; i++ ) {
+
+
+            var newString = "";
+            var thisEvent = global.allEvents.events[i];
+            var theseDays = thisEvent.days;
+            var monthNum="";
+            var thisMonth;
+            for (var month in theseDays) {
+                switch (month) {
+                    case "September" :
+                        monthNum = "9";
+                        thisMonth = theseDays.September;
+                        break;
+                    case "October" :
+                        monthNum = "10";
+                        thisMonth = theseDays.October;
+                        break;
+                    case "November" :
+                        monthNum = "11";
+                        thisMonth = theseDays.November;
+                        break;
+                    case "December" :
+                        monthNum = "12";
+                        thisMonth = theseDays.December;
+                        break;
+                    case "January" :
+                        monthNum = "1";
+                        thisMonth = theseDays.January;
+                        break;
+                    case "February" :
+                        monthNum = "2";
+                        thisMonth = theseDays.February;
+                        break;
+                    case "March" :
+                        monthNum = "3";
+                        thisMonth = theseDays.March;
+                        break;
+                    case "April" :
+                        monthNum = "4";
+                        thisMonth = theseDays.April;
+                        break;
+                    case "May" :
+                        monthNum = "5";
+                        thisMonth = theseDays.May;
+                        break;
+                    case "June" :
+                        monthNum = "6";
+                        thisMonth = theseDays.June;
+                        break;
+                    case "July" :
+                        monthNum = "7";
+                        thisMonth = theseDays.July;
+                        break;
+                    case "August" :
+                        monthNum = "8";
+                        thisMonth = theseDays.August;
+                        break;
+                    default:
+                        monthNum = "FAIL";
+                        thisMonth = theseDays.September;
+                }
+                for (var j=0; j< thisMonth.length; j++) {
+                    if (newString != "") newString+=",";
+                    newString+= monthNum + "-" + thisMonth[j];
+                }
+
+            }
+
+            thisEvent.daystring = newString;
+
+        }
+    }
 
 
     openAlert(title, text, btn1, btn2, spots, id) {
@@ -286,6 +369,9 @@ class App extends Component {
         this.addHolidays();
         this.addOwnedDays();
 
+        //try and hide
+
+
     }
 
     addHolidays() {
@@ -300,7 +386,7 @@ class App extends Component {
             var thisHolidayRow = thisHoliday.css("grid-row-start");
             var thisHolidayCol = thisHoliday.css("grid-column-start");
             thisHoliday.addClass("day-under-overlay");
-            var monthGrid = $('#calendar_' + holidays[i].month);
+            var monthGrid = $('#year-calendar_' + holidays[i].month);
             console.log("grid location: "+ thisHolidayRow+"," +thisHolidayCol);
             monthGrid.append(
                 "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"; transform: rotateZ("+(Math.floor(Math.random()*10)-5)+"deg)'>" +
@@ -366,7 +452,7 @@ class App extends Component {
         var thisDayRow = thisDay.css("grid-row-start");
         var thisDayCol = thisDay.css("grid-column-start");
         thisDay.addClass("day-under-overlay");
-        var monthGrid = $('#calendar_' + thisMonth);
+        var monthGrid = $('#year-calendar_' + thisMonth);
         monthGrid.append(
             "<div class='overlay owned-day' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
             "<div class='title'>" + title +
@@ -424,7 +510,7 @@ class App extends Component {
         var thisDayRow = thisDay.css("grid-row-start");
         var thisDayCol = thisDay.css("grid-column-start");
         thisDay.addClass("day-under-overlay");
-        var monthGrid = $('#calendar_' + thisMonth);
+        var monthGrid = $('#year-calendar_' + thisMonth);
         monthGrid.append(
             "<div class='overlay in-cart' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
             "<div class='title'>" + title +
@@ -432,6 +518,14 @@ class App extends Component {
             "<span class='remove-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>edit</span>" +
             "</div></div>"
         );
+
+    }
+
+    getDayTitleString(month, day) {
+
+
+        var date = Moment(month+" "+day);
+        return date.format("dddd, MMMM Do");
 
     }
 
@@ -548,6 +642,7 @@ class App extends Component {
         //this.runJquery();
         ReactTooltip.rebuild();
         if (global.isUpdating!=true) this.runJquery();
+
     }
 
     runJquery() {
@@ -602,6 +697,7 @@ class App extends Component {
 
 
     }
+
 
     render() {
 
@@ -667,8 +763,8 @@ class App extends Component {
                                 <div>click to change</div>
                             </div>
                             <div className="filter-selection-box filter-view">
-                                <div className="filter-option set-view-btn" data-view="Year">year</div>
-                                <div className="filter-option set-view-btn" data-view="Week">week</div>
+                                <div className="filter-option set-view-btn" data-view="year">year</div>
+                                <div className="filter-option set-view-btn" data-view="week">week</div>
                             </div>
                         </div>
                     </div>
@@ -748,53 +844,151 @@ class App extends Component {
                                 }
                             }
                             </Sticky>
+                        <div className="big-day-title">
+                            {this.getDayTitleString("September","3")}
+                        </div>
+                        <div className={"show-only-"+this.state.currentView} id="filtering-container-week">
+                            <BigDay
+                                title = "Virtual Reality Coding"
+                                tags={
+                                    [   {text: "SERIES", tagType:"black"},
+                                        {text: "Code", tagType:"red"},
+                                        {text: "Fun", tagType:"blue"},
+                                        {text: "Magic", tagType:"green"}
+                                    ]
+                                }
+                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                                ages = "7 to 9"
+                                dates = "9-11,9-18,9-25,10-3"
+                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                price = "$399"
+                                spotsLeft = "2"
+                            />
+                            <BigDay
+                                title = "Minecraft Modding"
+                                tags={
+                                    [
+                                        {text: "SERIES", tagType:"black"},
+                                        {text: "Spiders", tagType:"blue"},
+                                        {text: "Magic", tagType:"green"}
+                                    ]
+                                }
+                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                                ages = "7 to 9"
+                                dates = "9-11,9-18,9-25,10-3"
+                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                price = "$499"
+                                spotsLeft = "5"
+                            />
+                            <BigDay
+                                title = "Build a gaming PC"
+                                tags={
+                                    [   {text: "PRO SERIES", tagType:"black"},
+                                        {text: "Making", tagType:"green"},
+                                        {text: "Tech", tagType:"blue"}
+                                    ]
+                                }
+                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                                ages = "7 to 9"
+                                dates = "9-11,9-18,9-25,10-3"
+                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                price = "$1399"
+                                spotsLeft = "0"
+                                type = "pro"
+                            />
+                            <BigDay
+                                title = "Makerspace"
+                                tags={
+                                    [   {text: "Makerspace", tagType:"black"},
+                                        {text: "Making", tagType:"green"},
+                                        {text: "Tech", tagType:"blue"}
+                                    ]
+                                }
+                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                                ages = "7 to 14"
+                                dates = "9-8"
+                                time = "2:30 - 6:30 p.m."
+                                price = "$55"
+                                spotsLeft = "4"
+                            />
+                            <Month name="September" numDays="30" skipDays="5"
+                                   filterWeek ="3"
+                                   filterDropIn={this.state.filterDropIn}
+                                   filterSpecial={this.state.filterSpecial}
+                                   filterSeries={this.state.filterSeries}
+                                   filterCamp={this.state.filterCamp}
+                                   filterAge7to9={this.state.filter7to9}
+                                   filterAge9to11={this.state.filter9to11}
+                                   filterAge12to14={this.state.filter12to14}
+                                   filterLocation={this.state.filterLocation}
+                                   myApp = {this}
+                            />
+                            {/*<Week*/}
+                                {/*name="September"*/}
+                                {/*numDays="30" skipDays="5"*/}
+                                {/*filterDropIn={this.state.filterDropIn}*/}
+                                {/*filterSpecial={this.state.filterSpecial}*/}
+                                {/*filterSeries={this.state.filterSeries}*/}
+                                {/*filterCamp={this.state.filterCamp}*/}
+                                {/*filterAge7to9={this.state.filter7to9}*/}
+                                {/*filterAge9to11={this.state.filter9to11}*/}
+                                {/*filterAge12to14={this.state.filter12to14}*/}
+                                {/*filterLocation={this.state.filterLocation}*/}
+                                {/*myApp = {this}*/}
+                            {/*/>*/}
+
+                        </div>
 
 
-                        {/*Below is the monthly view:*/}
-                    <Month name="September" numDays="30" skipDays="5"
-                           filterDropIn={this.state.filterDropIn}
-                           filterSpecial={this.state.filterSpecial}
-                           filterSeries={this.state.filterSeries}
-                           filterCamp={this.state.filterCamp}
-                           filterAge7to9={this.state.filter7to9}
-                           filterAge9to11={this.state.filter9to11}
-                           filterAge12to14={this.state.filter12to14}
-                           filterLocation={this.state.filterLocation}
-                           myApp = {this}
-                    />
-                    <Month name="October" numDays="31" skipDays="0"
-                           filterDropIn={this.state.filterDropIn}
-                           filterSpecial={this.state.filterSpecial}
-                           filterSeries={this.state.filterSeries}
-                           filterCamp={this.state.filterCamp}
-                           filterAge7to9={this.state.filter7to9}
-                           filterAge9to11={this.state.filter9to11}
-                           filterAge12to14={this.state.filter12to14}
-                           filterLocation={this.state.filterLocation}
-                           myApp = {this}
-                    />
-                    <Month name="November" numDays="30" skipDays="3"
-                           filterDropIn={this.state.filterDropIn}
-                           filterSpecial={this.state.filterSpecial}
-                           filterSeries={this.state.filterSeries}
-                           filterCamp={this.state.filterCamp}
-                           filterAge7to9={this.state.filter7to9}
-                           filterAge9to11={this.state.filter9to11}
-                           filterAge12to14={this.state.filter12to14}
-                           filterLocation={this.state.filterLocation}
-                           myApp = {this}
-                    />
-                    <Month name="December" numDays="31" skipDays="5"
-                           filterDropIn={this.state.filterDropIn}
-                           filterSpecial={this.state.filterSpecial}
-                           filterSeries={this.state.filterSeries}
-                           filterCamp={this.state.filterCamp}
-                           filterAge7to9={this.state.filter7to9}
-                           filterAge9to11={this.state.filter9to11}
-                           filterAge12to14={this.state.filter12to14}
-                           filterLocation={this.state.filterLocation}
-                           myApp = {this}
-                    />
+                        <div className={"show-only-"+this.state.currentView} id="filtering-container">
+                                <Month name="September" numDays="30" skipDays="5"
+                                   filterDropIn={this.state.filterDropIn}
+                                   filterSpecial={this.state.filterSpecial}
+                                   filterSeries={this.state.filterSeries}
+                                   filterCamp={this.state.filterCamp}
+                                   filterAge7to9={this.state.filter7to9}
+                                   filterAge9to11={this.state.filter9to11}
+                                   filterAge12to14={this.state.filter12to14}
+                                   filterLocation={this.state.filterLocation}
+                                   myApp = {this}
+                            />
+                                <Month name="October" numDays="31" skipDays="0"
+                                filterDropIn={this.state.filterDropIn}
+                                filterSpecial={this.state.filterSpecial}
+                                filterSeries={this.state.filterSeries}
+                                filterCamp={this.state.filterCamp}
+                                filterAge7to9={this.state.filter7to9}
+                                filterAge9to11={this.state.filter9to11}
+                                filterAge12to14={this.state.filter12to14}
+                                filterLocation={this.state.filterLocation}
+                                myApp = {this}
+                                />
+                                <Month name="November" numDays="30" skipDays="3"
+                                filterDropIn={this.state.filterDropIn}
+                                filterSpecial={this.state.filterSpecial}
+                                filterSeries={this.state.filterSeries}
+                                filterCamp={this.state.filterCamp}
+                                filterAge7to9={this.state.filter7to9}
+                                filterAge9to11={this.state.filter9to11}
+                                filterAge12to14={this.state.filter12to14}
+                                filterLocation={this.state.filterLocation}
+                                myApp = {this}
+                                />
+                                <Month name="December" numDays="31" skipDays="5"
+                                filterDropIn={this.state.filterDropIn}
+                                filterSpecial={this.state.filterSpecial}
+                                filterSeries={this.state.filterSeries}
+                                filterCamp={this.state.filterCamp}
+                                filterAge7to9={this.state.filter7to9}
+                                filterAge9to11={this.state.filter9to11}
+                                filterAge12to14={this.state.filter12to14}
+                                filterLocation={this.state.filterLocation}
+                                myApp = {this}
+                                />
+                            </div>
+
+
+
 
                     </StickyContainer>
                     <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>

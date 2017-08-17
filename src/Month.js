@@ -468,7 +468,7 @@ class Month extends React.Component {
         }
 
         return (
-            <div>
+            <div className="monthly-view">
                 <StickyContainer style={{ background:'transparent'}}>
 
                     <Sticky >
@@ -513,7 +513,7 @@ class Month extends React.Component {
                     </Sticky>
 
 
-                <div className="grid" id={"calendar_" +this.props.name} >
+                <div className="grid" id={"year-calendar_" +this.props.name} >
                     {this.RenderWeekNames("Sun")}
                     {this.RenderWeekNames("Mon")}
                     {this.RenderWeekNames("Tue")}

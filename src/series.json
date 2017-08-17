@@ -1,42 +1,62 @@
 {
-  "members" : [
-
-      {
-        "name" : "Mikey McFish",
-        "id": 314,
-        "memberType" : "classic",
-        "birthday": "10-30-83",
-        "school" : "P.S. 29",
-        "age": 11,
-        "defaultLocation": "Brooklyn",
-        "ownedEvents": [25]
-      },
-      {
-        "name": "Johnny Downtown",
-        "id": 232,
-        "memberType" : "premium",
-        "birthday": "11-8-01",
-        "school" : "Hogwarts",
-        "age": 8,
-        "defaultLocation": "TriBeCa",
-        "ownedEvents": [31, 24]
-      }
-
-  ],
-  "closedDays" : {
-      "September": [
-        1,2,3,4,5,6,10,17,24
-      ],
-      "October": [
-        1,8,15,22,29
-      ],
-      "November": [
-        5,12,19,23,24,25,26
+  "members": [
+    {
+      "name": "Mikey McFish",
+      "id": 314,
+      "memberType": "classic",
+      "birthday": "10-30-83",
+      "school": "P.S. 29",
+      "age": 11,
+      "defaultLocation": "Brooklyn",
+      "ownedEvents": [
+        25
       ]
+    },
+    {
+      "name": "Johnny Downtown",
+      "id": 232,
+      "memberType": "premium",
+      "birthday": "11-8-01",
+      "school": "Hogwarts",
+      "age": 8,
+      "defaultLocation": "TriBeCa",
+      "ownedEvents": [
+        31,
+        24
+      ]
+    }
+  ],
+  "closedDays": {
+    "September": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      10,
+      17,
+      24
+    ],
+    "October": [
+      1,
+      8,
+      15,
+      22,
+      29
+    ],
+    "November": [
+      5,
+      12,
+      19,
+      23,
+      24,
+      25,
+      26
+    ]
   },
-  "metaData" : {
-
-    "holidays" : [
+  "metaData": {
+    "holidays": [
       {
         "month": "October",
         "day": 9,
@@ -76,7 +96,7 @@
         "subTitle": "viewing party for members",
         "backgroundColor": "rgba(255,255,0,.5)",
         "icon": "",
-        "backgroundImg" : ""
+        "backgroundImg": ""
       },
       {
         "month": "October",
@@ -85,12 +105,11 @@
         "subTitle": "free drop-in for members",
         "backgroundColor": "rgba(255,125,0,.5)",
         "icon": "",
-        "backgroundImg" : ""
+        "backgroundImg": ""
       }
     ]
-
   },
-  "events" : [
+  "events": [
     {
       "id": 24,
       "name": "Monday Option 1",
@@ -100,12 +119,13 @@
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "series",
       "span-type": "vertical",
-      "startTime":"4:00 p.m.",
+      "startTime": "4:00 p.m.",
       "price": 145,
       "spotsLeft": 3,
       "days": {
         "September": [
-          18, 25
+          18,
+          25
         ],
         "October": [
           2,
@@ -128,7 +148,10 @@
       "spotsLeft": 3,
       "days": {
         "December": [
-          26,27,28,29
+          26,
+          27,
+          28,
+          29
         ]
       }
     },
@@ -145,7 +168,10 @@
       "spotsLeft": 3,
       "days": {
         "December": [
-          26,27,28,29
+          26,
+          27,
+          28,
+          29
         ]
       }
     },
@@ -160,10 +186,11 @@
       "span-type": "vertical",
       "price": 225,
       "spotsLeft": 2,
-      "startTime" : "4:00 p.m.",
+      "startTime": "4:00 p.m.",
       "days": {
         "September": [
-          18, 25
+          18,
+          25
         ],
         "October": [
           2,
@@ -184,7 +211,7 @@
       "span-type": "one-day",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "October": [
           9
@@ -202,7 +229,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           11
@@ -220,7 +247,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           11
@@ -238,7 +265,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           12
@@ -256,7 +283,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           13
@@ -274,7 +301,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           14
@@ -292,7 +319,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           15
@@ -310,7 +337,7 @@
       "span-type": "drop-in",
       "price": 225,
       "spotsLeft": 2,
-      "doesOwn" : true,
+      "doesOwn": true,
       "days": {
         "September": [
           11
@@ -330,7 +357,8 @@
       "spotsLeft": 2,
       "days": {
         "September": [
-          19, 26
+          19,
+          26
         ],
         "October": [
           3,
@@ -353,7 +381,8 @@
       "spotsLeft": 3,
       "days": {
         "September": [
-          19, 26
+          19,
+          26
         ],
         "October": [
           3,
@@ -376,7 +405,8 @@
       "spotsLeft": 4,
       "days": {
         "September": [
-          19, 26
+          19,
+          26
         ],
         "October": [
           3,
@@ -399,7 +429,8 @@
       "spotsLeft": 3,
       "days": {
         "September": [
-          19, 26
+          19,
+          26
         ],
         "October": [
           3,
@@ -418,7 +449,7 @@
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "pro-series",
       "span-type": "vertical",
-      "startTime":"5:45p.m.",
+      "startTime": "5:45p.m.",
       "price": 145,
       "spotsLeft": 3,
       "days": {
