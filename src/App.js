@@ -25,6 +25,210 @@ import './AltViews.css';
 
 class App extends Component {
 
+
+    constructor() {
+        super();
+
+        this.toggleSeries = this.toggleSeries.bind(this);
+        this.toggleDropin = this.toggleDropin.bind(this);
+        this.toggleCamp = this.toggleCamp.bind(this);
+        this.toggleSpecial = this.toggleSpecial.bind(this);
+        this.changeAge = this.changeAge.bind(this);
+        this.changeLocation = this.changeLocation.bind(this);
+        this.changeView = this.changeView.bind(this);
+        this.openAlert = this.openAlert.bind(this);
+        this.closeAlert = this.closeAlert.bind(this);
+        this.testLogIn = this.testLogIn.bind(this);
+        this.openFullDay = this.openFullDay.bind(this);
+        this.closeFullDay = this.closeFullDay.bind(this);
+        this.setViewDay = this.setViewDay.bind(this);
+
+        this.state = {
+            filterDropIn: false,
+            filterSpecial: false,
+            filterSeries: false,
+            filterCamp: false,
+            filter7to9: false,
+            filter9to11: true,
+            filter12to14: true,
+            eventFilter: "events",
+            filterLocation: "Brooklyn",
+            currentLocation: "Brooklyn",
+            currentAgeGroup: "age 7 to 9",
+            currentView: "week",
+            ageSelectionOptions: [
+                "age 7 to 9",
+                "age 9 to 11",
+                "age 12 to 14"
+            ],
+            selectedEvent: "",
+            loggedIn: false,
+            members: [],
+            selectedMemberKey: "",
+            alert: {
+                title: "",
+                text: "",
+                button1: "cancel",
+                button2: "ok",
+                id: 0,
+                spotsLeft: 0
+            },
+            viewOpen: false,
+            view: {
+                title: "",
+                text: "",
+                button1: "close",
+                button2: "ok",
+                id: 0
+            },
+            viewingDay: "January 1"
+        }
+
+        global.allEvents = seriesJSON;
+        //TODO 'DAYSTRING' for all
+        this.parseDateListToString(global.allEvents);
+        global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
+    }
+
+    convertEventsToByDay(events) {
+
+        var daysOfEvents= {};
+
+        for (var i = 0; i < Object.keys(events).length; i++) {
+
+            var event = events[i];
+
+            for (var month in event.days) {
+
+                for (var day in month) {
+
+                    daysOfEvents[month] ?
+                        daysOfEvents[month] = daysOfEvents[month]
+                        : daysOfEvents[month] = new Array(31);
+                    daysOfEvents[month][event.days[month][day]] ?
+                        daysOfEvents[month][event.days[month][day]] = daysOfEvents[month][event.days[month][day]]
+                        : daysOfEvents[month][event.days[month][day]] = [];
+                    daysOfEvents[month][event.days[month][day]].push(event);
+                }
+
+            }
+
+
+
+        }
+        return daysOfEvents;
+
+
+
+    }
+
+    componentDidMount() {
+        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
+        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
+        $("#calendar").css('display', 'none');
+        $("#calendar").css('display', 'grid');
+
+        $('body').click(function () {
+            $(".filter-location").css("display","none");
+            $(".filter-age").css("display","none");
+            $(".filter-view").css("display","none");
+        });
+        $('.change-age-btn').unbind("hover");
+        $('.change-age-btn').hover(function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-age-btn > .filtering-hover-text').css("color","#333");
+        });
+        $('.change-location-btn').unbind("hover");
+        $('.change-location-btn').hover(function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-location-btn > .filtering-hover-text').css("color","#333");
+        });
+        $('.change-view-btn').unbind("hover");
+        $('.change-view-btn').hover(function () {
+            $('.change-view-btn > .filtering-hover-text').css("color","blue");
+        }, function () {
+            $('.change-view-btn > .filtering-hover-text').css("color","#333");
+        });
+        var _this = this;
+        $('.day').not(".closed").not(".no-day").unbind("click");
+        $('.day').not(".closed").not(".no-day")
+            .click(function () {
+                var child = $(this).find("[data-month!='undefined']");
+                _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
+                // console.log("day click "+ child.attr("data-month"));
+            });
+
+        this.runJquery();
+        // this.addHolidays();
+        // this.addOwnedDays();
+
+        //try and hide
+
+
+    }
+
+    componentDidUpdate() {
+        console.log("did update");
+        //this.runJquery();
+        ReactTooltip.rebuild();
+        if (global.isUpdating!=true) this.runJquery();
+
+    }
+
+    runJquery() {
+        global.isUpdating=true;
+        console.log("jquery");
+        $('div:has(> #no-day)').addClass('no-day');
+        $('div:has(> .close-me)').addClass('closed');
+        this.addOwnedDays();
+        var myThis = this;
+        $('.view-day').unbind("click");
+        $('.view-day')
+            .click(function () {
+                myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
+                    ,"Here is where all the info and more buying options are","close","checkout",0);
+            });
+        $('.selectable').unbind("click");
+        $('.selectable').unbind("mouseenter");
+        $('.selectable').unbind("mouseleave");
+
+        $('.selectable')
+            .click(function () {
+
+                var myColor;
+                $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
+                    myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
+                myThis.openAlert($(this).attr("data-name"),$(this).attr("data-description"), "cancel", "add for $"+$(this).attr("data-price"),$(this).attr("data-spotsleft"), $(this).attr("data-id"));
+            });
+
+        $('.selectable')
+            .mouseenter(function () {
+                //console.log("clicked");
+                $("[data-id="+$(this).attr('data-id')+"]").addClass('selectable-hover');
+
+            })
+            .mouseleave(function () {
+                //console.log("clicked");
+                $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
+            });
+        $('.event-container-series, .event-container-pro-series')
+            .mouseenter(function () {
+                //console.log("clicked");
+                $(this).addClass('container-hover');
+
+            })
+            .mouseleave(function () {
+                //console.log("clicked");
+                $(this).removeClass('container-hover');
+            });
+
+
+        global.isUpdating=false;
+
+    }
+
     testLogIn() {
         //should probably put owned events in these member details.
         this.setState({
@@ -45,15 +249,12 @@ class App extends Component {
         this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
 
-
     toggleSeries() {
 
         this.setState({
-            filterCamp:true,
-            filterSeries:false,
-            filterDropIn:true,
-            filterSpecial:true,
-            eventFilter: "series"
+
+            filterSeries: !this.state.filterSeries
+
         });
 
     }
@@ -61,33 +262,27 @@ class App extends Component {
     toggleDropin() {
         // if (!this.state.filterDropIn) {
         this.setState({
-            filterCamp:true,
-            filterSeries:true,
-            filterDropIn:false,
-            filterSpecial:true,
-            eventFilter: "drop-in days"
+
+            filterDropIn:!this.state.filterDropIn
+
         });
 
     }
 
     toggleCamp() {
         this.setState({
-            filterCamp:false,
-            filterSeries:true,
-            filterDropIn:true,
-            filterSpecial:true,
-            eventFilter: "camps"
+
+            filterCamp:!this.state.filterCamp
+
         });
 
     }
 
     toggleSpecial() {
         this.setState({
-            filterCamp:true,
-            filterSeries:true,
-            filterDropIn:true,
-            filterSpecial:false,
-            eventFilter: "everything else"
+
+            filterSpecial:!this.state.filterSpecial
+
         });
 
     }
@@ -154,69 +349,78 @@ class App extends Component {
         }
     }
 
+    changeAge = ({ target }) => {
 
-    constructor() {
-        super();
+        if (target.hasAttribute("data-age-group")) {
+            this.setState(
+                {
+                    currentAgeGroup: $(target).attr("data-age-group")
+                });
+            $(".filter-age")
+                .css("display","none");
+            // is it a member?
+            for (var member in Object.keys(this.state.members)) {
+                if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
+                    this.setState({
+                        currentLocation: this.state.members[member].defaultLocation,
+                        filterLocation: this.state.members[member].defaultLocation,
+                        selectedMemberKey: member
+                    });
+                    this.setFilterAgeByAge(this.state.members[member].age);
+                }
+            }
+            this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
-        this.toggleSeries = this.toggleSeries.bind(this);
-        this.toggleDropin = this.toggleDropin.bind(this);
-        this.toggleCamp = this.toggleCamp.bind(this);
-        this.toggleSpecial = this.toggleSpecial.bind(this);
-        this.changeAge = this.changeAge.bind(this);
-        this.changeLocation = this.changeLocation.bind(this);
-        this.changeView = this.changeView.bind(this);
-        this.openAlert = this.openAlert.bind(this);
-        this.closeAlert = this.closeAlert.bind(this);
-        this.testLogIn = this.testLogIn.bind(this);
-        this.openFullDay = this.openFullDay.bind(this);
-        this.closeFullDay = this.closeFullDay.bind(this);
-        this.setViewDay = this.setViewDay.bind(this);
 
-        this.state = {
-            filterDropIn: true,
-            filterSpecial: true,
-            filterSeries: true,
-            filterCamp: true,
-            filter7to9: false,
-            filter9to11: true,
-            filter12to14: true,
-            eventFilter: "events",
-            filterLocation: "Brooklyn",
-            currentLocation: "Brooklyn",
-            currentAgeGroup: "age 7 to 9",
-            currentView: "week",
-            ageSelectionOptions: [
-                "age 7 to 9",
-                "age 9 to 11",
-                "age 12 to 14"
-            ],
-            selectedEvent: "",
-            loggedIn: false,
-            members: [],
-            selectedMemberKey: "",
-            alert: {
-                title: "",
-                text: "",
-                button1: "cancel",
-                button2: "ok",
-                id: 0,
-                spotsLeft: 0
-            },
-            viewOpen: false,
-            view: {
-                title: "",
-                text: "",
-                button1: "close",
-                button2: "ok",
-                id: 0
-            },
-            viewingDay: "January 1"
+        } else {
+            $(".filter-age")
+                .css("display","flex");
+        }
+        $(".editable-age-group").css("color","inherit");
+        $(".editable-age-group").css("background-color","inherit");
+        // $('.change-age-btn').unbind("hover");
+        // $('.change-age-btn').hover(function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
+        // }, function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color","#333");
+        // });
+
+    };
+
+    changeLocation = ({ target }) => {
+
+        if (target.hasAttribute("data-location")) {
+            this.setState(
+                {
+                    currentLocation: $(target).attr("data-location"),
+                    filterLocation: $(target).attr("data-location")
+                });
+            $(".filter-location")
+                .css("display","none");
+
+        } else {
+            $(".filter-location")
+                .css("display","flex");
         }
 
-        global.allEvents = seriesJSON;
-        //TODO 'DAYSTRING' for all
-        this.parseDateListToString(global.allEvents);
-    }
+    };
+
+    changeView = ({ target }) => {
+
+        if (target.hasAttribute("data-view")) {
+            this.setState(
+                {
+                    currentView: $(target).attr("data-view")
+                })
+            $(".filter-view")
+                .css("display","none");
+
+        } else {
+            $(".filter-view")
+                .css("display","flex");
+        }
+
+    };
 
     parseDateListToString(events) {
 
@@ -294,7 +498,6 @@ class App extends Component {
         }
     }
 
-
     openAlert(title, text, btn1, btn2, spots, id) {
         this.setState({
             open: !this.state.open,
@@ -314,12 +517,6 @@ class App extends Component {
             open: false
         })
         console.log("closing alert");
-    }
-
-    setViewDay(month,day) {
-        this.setState({
-            viewingDay: month = " " + day
-        })
     }
 
     openFullDay(title, text, btn1, btn2, id) {
@@ -343,52 +540,10 @@ class App extends Component {
         })
     }
 
-
-    componentDidMount() {
-        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
-        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
-        $("#calendar").css('display', 'none');
-        $("#calendar").css('display', 'grid');
-
-        $('body').click(function () {
-            $(".filter-location").css("display","none");
-            $(".filter-age").css("display","none");
-            $(".filter-view").css("display","none");
-        });
-        $('.change-age-btn').unbind("hover");
-        $('.change-age-btn').hover(function () {
-            $('.change-age-btn > .filtering-hover-text').css("color","blue");
-        }, function () {
-            $('.change-age-btn > .filtering-hover-text').css("color","#333");
-        });
-        $('.change-location-btn').unbind("hover");
-        $('.change-location-btn').hover(function () {
-            $('.change-location-btn > .filtering-hover-text').css("color","blue");
-        }, function () {
-            $('.change-location-btn > .filtering-hover-text').css("color","#333");
-        });
-        $('.change-view-btn').unbind("hover");
-        $('.change-view-btn').hover(function () {
-            $('.change-view-btn > .filtering-hover-text').css("color","blue");
-        }, function () {
-            $('.change-view-btn > .filtering-hover-text').css("color","#333");
-        });
-        var _this = this;
-        $('.day').not(".closed").not(".no-day").unbind("click");
-        $('.day').not(".closed").not(".no-day")
-            .click(function () {
-                var child = $(this).find("[data-month!='undefined']");
-                _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
-                // console.log("day click "+ child.attr("data-month"));
-            });
-
-        this.runJquery();
-        // this.addHolidays();
-        // this.addOwnedDays();
-
-        //try and hide
-
-
+    setViewDay(month,day) {
+        this.setState({
+            viewingDay: month = " " + day
+        })
     }
 
     addHolidays() {
@@ -461,6 +616,7 @@ class App extends Component {
         }
 
     }
+
     printOwnedDay(thisDayFullString,title,subTitle,type,time) {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
@@ -546,7 +702,6 @@ class App extends Component {
 
     }
 
-
     getMonthName(num) {
         num = parseInt(num);
         switch (num) {
@@ -579,140 +734,6 @@ class App extends Component {
         }
     }
 
-
-    changeAge = ({ target }) => {
-
-        if (target.hasAttribute("data-age-group")) {
-            this.setState(
-                {
-                    currentAgeGroup: $(target).attr("data-age-group")
-                });
-            $(".filter-age")
-                .css("display","none");
-            // is it a member?
-            for (var member in Object.keys(this.state.members)) {
-                if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
-                    this.setState({
-                        currentLocation: this.state.members[member].defaultLocation,
-                        filterLocation: this.state.members[member].defaultLocation,
-                        selectedMemberKey: member
-                    });
-                    this.setFilterAgeByAge(this.state.members[member].age);
-                }
-            }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
-
-
-        } else {
-            $(".filter-age")
-                .css("display","flex");
-        }
-        $(".editable-age-group").css("color","inherit");
-        $(".editable-age-group").css("background-color","inherit");
-        // $('.change-age-btn').unbind("hover");
-        // $('.change-age-btn').hover(function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
-        // }, function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","#333");
-        // });
-
-    };
-
-    changeLocation = ({ target }) => {
-
-        if (target.hasAttribute("data-location")) {
-            this.setState(
-                {
-                    currentLocation: $(target).attr("data-location"),
-                    filterLocation: $(target).attr("data-location")
-                });
-            $(".filter-location")
-                .css("display","none");
-
-        } else {
-            $(".filter-location")
-                .css("display","flex");
-        }
-
-    };
-
-    changeView = ({ target }) => {
-
-        if (target.hasAttribute("data-view")) {
-            this.setState(
-                {
-                    currentView: $(target).attr("data-view")
-                })
-            $(".filter-view")
-                .css("display","none");
-
-        } else {
-            $(".filter-view")
-                .css("display","flex");
-        }
-
-    };
-
-
-    componentDidUpdate() {
-        console.log("did update");
-        //this.runJquery();
-        ReactTooltip.rebuild();
-        if (global.isUpdating!=true) this.runJquery();
-
-    }
-
-    runJquery() {
-        global.isUpdating=true;
-        console.log("jquery");
-        $('div:has(> #no-day)').addClass('no-day');
-        $('div:has(> .close-me)').addClass('closed');
-        this.addOwnedDays();
-        var myThis = this;
-        $('.view-day').unbind("click");
-        $('.view-day')
-            .click(function () {
-                myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
-                    ,"Here is where all the info and more buying options are","close","checkout",0);
-            });
-        $('.selectable').unbind("click");
-        $('.selectable').unbind("mouseenter");
-        $('.selectable').unbind("mouseleave");
-
-        $('.selectable')
-            .click(function () {
-
-                var myColor;
-                $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
-                    myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-                myThis.openAlert($(this).attr("data-name"),$(this).attr("data-description"), "cancel", "add for $"+$(this).attr("data-price"),$(this).attr("data-spotsleft"), $(this).attr("data-id"));
-            });
-
-        $('.selectable')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $("[data-id="+$(this).attr('data-id')+"]").addClass('selectable-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $("[data-id="+$(this).attr('data-id')+"]").removeClass('selectable-hover');
-            });
-        $('.event-container-series, .event-container-pro-series')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $(this).addClass('container-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $(this).removeClass('container-hover');
-            });
-
-
-        global.isUpdating=false;
-
-    }
 
     render() {
 
@@ -750,7 +771,7 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing {this.state.eventFilter} for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
+                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
@@ -871,41 +892,41 @@ class App extends Component {
                                        filterAge9to11={this.state.filter9to11}
                                        filterAge12to14={this.state.filter12to14}
                                        filterLocation={this.state.filterLocation}
-                                       myApp = {this}
+                                       events = {global.eventsByDay["September"]}
                                 />
-                                <Month name="October" numDays="31" skipDays="0"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       myApp = {this}
-                                />
-                                <Month name="November" numDays="30" skipDays="3"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       myApp = {this}
-                                />
-                                <Month name="December" numDays="31" skipDays="5"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       myApp = {this}
-                                />
+                                {/*<Month name="October" numDays="31" skipDays="0"*/}
+                                       {/*filterDropIn={this.state.filterDropIn}*/}
+                                       {/*filterSpecial={this.state.filterSpecial}*/}
+                                       {/*filterSeries={this.state.filterSeries}*/}
+                                       {/*filterCamp={this.state.filterCamp}*/}
+                                       {/*filterAge7to9={this.state.filter7to9}*/}
+                                       {/*filterAge9to11={this.state.filter9to11}*/}
+                                       {/*filterAge12to14={this.state.filter12to14}*/}
+                                       {/*filterLocation={this.state.filterLocation}*/}
+                                       {/*myApp = {this}*/}
+                                {/*/>*/}
+                                {/*<Month name="November" numDays="30" skipDays="3"*/}
+                                       {/*filterDropIn={this.state.filterDropIn}*/}
+                                       {/*filterSpecial={this.state.filterSpecial}*/}
+                                       {/*filterSeries={this.state.filterSeries}*/}
+                                       {/*filterCamp={this.state.filterCamp}*/}
+                                       {/*filterAge7to9={this.state.filter7to9}*/}
+                                       {/*filterAge9to11={this.state.filter9to11}*/}
+                                       {/*filterAge12to14={this.state.filter12to14}*/}
+                                       {/*filterLocation={this.state.filterLocation}*/}
+                                       {/*myApp = {this}*/}
+                                {/*/>*/}
+                                {/*<Month name="December" numDays="31" skipDays="5"*/}
+                                       {/*filterDropIn={this.state.filterDropIn}*/}
+                                       {/*filterSpecial={this.state.filterSpecial}*/}
+                                       {/*filterSeries={this.state.filterSeries}*/}
+                                       {/*filterCamp={this.state.filterCamp}*/}
+                                       {/*filterAge7to9={this.state.filter7to9}*/}
+                                       {/*filterAge9to11={this.state.filter9to11}*/}
+                                       {/*filterAge12to14={this.state.filter12to14}*/}
+                                       {/*filterLocation={this.state.filterLocation}*/}
+                                       {/*myApp = {this}*/}
+                                {/*/>*/}
                             </div>
                             <div className="day-sidebar">
                                 <div className="big-day-title">

@@ -1,5 +1,6 @@
 .day {
     transition: all 150ms ease-out;
+    z-index:1000;
 
 }
 
@@ -146,4 +147,96 @@
 .date-number {
     font-size:14px;
 
+}
+.square-btn-additional-copy {
+    display: none;
+}
+
+.square-btn-text {
+    width: 12px;
+    height:12px;
+    border-radius: 100%;
+    font-weight: 800;
+    line-height: 7px;
+    color:white;
+    margin:0px;
+    flex-shrink: 0;
+}
+.square-btn-copy {
+    box-shadow: none;
+}
+
+.square-btn {
+   box-shadow: none;
+}
+.event-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.event-bar {
+    height:5px;
+    margin-bottom:2px;
+}
+
+.spanner {
+    align-items: center;
+    -webkit-align-items: center;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
+    color: #fff;
+    display: -webkit-flex;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    justify-content: center;
+    -webkit-justify-content: center;
+    letter-spacing: 1px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 10px;margin-right:3px;
+
+}
+
+.contained-series .label, .contained-pro-series .label {
+    display:none;
+}
+.contained-series, .contained-pro-series {
+    align-self: stretch;
+    color: white;
+    /*margin-top:5px;*/
+    /*margin-bottom: 5px;*/
+    z-index: 0;;
+    /*mix-blend-mode: multiply;*/
+}
+.event-container-camp {
+    align-content: flex-end;
+    align-items: flex-end;
+    align-self: stretch;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    mix-blend-mode: multiply;
+}
+
+/*.event-container-camp:hover {*/
+/*mix-blend-mode: normal;*/
+/*z-index: 1000;*/
+/*}*/
+.camp {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.contained-camp {
+    align-self: stretch;
+    color: white;
+    height: 10px;
+    /*margin-top:5px;*/
+    /*margin-bottom: 5px;*/
+    margin-bottom: 5px;
+    /*mix-blend-mode: multiply;*/
 }

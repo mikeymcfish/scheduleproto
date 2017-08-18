@@ -76,21 +76,51 @@ class Day extends React.Component {
 
     }
 
+    renderBar(event) {
+
+        //console.log(this.props.filterAge7to9, event.age);
+
+        var hideMe = false;
+
+        if (event.location.toUpperCase()!=this.props.filterLocation.toUpperCase()) hideMe=true;
+        if (event.age=="age 7 to 9" && this.props.filterAge7to9) hideMe=true;
+        if (event.age=="age 9 to 11" && this.props.filterAge9to11) hideMe=true;
+        if (event.age=="age 12 to 14" && this.props.filterAge12to14) hideMe=true;
+
+        var colorClass="";
+        switch (event.type) {
+            case "drop-in" :
+                colorClass = "drop-in-color";
+                break;
+            case "special" :
+                colorClass = "special-color";
+                break;
+            case "camp" :
+                colorClass = "camp-color";
+                break;
+            case "series" :
+                colorClass = "series-color";
+                break;
+            case "pro-series" :
+                colorClass = "pro-series-color";
+                break;
+            default:
+                break;
+        }
+        var hiddenClass = "";
+        hideMe ? hiddenClass = "hide-me" : "";
+        var soldOutClass = "";
+        event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
+        return(
+            <div className={"event-bar " + colorClass + " " + hiddenClass}>
+            </div>
+        );
+
+    }
+
 
 
     render() {
-
-        // if (this.props.minecon=="true") {
-        //
-        //     return (
-        //         <div className="minecon" style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value}
-        //              style={{
-        //                  backgroundImage: "url('./img/minecon.png')"
-        //              }}
-        //              {...this.props}>
-        //         </div>
-        //     );
-        // }
 
 
 
@@ -98,6 +128,10 @@ class Day extends React.Component {
         this.props.dropinevents ? dropInEvents=this.props.dropinevents : dropInEvents=[];
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents : specialEvents=[];
+        var seriesEvents = [];
+        this.props.seriesEvents ? seriesEvents=this.props.seriesEvents : seriesEvents=[];
+        var campEvents = [];
+        this.props.campEvents ? campEvents=this.props.campEvents : campEvents=[];
         var myIcon = this.props.incart ? <CartIcon/> : "";
         if (this.props.isclosed=="true") {
             return(
@@ -122,11 +156,17 @@ class Day extends React.Component {
                     <div className="date-icon"> {myIcon}
                     </div>
                 </div>
-                <div className="event-boxes">
+                {/*<div className="event-boxes">*/}
 
-                    {dropInEvents.map((item,i) => this.renderEvent(item, "dropin"), this)}
-                    {specialEvents.map((item,i) => this.renderEvent(item, "special"), this)}
+                    {/*{dropInEvents.map((item,i) => this.renderEvent(item, "dropin"), this)}*/}
+                    {/*{specialEvents.map((item,i) => this.renderEvent(item, "special"), this)}*/}
 
+                {/*</div>*/}
+                <div className="event-bars">
+                    {dropInEvents.map((item,i) => this.renderBar(item, "dropin"), this)}
+                    {specialEvents.map((item,i) => this.renderBar(item, "special"), this)}
+                    {seriesEvents.map((item,i) => this.renderBar(item, "series"), this)}
+                    {campEvents.map((item,i) => this.renderBar(item, "camp"), this)}
                 </div>
             </div>
         );

@@ -943,37 +943,7 @@
     letter-spacing: 1px;
 }
 
-.square-btn-text {
-    position: static;
-    float: none;
-    clear: none;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    border-radius: 0px;
-    background-color: #0098ff;
-    font-size: 12px;
-}
 
-.square-btn-text.color-1 {
-    background-color: #f8e71c;
-}
-
-.square-btn-text.color-2 {
-    background-color: #f5a623;
-}
-
-.square-btn-text.color-4 {
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    background-color: #9b9b9b;
-}
 
 .month-label {
     display: -webkit-box;
@@ -2316,19 +2286,7 @@ body {
     grid-row: row 8;
 }
 
-.event-boxes {
 
-    /*min-width: 80px;*/
-    /*display:flex;*/
-    /*flex-direction: column;*/
-    align-items: flex-end;
-    /*min-height: 0px;*/
-
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-}
 
 .and-more-label {
     align-items: flex-end;
@@ -2477,12 +2435,6 @@ body {
     box-shadow: none;
 }
 
-.square-btn-text {
-
-    height: 20px;
-    padding-top: 4px;
-
-}
 
 .square-btn:hover {
     box-shadow: none;
@@ -2505,17 +2457,7 @@ container-hover {
 /*!*mix-blend-mode: multiply;*!*/
 /*}*/
 
-.contained-series, .contained-pro-series {
-    align-self: stretch;
-    color: white;
-    margin-left: 5px;
-    /*margin-top:5px;*/
-    /*margin-bottom: 5px;*/
-    width: 20px;
-    z-index: 20;
-    z-index: 999;
-    /*mix-blend-mode: multiply;*/
-}
+
 
 .event-container-series:hover{
 
@@ -2529,44 +2471,7 @@ container-hover {
 /*z-index: 1000;*/
 /*}*/
 
-.contained-series .label, .contained-pro-series .label {
-    overflow: visible;
-    transform: rotate(90deg);
-    white-space: nowrap;
-}
 
-.event-container-camp {
-    align-content: flex-end;
-    align-items: flex-end;
-    align-self: stretch;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    z-index: 999;
-    mix-blend-mode: multiply;
-}
-
-/*.event-container-camp:hover {*/
-/*mix-blend-mode: normal;*/
-/*z-index: 1000;*/
-/*}*/
-.camp {
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-}
-
-.contained-camp {
-    align-self: stretch;
-    color: white;
-    height: 20px;
-    /*margin-top:5px;*/
-    /*margin-bottom: 5px;*/
-    margin-bottom: 5px;
-    z-index: 20;
-    /*mix-blend-mode: multiply;*/
-}
 
 /*.contained-camp:hover {*/
 /*mix-blend-mode: normal;*/

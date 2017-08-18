@@ -14,59 +14,21 @@ import ReactTooltip from 'react-tooltip'
 
 
 class Month extends React.Component {
-    RenderDay(i, isclosed, dropinevents, specialevents, inCart) {
 
-        //Hold up, is this a super special day?
+    constructor() {
+        super();
+        global.overlappingSeriesEvents = [];
+        global.overlappingCampEvents = [];
+        //TODO ALL EVENTS HERE
+        global.allEvents = seriesJSON;
+        //TODO 'DAYSTRING' for all
+        //this.parseDateListToString(global.allEvents);
+    }
 
-        // if (this.props.name=="November" && i==18) {
-        //     //minecon
-        //     return <Day closed="true" minecon="true"/>
-        //
-        // }
+    componentWillUpdate() {
+        global.overlappingSeriesEvents = [];
+        global.overlappingCampEvents = [];
 
-
-        //filters
-        var dropInList = [];
-        var specialList = "";
-        var allList = [];
-        if (isclosed) return <Day isclosed="true"/>
-        if (!this.props.filterDropIn)
-        {
-            dropInList = dropinevents;
-        }
-        if (!this.props.filterSpecial)
-        {
-            specialList = specialevents;
-        }
-
-
-        // if (this.getHoliday(this.props.name,i)) {
-        //     return (
-        //         <Day month={this.props.name} value={i}>
-        //             <Overlay/>
-        //         </Day>
-        //     )
-        // }
-
-        return <Day month={this.props.name}
-                    value={i}
-                    dropinevents={dropInList}
-                    specialevents={specialList}
-                    filterAge7to9={this.props.filterAge7to9}
-                    filterAge9to11={this.props.filterAge9to11}
-                    filterAge12to14={this.props.filterAge12to14}
-                    filterLocation={this.props.filterLocation}
-                    incart={inCart}/>
-
-        //RANDOM TESTING
-        //
-        // if (random1 >.8) return <Day month={this.props.name} value={i} dropinevents="Makerspace,Tournament" specialevents="Guest Pass"/>;
-        // else if (random1 >.4) return <Day month={this.props.name}  value={i} dropinevents="Makerspace" specialevents="Guest Pass" inCart="true"/>;
-        // else if (random1 >.2) return <Day month={this.props.name}  value={i} specialevents="Guest Pass"/>;
-        // else return <Day month={this.props.name}  value={i}/>;
-        //
-
-        //
     }
 
     getHoliday(month, day) {
@@ -138,20 +100,8 @@ class Month extends React.Component {
         )
     }
 
-    componentWillUpdate() {
-        global.overlappingSeriesEvents = [];
-        global.overlappingCampEvents = [];
+    getSeriesInDay(events, day) {
 
-    }
-
-    constructor() {
-        super();
-        global.overlappingSeriesEvents = [];
-        global.overlappingCampEvents = [];
-        //TODO ALL EVENTS HERE
-        global.allEvents = seriesJSON;
-        //TODO 'DAYSTRING' for all
-        this.parseDateListToString(global.allEvents);
     }
 
     parseDateListToString(events) {
@@ -308,6 +258,88 @@ class Month extends React.Component {
 
     }
 
+    RenderDay(i, isclosed, dropinevents, specialevents, seriesevents, inCart) {
+
+        //filters
+        var dropInList = [];
+        var seriesList = [];
+        var specialList = "";
+        var allList = [];
+        if (isclosed) return <Day isclosed="true"/>
+        if (!this.props.filterDropIn)
+        {
+            dropInList = dropinevents;
+        }
+        if (!this.props.filterSpecial)
+        {
+            specialList = specialevents;
+        }
+        if (!this.props.filterSeries)
+        {
+            seriesList = seriesevents;
+        }
+
+
+
+        return <Day month={this.props.name}
+                    value={i}
+                    dropinevents={dropInList}
+                    specialevents={specialList}
+                    seriesEvents={seriesList}
+                    filterAge7to9={this.props.filterAge7to9}
+                    filterAge9to11={this.props.filterAge9to11}
+                    filterAge12to14={this.props.filterAge12to14}
+                    filterLocation={this.props.filterLocation}
+                    incart={inCart}/>
+
+    }
+
+    RenderDaySmall(i, isclosed, dropinevents, specialevents, seriesevents, proseriesevents, campevents, inCart) {
+
+        //filters
+        var dropInList = [];
+        var seriesList = [];
+        var proseriesList = [];
+        var campList = [];
+        var specialList = [];
+        var allList = [];
+        if (isclosed) return <Day isclosed="true"/>
+        if (!this.props.filterDropIn)
+        {
+            dropInList = dropinevents;
+        }
+        if (!this.props.filterSpecial)
+        {
+            specialList = specialevents;
+        }
+        if (!this.props.filterCamp)
+        {
+            campList = campevents;
+        }
+        if (!this.props.filterSeries)
+        {
+            seriesList = seriesevents;
+        }
+        if (!this.props.filterProSeries)
+        {
+            proseriesList = proseriesevents;
+        }
+
+        return <Day month={this.props.name}
+                    value={i}
+                    dropinevents={dropInList}
+                    specialevents={specialList}
+                    seriesEvents={seriesList}
+                    campEvents={campList}
+                    filterAge7to9={this.props.filterAge7to9}
+                    filterAge9to11={this.props.filterAge9to11}
+                    filterAge12to14={this.props.filterAge12to14}
+                    filterLocation={this.props.filterLocation}
+                    incart={inCart}/>
+
+    }
+
+
     render() {
 
         var allDays = [];
@@ -319,21 +351,62 @@ class Month extends React.Component {
 
         for (var i = 1; i <= this.props.numDays; i++) {
 
-
+            //get events on this day
             var dropinevents = [];
             var specialevents = [];
+            var seriesevents = [];
+            var proseriesevents = [];
+            var campevents = [];
             var isclosed = false;
             var inCart = false;
 
+            if (this.props.events[i]) {
 
-            dropinevents = this.parseForSingleDayEvents(global.allEvents.events, i, "drop-in");
-            specialevents = this.parseForSingleDayEvents(global.allEvents.events, i, "special");
+                for (var j=0; j<this.props.events[i].length; j++) {
+
+                    var thisEvent = this.props.events[i][j];
+                    var type = this.props.events[i][j].type;
+
+                    switch (type) {
+                        case "drop-in":
+                            dropinevents.push(thisEvent);
+                            break;
+                        case "special":
+                            specialevents.push(thisEvent);
+                            break;
+                        case "camp":
+                            campevents.push(thisEvent);
+                            break;
+                        case "series":
+                            seriesevents.push(thisEvent);
+                            break;
+                        case "dpro-series":
+                            proseriesevents.push(thisEvent);
+                            break;
+
+                    }
+
+                }
+            }
+
+
+            // var dropinevents = [];
+            // var specialevents = [];
+            // var seriesevents = [];
+            // var isclosed = false;
+            // var inCart = false;
+            //
+            //
+            // dropinevents = this.parseForSingleDayEvents(global.allEvents.events, i, "drop-in");
+            // specialevents = this.parseForSingleDayEvents(global.allEvents.events, i, "special");
+            // seriesevents = this.getSeriesInDay(global.allEvents.events, i);
             isclosed = this.isDayClosed(i);
 
 
 
             allDays.push(
-                this.RenderDay(i, isclosed, dropinevents, specialevents, inCart)
+                this.RenderDaySmall(i, isclosed, dropinevents, specialevents, seriesevents, proseriesevents, campevents, inCart)
+                // this.RenderDay(i, isclosed, dropinevents, specialevents, seriesevents, inCart)
             );
 
         }
@@ -523,46 +596,46 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
 
-                    {overlappingEvents.map((container, index) => <EventContainers
-                        key = {index}
-                        allDupes={container}
-                        skipDays={this.props.skipDays}
-                        month={this.props.name}
-                        filterAge7to9={this.props.filterAge7to9}
-                        filterAge9to11={this.props.filterAge9to11}
-                        filterAge12to14={this.props.filterAge12to14}
-                        filterLocation={this.props.filterLocation}
-                    />)}
-                    {overlappingCamp.map((container, index) => <EventContainers
-                        key = {index}
-                        allDupes={container}
-                        skipDays={this.props.skipDays}
-                        month={this.props.name}
-                        filterAge7to9={this.props.filterAge7to9}
-                        filterAge9to11={this.props.filterAge9to11}
-                        filterAge12to14={this.props.filterAge12to14}
-                        filterLocation={this.props.filterLocation}
-                    />)}
-                    {eventsList.map((event, index) => <Event
-                        key={index}
-                        skipDays={this.props.skipDays}
-                        type={event.type}
-                        month={this.props.name}
-                        name={event.name}
-                        price = {event.price}
-                        id = {event.id}
-                        age = {event.age}
-                        location = {event.location}
-                        spotsLeft = {event.spotsLeft}
-                        description = {event.description}
-                        days = {event.days}
-                        startTime = {event.startTime}
-                        filterAge7to9={this.props.filterAge7to9}
-                        filterAge9to11={this.props.filterAge9to11}
-                        filterAge12to14={this.props.filterAge12to14}
-                        filterLocation={this.props.filterLocation}
-                        monthObject={this}
-                    />)}
+                    {/*{overlappingEvents.map((container, index) => <EventContainers*/}
+                        {/*key = {index}*/}
+                        {/*allDupes={container}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*month={this.props.name}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                    {/*/>)}*/}
+                    {/*{overlappingCamp.map((container, index) => <EventContainers*/}
+                        {/*key = {index}*/}
+                        {/*allDupes={container}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*month={this.props.name}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                    {/*/>)}*/}
+                    {/*{eventsList.map((event, index) => <Event*/}
+                        {/*key={index}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*type={event.type}*/}
+                        {/*month={this.props.name}*/}
+                        {/*name={event.name}*/}
+                        {/*price = {event.price}*/}
+                        {/*id = {event.id}*/}
+                        {/*age = {event.age}*/}
+                        {/*location = {event.location}*/}
+                        {/*spotsLeft = {event.spotsLeft}*/}
+                        {/*description = {event.description}*/}
+                        {/*days = {event.days}*/}
+                        {/*startTime = {event.startTime}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                        {/*monthObject={this}*/}
+                    {/*/>)}*/}
                 </div>
                 </StickyContainer>
 
