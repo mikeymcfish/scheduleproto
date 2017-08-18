@@ -1,0 +1,149 @@
+.day {
+    transition: all 150ms ease-out;
+
+}
+
+.day:hover:not(.closed):not(.no-day) {
+    transform: scale(1.15, 1.15);
+    cursor: pointer;
+    background-color: white;
+    /*box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, .15);*/
+    z-index: 100;
+    transition: all 150ms ease-out;
+
+}
+
+.day:active {
+    transform: scale(.95, .95);
+    cursor: pointer;
+    box-shadow: none;
+    z-index: 100;
+    transition: all 150ms ease-out;
+
+
+}
+/*.monthly-view {*/
+    /*transform: scale(.5, .5);*/
+/*}*/
+/*.big-day {*/
+    /*transform: scale(.75, .75);*/
+/*}*/
+.page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top:0px;
+}
+
+.month-sidebar {
+    /*width:20%;*/
+}
+.day-sidebar {
+    background-color: transparent;
+    box-shadow: none;
+}
+.cart {
+
+    width:320px;
+}
+
+
+/*//////MONTHS*/
+
+.month-label.one-week > div {
+    align-content: center;
+    background-color: rgb(247, 247, 247);
+    display: none;
+    height: 40px;
+    justify-content: flex-start;
+    margin-top:-25px;
+
+}
+
+.filler-with-bar {
+    position: relative;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    display: block;
+    width: 10px;
+    min-width: 10px;
+    padding: 5px 5px 5px 0px;
+    /*align-items: start;*/
+    /*align-self: flex-end;*/
+    flex: 1;
+    border-bottom: 3px none #d2d2d2;
+    background-color: transparent;
+}
+.month-name {
+    position: relative;
+    z-index: 10;
+    display: block;
+    overflow: visible;
+    margin-top: -6px;
+    padding: 3px 15px 0px;
+    flex: 1;
+    border-style: none;
+    border-right-width: 3px;
+    border-right-color: #d2d2d2;
+    border-bottom-width: 3px;
+    border-bottom-color: #d2d2d2;
+    border-left-width: 3px;
+    border-left-color: #d2d2d2;
+    color: #333;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(247, 247, 247);
+
+}
+.grid {
+    margin-left:-100px;
+    color: #444;
+    display: grid;
+    /*grid-template-columns: repeat(7, [col] auto ); auto makes some columns wider or shoert which is :-( */
+    padding: 10px;
+    grid-gap: 8px;
+    grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr;
+    margin-top: -10px;
+}
+.day {
+    min-height:40px;
+    min-width:40px;
+}
+.overlay .title {
+
+    color: #333;
+    font-size: 9pt;
+    font-weight: 600;
+    line-height: 10pt;
+
+}
+
+.overlay .sub-title {
+    color: rgba(51, 51, 51, 0.65);
+    font-size: 8pt;
+    line-height: 10pt;
+    font-weight: 400;
+    margin: 3px;
+
+    /*height:20px;*/
+}
+.day-top-container {
+    min-height:20px;
+}
+.date-icon {
+    color: black;
+    float: right;
+    font-size: 10px;
+    height: 20px;
+    position: relative;
+    right: 0px;
+    text-align: right;
+    top: 0px;
+    width: 0px;
+}
+.date-number {
+    font-size:14px;
+
+}

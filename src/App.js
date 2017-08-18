@@ -20,6 +20,7 @@ import ReactTooltip from 'react-tooltip'
 import seriesJSON from "./series.json";
 import BigDay from "./BigDay";
 import Moment from "moment";
+import './AltViews.css';
 
 
 class App extends Component {
@@ -169,6 +170,7 @@ class App extends Component {
         this.testLogIn = this.testLogIn.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
+        this.setViewDay = this.setViewDay.bind(this);
 
         this.state = {
             filterDropIn: true,
@@ -207,7 +209,8 @@ class App extends Component {
                 button1: "close",
                 button2: "ok",
                 id: 0
-            }
+            },
+            viewingDay: "January 1"
         }
 
         global.allEvents = seriesJSON;
@@ -313,6 +316,12 @@ class App extends Component {
         console.log("closing alert");
     }
 
+    setViewDay(month,day) {
+        this.setState({
+            viewingDay: month = " " + day
+        })
+    }
+
     openFullDay(title, text, btn1, btn2, id) {
         this.setState({
             viewOpen: !this.state.viewOpen,
@@ -364,10 +373,18 @@ class App extends Component {
         }, function () {
             $('.change-view-btn > .filtering-hover-text').css("color","#333");
         });
+        var _this = this;
+        $('.day').not(".closed").not(".no-day").unbind("click");
+        $('.day').not(".closed").not(".no-day")
+            .click(function () {
+                var child = $(this).find("[data-month!='undefined']");
+                _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
+                // console.log("day click "+ child.attr("data-month"));
+            });
 
         this.runJquery();
-        this.addHolidays();
-        this.addOwnedDays();
+        // this.addHolidays();
+        // this.addOwnedDays();
 
         //try and hide
 
@@ -521,10 +538,10 @@ class App extends Component {
 
     }
 
-    getDayTitleString(month, day) {
+    getDayTitleString(str) {
 
+        var date = Moment(str, "MMMM D");
 
-        var date = Moment(month+" "+day);
         return date.format("dddd, MMMM Do");
 
     }
@@ -695,9 +712,7 @@ class App extends Component {
 
         global.isUpdating=false;
 
-
     }
-
 
     render() {
 
@@ -844,150 +859,126 @@ class App extends Component {
                                 }
                             }
                             </Sticky>
-                        <div className="big-day-title">
-                            {this.getDayTitleString("September","3")}
-                        </div>
-                        <div className={"show-only-"+this.state.currentView} id="filtering-container-week">
-                            <BigDay
-                                title = "Virtual Reality Coding"
-                                tags={
-                                    [   {text: "SERIES", tagType:"black"},
-                                        {text: "Code", tagType:"red"},
-                                        {text: "Fun", tagType:"blue"},
-                                        {text: "Magic", tagType:"green"}
-                                    ]
-                                }
-                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-                                ages = "7 to 9"
-                                dates = "9-11,9-18,9-25,10-3"
-                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                price = "$399"
-                                spotsLeft = "2"
-                            />
-                            <BigDay
-                                title = "Minecraft Modding"
-                                tags={
-                                    [
-                                        {text: "SERIES", tagType:"black"},
-                                        {text: "Spiders", tagType:"blue"},
-                                        {text: "Magic", tagType:"green"}
-                                    ]
-                                }
-                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-                                ages = "7 to 9"
-                                dates = "9-11,9-18,9-25,10-3"
-                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                price = "$499"
-                                spotsLeft = "5"
-                            />
-                            <BigDay
-                                title = "Build a gaming PC"
-                                tags={
-                                    [   {text: "PRO SERIES", tagType:"black"},
-                                        {text: "Making", tagType:"green"},
-                                        {text: "Tech", tagType:"blue"}
-                                    ]
-                                }
-                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-                                ages = "7 to 9"
-                                dates = "9-11,9-18,9-25,10-3"
-                                time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                price = "$1399"
-                                spotsLeft = "0"
-                                type = "pro"
-                            />
-                            <BigDay
-                                title = "Makerspace"
-                                tags={
-                                    [   {text: "Makerspace", tagType:"black"},
-                                        {text: "Making", tagType:"green"},
-                                        {text: "Tech", tagType:"blue"}
-                                    ]
-                                }
-                                copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-                                ages = "7 to 14"
-                                dates = "9-8"
-                                time = "2:30 - 6:30 p.m."
-                                price = "$55"
-                                spotsLeft = "4"
-                            />
-                            <Month name="September" numDays="30" skipDays="5"
-                                   filterWeek ="3"
-                                   filterDropIn={this.state.filterDropIn}
-                                   filterSpecial={this.state.filterSpecial}
-                                   filterSeries={this.state.filterSeries}
-                                   filterCamp={this.state.filterCamp}
-                                   filterAge7to9={this.state.filter7to9}
-                                   filterAge9to11={this.state.filter9to11}
-                                   filterAge12to14={this.state.filter12to14}
-                                   filterLocation={this.state.filterLocation}
-                                   myApp = {this}
-                            />
-                            {/*<Week*/}
-                                {/*name="September"*/}
-                                {/*numDays="30" skipDays="5"*/}
-                                {/*filterDropIn={this.state.filterDropIn}*/}
-                                {/*filterSpecial={this.state.filterSpecial}*/}
-                                {/*filterSeries={this.state.filterSeries}*/}
-                                {/*filterCamp={this.state.filterCamp}*/}
-                                {/*filterAge7to9={this.state.filter7to9}*/}
-                                {/*filterAge9to11={this.state.filter9to11}*/}
-                                {/*filterAge12to14={this.state.filter12to14}*/}
-                                {/*filterLocation={this.state.filterLocation}*/}
-                                {/*myApp = {this}*/}
-                            {/*/>*/}
+                        <div className="page-container">
 
-                        </div>
-
-
-                        <div className={"show-only-"+this.state.currentView} id="filtering-container">
+                            <div className="month-sidebar">
                                 <Month name="September" numDays="30" skipDays="5"
-                                   filterDropIn={this.state.filterDropIn}
-                                   filterSpecial={this.state.filterSpecial}
-                                   filterSeries={this.state.filterSeries}
-                                   filterCamp={this.state.filterCamp}
-                                   filterAge7to9={this.state.filter7to9}
-                                   filterAge9to11={this.state.filter9to11}
-                                   filterAge12to14={this.state.filter12to14}
-                                   filterLocation={this.state.filterLocation}
-                                   myApp = {this}
-                            />
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       myApp = {this}
+                                />
                                 <Month name="October" numDays="31" skipDays="0"
-                                filterDropIn={this.state.filterDropIn}
-                                filterSpecial={this.state.filterSpecial}
-                                filterSeries={this.state.filterSeries}
-                                filterCamp={this.state.filterCamp}
-                                filterAge7to9={this.state.filter7to9}
-                                filterAge9to11={this.state.filter9to11}
-                                filterAge12to14={this.state.filter12to14}
-                                filterLocation={this.state.filterLocation}
-                                myApp = {this}
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       myApp = {this}
                                 />
                                 <Month name="November" numDays="30" skipDays="3"
-                                filterDropIn={this.state.filterDropIn}
-                                filterSpecial={this.state.filterSpecial}
-                                filterSeries={this.state.filterSeries}
-                                filterCamp={this.state.filterCamp}
-                                filterAge7to9={this.state.filter7to9}
-                                filterAge9to11={this.state.filter9to11}
-                                filterAge12to14={this.state.filter12to14}
-                                filterLocation={this.state.filterLocation}
-                                myApp = {this}
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       myApp = {this}
                                 />
                                 <Month name="December" numDays="31" skipDays="5"
-                                filterDropIn={this.state.filterDropIn}
-                                filterSpecial={this.state.filterSpecial}
-                                filterSeries={this.state.filterSeries}
-                                filterCamp={this.state.filterCamp}
-                                filterAge7to9={this.state.filter7to9}
-                                filterAge9to11={this.state.filter9to11}
-                                filterAge12to14={this.state.filter12to14}
-                                filterLocation={this.state.filterLocation}
-                                myApp = {this}
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       myApp = {this}
                                 />
                             </div>
+                            <div className="day-sidebar">
+                                <div className="big-day-title">
+                                    {this.getDayTitleString(this.state.viewingDay)}
+                                </div>
+                                <BigDay
+                                    title = "Virtual Reality Coding"
+                                    tags={
+                                        [   {text: "SERIES", tagType:"black"},
+                                            {text: "Code", tagType:"red"},
+                                            {text: "Fun", tagType:"blue"},
+                                            {text: "Magic", tagType:"green"}
+                                        ]
+                                    }
+                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                                    ages = "7 to 9"
+                                    dates = "9-11,9-18,9-25,10-3"
+                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                    price = "$399"
+                                    spotsLeft = "2"
+                                />
+                                <BigDay
+                                    title = "Minecraft Modding"
+                                    tags={
+                                        [
+                                            {text: "SERIES", tagType:"black"},
+                                            {text: "Spiders", tagType:"blue"},
+                                            {text: "Magic", tagType:"green"}
+                                        ]
+                                    }
+                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                                    ages = "7 to 9"
+                                    dates = "9-11,9-18,9-25,10-3"
+                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                    price = "$499"
+                                    spotsLeft = "5"
+                                />
+                                <BigDay
+                                    title = "Build a gaming PC"
+                                    tags={
+                                        [   {text: "PRO SERIES", tagType:"black"},
+                                            {text: "Making", tagType:"green"},
+                                            {text: "Tech", tagType:"blue"}
+                                        ]
+                                    }
+                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                                    ages = "7 to 9"
+                                    dates = "9-11,9-18,9-25,10-3"
+                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
+                                    price = "$1399"
+                                    spotsLeft = "0"
+                                    type = "pro"
+                                />
+                                <BigDay
+                                    title = "Makerspace"
+                                    tags={
+                                        [   {text: "Makerspace", tagType:"black"},
+                                            {text: "Making", tagType:"green"},
+                                            {text: "Tech", tagType:"blue"}
+                                        ]
+                                    }
+                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                                    ages = "7 to 14"
+                                    dates = "9-8"
+                                    time = "2:30 - 6:30 p.m."
+                                    price = "$55"
+                                    spotsLeft = "4"
+                                />
+                            </div>
+                            <div className="cart">
 
-
+                            </div>
+                        </div>
 
 
                     </StickyContainer>

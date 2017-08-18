@@ -145,7 +145,7 @@ class BigDay extends React.Component {
                                 <div className="add-to-text">
                                     add to cart
                                 </div>
-                                <Button raised color="primary" className="btn-2">
+                                <Button raised color="primary"   className="btn-2">
                                     <div><span className="price-text">{this.props.price}</span></div>
                                 </Button>
                                 <div className="add-to-text">
