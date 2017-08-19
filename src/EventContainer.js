@@ -70,6 +70,9 @@ class EventContainer extends Component {
         if (thisMonthDays.length==1) {
             killFont = true;
         } else {
+            if (thisMonthDays.length<=2) {
+                killFont = true;
+            }
 
             var endRow = $("[data-month=" + this.props.month + "][data-daynum=" + thisMonthDays[thisMonthDays.length - 1] + "]")
                 .parent()

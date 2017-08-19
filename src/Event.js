@@ -27,7 +27,7 @@ class Event extends Component {
         hideMe ? hiddenClass = "hide-me" : "";
 
         var soldOutClass = "";
-        this.props.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
+        // this.props.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
 
 
         //CHECK IF IN A SPAN CONTAINER
@@ -128,7 +128,12 @@ class Event extends Component {
                 rowSpan = 1;
                 //make font smaller?
                 killFont = true;
-            } else {
+            }
+            else {
+
+                if (thisMonthDays.length<=2) {
+                    killFont = true;
+                }
 
                 var endRow = $("[data-month="+this.props.month+"][data-daynum="+thisMonthDays[thisMonthDays.length-1]+"]")
                     .parent()
@@ -170,10 +175,11 @@ class Event extends Component {
 
             var hasOverlay = false;
 
+
             return (
 
                 <div className={spanType + ' spanner ' + hiddenClass + ' ' + soldOutClass} data-days={this.props.days}
-                     data-tip= {this.props.description}
+                     // data-tip= {this.props.description}
                      data-modal-target="#myspecialmodal"
                      data-name={this.props.name}
                      data-price={this.props.price}
@@ -194,13 +200,13 @@ class Event extends Component {
                     zIndex: 100
 
                 }}>
-                    {(() => {
-                        if (!killFont) {
-                            return (
-                                <span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>
-                            )
-                        };
-                    })()}
+                    {/*{(() => {*/}
+                        {/*if (!killFont) {*/}
+                            {/*return (*/}
+                                {/*<span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>*/}
+                            {/*)*/}
+                        {/*};*/}
+                    {/*})()}*/}
                 </div>
             )
 
@@ -210,7 +216,7 @@ class Event extends Component {
             return (
                 <div className={this.props.type+"-color spanner " + hiddenClass+ " "+soldOutClass+" contained-" + this.props.type}
                      data-modal-target="#myspecialmodal"
-                     data-tip= {this.props.description}
+                     // data-tip= {this.props.description}
 
                      data-name={this.props.name}
                      data-price={this.props.price}
@@ -224,13 +230,13 @@ class Event extends Component {
                      data-id = {this.props.id}
                      data-startTime = {this.props.startTime}
                 >
-                    {(() => {
-                        if (!this.props.killfont) {
-                            return (
-                                <span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>
-                            )
-                        };
-                    })()}
+                    {/*{(() => {*/}
+                        {/*if (!this.props.killfont) {*/}
+                            {/*return (*/}
+                                {/*<span className='label'>{this.props.spotsLeft<=0?  (this.props.name + " *SOLD OUT*") : (this.props.name+ " ("+this.props.spotsLeft+" spots left)")}</span>*/}
+                            {/*)*/}
+                        {/*};*/}
+                    {/*})()}*/}
                 </div>
             )
         }

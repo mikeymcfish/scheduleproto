@@ -200,7 +200,7 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  background-color: #b0b0b0;
+  background-color: #333;
 }
 
 .calendar-days {
@@ -509,7 +509,7 @@
   border-bottom-color: #d2d2d2;
   border-left-width: 3px;
   border-left-color: #d2d2d2;
-  color: #b0b0b0;
+  color: #333;
   font-size: 28px;
   text-align: center;
   background-color: rgb(247, 247, 247);
