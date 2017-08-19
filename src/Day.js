@@ -112,7 +112,7 @@ class Day extends React.Component {
         var soldOutClass = "";
         event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
         return(
-            <div className={"event-bar " + colorClass + " " + hiddenClass}>
+            <div className={"event-bar " + colorClass + " " + hiddenClass} data-days={event.daystring}>
             </div>
         );
 

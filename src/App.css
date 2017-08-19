@@ -1,3 +1,6 @@
+.body {
+    background-color: rgb(247, 247, 247);
+}
 .editable-heading {
     border-bottom: 3px solid #333;
     font-weight: 700;
@@ -200,7 +203,7 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    background-color: #333;
+    background-color: #979797;
 }
 
 .calendar-days {
@@ -542,63 +545,9 @@
     background-color: #d3e7ff;
 }
 
-.filler-with-month-name {
-    position: static;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: visible;
-    width: 110px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding: 5px 5px 5px 0px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    border-bottom: 3px none #d2d2d2;
-    background-color: transparent;
-}
 
-.filler-with-month-name.highlighted-day {
-    background-color: #d3e7ff;
-}
 
-.filler-with-bar {
-    position: relative;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
-    display: block;
-    width: 110px;
-    min-width: 90px;
-    padding: 5px 5px 5px 0px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    border-bottom: 3px none #d2d2d2;
-    background-color: transparent;
-}
+
 
 .filler-with-bar.highlighted-day {
     background-color: #d3e7ff;
@@ -945,41 +894,7 @@
 
 
 
-.month-label {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: visible;
-    margin-top: 20px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
 
-.month-label.one-week {
-    min-height: 35px;
-    /*margin-top: 10px;*/
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
 
 .series-overlay {
     position: absolute;
@@ -2481,16 +2396,7 @@ container-hover {
 
 }
 
-.month-label {
-    padding-top: 60px;
-    z-index: 998;
 
-    /*padding-bottom:30px;*/
-}
-
-.one-week {
-    margin-top: 0px !important;
-}
 
 .filters {
     /*height: 200px;*/
@@ -2498,20 +2404,6 @@ container-hover {
 
 .grid {
     margin-top: 20px;
-}
-
-.month-label.one-week {
-    background-color: rgb(247, 247, 247);
-}
-
-.month-label.one-week > div {
-    align-content: center;
-    background-color: rgb(247, 247, 247);
-    display: flex;
-    height: 40px;
-    justify-content: center;
-    margin-top:-25px;
-
 }
 
 
@@ -2597,32 +2489,12 @@ container-hover {
     color: #333 !important;
 }
 
-.overlay {
-    /*border: solid 1px #fafafa;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /*mix-blend-mode: multiply;*/
-    min-height: 0;
-    /*box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5) !important;*/
-    /*transform: translateXY();*/
-    /*text-shadow: -1px -1px rgba(72, 72, 72, 0.2);*/
-    padding: 5px;
-    z-index: 98;
-    /*transform: rotateZ(8deg);*/
-    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .4);
-    width:90%;
-    height:90%;
-    margin-left: 6%;
-    margin-top: 3%;
-    line-height: 16px;
-
-}
 .text-item-center {
     align-self: center;
 }
 .day-under-overlay {
-    filter: brightness(150%) ;/*blur(1px)*/
+    filter: brightness(150%) blur(1px);
+    box-shadow: none;
 }
 
 .overlay .title {
@@ -2689,32 +2561,7 @@ container-hover {
     color:#999;
 }
 
-.in-cart {
-    /*background-color: rgba(255, 0, 255, 0.5);*/
-    background-color: rgba(255, 42, 0, 0.65);
-    /*border-top: solid #333 10px;*/
-    z-index: 101;
 
-    /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);*/
-}
-.in-cart .title {
-    color:#fff;
-}
-.in-cart .sub-title {
-    color:#fff;
-}
-.in-cart .remove-day {
-    color:white;
-    text-decoration: underline;
-    cursor: pointer;
-    line-height: 20px;
-    text-transform: uppercase;
-}
-.in-cart .remove-day:hover {
-    color:rgba(255, 42, 0, 0.65);
-    background-color: white;
-    text-decoration: none;
-}
 
 .filtering-header {
     display:flex;
@@ -2722,7 +2569,7 @@ container-hover {
     /*justify-items: center;*/
     align-items: flex-start;
     /*align-content: space-around;*/
-    justify-content: center;
+    justify-content: flex-start;
     height: 65px;
     overflow: visible;
     margin-right:-60px;
@@ -2734,7 +2581,7 @@ container-hover {
 
 @media (max-width: 950px) {
     .filtering-header {
-        font-size: 24px !important;
+        font-size: 32px !important;
     }
     .filtering-header .filtering-hover-text {
         cursor: pointer;
@@ -2893,7 +2740,7 @@ hr {
     cursor: pointer;
 }
 .filtering-header {
-    font-size:28px;
+    font-size:36px;
 }
 .show-only-week .monthly-view {
     /*display: none;*/
@@ -2916,239 +2763,4 @@ hr {
             "header header header header header header header"
             "week week week week week week week "
             "expand expand expand expand expand expand expand ";
-}
-.big-day {
-    margin-bottom:30px;
-    border-radius: 4px;
-    width:600px;
-    margin-left:10px;
-    display:flex;
-    background-color:white;
-    align-content: flex-start;
-    border-color: #444444;
-    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 80px;
-    padding: 15px;
-    z-index: 10;
-}
-
-.big-day .top-container {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between ;
-    margin-bottom: 30px;
-
-}
-.big-day .date-container {
-    font-size: 35px;
-    text-align: left;
-    margin-top:10px;
-    margin-left:10px;
-}
-.big-day Button {
-    width:100%;
-}
-.big-day .content-container {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.big-day .content-container .left-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-self: stretch;
-    width:40%;
-}
-
-.big-day .content-container .right-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
-    margin-left:30px;
-}
-
-.big-day .content-container .left-side .pic {
-    background-color: grey;
-    height: 100%;
-    width: 185px;
-}
-
-
-.big-day .content-container .right-side .title {
-    font-size:24px;
-    font-weight:600;
-    margin-top:-5px;
-    line-height: 26px;
-    margin-bottom:5px;
-    text-align: left;
-}
-.big-day .content-container .right-side .sub-title {
-    font-size:16px;
-    line-height: 18px;
-    font-weight:200;
-    margin-top:5px;
-    margin-bottom:10px;
-}
-.big-day .content-container .right-side .info-section{
-    /*margin-top:20px;*/
-    line-height: 20px;
-   display: flex;
-    flex-direction: column;
-    justify-items: flex-start;
-    margin-bottom:10px;
-    margin-top:5px;
-
-}
-.big-day .content-container .right-side .info-section .line-item{
-    display: flex;
-    flex-direction: row;
-    justify-items: flex-start;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-}
-.big-day .content-container .right-side .info-section .line-item .property{
-    color: #929292;
-    /*font-style: italic;*/
-    text-align: right;
-    min-width:40px;
-}
-.big-day .content-container .right-side .info-section .line-item .detail{
-    margin-left:10px;
-    color: #333;
-    flex-grow: 1;
-    text-align: left;
-    font-size: 95%;
-}
-.big-day .bottom-container{
-    margin: 10px;
-    margin-top:15px;
-    display: flex;
-    flex-direction: row;
-    justify-items: stretch;
-    height: 40px;
-
-}
-.or-thing {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-left:10px;
-    margin-right: 10px;
-    color: #929292;
-}
-.or-thing .vertical-bar {
-    width:0px;
-    height: 25px;
-    border-left: solid 2px #c9c9c9;
-}
-.bottom-container .btn-1 {
-    width: 290px;
-    height:40px;
-}
-Button.btn-2 {
-
-    height:40px;
-    flex-shrink: 0;
-    /*background-color: #00dc00;*/
-}
-Button.btn-2:hover {
-
-    /*background-color: #00cb00;*/
-}
-.price-text {
-    font-size:26px;
-}
-.button-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-self: stretch;
-    width: 100%;
-    margin-bottom:-25px;
-}
-.add-to-text {
-    font-size: 14px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-weight:400;
-    color: #929292;
-    font-style: italic;
-}
-.tag {
-    height:16px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    /*border-radius: 10px;*/
-    min-width:30px;
-    padding:8px;
-    background-color: rgba(51, 51, 51, 0.56);
-    color: white;
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 400;
-    margin:3px;
-    align-items: center;
-}
-.title-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.tags {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-content: flex-end;
-    flex-grow: 1;
-    margin-right:-10px;
-    align-items: flex-end;
-    margin-bottom:5px;
-    flex-wrap: wrap;
-}
-.tag-red {
-    background-color: rgba(255, 0, 0, 0.52);
-}
-.tag-green {
-    background-color: rgba(0, 128, 0, 0.49);
-}
-.tag-blue {
-    background-color: rgba(0, 0, 255, 0.51);
-}
-.big-day-title {
-    font-size: 28px;
-    margin-top:30px;
-    margin-bottom:20px;
-    text-align: center;
-}
-.waitlist-text {
-    text-decoration: underline;
-    color: blue;
-    cursor: pointer;
-    font-style: normal;
-}
-.pro-tag {
-    /*width:60px;*/
-    height:30px;
-    font-size:18px;
-    border: solid 2px #333;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-weight: 700;
-    color: #333333;
-    float: left;
-    padding:4px;
-    margin-right:6px;
-
-
 }

@@ -21,6 +21,7 @@ import seriesJSON from "./series.json";
 import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
+import Divider from 'material-ui/Divider';
 
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
+        this.addAnOverlay = this.addAnOverlay.bind(this);
 
         this.state = {
             filterDropIn: false,
@@ -81,13 +83,53 @@ class App extends Component {
                 button2: "ok",
                 id: 0
             },
-            viewingDay: "January 1"
+            viewingDay: "none",
+            viewingDayEvents: [],
+            highlightedDays: "",
+            currentSelectedMembersAge: 0
         }
 
         global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
         this.parseDateListToString(global.allEvents);
         global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
+    }
+
+    clearCalendar() {
+        $(".overlay").remove();
+        $(".day").removeClass("day-under-overlay");
+        $(".day").removeClass("highlighted");
+    }
+
+    addAnOverlay = (thisDayFullString) => {
+        //first remove all overlays
+
+        var allDays = thisDayFullString.split(",");
+
+        console.log("*** adding overlay " + thisDayFullString);
+
+        this.clearCalendar();
+
+        for (var i=0; i<allDays.length; i++) {
+
+            var thisDayString = allDays[i].split("-");
+            var thisMonth = this.getMonthName(thisDayString[0]);
+            console.log(thisMonth, thisDayString[1]);
+            var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
+            var thisDayRow = thisDay.css("grid-row-start");
+            var thisDayCol = thisDay.css("grid-column-start");
+            thisDay.addClass("day-under-overlay");
+            var monthGrid = $('#year-calendar_' + thisMonth);
+            monthGrid.append(
+                "<div class='overlay' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + ";'>" +
+                    "<div class='big-num'>" + (i+1) +
+                "</div></div>"
+            );
+
+        }
+
+
+
     }
 
     convertEventsToByDay(events) {
@@ -114,11 +156,12 @@ class App extends Component {
             }
 
 
-
         }
         return daysOfEvents;
 
+    }
 
+    updateDayEvents() {
 
     }
 
@@ -156,7 +199,12 @@ class App extends Component {
         $('.day').not(".closed").not(".no-day")
             .click(function () {
                 var child = $(this).find("[data-month!='undefined']");
+                $('.day').removeClass("highlighted");
+                _this.addAnOverlay("");
+                $(this).addClass("highlighted");
                 _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
+                _this.scrollView($(this));
+                // _this.updateDayEvents();
                 // console.log("day click "+ child.attr("data-month"));
             });
 
@@ -231,6 +279,8 @@ class App extends Component {
 
     testLogIn() {
         //should probably put owned events in these member details.
+
+
         this.setState({
             loggedIn:true,
             members:global.allEvents.members,
@@ -251,6 +301,7 @@ class App extends Component {
 
     toggleSeries() {
 
+        this.clearCalendar();
         this.setState({
 
             filterSeries: !this.state.filterSeries
@@ -261,6 +312,7 @@ class App extends Component {
 
     toggleDropin() {
         // if (!this.state.filterDropIn) {
+        this.clearCalendar();
         this.setState({
 
             filterDropIn:!this.state.filterDropIn
@@ -270,6 +322,7 @@ class App extends Component {
     }
 
     toggleCamp() {
+        this.clearCalendar();
         this.setState({
 
             filterCamp:!this.state.filterCamp
@@ -279,6 +332,7 @@ class App extends Component {
     }
 
     toggleSpecial() {
+        this.clearCalendar();
         this.setState({
 
             filterSpecial:!this.state.filterSpecial
@@ -288,6 +342,11 @@ class App extends Component {
     }
 
     setFilterAgeByAge(age) {
+
+        this.setState({
+                currentSelectedMembersAge: age
+            });
+        this.clearCalendar();
         console.log("setting filter by age "+ age);
 
         if (age < 7) {
@@ -325,6 +384,7 @@ class App extends Component {
     }
 
     setFilterAgeByGroup (group) {
+        this.clearCalendar();
         console.log("filter age by "+group);
         if (group == "age 7 to 9") {
             this.setState({
@@ -540,10 +600,91 @@ class App extends Component {
         })
     }
 
+    getFirstDayFromFullString(fullString) {
+        var thisDayString = fullString.split(",")[0].split("-");
+        var thisMonth = this.getMonthName(thisDayString[0]);
+        console.log(thisMonth, thisDayString[1]);
+        var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
+        return (thisDay);
+
+    }
+
+    scrollView(element) {
+
+        //find the first event-bar
+
+        var fullstring = element.find(".event-bar").attr("data-days");
+        console.log("$$"+fullstring);
+        var firstDay = this.getFirstDayFromFullString(fullstring);
+        var t = firstDay.offset().top;
+        console.log(t);
+
+        //set this guy to start at the first occurance.
+        var td = $("#day-start").offset().top;
+        $("#day-start").css("top",(t-200)+"px");
+
+        //scroll it.
+        $('html, body').animate({
+            scrollTop: $("#day-start").offset().top
+        }, 250);
+
+
+    }
+
+    doesAgeMatchEvent (ageGroup) {
+        var myAge = this.state.currentSelectedMembersAge;
+        // "age 7 to 9",
+        //     "age 9 to 11",
+        //     "age 12 to 14"
+        if (ageGroup=="age 7 to 9" && 7<=myAge<=9) {
+            return true;
+        }
+        else if (ageGroup=="age 9 to 11" && 9<=myAge<=11) {
+            return true;
+        }
+        else if (ageGroup=="age 12 to 14" && 12<=myAge<=14) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     setViewDay(month,day) {
+
+        var thisDaysEvents = [];
+        var thisDaysFilteredEvents = [];
+
+        try {
+            thisDaysEvents = global.eventsByDay[month][day];
+            for (var i=0; i<thisDaysEvents.length; i++ ) {
+                console.log("found " + thisDaysEvents.length + " events on the selected day");
+                var ageMatched = false;
+                if (this.state.loggedIn) {
+                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age) ;
+                } else {
+                    ageMatched = (thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase());
+                }
+                if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
+                    && ageMatched) {
+                    thisDaysFilteredEvents.push(thisDaysEvents[i]);
+                }
+            }
+            var firstEventDates = thisDaysFilteredEvents[0].daystring;
+            var firstDay = this.getFirstDayFromFullString(firstEventDates);
+
+
+        } catch(e) {
+
+        }
+
         this.setState({
-            viewingDay: month = " " + day
+            viewingDay: month = " " + day,
+            viewingDayEvents: thisDaysFilteredEvents
+
         })
+
+
     }
 
     addHolidays() {
@@ -597,13 +738,13 @@ class App extends Component {
 
                         for (var k = 0; k < multiDays.length; k++) {
 
-                            this.printOwnedDay(multiDays[k],"RESERVED",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
+                            this.printOwnedDay(multiDays[k],"MINE",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
 
                         }
 
 
                     } else {
-                        this.printOwnedDay(thisDayFullString,"RESERVED",allEvents[j].name,allEvents[j].type,allEvents[j].startTime);
+                        this.printOwnedDay(thisDayFullString,"MINE",allEvents[j].name,allEvents[j].type,allEvents[j].startTime);
                     }
                     $("[data-id='"+allEvents[j].id+"']").hide();
 
@@ -627,10 +768,10 @@ class App extends Component {
         thisDay.addClass("day-under-overlay");
         var monthGrid = $('#year-calendar_' + thisMonth);
         monthGrid.append(
-            "<div class='overlay owned-day' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
+            "<div class='owned-overlay' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + ";'>" +
             "<div class='title'>" + title +
-            "</div><div class='sub-title'>"+subTitle+". Starts at "+time+"<br/>" +
-            "<span class='view-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>view this day</span>" +
+            // "</div><div class='sub-title'>"+subTitle+". Starts at "+time+"<br/>" +
+            // "<span class='view-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>view this day</span>" +
             "</div></div>"
         );
 
@@ -734,7 +875,6 @@ class App extends Component {
         }
     }
 
-
     render() {
 
 
@@ -750,6 +890,7 @@ class App extends Component {
             }
         }
 
+        var thisDaysStuff = [];
         return (
             <div className="App">
                 <TopLinks onLogin={this.testLogIn}/>
@@ -793,16 +934,16 @@ class App extends Component {
                                 <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
                             </div>
                         </div>
-                        <div className="change-view-btn space-me-5" onClick={this.changeView}>
-                            <div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>
-                            <div className="text-item-center filtering-hover-text">
-                                <div>click to change</div>
-                            </div>
-                            <div className="filter-selection-box filter-view">
-                                <div className="filter-option set-view-btn" data-view="year">year</div>
-                                <div className="filter-option set-view-btn" data-view="week">week</div>
-                            </div>
-                        </div>
+                        {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
+                            {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
+                            {/*<div className="text-item-center filtering-hover-text">*/}
+                                {/*<div>click to change</div>*/}
+                            {/*</div>*/}
+                            {/*<div className="filter-selection-box filter-view">*/}
+                                {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
+                                {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="age-notification">
                         { this.state.selectedMemberKey!="" ?
@@ -832,56 +973,41 @@ class App extends Component {
                              id={this.state.view.id}
                     />
                     <StickyContainer style={{ background:'transparent'}}>
-                        <Sticky topOffset={-20} style={{}}>
-                            {
-                                ({
-                                     style,
-                                     isSticky,
-                                     wasSticky,
-                                     distanceFromTop,
-                                     distanceFromBottom,
-                                     calculatedHeight
-                                 }) => { return(
-                                    <div className="filters" style={style}>
-                                        <div className="filter-circle-container" onClick={this.toggleSeries}>
-                                            <div className="filter-circle-filled series-color">
-                                                {seriesFilterIcon}
-                                            </div>
-                                            <div className="filter-circle-label">
-                                                Series
-                                            </div>
-                                        </div>
-                                        <div className="filter-circle-container" onClick={this.toggleCamp}>
-                                            <div className="filter-circle-filled camp-color">
-                                                {campFilterIcon}
-                                            </div>
-                                            <div className="filter-circle-label">
-                                                Camp
-                                            </div>
-                                        </div>
-                                        <div className="filter-circle-container" onClick={this.toggleDropin}>
-                                            <div className="filter-circle-filled drop-in-color">
-                                                {dropInFilterIcon}
-                                            </div>
-                                            <div className="filter-circle-label">
-                                                Drop-in
-                                            </div>
-                                        </div>
-                                        <div className="filter-circle-container" onClick={this.toggleSpecial}>
-                                            <div className="filter-circle-filled special-color">
-                                                {specialFilterIcon}
-                                            </div>
-                                            <div className="filter-circle-label">
-                                                Everything else
-                                            </div>
-                                        </div>
-                                    </div>
-                                    )
-                                }
-                            }
-                            </Sticky>
+                        <div className="filters">
+                            <div className="filter-circle-container" onClick={this.toggleSeries}>
+                                <div className="filter-circle-filled series-color">
+                                    {seriesFilterIcon}
+                                </div>
+                                <div className="filter-circle-label">
+                                    Series
+                                </div>
+                            </div>
+                            <div className="filter-circle-container" onClick={this.toggleCamp}>
+                                <div className="filter-circle-filled camp-color">
+                                    {campFilterIcon}
+                                </div>
+                                <div className="filter-circle-label">
+                                    Camp
+                                </div>
+                            </div>
+                            <div className="filter-circle-container" onClick={this.toggleDropin}>
+                                <div className="filter-circle-filled drop-in-color">
+                                    {dropInFilterIcon}
+                                </div>
+                                <div className="filter-circle-label">
+                                    Drop-in
+                                </div>
+                            </div>
+                            <div className="filter-circle-container" onClick={this.toggleSpecial}>
+                                <div className="filter-circle-filled special-color">
+                                    {specialFilterIcon}
+                                </div>
+                                <div className="filter-circle-label">
+                                    Everything else
+                                </div>
+                            </div>
+                        </div>
                         <div className="page-container">
-
                             <div className="month-sidebar">
                                 <Month name="September" numDays="30" skipDays="5"
                                        filterDropIn={this.state.filterDropIn}
@@ -894,113 +1020,147 @@ class App extends Component {
                                        filterLocation={this.state.filterLocation}
                                        events = {global.eventsByDay["September"]}
                                 />
-                                {/*<Month name="October" numDays="31" skipDays="0"*/}
-                                       {/*filterDropIn={this.state.filterDropIn}*/}
-                                       {/*filterSpecial={this.state.filterSpecial}*/}
-                                       {/*filterSeries={this.state.filterSeries}*/}
-                                       {/*filterCamp={this.state.filterCamp}*/}
-                                       {/*filterAge7to9={this.state.filter7to9}*/}
-                                       {/*filterAge9to11={this.state.filter9to11}*/}
-                                       {/*filterAge12to14={this.state.filter12to14}*/}
-                                       {/*filterLocation={this.state.filterLocation}*/}
-                                       {/*myApp = {this}*/}
-                                {/*/>*/}
-                                {/*<Month name="November" numDays="30" skipDays="3"*/}
-                                       {/*filterDropIn={this.state.filterDropIn}*/}
-                                       {/*filterSpecial={this.state.filterSpecial}*/}
-                                       {/*filterSeries={this.state.filterSeries}*/}
-                                       {/*filterCamp={this.state.filterCamp}*/}
-                                       {/*filterAge7to9={this.state.filter7to9}*/}
-                                       {/*filterAge9to11={this.state.filter9to11}*/}
-                                       {/*filterAge12to14={this.state.filter12to14}*/}
-                                       {/*filterLocation={this.state.filterLocation}*/}
-                                       {/*myApp = {this}*/}
-                                {/*/>*/}
-                                {/*<Month name="December" numDays="31" skipDays="5"*/}
-                                       {/*filterDropIn={this.state.filterDropIn}*/}
-                                       {/*filterSpecial={this.state.filterSpecial}*/}
-                                       {/*filterSeries={this.state.filterSeries}*/}
-                                       {/*filterCamp={this.state.filterCamp}*/}
-                                       {/*filterAge7to9={this.state.filter7to9}*/}
-                                       {/*filterAge9to11={this.state.filter9to11}*/}
-                                       {/*filterAge12to14={this.state.filter12to14}*/}
-                                       {/*filterLocation={this.state.filterLocation}*/}
-                                       {/*myApp = {this}*/}
-                                {/*/>*/}
+                                <Month name="October" numDays="31" skipDays="0"
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       events = {global.eventsByDay["October"]}
+                                />
+                                <Month name="November" numDays="30" skipDays="3"
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       events = {global.eventsByDay["November"]}
+                                />
+                                <Month name="December" numDays="31" skipDays="5"
+                                       filterDropIn={this.state.filterDropIn}
+                                       filterSpecial={this.state.filterSpecial}
+                                       filterSeries={this.state.filterSeries}
+                                       filterCamp={this.state.filterCamp}
+                                       filterAge7to9={this.state.filter7to9}
+                                       filterAge9to11={this.state.filter9to11}
+                                       filterAge12to14={this.state.filter12to14}
+                                       filterLocation={this.state.filterLocation}
+                                       events = {global.eventsByDay["December"]}
+                                       />
+
                             </div>
-                            <div className="day-sidebar">
+                            <div className="day-sidebar" id="day-start">
                                 <div className="big-day-title">
-                                    {this.getDayTitleString(this.state.viewingDay)}
+                                    {this.state.viewingDay=="none" ?
+
+                                        "Select a day on the left to view all of Pixel's offerings for that day."
+
+                                        :
+
+                                        this.getDayTitleString(this.state.viewingDay)
+
+                                    }
                                 </div>
-                                <BigDay
-                                    title = "Virtual Reality Coding"
-                                    tags={
-                                        [   {text: "SERIES", tagType:"black"},
-                                            {text: "Code", tagType:"red"},
-                                            {text: "Fun", tagType:"blue"},
-                                            {text: "Magic", tagType:"green"}
-                                        ]
-                                    }
-                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                                    ages = "7 to 9"
-                                    dates = "9-11,9-18,9-25,10-3"
-                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                    price = "$399"
-                                    spotsLeft = "2"
-                                />
-                                <BigDay
-                                    title = "Minecraft Modding"
-                                    tags={
-                                        [
-                                            {text: "SERIES", tagType:"black"},
-                                            {text: "Spiders", tagType:"blue"},
-                                            {text: "Magic", tagType:"green"}
-                                        ]
-                                    }
-                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                                    ages = "7 to 9"
-                                    dates = "9-11,9-18,9-25,10-3"
-                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                    price = "$499"
-                                    spotsLeft = "5"
-                                />
-                                <BigDay
-                                    title = "Build a gaming PC"
-                                    tags={
-                                        [   {text: "PRO SERIES", tagType:"black"},
-                                            {text: "Making", tagType:"green"},
-                                            {text: "Tech", tagType:"blue"}
-                                        ]
-                                    }
-                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                                    ages = "7 to 9"
-                                    dates = "9-11,9-18,9-25,10-3"
-                                    time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"
-                                    price = "$1399"
-                                    spotsLeft = "0"
-                                    type = "pro"
-                                />
-                                <BigDay
-                                    title = "Makerspace"
-                                    tags={
-                                        [   {text: "Makerspace", tagType:"black"},
-                                            {text: "Making", tagType:"green"},
-                                            {text: "Tech", tagType:"blue"}
-                                        ]
-                                    }
-                                    copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                                    ages = "7 to 14"
-                                    dates = "9-8"
-                                    time = "2:30 - 6:30 p.m."
-                                    price = "$55"
-                                    spotsLeft = "4"
-                                />
+                                <div className="big-day-container">
+
+                                    {this.state.viewingDayEvents.map((event, index) =>
+
+                                        <BigDay
+                                            title = {event.name}
+                                            tags={
+                                                [   {text: "SERIES", tagType:"black"},
+                                                    {text: "Code", tagType:"red"},
+                                                    {text: "Fun", tagType:"blue"},
+                                                    {text: "Magic", tagType:"green"}
+                                                ]
+                                            }
+                                            copy = {event.description}
+                                            ages = {event.age}
+                                            dates = {event.daystring}
+                                            time = {event.startTime}
+                                            price = {event.price}
+                                            spotsLeft = {event.spotsLeft}
+                                            addOverlay = {this.addAnOverlay}
+
+                                        />
+
+                                    )}
+
+                                    {/*<BigDay*/}
+                                        {/*title = "Virtual Reality Coding"*/}
+                                        {/*tags={*/}
+                                            {/*[   {text: "SERIES", tagType:"black"},*/}
+                                                {/*{text: "Code", tagType:"red"},*/}
+                                                {/*{text: "Fun", tagType:"blue"},*/}
+                                                {/*{text: "Magic", tagType:"green"}*/}
+                                            {/*]*/}
+                                        {/*}*/}
+                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
+                                        {/*ages = "7 to 9"*/}
+                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
+                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
+                                        {/*price = "$399"*/}
+                                        {/*spotsLeft = "2"*/}
+                                    {/*/>*/}
+                                    {/*<BigDay*/}
+                                        {/*title = "Minecraft Modding"*/}
+                                        {/*tags={*/}
+                                            {/*[*/}
+                                                {/*{text: "SERIES", tagType:"black"},*/}
+                                                {/*{text: "Spiders", tagType:"blue"},*/}
+                                                {/*{text: "Magic", tagType:"green"}*/}
+                                            {/*]*/}
+                                        {/*}*/}
+                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
+                                        {/*ages = "7 to 9"*/}
+                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
+                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
+                                        {/*price = "$499"*/}
+                                        {/*spotsLeft = "5"*/}
+                                    {/*/>*/}
+                                    {/*<BigDay*/}
+                                        {/*title = "Build a gaming PC"*/}
+                                        {/*tags={*/}
+                                            {/*[   {text: "PRO SERIES", tagType:"black"},*/}
+                                                {/*{text: "Making", tagType:"green"},*/}
+                                                {/*{text: "Tech", tagType:"blue"}*/}
+                                            {/*]*/}
+                                        {/*}*/}
+                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
+                                        {/*ages = "7 to 9"*/}
+                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
+                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
+                                        {/*price = "$1399"*/}
+                                        {/*spotsLeft = "0"*/}
+                                        {/*type = "pro"*/}
+                                    {/*/>*/}
+                                    {/*<BigDay*/}
+                                        {/*title = "Makerspace"*/}
+                                        {/*tags={*/}
+                                            {/*[   {text: "Makerspace", tagType:"black"},*/}
+                                                {/*{text: "Making", tagType:"green"},*/}
+                                                {/*{text: "Tech", tagType:"blue"}*/}
+                                            {/*]*/}
+                                        {/*}*/}
+                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
+                                        {/*ages = "7 to 14"*/}
+                                        {/*dates = "9-8"*/}
+                                        {/*time = "2:30 - 6:30 p.m."*/}
+                                        {/*price = "$55"*/}
+                                        {/*spotsLeft = "4"*/}
+                                    {/*/>*/}
+                                </div>
                             </div>
                             <div className="cart">
 
                             </div>
                         </div>
-
 
                     </StickyContainer>
                     <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>

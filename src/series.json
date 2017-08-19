@@ -120,6 +120,7 @@
       "type": "series",
       "span-type": "vertical",
       "startTime": "4:00 p.m.",
+      "tags": ["code", "vr", "magic"],
       "price": 145,
       "spotsLeft": 3,
       "days": {

@@ -10,6 +10,7 @@ import seriesJSON from "./series.json";
 import App from "./App";
 import { StickyContainer, Sticky } from 'react-sticky';
 import ReactTooltip from 'react-tooltip'
+import Divider from 'material-ui/Divider';
 
 
 
@@ -359,54 +360,44 @@ class Month extends React.Component {
             var campevents = [];
             var isclosed = false;
             var inCart = false;
+            if (this.props.events) {
+                if (this.props.events[i]) {
 
-            if (this.props.events[i]) {
+                    for (var j=0; j<this.props.events[i].length; j++) {
 
-                for (var j=0; j<this.props.events[i].length; j++) {
+                        var thisEvent = this.props.events[i][j];
+                        var type = this.props.events[i][j].type;
 
-                    var thisEvent = this.props.events[i][j];
-                    var type = this.props.events[i][j].type;
+                        switch (type) {
+                            case "drop-in":
+                                dropinevents.push(thisEvent);
+                                break;
+                            case "special":
+                                specialevents.push(thisEvent);
+                                break;
+                            case "camp":
+                                campevents.push(thisEvent);
+                                break;
+                            case "series":
+                                seriesevents.push(thisEvent);
+                                break;
+                            case "dpro-series":
+                                proseriesevents.push(thisEvent);
+                                break;
 
-                    switch (type) {
-                        case "drop-in":
-                            dropinevents.push(thisEvent);
-                            break;
-                        case "special":
-                            specialevents.push(thisEvent);
-                            break;
-                        case "camp":
-                            campevents.push(thisEvent);
-                            break;
-                        case "series":
-                            seriesevents.push(thisEvent);
-                            break;
-                        case "dpro-series":
-                            proseriesevents.push(thisEvent);
-                            break;
+                        }
 
                     }
-
                 }
             }
 
 
-            // var dropinevents = [];
-            // var specialevents = [];
-            // var seriesevents = [];
-            // var isclosed = false;
-            // var inCart = false;
-            //
-            //
-            // dropinevents = this.parseForSingleDayEvents(global.allEvents.events, i, "drop-in");
-            // specialevents = this.parseForSingleDayEvents(global.allEvents.events, i, "special");
-            // seriesevents = this.getSeriesInDay(global.allEvents.events, i);
             isclosed = this.isDayClosed(i);
 
 
 
             allDays.push(
                 this.RenderDaySmall(i, isclosed, dropinevents, specialevents, seriesevents, proseriesevents, campevents, inCart)
-                // this.RenderDay(i, isclosed, dropinevents, specialevents, seriesevents, inCart)
             );
 
         }
@@ -544,49 +535,17 @@ class Month extends React.Component {
             <div className="monthly-view">
                 <StickyContainer style={{ background:'transparent'}}>
 
-                    <Sticky >
-                        {
-                            ({
-                                 style,
-                                 isSticky,
-                                 wasSticky,
-                                 distanceFromTop,
-                                 distanceFromBottom,
-                                 calculatedHeight
-                             }) => {
-                                //console.log({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight });
-
-                                return (
-                                    <div className="month-label one-week" style={style}>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                        <div className="filler-with-month-name">
-                                            <div className="month-name">{this.props.name}</div>
-                                        </div>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                        <div className="filler-with-bar">
-                                            <div className="month-bar"></div>
-                                        </div>
-                                    </div>
-                                )
-                            }
-                        }
-                    </Sticky>
-
-
-                <div className="grid" id={"year-calendar_" +this.props.name} >
+                    <div className="month-label">
+                        <div className="filler-with-bar">
+                            <div className="month-bar"></div>
+                        </div>
+                        <div className="filler-with-month-name">
+                            <div className="month-name">{this.props.name}</div>
+                        </div>
+                        <div className="filler-with-bar">
+                            <div className="month-bar"></div>
+                        </div>
+                    </div>  <div className="grid" id={"year-calendar_" +this.props.name} >
                     {this.RenderWeekNames("Sun")}
                     {this.RenderWeekNames("Mon")}
                     {this.RenderWeekNames("Tue")}

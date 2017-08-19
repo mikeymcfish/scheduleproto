@@ -40,6 +40,16 @@ class BigDay extends React.Component {
         return newString;
     }
 
+    showOverlay = () => {
+        //var days = this.props.days;
+        this.props.addOverlay(this.props.dates);
+    }
+
+    clearOverlay = () => {
+        //var days = this.props.days;
+        //this.props.addOverlay("");
+    }
+
     render() {
 
         this.getDayTitleString();
@@ -58,6 +68,7 @@ class BigDay extends React.Component {
                 {/*<div className="big-day-title">*/}
                 {/*{this.getDayTitleString()}*/}
                 {/*</div>*/}
+                {/*this.props.onClose(this.state.open)*/}
                 <div className="big-day">
                     {/*<div className="top-container">*/}
                     {/*<div className="date-container">*/}
@@ -111,7 +122,7 @@ class BigDay extends React.Component {
                                     <div className="property">
                                         dates
                                     </div>
-                                    <div className="detail">
+                                    <div className="detail dates-link" onClick={this.showOverlay}>
                                         {this.convertDayString(this.props.dates)}
                                     </div>
                                 </div>
@@ -139,14 +150,14 @@ class BigDay extends React.Component {
 
                         </div>
 
-
-                        {parseInt(this.props.spotsLeft) > 0 ?
+                        {
+                            parseInt(this.props.spotsLeft) > 0 ?
                             <div className="button-col">
                                 <div className="add-to-text">
                                     add to cart
                                 </div>
                                 <Button raised color="primary"   className="btn-2">
-                                    <div><span className="price-text">{this.props.price}</span></div>
+                                    <div><span className="price-text">${this.props.price}</span></div>
                                 </Button>
                                 <div className="add-to-text">
                                     {this.props.spotsLeft + " spots left"}
