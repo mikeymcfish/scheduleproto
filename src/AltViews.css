@@ -53,12 +53,12 @@
 }
 
 .overlay {
-    background-color: rgba(0, 0, 255, 0.37);
+    background-color: rgba(111, 107, 255, 0.86);
     z-index: 1001;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    mix-blend-mode: hard-light;
+    /*mix-blend-mode: hard-light;*/
     /*margin-top: -1px;*/
 
 }
@@ -69,7 +69,7 @@
     flex-direction: column;
     justify-content: flex-end;
     color:white;
-    mix-blend-mode: hard-light;
+    /*mix-blend-mode: hard-light;*/
 }
 .overlay .big-num {
 
@@ -79,13 +79,13 @@
     color:white;
 }
 .overlay.holiday {
-    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
+    /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);*/
     background-color: transparent;
     mix-blend-mode: normal;
     padding:3px;
 }
 .overlay.birthday {
-    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);
+    /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);*/
     mix-blend-mode: normal;
     padding:3px;
     color:#333;

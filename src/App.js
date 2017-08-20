@@ -119,7 +119,9 @@ class App extends Component {
             .not(".cart")
             .remove();
 
-        $(".day").removeClass("highlighted");
+        $(".highlighted").removeClass("highlighted");
+
+        $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
     }
 
     addASeriesOverlay = (thisDayFullString) => {
@@ -139,7 +141,7 @@ class App extends Component {
             var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
             var thisDayRow = thisDay.css("grid-row-start");
             var thisDayCol = thisDay.css("grid-column-start");
-            thisDay.addClass("day-under-overlay");
+            thisDay.addClass("day-under-overlay series-list");
             var monthGrid = $('#year-calendar_' + thisMonth);
             monthGrid.append(
                 "<div class='overlay' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + ";'>" +
@@ -220,7 +222,8 @@ class App extends Component {
         $('.day').not(".closed").not(".no-day")
             .click(function () {
                 var child = $(this).find("[data-month!='undefined']");
-                $('.day').removeClass("highlighted");
+                _this.clearCalendar();
+                $('.highlighted').removeClass("highlighted");
                 _this.addASeriesOverlay("");
                 $(this).addClass("highlighted");
                 _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
@@ -744,7 +747,7 @@ class App extends Component {
         console.log("$$ adding overlay "+addclass+" to",day);
         var thisRow = day.css("grid-row-start");
         var thisCol = day.css("grid-column-start");
-        day.addClass("day-under-overlay");
+        day.addClass("day-under-overlay " +addclass);
         var monthGrid = $('#year-calendar_' + month);
         console.log(day.attr("data-month"));
 

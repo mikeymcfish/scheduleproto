@@ -62,7 +62,7 @@
         "day": 7,
         "title": "Open House",
         "subTitle": "3pm - 5pm",
-        "backgroundColor": "rgba(255,255,0,.5)",
+        "backgroundColor": "rgba(255,255,0,.8)",
         "icon": ""
       },
       {
@@ -70,7 +70,7 @@
         "day": 8,
         "title": "Open House",
         "subTitle": "3pm - 5pm",
-        "backgroundColor": "rgba(255,255,0,.5)",
+        "backgroundColor": "rgba(255,255,0,.8)",
         "icon": ""
       },
       {
@@ -78,7 +78,7 @@
         "day": 9,
         "title": "Open House",
         "subTitle": "10am - 12pm",
-        "backgroundColor": "rgba(255,255,0,.5)",
+        "backgroundColor": "rgba(255,255,0,.8)",
         "icon": ""
       },
       {
@@ -86,7 +86,7 @@
         "day": 18,
         "title": "Minecon World",
         "subTitle": "viewing party for members",
-        "backgroundColor": "rgba(0,0,255,.2)",
+        "backgroundColor": "rgba(0,0,255,.8)",
         "icon": "",
         "backgroundImg": ""
       },
@@ -95,7 +95,7 @@
         "day": 31,
         "title": "Halloween!",
         "subTitle": "free drop-in for members",
-        "backgroundColor": "rgba(255,125,0,.5)",
+        "backgroundColor": "rgba(255,125,0,.8)",
         "icon": "",
         "backgroundImg": ""
       }

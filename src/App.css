@@ -2493,8 +2493,8 @@ container-hover {
     align-self: center;
 }
 .day-under-overlay {
-    filter: brightness(150%) blur(1px);
-    box-shadow: none;
+    /*filter: brightness(150%) blur(1px);*/
+    /*box-shadow: none;*/
 }
 
 .overlay .title {
