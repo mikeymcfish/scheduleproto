@@ -265,7 +265,10 @@ class Month extends React.Component {
         var seriesList = [];
         var specialList = "";
         var allList = [];
-        if (isclosed) return <Day isclosed="true"/>
+        if (isclosed) return <Day isclosed="true"
+                                  month={this.props.name}
+                                  value={i}
+        />
         if (!this.props.filterDropIn)
         {
             dropInList = dropinevents;
@@ -303,7 +306,9 @@ class Month extends React.Component {
         var campList = [];
         var specialList = [];
         var allList = [];
-        if (isclosed) return <Day isclosed="true"/>
+        if (isclosed) return <Day isclosed="true"
+                                  month={this.props.name}
+                                  value={i}/>
         if (!this.props.filterDropIn)
         {
             dropInList = dropinevents;

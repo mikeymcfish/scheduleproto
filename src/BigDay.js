@@ -12,11 +12,12 @@ import Moment from "moment";
 
 class BigDay extends React.Component {
 
-    // RenderWeekNames(i) {
-    //     return (
-    //         <div className="week-names">{i}</div>
-    //     )
-    // }
+    constructor() {
+        super();
+        this.state = {
+            inCart:false
+        }
+    }
 
     getDayTitleString() {
 
@@ -45,10 +46,13 @@ class BigDay extends React.Component {
         this.props.addOverlay(this.props.dates);
     }
 
-    clearOverlay = () => {
-        //var days = this.props.days;
-        //this.props.addOverlay("");
+    handleAddToCart = () => {
+        this.setState({
+            inCart: true
+        });
+        this.props.addToCart(this.props.eventObj);
     }
+
 
     render() {
 
@@ -156,7 +160,7 @@ class BigDay extends React.Component {
                                 <div className="add-to-text">
                                     add to cart
                                 </div>
-                                <Button raised color="primary"   className="btn-2">
+                                <Button raised color="primary" className="btn-2" onClick={this.handleAddToCart}>
                                     <div><span className="price-text">${this.props.price}</span></div>
                                 </Button>
                                 <div className="add-to-text">

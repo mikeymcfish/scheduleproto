@@ -43,6 +43,7 @@ class App extends Component {
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
         this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
+        this.addToCart = this.addToCart.bind(this);
 
         this.state = {
             filterDropIn: false,
@@ -151,8 +152,23 @@ class App extends Component {
 
         }
 
+    }
 
+    addToCart = (event) => {
 
+        this.addInCart(event.id);
+        this.sendToCartAPI(event);
+
+    }
+
+    async sendToCartAPI (event) {
+        try {
+            let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
+            let responseJson = await response.json();
+            // return responseJson.movies;
+        } catch(error) {
+            console.error(error);
+        }
     }
 
     convertEventsToByDay(events) {
@@ -346,7 +362,6 @@ class App extends Component {
         //     currentAgeGroup: this.state.members[0].name,
         //     ageSelectionOptions: this.state.members
         // });
-        this.addInCart(27);
         this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
 
@@ -1150,7 +1165,9 @@ class App extends Component {
                                             time = {event.startTime}
                                             price = {event.price}
                                             spotsLeft = {event.spotsLeft}
+                                            eventObj = {event}
                                             addOverlay = {this.addASeriesOverlay}
+                                            addToCart = {this.addToCart}
 
                                         />
 
