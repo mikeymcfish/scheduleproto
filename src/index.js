@@ -9,12 +9,9 @@ import registerServiceWorker from './registerServiceWorker';
 import seriesJSON from "./series.json";
 
 var _this = this;
-var allEvents = seriesJSON;
-$.getJSON("/Users/mikefischthal/WebstormProjects/scheduleproto/src/series.json", function(data) {
-   console.log("got JSON");
-});
 
-ReactDOM.render(<App events={allEvents}/>, document.getElementById('root'));
+
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 registerServiceWorker();

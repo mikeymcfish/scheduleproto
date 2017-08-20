@@ -93,6 +93,15 @@ class App extends Component {
         //TODO 'DAYSTRING' for all
         this.parseDateListToString(global.allEvents);
         global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
+
+        var that = this;
+
+        $.getJSON('/api/v1/scheduler/all?user_id=1335', function(data){
+            global.allEvents = data;
+            //TODO 'DAYSTRING' for all
+            that.parseDateListToString(global.allEvents);
+            global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
+        });
     }
 
     clearCalendar() {
