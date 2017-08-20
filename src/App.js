@@ -165,13 +165,25 @@ class App extends Component {
     }
 
     async sendToCartAPI (event) {
+
+        $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id);
         try {
-            let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
-            let responseJson = await response.json();
+            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id);
+            //let responseJson = await response.json();
+            window.getUpdatedCart();
             // return responseJson.movies;
         } catch(error) {
             console.error(error);
         }
+
+
+        // try {
+        //     let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
+        //     let responseJson = await response();
+        //     // return response;
+        // } catch(error) {
+        //     console.error(error);
+        // }
     }
 
     convertEventsToByDay(events) {
@@ -702,12 +714,19 @@ class App extends Component {
 
         //set this guy to start at the first occurance.
         var td = $("#day-start").offset().top;
-        $("#day-start").css("top",(t-200)+"px");
+        //$("#day-start").css("top",(t-200)+"px");
 
         //scroll it.
+        // $('html, body').animate({
+        //     scrollTop: $("#day-start").offset().top
+        // }, 250);
+
+        //lets scroll the calendar?
+
         $('html, body').animate({
-            scrollTop: $("#day-start").offset().top
+                scrollTop: $("#day-start").offset().top
         }, 250);
+
 
 
     }
@@ -990,305 +1009,325 @@ class App extends Component {
         return (
             <div className="App">
                 <TopLinks onLogin={this.testLogIn}/>
-                <div className="container w-container">
-                    {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
+                <div className="full-page-container">
+                    <div className="container w-container">
+                        {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
 
-                    {/*<MyModal ref={this.state.selectedEvent}*/}
-                             {/*modalid="myspecialmodal"*/}
-                             {/*title={this.state.selectedEventName}*/}
-                             {/*description={this.state.selectedEventDescription}*/}
-                             {/*type={this.state.selectedEventType}*/}
-                             {/*eventId={this.state.selectedEventID}*/}
-                             {/*location={this.state.selectedEventLocation}*/}
-                             {/*ages={this.state.selectedEventAges}*/}
-                             {/*price = {this.state.selectedEventPrice}*/}
-                             {/*color = {this.state.selectedEventColor}*/}
-                    {/*/>*/}
-                    <h1 className="heading">
-                    <div className="filtering-header">
+                        {/*<MyModal ref={this.state.selectedEvent}*/}
+                                 {/*modalid="myspecialmodal"*/}
+                                 {/*title={this.state.selectedEventName}*/}
+                                 {/*description={this.state.selectedEventDescription}*/}
+                                 {/*type={this.state.selectedEventType}*/}
+                                 {/*eventId={this.state.selectedEventID}*/}
+                                 {/*location={this.state.selectedEventLocation}*/}
+                                 {/*ages={this.state.selectedEventAges}*/}
+                                 {/*price = {this.state.selectedEventPrice}*/}
+                                 {/*color = {this.state.selectedEventColor}*/}
+                        {/*/>*/}
+                        <h1 className="heading">
+                        <div className="filtering-header">
 
-                        <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
-                            <div className="text-right filtering-hover-text">
-                                <div>click to change</div>
-                            </div>
-                            <div className="filter-selection-box filter-age">
-                                {/*//ageSelectionOptions*/}
-                                {listOfAgeSelections.map((selection, index) =>
-                                    <div className="filter-option set-age-btn" data-age-group={selection}>{selection}</div>
-                                )}
-                            </div>
-                        </div>
-                        <div className="text-center"> in </div>
-                        <div className="change-location-btn" onClick={this.changeLocation}>
-                            <div className="text-left"><span className="editable-heading">{this.state.currentLocation} </span></div>
-                            <div className="text-center filtering-hover-text">
-                                <div>click to change</div>
-                            </div>
-                            <div className="filter-selection-box filter-location">
-                                <div className="filter-option set-location-btn" data-location="Brooklyn">Brooklyn</div>
-                                <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
-                            </div>
-                        </div>
-                        {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
-                            {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
-                            {/*<div className="text-item-center filtering-hover-text">*/}
-                                {/*<div>click to change</div>*/}
-                            {/*</div>*/}
-                            {/*<div className="filter-selection-box filter-view">*/}
-                                {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
-                                {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    </div>
-                    <div className="age-notification">
-                        { this.state.selectedMemberKey!="" ?
-                            <div className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></div>
-                            :
-                            ""
-                        }
-                    </div>
-                    </h1>
-                    {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
-
-                    <AlertDialog open={this.state.open}
-                                 onClose={this.closeAlert}
-                                 title={this.state.alert.title}
-                                 text={this.state.alert.text}
-                                 button1={this.state.alert.button1}
-                                 button2={this.state.alert.button2}
-                                 spotsLeft={this.state.alert.spotsLeft}
-                                 id={this.state.alert.id}
-                    />
-                    <ViewDay open={this.state.viewOpen}
-                             onClose={this.closeFullDay}
-                             title={this.state.view.title}
-                             text={this.state.view.text}
-                             button1={this.state.view.button1}
-                             button2={this.state.view.button2}
-                             id={this.state.view.id}
-                    />
-                    <StickyContainer style={{ background:'transparent'}}>
-                        <div className="filters">
-                            <div className="filter-circle-container" onClick={this.toggleSeries}>
-                                <div className="filter-circle-filled series-color">
-                                    {seriesFilterIcon}
+                            <div className="change-age-btn" onClick={this.changeAge}>
+                                <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
+                                <div className="text-right filtering-hover-text">
+                                    <div>click to change</div>
                                 </div>
-                                <div className="filter-circle-label">
-                                    Series
-                                </div>
-                            </div>
-                            <div className="filter-circle-container">
-                                <div className="filter-circle-filled pro-series-color" onClick={this.toggleProSeries}>
-                                    {proSeriesFilterIcon}
-                                </div>
-                                <div className="filter-circle-label">
-                                    Pro Series
-                                </div>
-                            </div>
-                            <div className="filter-circle-container" onClick={this.toggleCamp}>
-                                <div className="filter-circle-filled camp-color">
-                                    {campFilterIcon}
-                                </div>
-                                <div className="filter-circle-label">
-                                    Camp
-                                </div>
-                            </div>
-                            <div className="filter-circle-container" onClick={this.toggleDropin}>
-                                <div className="filter-circle-filled drop-in-color">
-                                    {dropInFilterIcon}
-                                </div>
-                                <div className="filter-circle-label">
-                                    Drop-in
-                                </div>
-                            </div>
-                            <div className="filter-circle-container" onClick={this.toggleSpecial}>
-                                <div className="filter-circle-filled special-color">
-                                    {specialFilterIcon}
-                                </div>
-                                <div className="filter-circle-label">
-                                    Everything else
-                                </div>
-                            </div>
-                            <div className="filter-circle-container disabled">
-                                <div className="filter-circle-filled parties-color disabled">
-                                    {partiesFilterIcon}
-                                </div>
-                                <div className="filter-circle-label disabled">
-                                    Parties <span style={{fontSize:"80%"}}>(coming soon)</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="page-container">
-                            <div className="month-sidebar">
-                                <Month name="September" numDays="30" skipDays="5"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterProSeries={this.state.filterProSeries}
-                                       filterParties={this.state.filterParties}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       events = {global.eventsByDay["September"]}
-                                />
-                                <Month name="October" numDays="31" skipDays="0"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterProSeries={this.state.filterProSeries}
-                                       filterParties={this.state.filterParties}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       events = {global.eventsByDay["October"]}
-                                />
-                                <Month name="November" numDays="30" skipDays="3"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterProSeries={this.state.filterProSeries}
-                                       filterParties={this.state.filterParties}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       events = {global.eventsByDay["November"]}
-                                />
-                                <Month name="December" numDays="31" skipDays="5"
-                                       filterDropIn={this.state.filterDropIn}
-                                       filterSpecial={this.state.filterSpecial}
-                                       filterSeries={this.state.filterSeries}
-                                       filterProSeries={this.state.filterProSeries}
-                                       filterParties={this.state.filterParties}
-                                       filterCamp={this.state.filterCamp}
-                                       filterAge7to9={this.state.filter7to9}
-                                       filterAge9to11={this.state.filter9to11}
-                                       filterAge12to14={this.state.filter12to14}
-                                       filterLocation={this.state.filterLocation}
-                                       events = {global.eventsByDay["December"]}
-                                       />
-
-                            </div>
-                            <div className="day-sidebar" id="day-start">
-                                <div className="big-day-title">
-                                    {this.state.viewingDay=="none" ?
-
-                                        "Select a day on the left to view all of Pixel's offerings for that day."
-
-                                        :
-
-                                        this.getDayTitleString(this.state.viewingDay)
-
-                                    }
-                                </div>
-                                <div className="big-day-container">
-
-                                    {this.state.viewingDayEvents.map((event, index) =>
-
-                                        <BigDay
-                                            title = {event.name}
-                                            tags={
-                                                [
-                                                    {text: "Code", tagType:"red"},
-                                                    {text: "Fun", tagType:"blue"},
-                                                    {text: "Magic", tagType:"green"}
-                                                ]
-                                            }
-                                            copy = {event.description}
-                                            ages = {event.age}
-                                            dates = {event.daystring}
-                                            time = {event.startTime}
-                                            price = {event.price}
-                                            spotsLeft = {event.spotsLeft}
-                                            eventObj = {event}
-                                            type = {event.type}
-                                            addOverlay = {this.addASeriesOverlay}
-                                            addToCart = {this.addToCart}
-
-                                        />
-
+                                <div className="filter-selection-box filter-age">
+                                    {/*//ageSelectionOptions*/}
+                                    {listOfAgeSelections.map((selection, index) =>
+                                        <div className="filter-option set-age-btn" data-age-group={selection}>{selection}</div>
                                     )}
-
-                                    {/*<BigDay*/}
-                                        {/*title = "Virtual Reality Coding"*/}
-                                        {/*tags={*/}
-                                            {/*[   {text: "SERIES", tagType:"black"},*/}
-                                                {/*{text: "Code", tagType:"red"},*/}
-                                                {/*{text: "Fun", tagType:"blue"},*/}
-                                                {/*{text: "Magic", tagType:"green"}*/}
-                                            {/*]*/}
-                                        {/*}*/}
-                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
-                                        {/*ages = "7 to 9"*/}
-                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
-                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
-                                        {/*price = "$399"*/}
-                                        {/*spotsLeft = "2"*/}
-                                    {/*/>*/}
-                                    {/*<BigDay*/}
-                                        {/*title = "Minecraft Modding"*/}
-                                        {/*tags={*/}
-                                            {/*[*/}
-                                                {/*{text: "SERIES", tagType:"black"},*/}
-                                                {/*{text: "Spiders", tagType:"blue"},*/}
-                                                {/*{text: "Magic", tagType:"green"}*/}
-                                            {/*]*/}
-                                        {/*}*/}
-                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
-                                        {/*ages = "7 to 9"*/}
-                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
-                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
-                                        {/*price = "$499"*/}
-                                        {/*spotsLeft = "5"*/}
-                                    {/*/>*/}
-                                    {/*<BigDay*/}
-                                        {/*title = "Build a gaming PC"*/}
-                                        {/*tags={*/}
-                                            {/*[   {text: "PRO SERIES", tagType:"black"},*/}
-                                                {/*{text: "Making", tagType:"green"},*/}
-                                                {/*{text: "Tech", tagType:"blue"}*/}
-                                            {/*]*/}
-                                        {/*}*/}
-                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
-                                        {/*ages = "7 to 9"*/}
-                                        {/*dates = "9-11,9-18,9-25,10-3"*/}
-                                        {/*time = "4 - 5:30 p.m. (but drop-in as early as 2:30)"*/}
-                                        {/*price = "$1399"*/}
-                                        {/*spotsLeft = "0"*/}
-                                        {/*type = "pro"*/}
-                                    {/*/>*/}
-                                    {/*<BigDay*/}
-                                        {/*title = "Makerspace"*/}
-                                        {/*tags={*/}
-                                            {/*[   {text: "Makerspace", tagType:"black"},*/}
-                                                {/*{text: "Making", tagType:"green"},*/}
-                                                {/*{text: "Tech", tagType:"blue"}*/}
-                                            {/*]*/}
-                                        {/*}*/}
-                                        {/*copy = " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."*/}
-                                        {/*ages = "7 to 14"*/}
-                                        {/*dates = "9-8"*/}
-                                        {/*time = "2:30 - 6:30 p.m."*/}
-                                        {/*price = "$55"*/}
-                                        {/*spotsLeft = "4"*/}
-                                    {/*/>*/}
                                 </div>
                             </div>
+                            <div className="text-center"> in </div>
+                            <div className="change-location-btn" onClick={this.changeLocation}>
+                                <div className="text-left"><span className="editable-heading">{this.state.currentLocation} </span></div>
+                                <div className="text-center filtering-hover-text">
+                                    <div>click to change</div>
+                                </div>
+                                <div className="filter-selection-box filter-location">
+                                    <div className="filter-option set-location-btn" data-location="Brooklyn">Brooklyn</div>
+                                    <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
+                                </div>
+                            </div>
+                            {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
+                                {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
+                                {/*<div className="text-item-center filtering-hover-text">*/}
+                                    {/*<div>click to change</div>*/}
+                                {/*</div>*/}
+                                {/*<div className="filter-selection-box filter-view">*/}
+                                    {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
+                                    {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
                         </div>
+                        <div className="age-notification">
+                            { this.state.selectedMemberKey!="" ?
+                                <div className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></div>
+                                :
+                                ""
+                            }
+                        </div>
+                        </h1>
+                        {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
 
-                    </StickyContainer>
-                    <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>
+                        <AlertDialog open={this.state.open}
+                                     onClose={this.closeAlert}
+                                     title={this.state.alert.title}
+                                     text={this.state.alert.text}
+                                     button1={this.state.alert.button1}
+                                     button2={this.state.alert.button2}
+                                     spotsLeft={this.state.alert.spotsLeft}
+                                     id={this.state.alert.id}
+                        />
+                        <ViewDay open={this.state.viewOpen}
+                                 onClose={this.closeFullDay}
+                                 title={this.state.view.title}
+                                 text={this.state.view.text}
+                                 button1={this.state.view.button1}
+                                 button2={this.state.view.button2}
+                                 id={this.state.view.id}
+                        />
+                        <StickyContainer style={{ background:'transparent'}}>
+                            <div className="filters">
+                                <div className="filter-circle-container" onClick={this.toggleSeries}>
+                                    <div className="filter-circle-filled series-color">
+                                        {seriesFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label">
+                                        Series
+                                    </div>
+                                </div>
+                                <div className="filter-circle-container">
+                                    <div className="filter-circle-filled pro-series-color" onClick={this.toggleProSeries}>
+                                        {proSeriesFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label">
+                                        Pro Series
+                                    </div>
+                                </div>
+                                <div className="filter-circle-container" onClick={this.toggleCamp}>
+                                    <div className="filter-circle-filled camp-color">
+                                        {campFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label">
+                                        Camp
+                                    </div>
+                                </div>
+                                <div className="filter-circle-container" onClick={this.toggleDropin}>
+                                    <div className="filter-circle-filled drop-in-color">
+                                        {dropInFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label">
+                                        Drop-in
+                                    </div>
+                                </div>
+                                <div className="filter-circle-container" onClick={this.toggleSpecial}>
+                                    <div className="filter-circle-filled special-color">
+                                        {specialFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label">
+                                        Special events
+                                    </div>
+                                </div>
+                                <div className="filter-circle-container disabled">
+                                    <div className="filter-circle-filled parties-color disabled">
+                                        {partiesFilterIcon}
+                                    </div>
+                                    <div className="filter-circle-label disabled">
+                                        Parties<br/><span style={{fontSize:"80%"}}>(coming soon)</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="page-container">
+                                <div className="month-sidebar">
+                                    <Month name="September" numDays="30" skipDays="5"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["September"]}
+                                    />
+                                    <Month name="October" numDays="31" skipDays="0"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["October"]}
+                                    />
+                                    <Month name="November" numDays="30" skipDays="3"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["November"]}
+                                    />
+                                    <Month name="December" numDays="31" skipDays="5"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["December"]}
+                                           />
+                                    <Month name="January" numDays="31" skipDays="1"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["January"]}
+                                    />
+                                    <Month name="February" numDays="28" skipDays="4"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["February"]}
+                                    />
+                                    <Month name="March" numDays="31" skipDays="4"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["March"]}
+                                    />
+                                    <Month name="April" numDays="30" skipDays="0"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["April"]}
+                                    />
+                                    <Month name="May" numDays="31" skipDays="2"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["May"]}
+                                    />
+                                    <Month name="June" numDays="30" skipDays="5"
+                                           filterDropIn={this.state.filterDropIn}
+                                           filterSpecial={this.state.filterSpecial}
+                                           filterSeries={this.state.filterSeries}
+                                           filterProSeries={this.state.filterProSeries}
+                                           filterParties={this.state.filterParties}
+                                           filterCamp={this.state.filterCamp}
+                                           filterAge7to9={this.state.filter7to9}
+                                           filterAge9to11={this.state.filter9to11}
+                                           filterAge12to14={this.state.filter12to14}
+                                           filterLocation={this.state.filterLocation}
+                                           events = {global.eventsByDay["June"]}
+                                    />
+
+                                </div>
+                                <div className="day-sidebar" id="day-start">
+
+                                    <div className="big-day-title">
+                                        {this.state.viewingDay=="none" ?
+
+                                            "Select a day on the left to view all of Pixel's offerings for that day."
+
+                                            :
+
+                                            this.getDayTitleString(this.state.viewingDay)
+
+                                        }
+                                    </div>
+                                    <div className="big-day-container">
+
+                                        {this.state.viewingDayEvents.map((event, index) =>
+
+                                            <BigDay
+                                                title = {event.name}
+                                                tags={
+                                                    [
+                                                        {text: "Code", tagType:"red"},
+                                                        {text: "Fun", tagType:"blue"},
+                                                        {text: "Magic", tagType:"green"}
+                                                    ]
+                                                }
+                                                copy = {event.description}
+                                                ages = {event.age}
+                                                dates = {event.daystring}
+                                                time = {event.startTime}
+                                                price = {event.price}
+                                                spotsLeft = {event.spotsLeft}
+                                                eventObj = {event}
+                                                type = {event.type}
+                                                addOverlay = {this.addASeriesOverlay}
+                                                addToCart = {this.addToCart}
+
+                                            />
+
+                                        )}
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </StickyContainer>
+                        <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>
 
 
+                    </div>
+                    <div className="cart-placeholder">
+                    </div>
                 </div>
-
             </div>
         );
     };

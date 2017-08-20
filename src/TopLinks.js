@@ -30,6 +30,9 @@ class TopLinks extends React.Component {
     render() {
         return (
             <div className="link-bar">
+                <div className="version-number">
+                    Pixel Scheduler v1.0.0
+                </div>
                 <div className="top-link">
                     sign up for membership
                 </div>

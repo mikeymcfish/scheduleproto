@@ -29,9 +29,13 @@
 /*}*/
 
 .day.highlighted {
-    /*border: solid 2px #333;*/
-    background-color: rgba(255, 255, 0, 0.33);
-    transition: all 100ms;
+    border: solid 2px #333;
+    /*background-color: rgba(156, 158, 255, 0.18);*/
+    /*transition: all 100ms;*/
+}
+
+.day.highlighted .date-number {
+   /*text-decoration: underline;*/
 }
 
 
@@ -149,8 +153,9 @@
 .month-sidebar {
     /*width:20%;*/
     /*margin-left:-100px;*/
-    max-width:450px;
+    max-width:500px;
     margin-top:30px;
+    position: relative;
 }
 .day-sidebar {
     background-color: transparent;
@@ -195,7 +200,7 @@
 
 }
 .grid {
-    margin-left:-100px;
+    /*margin-left:-100px;*/
     color: #444;
     display: grid;
     /*grid-template-columns: repeat(7, [col] auto ); auto makes some columns wider or shoert which is :-( */
@@ -340,7 +345,7 @@
 /****** MONTH LABEL*/
 
 .month-label {
-    margin-left:-100px;
+    /*margin-left:-100px;*/
     /*padding-top: 30px;*/
     padding-bottom:10px;
     z-index: 998;
@@ -633,3 +638,12 @@ Button.btn-2:hover {
 
 }
 
+.version-number {
+
+    align-self: flex-end;
+    font-size: 10px;
+    color: var(--lightColor);
+    width:100%;
+    text-align: left;
+    padding:3px;
+}
