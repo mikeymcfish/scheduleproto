@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="94" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="682" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="620" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="749" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="642" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="95" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="688" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="626" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="755" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="648" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -42,14 +41,16 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="102" column="75" lean-forward="false" selection-start-line="102" selection-start-column="75" selection-end-line="102" selection-end-column="75" />
+            <state relative-caret-position="211">
+              <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <marker date="1503188916000" expanded="true" signature="4468:4528" ph="..." />
-                <marker date="1503188916000" expanded="true" signature="22721:22890" ph="..." />
-                <marker date="1503188916000" expanded="true" signature="25411:25471" ph="..." />
-                <marker date="1503188916000" expanded="true" signature="27675:27802" ph="..." />
+                <element signature="e#37282#40660#0" expanded="false" />
+                <element signature="e#40689#47744#0" expanded="false" />
+                <marker date="1503243229000" expanded="true" signature="4617:4677" ph="..." />
+                <marker date="1503243229000" expanded="true" signature="22870:23039" ph="..." />
+                <marker date="1503243229000" expanded="true" signature="25560:25620" ph="..." />
+                <marker date="1503243229000" expanded="true" signature="27824:27951" ph="..." />
               </folding>
             </state>
           </provider>
@@ -570,7 +571,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293307000" />
+    <option name="totallyTimeSpent" value="293994000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1118,14 +1119,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="102" column="75" lean-forward="false" selection-start-line="102" selection-start-column="75" selection-end-line="102" selection-end-column="75" />
+        <state relative-caret-position="211">
+          <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1503188916000" expanded="true" signature="4468:4528" ph="..." />
-            <marker date="1503188916000" expanded="true" signature="22721:22890" ph="..." />
-            <marker date="1503188916000" expanded="true" signature="25411:25471" ph="..." />
-            <marker date="1503188916000" expanded="true" signature="27675:27802" ph="..." />
+            <element signature="e#37282#40660#0" expanded="false" />
+            <element signature="e#40689#47744#0" expanded="false" />
+            <marker date="1503243229000" expanded="true" signature="4617:4677" ph="..." />
+            <marker date="1503243229000" expanded="true" signature="22870:23039" ph="..." />
+            <marker date="1503243229000" expanded="true" signature="25560:25620" ph="..." />
+            <marker date="1503243229000" expanded="true" signature="27824:27951" ph="..." />
           </folding>
         </state>
       </provider>

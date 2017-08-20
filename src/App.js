@@ -86,7 +86,8 @@ class App extends Component {
             viewingDay: "none",
             viewingDayEvents: [],
             highlightedDays: "",
-            currentSelectedMembersAge: 0
+            currentSelectedMembersAge: 0,
+            isJSONloaded : false
         }
 
         global.allEvents = seriesJSON;
@@ -101,6 +102,11 @@ class App extends Component {
             //TODO 'DAYSTRING' for all
             that.parseDateListToString(global.allEvents);
             global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
+            that.setState(
+                {
+                    isJSONloaded:true
+                }
+            )
         });
     }
 
@@ -1165,9 +1171,6 @@ class App extends Component {
                                         {/*spotsLeft = "4"*/}
                                     {/*/>*/}
                                 </div>
-                            </div>
-                            <div className="cart">
-
                             </div>
                         </div>
 
