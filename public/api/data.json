@@ -4,7 +4,7 @@
       "name": "Mikey McFish",
       "id": 314,
       "memberType": "classic",
-      "birthday": "10-30-83",
+      "birthday": "10-26-83",
       "school": "P.S. 29",
       "age": 11,
       "defaultLocation": "Brooklyn",
@@ -58,14 +58,6 @@
   "metaData": {
     "holidays": [
       {
-        "month": "October",
-        "day": 9,
-        "title": "Mini-Camp",
-        "subTitle": "9am - 3pm",
-        "backgroundColor": "rgba(255,0,255,.5)",
-        "icon": ""
-      },
-      {
         "month": "September",
         "day": 7,
         "title": "Open House",
@@ -94,7 +86,7 @@
         "day": 18,
         "title": "Minecon World",
         "subTitle": "viewing party for members",
-        "backgroundColor": "rgba(255,255,0,.5)",
+        "backgroundColor": "rgba(0,0,255,.2)",
         "icon": "",
         "backgroundImg": ""
       },
@@ -113,7 +105,7 @@
     {
       "id": 24,
       "name": "Monday Option 1",
-      "age": "age 7 to 9",
+      "age": "age 7 to 14",
       "location": "Brooklyn",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
@@ -125,6 +117,7 @@
       "spotsLeft": 3,
       "days": {
         "September": [
+          11,
           18,
           25
         ],

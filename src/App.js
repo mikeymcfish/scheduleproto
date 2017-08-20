@@ -23,7 +23,6 @@ import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
 
-
 class App extends Component {
 
 
@@ -43,7 +42,7 @@ class App extends Component {
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
-        this.addAnOverlay = this.addAnOverlay.bind(this);
+        this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
 
         this.state = {
             filterDropIn: false,
@@ -106,17 +105,24 @@ class App extends Component {
                 {
                     isJSONloaded:true
                 }
-            )
+            );
+            that.addHolidays();
+            that.addOwnedDays();
         });
     }
 
     clearCalendar() {
-        $(".overlay").remove();
-        $(".day").removeClass("day-under-overlay");
+        console.log("$$ clearing overlays");
+        $(".overlay")
+            .not(".holiday")
+            .not(".birthday")
+            .not(".cart")
+            .remove();
+
         $(".day").removeClass("highlighted");
     }
 
-    addAnOverlay = (thisDayFullString) => {
+    addASeriesOverlay = (thisDayFullString) => {
         //first remove all overlays
 
         var allDays = thisDayFullString.split(",");
@@ -215,7 +221,7 @@ class App extends Component {
             .click(function () {
                 var child = $(this).find("[data-month!='undefined']");
                 $('.day').removeClass("highlighted");
-                _this.addAnOverlay("");
+                _this.addASeriesOverlay("");
                 $(this).addClass("highlighted");
                 _this.setViewDay(child.attr("data-month"),child.attr("data-daynum"));
                 _this.scrollView($(this));
@@ -224,8 +230,6 @@ class App extends Component {
             });
 
         this.runJquery();
-        // this.addHolidays();
-        // this.addOwnedDays();
 
         //try and hide
 
@@ -292,6 +296,34 @@ class App extends Component {
 
     }
 
+    getDayObject(month, day) {
+        var thisDay = $('.day:has(> [data-month="' + month + '"][data-daynum="' + day + '"])');
+        return thisDay;
+    }
+
+    addMemberBirthday(member) {
+        $('#birthday-overlay').remove();
+        // if (!this.state.loggedIn) return;
+        // if (!this.state.selectedMemberKey=="") return;
+        // var member = this.state.members[this.state.selectedMemberKey];
+        var birthday = member.birthday;
+        var birthday_array = birthday.split("-");
+        var month = this.getMonthName(birthday_array[0]);
+        var day = birthday_array[1];
+        var year = birthday_array[2];
+        var nextAge = parseInt(member.age)+1;
+        var dayObj = this.getDayObject(month, day);
+        var firstName = member.name.split(" ")[0];
+        console.log("$$ "+month, day, nextAge);
+        // dayObj.find(".circle").show();
+        this.addOverlay(dayObj,
+            month,
+            "birthday",
+            "white",
+            firstName + "'s " + nextAge + "th Birthday!",
+            "");
+    }
+
     testLogIn() {
         //should probably put owned events in these member details.
 
@@ -304,7 +336,8 @@ class App extends Component {
         });
         // $(".editable-age-group").css("color","rgb(150,150,150");
         // $(".editable-age-group").css("background-color","#333");
-
+        this.addHolidays();
+        this.addOwnedDays();
         console.log(this.state.loggedIn);
         // this.setState({
         //     currentAgeGroup: this.state.members[0].name,
@@ -442,6 +475,7 @@ class App extends Component {
                         selectedMemberKey: member
                     });
                     this.setFilterAgeByAge(this.state.members[member].age);
+                    this.addMemberBirthday(this.state.members[member]);
                 }
             }
             this.setFilterAgeByGroup($(target).attr("data-age-group"));
@@ -660,6 +694,9 @@ class App extends Component {
         else if (ageGroup=="age 12 to 14" && 12<=myAge<=14) {
             return true;
         }
+        else if (ageGroup=="age 7 to 14") {
+            return true;
+        }
         else {
             return false;
         }
@@ -678,7 +715,8 @@ class App extends Component {
                 if (this.state.loggedIn) {
                     ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age) ;
                 } else {
-                    ageMatched = (thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase());
+                    ageMatched = (thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase()
+                    || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14");
                 }
                 if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
                     && ageMatched) {
@@ -702,27 +740,38 @@ class App extends Component {
 
     }
 
+    addOverlay(day,month,addclass,color,title,subtitle) {
+        console.log("$$ adding overlay "+addclass+" to",day);
+        var thisRow = day.css("grid-row-start");
+        var thisCol = day.css("grid-column-start");
+        day.addClass("day-under-overlay");
+        var monthGrid = $('#year-calendar_' + month);
+        console.log(day.attr("data-month"));
+
+        monthGrid.append(
+            "<div class='overlay "+addclass+"' style='background-color:"+color+";grid-row:"+thisRow+";grid-column: "+thisCol+"'>" +
+            "<div class='title'>" + title +
+            "</div><div class='sub-title'>" + subtitle +
+            "</div>" +
+            "</div>"
+        );
+
+    }
+
     addHolidays() {
         console.log("adding holidays");
-
         var holidays = global.allEvents.metaData.holidays;
         for (var i = 0 ; i < Object.keys(holidays).length; i++) {
-            console.log(holidays[i].month, holidays[i].day);
-            var thisHoliday;
-            thisHoliday = $('.day:has(> [data-month="' + holidays[i].month + '"][data-daynum="' + holidays[i].day + '"])');
-            console.log(thisHoliday);
-            var thisHolidayRow = thisHoliday.css("grid-row-start");
-            var thisHolidayCol = thisHoliday.css("grid-column-start");
-            thisHoliday.addClass("day-under-overlay");
-            var monthGrid = $('#year-calendar_' + holidays[i].month);
-            console.log("grid location: "+ thisHolidayRow+"," +thisHolidayCol);
-            monthGrid.append(
-                "<div class='overlay' style='background-color:"+holidays[i].backgroundColor+";grid-row:"+thisHolidayRow+";grid-column: "+thisHolidayCol+"; transform: rotateZ("+(Math.floor(Math.random()*10)-5)+"deg)'>" +
-                "<div class='title'>" + holidays[i].title +
-                "</div><div class='sub-title'>" + holidays[i].subTitle +
-                "</div></div>"
+            this.addOverlay(
+                this.getDayObject(holidays[i].month, holidays[i].day),
+                holidays[i].month,
+                "holiday",
+                holidays[i].backgroundColor,
+                holidays[i].title,
+                holidays[i].subTitle
             );
         }
+
     }
 
     addOwnedDays() {
@@ -733,7 +782,6 @@ class App extends Component {
 
         //remove previous overlays
         $(".owned-day").remove();
-        $(".day-under-overlay").removeClass("day-under-overlay");
         ownedEvents = this.state.members[this.state.selectedMemberKey].ownedEvents;
         var allEvents = global.allEvents.events;
         for (var i = 0 ; i < ownedEvents.length; i++) {
@@ -776,20 +824,18 @@ class App extends Component {
     printOwnedDay(thisDayFullString,title,subTitle,type,time) {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
-        console.log(thisMonth, thisDayString[1]);
         var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-        var thisDayRow = thisDay.css("grid-row-start");
-        var thisDayCol = thisDay.css("grid-column-start");
-        thisDay.addClass("day-under-overlay");
-        var monthGrid = $('#year-calendar_' + thisMonth);
-        monthGrid.append(
-            "<div class='owned-overlay' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + ";'>" +
-            "<div class='title'>" + title +
-            // "</div><div class='sub-title'>"+subTitle+". Starts at "+time+"<br/>" +
-            // "<span class='view-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>view this day</span>" +
-            "</div></div>"
+        this.addOverlay(
+            this.getDayObject(
+                this.getMonthName(thisDayString[0]),
+                thisDayString[1]
+            ),
+            this.getMonthName(thisDayString[0]),
+            "owned",
+            "",
+            title,
+            subTitle,
         );
-
     }
 
     addInCart(eventID) {
@@ -813,6 +859,7 @@ class App extends Component {
 
                         for (var k = 0; k < multiDays.length; k++) {
 
+
                             this.printCartedDay(multiDays[k],"IN CART",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
 
                         }
@@ -834,18 +881,17 @@ class App extends Component {
     printCartedDay(thisDayFullString,title,subTitle,type,time) {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
-        console.log(thisMonth, thisDayString[1]);
         var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-        var thisDayRow = thisDay.css("grid-row-start");
-        var thisDayCol = thisDay.css("grid-column-start");
-        thisDay.addClass("day-under-overlay");
-        var monthGrid = $('#year-calendar_' + thisMonth);
-        monthGrid.append(
-            "<div class='overlay in-cart' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + "; transform: rotateZ(" + (Math.floor(Math.random() * 8) - 4) + "deg)'>" +
-            "<div class='title'>" + title +
-            "</div><div class='sub-title'>"+subTitle+"<br/>" +
-            "<span class='remove-day' data-month='"+thisMonth+"' data-day='"+thisDayString[1]+"'>edit</span>" +
-            "</div></div>"
+        this.addOverlay(
+            this.getDayObject(
+                this.getMonthName(thisDayString[0]),
+                thisDayString[1]
+            ),
+            this.getMonthName(thisDayString[0]),
+            "in-cart",
+            "",
+            title,
+            "in cart"
         );
 
     }
@@ -927,7 +973,7 @@ class App extends Component {
                     <div className="filtering-header">
 
                         <div className="change-age-btn" onClick={this.changeAge}>
-                            <div className="text-right"><span class="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
+                            <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                             <div className="text-right filtering-hover-text">
                                 <div>click to change</div>
                             </div>
@@ -1101,7 +1147,7 @@ class App extends Component {
                                             time = {event.startTime}
                                             price = {event.price}
                                             spotsLeft = {event.spotsLeft}
-                                            addOverlay = {this.addAnOverlay}
+                                            addOverlay = {this.addASeriesOverlay}
 
                                         />
 

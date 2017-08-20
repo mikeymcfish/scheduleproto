@@ -10,6 +10,7 @@ import ReactHint from 'react-hint'
 import 'react-hint/css/index.css'
 
 import ReactTooltip from 'react-tooltip'
+import Circle from "./Circle";
 
 class Day extends React.Component {
     constructor() {
@@ -118,8 +119,6 @@ class Day extends React.Component {
 
     }
 
-
-
     render() {
 
 
@@ -138,7 +137,9 @@ class Day extends React.Component {
                     <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} className="close-me">
 
                         <div className="day-top-container">
-                            <div className="date-number">{this.props.value}
+                            <div className="date-number">
+                                {this.props.value}
+                                {/*<Circle displayCircle="none"/>*/}
                             </div>
                             <div className="date-icon"> {myIcon}
                             </div>

@@ -13,7 +13,6 @@ import ReactTooltip from 'react-tooltip'
 import Divider from 'material-ui/Divider';
 
 
-
 class Month extends React.Component {
 
     constructor() {
