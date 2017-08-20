@@ -39,6 +39,9 @@ class Day extends React.Component {
             case "camp" :
                 colorClass = "camp-color";
                 break;
+            case "proSeries" :
+                colorClass = "pro-series-color";
+                break;
             default:
                 break;
         }
@@ -121,14 +124,14 @@ class Day extends React.Component {
 
     render() {
 
-
-
         var dropInEvents = [];
         this.props.dropinevents ? dropInEvents=this.props.dropinevents : dropInEvents=[];
         var specialEvents = [];
         this.props.specialevents ? specialEvents=this.props.specialevents : specialEvents=[];
         var seriesEvents = [];
         this.props.seriesEvents ? seriesEvents=this.props.seriesEvents : seriesEvents=[];
+        var proSeriesEvents = [];
+        this.props.proSeriesEvents ? proSeriesEvents=this.props.proSeriesEvents : proSeriesEvents=[];
         var campEvents = [];
         this.props.campEvents ? campEvents=this.props.campEvents : campEvents=[];
         var myIcon = this.props.incart ? <CartIcon/> : "";
@@ -167,6 +170,7 @@ class Day extends React.Component {
                     {dropInEvents.map((item,i) => this.renderBar(item, "dropin"), this)}
                     {specialEvents.map((item,i) => this.renderBar(item, "special"), this)}
                     {seriesEvents.map((item,i) => this.renderBar(item, "series"), this)}
+                    {proSeriesEvents.map((item,i) => this.renderBar(item, "proSeries"), this)}
                     {campEvents.map((item,i) => this.renderBar(item, "camp"), this)}
                 </div>
             </div>

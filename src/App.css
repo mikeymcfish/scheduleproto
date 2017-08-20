@@ -1978,7 +1978,11 @@ body {
     /*mix-blend-mode: multiply;*/
 }
 .pro-series-color {
-    background-color: rgba(231, 30, 183, .75);
+    background-color: rgba(185, 24, 147, 0.75);
+    /*mix-blend-mode: multiply;*/
+}
+.parties-color {
+    background-color: rgba(190, 190, 190, 0.75);
     /*mix-blend-mode: multiply;*/
 }
 
@@ -2263,7 +2267,7 @@ body {
 .filters {
     background-color: rgb(247, 247, 247);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding-top: 20px;
     padding-left: 0px;
     padding-right: 50px;
@@ -2275,7 +2279,6 @@ body {
 .filter-circle-container {
     display: flex;
     flex-direction: row;
-
 }
 
 .filter-circle-filled {
@@ -2288,14 +2291,11 @@ body {
 }
 
 .filter-circle-filled:hover {
-    /*width:18px;*/
-    /*height:18px;*/
-    /*border-radius: 100%;*/
-    /*flex-shrink: 0;*/
-    /*border: solid;*/
-    /*border-color: #a1a1a1;*/
-    /*border-width: 2px;*/
     cursor: pointer;
+}
+
+.filter-circle-filled.disabled:hover {
+    cursor: default;
 }
 
 .filter-circle-empty {
@@ -2314,6 +2314,10 @@ body {
     height: 100%;
     justify-content: center;
     text-align: center;
+}
+
+.filter-circle-label.disabled {
+   color: var(--lightColor);
 }
 
 .square-btn-additional-copy {

@@ -258,51 +258,51 @@ class Month extends React.Component {
 
     }
 
-    RenderDay(i, isclosed, dropinevents, specialevents, seriesevents, inCart) {
-
-        //filters
-        var dropInList = [];
-        var seriesList = [];
-        var specialList = "";
-        var allList = [];
-        if (isclosed) return <Day isclosed="true"
-                                  month={this.props.name}
-                                  value={i}
-        />
-        if (!this.props.filterDropIn)
-        {
-            dropInList = dropinevents;
-        }
-        if (!this.props.filterSpecial)
-        {
-            specialList = specialevents;
-        }
-        if (!this.props.filterSeries)
-        {
-            seriesList = seriesevents;
-        }
-
-
-
-        return <Day month={this.props.name}
-                    value={i}
-                    dropinevents={dropInList}
-                    specialevents={specialList}
-                    seriesEvents={seriesList}
-                    filterAge7to9={this.props.filterAge7to9}
-                    filterAge9to11={this.props.filterAge9to11}
-                    filterAge12to14={this.props.filterAge12to14}
-                    filterLocation={this.props.filterLocation}
-                    incart={inCart}/>
-
-    }
+    // RenderDay(i, isclosed, dropinevents, specialevents, seriesevents, inCart) {
+    //
+    //     //filters
+    //     var dropInList = [];
+    //     var seriesList = [];
+    //     var specialList = "";
+    //     var allList = [];
+    //     if (isclosed) return <Day isclosed="true"
+    //                               month={this.props.name}
+    //                               value={i}
+    //     />
+    //     if (!this.props.filterDropIn)
+    //     {
+    //         dropInList = dropinevents;
+    //     }
+    //     if (!this.props.filterSpecial)
+    //     {
+    //         specialList = specialevents;
+    //     }
+    //     if (!this.props.filterSeries)
+    //     {
+    //         seriesList = seriesevents;
+    //     }
+    //
+    //
+    //
+    //     return <Day month={this.props.name}
+    //                 value={i}
+    //                 dropinevents={dropInList}
+    //                 specialevents={specialList}
+    //                 seriesEvents={seriesList}
+    //                 filterAge7to9={this.props.filterAge7to9}
+    //                 filterAge9to11={this.props.filterAge9to11}
+    //                 filterAge12to14={this.props.filterAge12to14}
+    //                 filterLocation={this.props.filterLocation}
+    //                 incart={inCart}/>
+    //
+    // }
 
     RenderDaySmall(i, isclosed, dropinevents, specialevents, seriesevents, proseriesevents, campevents, inCart) {
 
         //filters
         var dropInList = [];
         var seriesList = [];
-        var proseriesList = [];
+        var proSeriesList = [];
         var campList = [];
         var specialList = [];
         var allList = [];
@@ -327,7 +327,7 @@ class Month extends React.Component {
         }
         if (!this.props.filterProSeries)
         {
-            proseriesList = proseriesevents;
+            proSeriesList = proseriesevents;
         }
 
         return <Day month={this.props.name}
@@ -335,6 +335,7 @@ class Month extends React.Component {
                     dropinevents={dropInList}
                     specialevents={specialList}
                     seriesEvents={seriesList}
+                    proSeriesEvents={proSeriesList}
                     campEvents={campList}
                     filterAge7to9={this.props.filterAge7to9}
                     filterAge9to11={this.props.filterAge9to11}
@@ -385,7 +386,7 @@ class Month extends React.Component {
                             case "series":
                                 seriesevents.push(thisEvent);
                                 break;
-                            case "dpro-series":
+                            case "pro-series":
                                 proseriesevents.push(thisEvent);
                                 break;
 
@@ -397,8 +398,6 @@ class Month extends React.Component {
 
 
             isclosed = this.isDayClosed(i);
-
-
 
             allDays.push(
                 this.RenderDaySmall(i, isclosed, dropinevents, specialevents, seriesevents, proseriesevents, campevents, inCart)

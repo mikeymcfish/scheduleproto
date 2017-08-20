@@ -87,7 +87,7 @@ class BigDay extends React.Component {
                         <div className="right-side">
                             <div className="title-container">
 
-                                    {this.props.type=="pro"?
+                                    {this.props.type=="pro-series"?
                                         <div className="title">
                                             <span className="pro-tag">PRO</span>{this.props.title}
                                         </div>

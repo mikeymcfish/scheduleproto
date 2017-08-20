@@ -30,6 +30,7 @@ class App extends Component {
         super();
 
         this.toggleSeries = this.toggleSeries.bind(this);
+        this.toggleProSeries = this.toggleProSeries.bind(this);
         this.toggleDropin = this.toggleDropin.bind(this);
         this.toggleCamp = this.toggleCamp.bind(this);
         this.toggleSpecial = this.toggleSpecial.bind(this);
@@ -49,6 +50,8 @@ class App extends Component {
             filterDropIn: false,
             filterSpecial: false,
             filterSeries: false,
+            filterProSeries: false,
+            filterParties: true,
             filterCamp: false,
             filter7to9: false,
             filter9to11: true,
@@ -117,7 +120,7 @@ class App extends Component {
         $(".overlay")
             .not(".holiday")
             .not(".birthday")
-            .not(".cart")
+            .not(".in-cart")
             .remove();
 
         $(".highlighted").removeClass("highlighted");
@@ -371,6 +374,17 @@ class App extends Component {
         this.setState({
 
             filterSeries: !this.state.filterSeries
+
+        });
+
+    }
+
+    toggleProSeries() {
+
+        this.clearCalendar();
+        this.setState({
+
+            filterProSeries: !this.state.filterProSeries
 
         });
 
@@ -961,6 +975,9 @@ class App extends Component {
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
         var seriesFilterIcon = this.state.filterSeries ? "" : <CheckIcon/>;
         var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
+        var partiesFilterIcon = "";
+        var proSeriesFilterIcon = this.state.filterProSeries ? "" : <CheckIcon/>;
+
         var listOfAgeSelections = this.state.ageSelectionOptions;
         if (this.state.members.length>0) {
             listOfAgeSelections=[];
@@ -1061,6 +1078,14 @@ class App extends Component {
                                     Series
                                 </div>
                             </div>
+                            <div className="filter-circle-container">
+                                <div className="filter-circle-filled pro-series-color" onClick={this.toggleProSeries}>
+                                    {proSeriesFilterIcon}
+                                </div>
+                                <div className="filter-circle-label">
+                                    Pro Series
+                                </div>
+                            </div>
                             <div className="filter-circle-container" onClick={this.toggleCamp}>
                                 <div className="filter-circle-filled camp-color">
                                     {campFilterIcon}
@@ -1085,6 +1110,15 @@ class App extends Component {
                                     Everything else
                                 </div>
                             </div>
+                            <div className="filter-circle-container disabled">
+                                <div className="filter-circle-filled parties-color disabled">
+                                    {partiesFilterIcon}
+                                </div>
+                                <div className="filter-circle-label disabled">
+                                    Parties <span style={{fontSize:"80%"}}>(coming soon)</span>
+                                </div>
+                            </div>
+
                         </div>
                         <div className="page-container">
                             <div className="month-sidebar">
@@ -1092,6 +1126,8 @@ class App extends Component {
                                        filterDropIn={this.state.filterDropIn}
                                        filterSpecial={this.state.filterSpecial}
                                        filterSeries={this.state.filterSeries}
+                                       filterProSeries={this.state.filterProSeries}
+                                       filterParties={this.state.filterParties}
                                        filterCamp={this.state.filterCamp}
                                        filterAge7to9={this.state.filter7to9}
                                        filterAge9to11={this.state.filter9to11}
@@ -1103,6 +1139,8 @@ class App extends Component {
                                        filterDropIn={this.state.filterDropIn}
                                        filterSpecial={this.state.filterSpecial}
                                        filterSeries={this.state.filterSeries}
+                                       filterProSeries={this.state.filterProSeries}
+                                       filterParties={this.state.filterParties}
                                        filterCamp={this.state.filterCamp}
                                        filterAge7to9={this.state.filter7to9}
                                        filterAge9to11={this.state.filter9to11}
@@ -1114,6 +1152,8 @@ class App extends Component {
                                        filterDropIn={this.state.filterDropIn}
                                        filterSpecial={this.state.filterSpecial}
                                        filterSeries={this.state.filterSeries}
+                                       filterProSeries={this.state.filterProSeries}
+                                       filterParties={this.state.filterParties}
                                        filterCamp={this.state.filterCamp}
                                        filterAge7to9={this.state.filter7to9}
                                        filterAge9to11={this.state.filter9to11}
@@ -1125,6 +1165,8 @@ class App extends Component {
                                        filterDropIn={this.state.filterDropIn}
                                        filterSpecial={this.state.filterSpecial}
                                        filterSeries={this.state.filterSeries}
+                                       filterProSeries={this.state.filterProSeries}
+                                       filterParties={this.state.filterParties}
                                        filterCamp={this.state.filterCamp}
                                        filterAge7to9={this.state.filter7to9}
                                        filterAge9to11={this.state.filter9to11}
@@ -1153,7 +1195,7 @@ class App extends Component {
                                         <BigDay
                                             title = {event.name}
                                             tags={
-                                                [   {text: "SERIES", tagType:"black"},
+                                                [
                                                     {text: "Code", tagType:"red"},
                                                     {text: "Fun", tagType:"blue"},
                                                     {text: "Magic", tagType:"green"}
@@ -1166,6 +1208,7 @@ class App extends Component {
                                             price = {event.price}
                                             spotsLeft = {event.spotsLeft}
                                             eventObj = {event}
+                                            type = {event.type}
                                             addOverlay = {this.addASeriesOverlay}
                                             addToCart = {this.addToCart}
 
