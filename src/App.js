@@ -96,7 +96,7 @@ class App extends Component {
 
         var that = this;
 
-        $.getJSON('/api/v1/scheduler/all?user_id=1335', function(data){
+        $.getJSON('/api/data.json', function(data){
             global.allEvents = data;
             //TODO 'DAYSTRING' for all
             that.parseDateListToString(global.allEvents);
@@ -688,7 +688,7 @@ class App extends Component {
         }
 
         this.setState({
-            viewingDay: month = " " + day,
+            viewingDay: month + " " + day,
             viewingDayEvents: thisDaysFilteredEvents
 
         })

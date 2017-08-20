@@ -2,23 +2,15 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="94" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="673" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="611" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="740" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="633" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="682" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="620" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="749" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="642" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BigDay.js" afterPath="$PROJECT_DIR$/src/BigDay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Day.js" afterPath="$PROJECT_DIR$/src/Day.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Month.js" afterPath="$PROJECT_DIR$/src/Month.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/series.json" afterPath="$PROJECT_DIR$/src/series.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,8 +30,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -50,115 +42,105 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="347" column="15" lean-forward="false" selection-start-line="347" selection-start-column="15" selection-end-line="347" selection-end-column="15" />
+            <state relative-caret-position="199">
+              <caret line="102" column="75" lean-forward="false" selection-start-line="102" selection-start-column="75" selection-end-line="102" selection-end-column="75" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#2360#2546#0" expanded="false" />
-                <element signature="e#2595#2750#0" expanded="false" />
-                <element signature="e#5251#5359#0" expanded="false" />
-                <element signature="e#5836#5925#0" expanded="false" />
-                <element signature="e#5939#6028#0" expanded="false" />
-                <element signature="e#6134#6228#0" expanded="false" />
-                <element signature="e#6242#6336#0" expanded="false" />
-                <element signature="e#6434#6524#0" expanded="false" />
-                <element signature="e#6538#6628#0" expanded="false" />
-                <element signature="e#7313#7335#0" expanded="false" />
-                <element signature="n#!!block;n#componentDidUpdate#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#runJquery#0;n#App#0" expanded="false" />
-                <element signature="e#7923#8153#0" expanded="false" />
-                <element signature="e#8349#8855#0" expanded="false" />
-                <element signature="e#8920#9067#0" expanded="false" />
-                <element signature="e#9105#9254#0" expanded="false" />
-                <element signature="e#9359#9470#0" expanded="false" />
-                <element signature="e#9508#9621#0" expanded="false" />
-                <element signature="e#11608#11767#0" expanded="false" />
-                <element signature="e#11636#11756#0" expanded="false" />
-                <element signature="e#11796#11955#0" expanded="false" />
-                <element signature="e#11824#11944#0" expanded="false" />
-                <element signature="e#11976#12136#0" expanded="false" />
-                <element signature="e#12004#12125#0" expanded="false" />
-                <element signature="e#12289#12448#0" expanded="false" />
-                <element signature="e#12317#12437#0" expanded="false" />
-                <element signature="e#12490#12649#0" expanded="false" />
-                <element signature="e#12518#12638#0" expanded="false" />
-                <element signature="e#12692#12851#0" expanded="false" />
-                <element signature="e#12720#12840#0" expanded="false" />
-                <element signature="e#13387#13629#0" expanded="false" />
-                <element signature="e#13829#13909#0" expanded="false" />
-                <element signature="e#14387#14827#0" expanded="false" />
-                <element signature="e#14440#14729#0" expanded="false" />
-                <element signature="e#14485#14642#0" expanded="false" />
-                <element signature="e#14735#14820#0" expanded="false" />
-                <element signature="e#14863#15213#0" expanded="false" />
-                <element signature="e#14912#15119#0" expanded="false" />
-                <element signature="e#14957#15037#0" expanded="false" />
-                <element signature="e#15125#15206#0" expanded="false" />
-                <element signature="n#!!block;n#parseDateListToString#0;n#App#0" expanded="false" />
-                <element signature="e#15583#17685#0" expanded="false" />
-                <element signature="n#!!block;n#openAlert#0;n#App#0" expanded="false" />
-                <element signature="e#18035#18294#0" expanded="false" />
-                <element signature="e#18092#18284#0" expanded="false" />
-                <element signature="n#!!block;n#closeAlert#0;n#App#0" expanded="false" />
-                <element signature="e#18345#18380#0" expanded="false" />
-                <element signature="n#!!block;n#openFullDay#0;n#App#0" expanded="false" />
-                <element signature="e#18496#18728#0" expanded="false" />
-                <element signature="e#18560#18718#0" expanded="false" />
-                <element signature="n#!!block;n#closeFullDay#0;n#App#0" expanded="false" />
-                <element signature="e#18813#18852#0" expanded="false" />
-                <element signature="n#!!block;n#addHolidays#0;n#App#0" expanded="false" />
-                <element signature="e#21738#22774#0" expanded="false" />
-                <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
-                <element signature="e#25681#26709#0" expanded="false" />
-                <element signature="e#25731#26694#0" expanded="false" />
-                <element signature="e#26053#26418#0" expanded="false" />
-                <element signature="e#26194#26394#0" expanded="false" />
-                <element signature="e#26424#26580#0" expanded="false" />
-                <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#getMonthName#0;n#App#0" expanded="false" />
-                <element signature="e#27950#28669#0" expanded="false" />
-                <element signature="e#29104#29320#0" expanded="false" />
-                <element signature="e#29206#29310#0" expanded="false" />
-                <element signature="e#29535#29646#0" expanded="false" />
-                <element signature="e#29670#29713#0" expanded="false" />
-                <element signature="e#29745#29773#0" expanded="false" />
-                <element signature="e#29805#29845#0" expanded="false" />
-                <element signature="e#29877#29930#0" expanded="false" />
-                <element signature="e#29962#30001#0" expanded="false" />
-                <element signature="e#30033#30073#0" expanded="false" />
-                <element signature="e#30105#30152#0" expanded="false" />
-                <element signature="e#30184#30223#0" expanded="false" />
-                <element signature="e#30255#30298#0" expanded="false" />
-                <element signature="e#30330#30373#0" expanded="false" />
-                <element signature="e#30396#30402#0" expanded="false" />
-                <element signature="e#30820#30963#0" expanded="false" />
-                <element signature="e#30992#31374#0" expanded="false" />
-                <element signature="e#31075#31100#0" expanded="false" />
-                <element signature="e#31494#32254#0" expanded="false" />
-                <element signature="e#31723#31867#0" expanded="false" />
-                <element signature="e#31896#32223#0" expanded="false" />
-                <element signature="e#33125#33639#0" expanded="false" />
-                <element signature="e#33687#33761#0" expanded="false" />
-                <element signature="e#33784#34293#0" expanded="false" />
-                <element signature="e#34314#34724#0" expanded="false" />
-                <element signature="e#34877#35311#0" expanded="false" />
-                <element signature="e#34979#35124#0" expanded="false" />
-                <element signature="e#35157#35276#0" expanded="false" />
-                <element signature="e#35340#35766#0" expanded="false" />
-                <element signature="e#35440#35581#0" expanded="false" />
-                <element signature="e#35614#35731#0" expanded="false" />
-                <element signature="e#35795#36231#0" expanded="false" />
-                <element signature="e#35897#36043#0" expanded="false" />
-                <element signature="e#36076#36196#0" expanded="false" />
-                <element signature="e#36260#36706#0" expanded="false" />
-                <element signature="e#36363#36510#0" expanded="false" />
-                <element signature="e#36543#36671#0" expanded="false" />
-                <marker date="1503176499000" expanded="true" signature="4158:4218" ph="..." />
-                <marker date="1503176499000" expanded="false" signature="22411:22580" ph="..." />
-                <marker date="1503176499000" expanded="true" signature="25101:25161" ph="..." />
-                <marker date="1503176499000" expanded="false" signature="27365:27492" ph="..." />
+                <marker date="1503188916000" expanded="true" signature="4468:4528" ph="..." />
+                <marker date="1503188916000" expanded="true" signature="22721:22890" ph="..." />
+                <marker date="1503188916000" expanded="true" signature="25411:25471" ph="..." />
+                <marker date="1503188916000" expanded="true" signature="27675:27802" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Month.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Month.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <marker date="1503188874000" expanded="true" signature="16471:16535" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="16471:16554" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="16471:16611" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="16471:17489" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="16471:21155" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="16471:21157" ph="{...}" />
+                <marker date="1503188874000" expanded="false" signature="16576:16596" ph="{...}" />
+                <marker date="1503188874000" expanded="false" signature="16757:17213" ph="{...}" />
+                <marker date="1503188874000" expanded="false" signature="16839:17068" ph="{...}" />
+                <marker date="1503188874000" expanded="false" signature="17074:17199" ph="{...}" />
+                <marker date="1503188874000" expanded="false" signature="17265:17347" ph="{...}" />
+                <marker date="1503188874000" expanded="true" signature="17520:21138" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="17567:21118" ph="&lt;StickyContainer/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="17642:18176" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="17696:17822" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="17847:17998" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="18023:18149" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="18178:21083" ph="&lt;div/&gt;" />
+                <marker date="1503188874000" expanded="true" signature="18712:18777" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="18804:18821" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="18848:18872" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="18899:18933" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="18960:18987" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19014:19058" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19085:19131" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19158:19206" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19233:19279" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19302:19310" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19333:19396" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19423:19440" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19467:19491" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19518:19552" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19579:19606" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19633:19677" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19704:19750" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19777:19825" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19852:19898" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19921:19929" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="19952:19996" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20023:20038" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20065:20099" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20126:20147" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20174:20201" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20228:20249" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20276:20301" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20328:20347" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20374:20395" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20422:20453" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20480:20513" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20540:20577" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20604:20627" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20654:20687" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20714:20758" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20785:20831" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20858:20906" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="20933:20979" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="21006:21028" ph="/*...*/" />
+                <marker date="1503188874000" expanded="true" signature="21051:21059" ph="/*...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="series.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/series.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/api/data.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7080">
+              <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -188,34 +170,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="series.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/series.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="226" column="42" lean-forward="true" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Day.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Day.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="379">
-              <caret line="115" column="18" lean-forward="true" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+              <caret line="115" column="18" lean-forward="false" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
               <folding>
                 <element signature="n#!!block;n#renderEvent#0;n#Day#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Event.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3105">
-              <caret line="212" column="40" lean-forward="false" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -240,79 +202,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Month.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Month.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="545" column="61" lean-forward="false" selection-start-line="545" selection-start-column="61" selection-end-line="545" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="n#!!block;n#componentWillUpdate#0;n#Month#0" expanded="false" />
-                <element signature="n#!!block;n#getHoliday#0;n#Month#0" expanded="false" />
-                <element signature="e#1056#1211#0" expanded="false" />
-                <element signature="e#1123#1174#0" expanded="false" />
-                <element signature="n#!!block;n#RenderAllDays#0;n#Month#0" expanded="false" />
-                <element signature="e#1327#1450#0" expanded="false" />
-                <element signature="e#1481#1551#0" expanded="false" />
-                <element signature="n#!!block;n#RenderWeekNames#0;n#Month#0" expanded="false" />
-                <element signature="n#!!block;n#RenderEvent#0;n#Month#0" expanded="false" />
-                <element signature="e#1780#2109#0" expanded="false" />
-                <element signature="e#2143#2456#0" expanded="false" />
-                <element signature="e#2199#2381#0" expanded="false" />
-                <element signature="n#!!block;n#getSeriesInDay#0;n#Month#0" expanded="false" />
-                <element signature="e#5042#5181#0" expanded="false" />
-                <element signature="n#!!block;n#parseForSingleDayEvents#0;n#Month#0" expanded="false" />
-                <element signature="e#5555#7764#0" expanded="false" />
-                <element signature="e#5645#5686#0" expanded="false" />
-                <element signature="e#5856#5919#0" expanded="false" />
-                <element signature="e#6009#6070#0" expanded="false" />
-                <element signature="e#6162#6224#0" expanded="false" />
-                <element signature="e#6316#6378#0" expanded="false" />
-                <element signature="e#6468#6529#0" expanded="false" />
-                <element signature="e#6621#6683#0" expanded="false" />
-                <element signature="e#6769#6828#0" expanded="false" />
-                <element signature="e#6914#6973#0" expanded="false" />
-                <element signature="e#7055#7112#0" expanded="false" />
-                <element signature="e#7196#7254#0" expanded="false" />
-                <element signature="e#7338#7396#0" expanded="false" />
-                <element signature="e#7484#7544#0" expanded="false" />
-                <element signature="e#7562#7661#0" expanded="false" />
-                <element signature="n#!!block;n#isDayClosed#0;n#Month#0" expanded="false" />
-                <element signature="e#7891#8076#0" expanded="false" />
-                <element signature="e#7929#8065#0" expanded="false" />
-                <element signature="e#7999#8051#0" expanded="false" />
-                <element signature="n#!!block;n#RenderDay#0;n#Month#0" expanded="false" />
-                <element signature="e#8418#8468#0" expanded="false" />
-                <element signature="e#8516#8568#0" expanded="false" />
-                <element signature="e#8615#8665#0" expanded="false" />
-                <element signature="e#8684#9172#0" expanded="false" />
-                <element signature="e#10683#10775#0" expanded="false" />
-                <element signature="e#11266#12216#0" expanded="false" />
-                <element signature="e#12804#15183#0" expanded="false" />
-                <element signature="e#13050#14251#0" expanded="false" />
-                <element signature="e#13164#14194#0" expanded="false" />
-                <element signature="e#13336#13932#0" expanded="false" />
-                <element signature="e#13937#14175#0" expanded="false" />
-                <element signature="e#14216#14236#0" expanded="false" />
-                <element signature="e#14399#14903#0" expanded="false" />
-                <element signature="e#14489#14740#0" expanded="false" />
-                <element signature="e#14746#14889#0" expanded="false" />
-                <element signature="e#14955#15039#0" expanded="false" />
-                <element signature="e#15220#17489#0" expanded="false" />
-                <element signature="e#15465#16611#0" expanded="false" />
-                <element signature="e#15528#16554#0" expanded="false" />
-                <element signature="e#15700#16294#0" expanded="false" />
-                <element signature="e#16299#16535#0" expanded="false" />
-                <element signature="e#16576#16596#0" expanded="false" />
-                <element signature="e#16757#17213#0" expanded="false" />
-                <element signature="e#16839#17068#0" expanded="false" />
-                <element signature="e#17074#17199#0" expanded="false" />
-                <element signature="e#17265#17347#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -326,14 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>z-index: 9</find>
-      <find>addAnOverlay</find>
-      <find>openAlert</find>
-      <find>bind</find>
-      <find>addan</find>
-      <find>under-</find>
-      <find>price</find>
-      <find>.bind</find>
       <find>bigday</find>
       <find>btn</find>
       <find>onCl</find>
@@ -346,7 +227,6 @@
       <find>age-</find>
       <find>scrollView</find>
       <find>overlay</find>
-      <find>filter</find>
       <find>Trib</find>
       <find>dates</find>
       <find>owned</find>
@@ -356,6 +236,15 @@
       <find>viewingDayEvents</find>
       <find>changeAge</find>
       <find>setFilterAgeByAge</find>
+      <find>getDayTitleString</find>
+      <find>state.viewingDay</find>
+      <find>viewingDay</find>
+      <find>setViewDay</find>
+      <find>$$</find>
+      <find>filter</find>
+      <find>month</find>
+      <find>json</find>
+      <find>getj</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -367,6 +256,7 @@
       <replace>age 7 to 9</replace>
       <replace>css(&quot;grid-row-start&quot;</replace>
       <replace>spotsLeft</replace>
+      <replace>this.state.eventsByDay</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -408,6 +298,7 @@
         <option value="$PROJECT_DIR$/src/Day.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/AltViews.css" />
+        <option value="$PROJECT_DIR$/public/API/data.json" />
         <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
@@ -485,6 +376,11 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="main.bf27cbe7.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="scheduleproto" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
@@ -674,7 +570,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292078000" />
+    <option name="totallyTimeSpent" value="293307000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -686,7 +582,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="118" y="58" width="1209" height="833" extended-state="0" />
+    <frame x="72" y="23" width="1209" height="833" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.38729507" order="0" side_tool="false" content_ui="combo" />
@@ -700,12 +596,22 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33524904" sideWeight="0.53722334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.61270493" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3387534" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.38729507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2483165" sideWeight="0.44467214" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33524904" sideWeight="0.53722334" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -740,120 +646,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#2360#2546#0" expanded="false" />
-            <element signature="e#2595#2750#0" expanded="false" />
-            <element signature="e#5251#5359#0" expanded="false" />
-            <element signature="e#5836#5925#0" expanded="false" />
-            <element signature="e#5939#6028#0" expanded="false" />
-            <element signature="e#6134#6228#0" expanded="false" />
-            <element signature="e#6242#6336#0" expanded="false" />
-            <element signature="e#6434#6524#0" expanded="false" />
-            <element signature="e#6538#6628#0" expanded="false" />
-            <element signature="e#7313#7335#0" expanded="false" />
-            <element signature="n#!!block;n#componentDidUpdate#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#runJquery#0;n#App#0" expanded="false" />
-            <element signature="e#7923#8153#0" expanded="false" />
-            <element signature="e#8349#8855#0" expanded="false" />
-            <element signature="e#8920#9067#0" expanded="false" />
-            <element signature="e#9105#9254#0" expanded="false" />
-            <element signature="e#9359#9470#0" expanded="false" />
-            <element signature="e#9508#9621#0" expanded="false" />
-            <element signature="e#11608#11767#0" expanded="false" />
-            <element signature="e#11636#11756#0" expanded="false" />
-            <element signature="e#11796#11955#0" expanded="false" />
-            <element signature="e#11824#11944#0" expanded="false" />
-            <element signature="e#11976#12136#0" expanded="false" />
-            <element signature="e#12004#12125#0" expanded="false" />
-            <element signature="e#12289#12448#0" expanded="false" />
-            <element signature="e#12317#12437#0" expanded="false" />
-            <element signature="e#12490#12649#0" expanded="false" />
-            <element signature="e#12518#12638#0" expanded="false" />
-            <element signature="e#12692#12851#0" expanded="false" />
-            <element signature="e#12720#12840#0" expanded="false" />
-            <element signature="e#13387#13629#0" expanded="false" />
-            <element signature="e#13829#13909#0" expanded="false" />
-            <element signature="e#14387#14827#0" expanded="false" />
-            <element signature="e#14440#14729#0" expanded="false" />
-            <element signature="e#14485#14642#0" expanded="false" />
-            <element signature="e#14735#14820#0" expanded="false" />
-            <element signature="e#14863#15213#0" expanded="false" />
-            <element signature="e#14912#15119#0" expanded="false" />
-            <element signature="e#14957#15037#0" expanded="false" />
-            <element signature="e#15125#15206#0" expanded="false" />
-            <element signature="n#!!block;n#parseDateListToString#0;n#App#0" expanded="false" />
-            <element signature="e#15583#17685#0" expanded="false" />
-            <element signature="n#!!block;n#openAlert#0;n#App#0" expanded="false" />
-            <element signature="e#18035#18294#0" expanded="false" />
-            <element signature="e#18092#18284#0" expanded="false" />
-            <element signature="n#!!block;n#closeAlert#0;n#App#0" expanded="false" />
-            <element signature="e#18345#18380#0" expanded="false" />
-            <element signature="n#!!block;n#openFullDay#0;n#App#0" expanded="false" />
-            <element signature="e#18496#18728#0" expanded="false" />
-            <element signature="e#18560#18718#0" expanded="false" />
-            <element signature="n#!!block;n#closeFullDay#0;n#App#0" expanded="false" />
-            <element signature="e#18813#18852#0" expanded="false" />
-            <element signature="n#!!block;n#addHolidays#0;n#App#0" expanded="false" />
-            <element signature="e#21738#22774#0" expanded="false" />
-            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
-            <element signature="e#25681#26709#0" expanded="false" />
-            <element signature="e#25731#26694#0" expanded="false" />
-            <element signature="e#26053#26418#0" expanded="false" />
-            <element signature="e#26194#26394#0" expanded="false" />
-            <element signature="e#26424#26580#0" expanded="false" />
-            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#getMonthName#0;n#App#0" expanded="false" />
-            <element signature="e#27950#28669#0" expanded="false" />
-            <element signature="e#29104#29320#0" expanded="false" />
-            <element signature="e#29206#29310#0" expanded="false" />
-            <element signature="e#29535#29646#0" expanded="false" />
-            <element signature="e#29670#29713#0" expanded="false" />
-            <element signature="e#29745#29773#0" expanded="false" />
-            <element signature="e#29805#29845#0" expanded="false" />
-            <element signature="e#29877#29930#0" expanded="false" />
-            <element signature="e#29962#30001#0" expanded="false" />
-            <element signature="e#30033#30073#0" expanded="false" />
-            <element signature="e#30105#30152#0" expanded="false" />
-            <element signature="e#30184#30223#0" expanded="false" />
-            <element signature="e#30255#30298#0" expanded="false" />
-            <element signature="e#30330#30373#0" expanded="false" />
-            <element signature="e#30396#30402#0" expanded="false" />
-            <element signature="e#30820#30963#0" expanded="false" />
-            <element signature="e#30992#31374#0" expanded="false" />
-            <element signature="e#31075#31100#0" expanded="false" />
-            <element signature="e#31494#32254#0" expanded="false" />
-            <element signature="e#31723#31867#0" expanded="false" />
-            <element signature="e#31896#32223#0" expanded="false" />
-            <element signature="e#33125#33639#0" expanded="false" />
-            <element signature="e#33687#33761#0" expanded="false" />
-            <element signature="e#33784#34293#0" expanded="false" />
-            <element signature="e#34314#34724#0" expanded="false" />
-            <element signature="e#34877#35311#0" expanded="false" />
-            <element signature="e#34979#35124#0" expanded="false" />
-            <element signature="e#35157#35276#0" expanded="false" />
-            <element signature="e#35340#35766#0" expanded="false" />
-            <element signature="e#35440#35581#0" expanded="false" />
-            <element signature="e#35614#35731#0" expanded="false" />
-            <element signature="e#35795#36231#0" expanded="false" />
-            <element signature="e#35897#36043#0" expanded="false" />
-            <element signature="e#36076#36196#0" expanded="false" />
-            <element signature="e#36260#36706#0" expanded="false" />
-            <element signature="e#36363#36510#0" expanded="false" />
-            <element signature="e#36543#36671#0" expanded="false" />
-            <marker date="1503176499000" expanded="true" signature="4158:4218" ph="..." />
-            <marker date="1503176499000" expanded="false" signature="22411:22580" ph="..." />
-            <marker date="1503176499000" expanded="true" signature="25101:25161" ph="..." />
-            <marker date="1503176499000" expanded="false" signature="27365:27492" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webflow-code/schedule-full.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14415">
@@ -1142,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,71 +962,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Month.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="545" column="61" lean-forward="false" selection-start-line="545" selection-start-column="61" selection-end-line="545" selection-end-column="61" />
+        <state relative-caret-position="82">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#componentWillUpdate#0;n#Month#0" expanded="false" />
-            <element signature="n#!!block;n#getHoliday#0;n#Month#0" expanded="false" />
-            <element signature="e#1056#1211#0" expanded="false" />
-            <element signature="e#1123#1174#0" expanded="false" />
-            <element signature="n#!!block;n#RenderAllDays#0;n#Month#0" expanded="false" />
-            <element signature="e#1327#1450#0" expanded="false" />
-            <element signature="e#1481#1551#0" expanded="false" />
-            <element signature="n#!!block;n#RenderWeekNames#0;n#Month#0" expanded="false" />
-            <element signature="n#!!block;n#RenderEvent#0;n#Month#0" expanded="false" />
-            <element signature="e#1780#2109#0" expanded="false" />
-            <element signature="e#2143#2456#0" expanded="false" />
-            <element signature="e#2199#2381#0" expanded="false" />
-            <element signature="n#!!block;n#getSeriesInDay#0;n#Month#0" expanded="false" />
-            <element signature="e#5042#5181#0" expanded="false" />
-            <element signature="n#!!block;n#parseForSingleDayEvents#0;n#Month#0" expanded="false" />
-            <element signature="e#5555#7764#0" expanded="false" />
-            <element signature="e#5645#5686#0" expanded="false" />
-            <element signature="e#5856#5919#0" expanded="false" />
-            <element signature="e#6009#6070#0" expanded="false" />
-            <element signature="e#6162#6224#0" expanded="false" />
-            <element signature="e#6316#6378#0" expanded="false" />
-            <element signature="e#6468#6529#0" expanded="false" />
-            <element signature="e#6621#6683#0" expanded="false" />
-            <element signature="e#6769#6828#0" expanded="false" />
-            <element signature="e#6914#6973#0" expanded="false" />
-            <element signature="e#7055#7112#0" expanded="false" />
-            <element signature="e#7196#7254#0" expanded="false" />
-            <element signature="e#7338#7396#0" expanded="false" />
-            <element signature="e#7484#7544#0" expanded="false" />
-            <element signature="e#7562#7661#0" expanded="false" />
-            <element signature="n#!!block;n#isDayClosed#0;n#Month#0" expanded="false" />
-            <element signature="e#7891#8076#0" expanded="false" />
-            <element signature="e#7929#8065#0" expanded="false" />
-            <element signature="e#7999#8051#0" expanded="false" />
-            <element signature="n#!!block;n#RenderDay#0;n#Month#0" expanded="false" />
-            <element signature="e#8418#8468#0" expanded="false" />
-            <element signature="e#8516#8568#0" expanded="false" />
-            <element signature="e#8615#8665#0" expanded="false" />
-            <element signature="e#8684#9172#0" expanded="false" />
-            <element signature="e#10683#10775#0" expanded="false" />
-            <element signature="e#11266#12216#0" expanded="false" />
-            <element signature="e#12804#15183#0" expanded="false" />
-            <element signature="e#13050#14251#0" expanded="false" />
-            <element signature="e#13164#14194#0" expanded="false" />
-            <element signature="e#13336#13932#0" expanded="false" />
-            <element signature="e#13937#14175#0" expanded="false" />
-            <element signature="e#14216#14236#0" expanded="false" />
-            <element signature="e#14399#14903#0" expanded="false" />
-            <element signature="e#14489#14740#0" expanded="false" />
-            <element signature="e#14746#14889#0" expanded="false" />
-            <element signature="e#14955#15039#0" expanded="false" />
-            <element signature="e#15220#17489#0" expanded="false" />
-            <element signature="e#15465#16611#0" expanded="false" />
-            <element signature="e#15528#16554#0" expanded="false" />
-            <element signature="e#15700#16294#0" expanded="false" />
-            <element signature="e#16299#16535#0" expanded="false" />
-            <element signature="e#16576#16596#0" expanded="false" />
-            <element signature="e#16757#17213#0" expanded="false" />
-            <element signature="e#16839#17068#0" expanded="false" />
-            <element signature="e#17074#17199#0" expanded="false" />
-            <element signature="e#17265#17347#0" expanded="false" />
+            <marker date="1503188874000" expanded="true" signature="16471:16535" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="16471:16554" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="16471:16611" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="16471:17489" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="16471:21155" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="16471:21157" ph="{...}" />
+            <marker date="1503188874000" expanded="false" signature="16576:16596" ph="{...}" />
+            <marker date="1503188874000" expanded="false" signature="16757:17213" ph="{...}" />
+            <marker date="1503188874000" expanded="false" signature="16839:17068" ph="{...}" />
+            <marker date="1503188874000" expanded="false" signature="17074:17199" ph="{...}" />
+            <marker date="1503188874000" expanded="false" signature="17265:17347" ph="{...}" />
+            <marker date="1503188874000" expanded="true" signature="17520:21138" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="17567:21118" ph="&lt;StickyContainer/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="17642:18176" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="17696:17822" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="17847:17998" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="18023:18149" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="18178:21083" ph="&lt;div/&gt;" />
+            <marker date="1503188874000" expanded="true" signature="18712:18777" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="18804:18821" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="18848:18872" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="18899:18933" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="18960:18987" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19014:19058" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19085:19131" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19158:19206" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19233:19279" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19302:19310" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19333:19396" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19423:19440" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19467:19491" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19518:19552" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19579:19606" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19633:19677" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19704:19750" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19777:19825" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19852:19898" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19921:19929" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="19952:19996" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20023:20038" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20065:20099" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20126:20147" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20174:20201" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20228:20249" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20276:20301" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20328:20347" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20374:20395" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20422:20453" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20480:20513" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20540:20577" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20604:20627" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20654:20687" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20714:20758" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20785:20831" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20858:20906" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="20933:20979" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="21006:21028" ph="/*...*/" />
+            <marker date="1503188874000" expanded="true" signature="21051:21059" ph="/*...*/" />
           </folding>
         </state>
       </provider>
@@ -1244,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,8 +1055,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1279,18 +1066,10 @@
     <entry file="file://$PROJECT_DIR$/src/Day.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
-          <caret line="115" column="18" lean-forward="true" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+          <caret line="115" column="18" lean-forward="false" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
           <folding>
             <element signature="n#!!block;n#renderEvent#0;n#Day#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/series.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="226" column="42" lean-forward="true" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,116 +1100,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/series.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7080">
+          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="347" column="15" lean-forward="false" selection-start-line="347" selection-start-column="15" selection-end-line="347" selection-end-column="15" />
+        <state relative-caret-position="199">
+          <caret line="102" column="75" lean-forward="false" selection-start-line="102" selection-start-column="75" selection-end-line="102" selection-end-column="75" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#2360#2546#0" expanded="false" />
-            <element signature="e#2595#2750#0" expanded="false" />
-            <element signature="e#5251#5359#0" expanded="false" />
-            <element signature="e#5836#5925#0" expanded="false" />
-            <element signature="e#5939#6028#0" expanded="false" />
-            <element signature="e#6134#6228#0" expanded="false" />
-            <element signature="e#6242#6336#0" expanded="false" />
-            <element signature="e#6434#6524#0" expanded="false" />
-            <element signature="e#6538#6628#0" expanded="false" />
-            <element signature="e#7313#7335#0" expanded="false" />
-            <element signature="n#!!block;n#componentDidUpdate#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#runJquery#0;n#App#0" expanded="false" />
-            <element signature="e#7923#8153#0" expanded="false" />
-            <element signature="e#8349#8855#0" expanded="false" />
-            <element signature="e#8920#9067#0" expanded="false" />
-            <element signature="e#9105#9254#0" expanded="false" />
-            <element signature="e#9359#9470#0" expanded="false" />
-            <element signature="e#9508#9621#0" expanded="false" />
-            <element signature="e#11608#11767#0" expanded="false" />
-            <element signature="e#11636#11756#0" expanded="false" />
-            <element signature="e#11796#11955#0" expanded="false" />
-            <element signature="e#11824#11944#0" expanded="false" />
-            <element signature="e#11976#12136#0" expanded="false" />
-            <element signature="e#12004#12125#0" expanded="false" />
-            <element signature="e#12289#12448#0" expanded="false" />
-            <element signature="e#12317#12437#0" expanded="false" />
-            <element signature="e#12490#12649#0" expanded="false" />
-            <element signature="e#12518#12638#0" expanded="false" />
-            <element signature="e#12692#12851#0" expanded="false" />
-            <element signature="e#12720#12840#0" expanded="false" />
-            <element signature="e#13387#13629#0" expanded="false" />
-            <element signature="e#13829#13909#0" expanded="false" />
-            <element signature="e#14387#14827#0" expanded="false" />
-            <element signature="e#14440#14729#0" expanded="false" />
-            <element signature="e#14485#14642#0" expanded="false" />
-            <element signature="e#14735#14820#0" expanded="false" />
-            <element signature="e#14863#15213#0" expanded="false" />
-            <element signature="e#14912#15119#0" expanded="false" />
-            <element signature="e#14957#15037#0" expanded="false" />
-            <element signature="e#15125#15206#0" expanded="false" />
-            <element signature="n#!!block;n#parseDateListToString#0;n#App#0" expanded="false" />
-            <element signature="e#15583#17685#0" expanded="false" />
-            <element signature="n#!!block;n#openAlert#0;n#App#0" expanded="false" />
-            <element signature="e#18035#18294#0" expanded="false" />
-            <element signature="e#18092#18284#0" expanded="false" />
-            <element signature="n#!!block;n#closeAlert#0;n#App#0" expanded="false" />
-            <element signature="e#18345#18380#0" expanded="false" />
-            <element signature="n#!!block;n#openFullDay#0;n#App#0" expanded="false" />
-            <element signature="e#18496#18728#0" expanded="false" />
-            <element signature="e#18560#18718#0" expanded="false" />
-            <element signature="n#!!block;n#closeFullDay#0;n#App#0" expanded="false" />
-            <element signature="e#18813#18852#0" expanded="false" />
-            <element signature="n#!!block;n#addHolidays#0;n#App#0" expanded="false" />
-            <element signature="e#21738#22774#0" expanded="false" />
-            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
-            <element signature="e#25681#26709#0" expanded="false" />
-            <element signature="e#25731#26694#0" expanded="false" />
-            <element signature="e#26053#26418#0" expanded="false" />
-            <element signature="e#26194#26394#0" expanded="false" />
-            <element signature="e#26424#26580#0" expanded="false" />
-            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#getMonthName#0;n#App#0" expanded="false" />
-            <element signature="e#27950#28669#0" expanded="false" />
-            <element signature="e#29104#29320#0" expanded="false" />
-            <element signature="e#29206#29310#0" expanded="false" />
-            <element signature="e#29535#29646#0" expanded="false" />
-            <element signature="e#29670#29713#0" expanded="false" />
-            <element signature="e#29745#29773#0" expanded="false" />
-            <element signature="e#29805#29845#0" expanded="false" />
-            <element signature="e#29877#29930#0" expanded="false" />
-            <element signature="e#29962#30001#0" expanded="false" />
-            <element signature="e#30033#30073#0" expanded="false" />
-            <element signature="e#30105#30152#0" expanded="false" />
-            <element signature="e#30184#30223#0" expanded="false" />
-            <element signature="e#30255#30298#0" expanded="false" />
-            <element signature="e#30330#30373#0" expanded="false" />
-            <element signature="e#30396#30402#0" expanded="false" />
-            <element signature="e#30820#30963#0" expanded="false" />
-            <element signature="e#30992#31374#0" expanded="false" />
-            <element signature="e#31075#31100#0" expanded="false" />
-            <element signature="e#31494#32254#0" expanded="false" />
-            <element signature="e#31723#31867#0" expanded="false" />
-            <element signature="e#31896#32223#0" expanded="false" />
-            <element signature="e#33125#33639#0" expanded="false" />
-            <element signature="e#33687#33761#0" expanded="false" />
-            <element signature="e#33784#34293#0" expanded="false" />
-            <element signature="e#34314#34724#0" expanded="false" />
-            <element signature="e#34877#35311#0" expanded="false" />
-            <element signature="e#34979#35124#0" expanded="false" />
-            <element signature="e#35157#35276#0" expanded="false" />
-            <element signature="e#35340#35766#0" expanded="false" />
-            <element signature="e#35440#35581#0" expanded="false" />
-            <element signature="e#35614#35731#0" expanded="false" />
-            <element signature="e#35795#36231#0" expanded="false" />
-            <element signature="e#35897#36043#0" expanded="false" />
-            <element signature="e#36076#36196#0" expanded="false" />
-            <element signature="e#36260#36706#0" expanded="false" />
-            <element signature="e#36363#36510#0" expanded="false" />
-            <element signature="e#36543#36671#0" expanded="false" />
-            <marker date="1503176499000" expanded="true" signature="4158:4218" ph="..." />
-            <marker date="1503176499000" expanded="false" signature="22411:22580" ph="..." />
-            <marker date="1503176499000" expanded="true" signature="25101:25161" ph="..." />
-            <marker date="1503176499000" expanded="false" signature="27365:27492" ph="..." />
+            <marker date="1503188916000" expanded="true" signature="4468:4528" ph="..." />
+            <marker date="1503188916000" expanded="true" signature="22721:22890" ph="..." />
+            <marker date="1503188916000" expanded="true" signature="25411:25471" ph="..." />
+            <marker date="1503188916000" expanded="true" signature="27675:27802" ph="..." />
           </folding>
         </state>
       </provider>
