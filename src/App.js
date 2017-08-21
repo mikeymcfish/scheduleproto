@@ -22,7 +22,7 @@ import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
-let isLive = true;
+let isLive = false;
 
 class App extends Component {
 
@@ -151,9 +151,6 @@ class App extends Component {
 
         }
 
-
-
-
     }
 
     getMemberInfoFromAPI(userID) {
@@ -170,7 +167,7 @@ class App extends Component {
                 $(".member-log-in").show();
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                //that.logInMember();
+                _this.logInMember(data.members);
 
             });
         }
@@ -183,7 +180,7 @@ class App extends Component {
             );
             //TEMP SHOW BUTTON.
             $(".member-log-in").show();
-            _this.logInMember();
+            _this.logInMember(data.members);
 
             //NON TEMP, RUN LOGIN FUNCTION.
             //that.logInMember();
@@ -492,15 +489,33 @@ class App extends Component {
         this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
 
-    logInMember() {
+    logInMember(membersList) {
+
+        var firstMember = {};
+        var firstKey;
+
+        for (var member in Object.keys(membersList)) {
+            firstKey = member;
+            firstMember = membersList[member];
+            break;
+        }
 
         this.setState({
             loggedIn: true,
-            currentAgeGroup: "select member"
+            currentAgeGroup: firstMember.name.split(" ")[0],
+            currentLocation: firstMember.defaultLocation,
+            filterLocation: firstMember.defaultLocation,
+            selectedMemberKey: firstKey
         });
+        this.setFilterAgeByAge(firstMember.age);
+        this.addMemberBirthday(firstMember);
+        this.setMembershipType(firstMember.memberType);
+
         $(".birthday").removeClass("birthday");
         this.addHolidays();
         this.addOwnedDays();
+
+        //set the first member
 
     }
 

@@ -148,18 +148,18 @@ class BigDay extends React.Component {
                     </div>
 
                     <div className="bottom-container">
-                        <Button raised color="secondary" className="btn-1">learn more</Button>
+                        {/*<Button raised color="secondary" className="btn-1">learn more</Button>*/}
 
-                        <div className="or-thing">
-                            <div className="vertical-bar">
-                            </div>
-                            <div>
-                                OR
-                            </div>
-                            <div className="vertical-bar">
-                            </div>
+                        {/*<div className="or-thing">*/}
+                            {/*<div className="vertical-bar">*/}
+                            {/*</div>*/}
+                            {/*<div>*/}
+                                {/*OR*/}
+                            {/*</div>*/}
+                            {/*<div className="vertical-bar">*/}
+                            {/*</div>*/}
 
-                        </div>
+                        {/*</div>*/}
 
                         {
                             parseInt(this.props.spotsLeft) > 0 ?
