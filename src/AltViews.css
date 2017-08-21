@@ -6,7 +6,29 @@
 .day {
     transition: all 150ms ease-out;
     z-index:1000;
+}
 
+.day.birthday {
+    background-image: url("img/garland.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+.day.minecon {
+    background-image: url("img/minecon.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+.day.halloween {
+    background-image: url("img/pumpkin.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: orange;
+}
+.day.halloween .date-number{
+   color:transparent;
 }
 
 .day:hover:not(.closed):not(.no-day):not(.highlighted) {
@@ -71,14 +93,29 @@
     /*margin-top: -1px;*/
 
 }
-.owned-overlay {
-    background-color: rgba(255, 0, 255, 0.37);
-    z-index: 9001;
+/*.owned-overlay {*/
+    /*background-color: rgba(255, 0, 255, 0.37);*/
+    /*z-index: 9001;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: flex-end;*/
+    /*color:white;*/
+    /*!*mix-blend-mode: hard-light;*!*/
+/*}*/
+.overlay.owned {
+    background-color: rgba(255, 0, 255, .8);
+    z-index: 9002;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color:white;
-    /*mix-blend-mode: hard-light;*/
+    color:white !important;
+    mix-blend-mode: normal;
+
+}
+.overlay.owned .title{
+    font-size: 16px;
+    color:white !important;
+    margin-bottom:-7px;
 }
 .overlay .big-num {
 
@@ -247,6 +284,7 @@
 }
 .date-number {
     font-size:14px;
+    position:relative;
 
 }
 .square-btn-additional-copy {
@@ -380,7 +418,9 @@
 .big-day {
     margin-bottom:30px;
     border-radius: 4px;
-    width:600px;
+    width: 550px;
+    min-width:500px;
+    max-width:700px;
     margin-left:10px;
     display:flex;
     background-color:white;
@@ -623,18 +663,28 @@ Button.btn-2:hover {
     color: #979797;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
 
     .big-day-title {
         font-size: 24px;
     }
+    .grid {
+        padding: 5px;
+        grid-gap: 5px;
 
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .big-day-title {
         font-size: 20px;
     }
+    .grid {
+        padding: 3px;
+        grid-gap: 2px;
+
+    }
+
 
 }
 
@@ -646,4 +696,12 @@ Button.btn-2:hover {
     width:100%;
     text-align: left;
     padding:3px;
+}
+.circle {
+    position:absolute;
+    left:-7px;
+    top:-7px;
+    fill: rgba(255, 0, 0, 0.8);
+    z-index: 1002;
+    display:none;
 }

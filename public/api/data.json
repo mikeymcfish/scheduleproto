@@ -80,24 +80,6 @@
         "subTitle": "10am - 12pm",
         "backgroundColor": "rgba(255,255,0,.7)",
         "icon": ""
-      },
-      {
-        "month": "November",
-        "day": 18,
-        "title": "Minecon World",
-        "subTitle": "viewing party for members",
-        "backgroundColor": "rgba(100,100,255,.7)",
-        "icon": "",
-        "backgroundImg": ""
-      },
-      {
-        "month": "October",
-        "day": 31,
-        "title": "Halloween!",
-        "subTitle": "free drop-in for members",
-        "backgroundColor": "rgba(255,125,0,.7)",
-        "icon": "",
-        "backgroundImg": ""
       }
     ]
   },

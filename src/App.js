@@ -336,7 +336,7 @@ class App extends Component {
     }
 
     addMemberBirthday(member) {
-        $('#birthday-overlay').remove();
+        // $('#birthday-overlay').remove();
         // if (!this.state.loggedIn) return;
         // if (!this.state.selectedMemberKey=="") return;
         // var member = this.state.members[this.state.selectedMemberKey];
@@ -347,15 +347,18 @@ class App extends Component {
         var year = birthday_array[2];
         var nextAge = parseInt(member.age)+1;
         var dayObj = this.getDayObject(month, day);
-        var firstName = member.name.split(" ")[0];
-        console.log("$$ "+month, day, nextAge);
-        // dayObj.find(".circle").show();
-        this.addOverlay(dayObj,
-            month,
-            "birthday",
-            "white",
-            firstName + "'s " + nextAge + "th Birthday!",
-            "");
+        $(".birthday").removeClass("birthday");
+        dayObj.addClass("birthday");
+
+        // var firstName = member.name.split(" ")[0];
+        // console.log("$$ "+month, day, nextAge);
+        // // dayObj.find(".circle").show();
+        // this.addOverlay(dayObj,
+        //     month,
+        //     "birthday",
+        //     "white",
+        //     firstName + "'s " + nextAge + "th Birthday!",
+        //     "");
     }
 
     testLogIn() {
@@ -370,6 +373,8 @@ class App extends Component {
         });
         // $(".editable-age-group").css("color","rgb(150,150,150");
         // $(".editable-age-group").css("background-color","#333");
+        $(".birthday").removeClass("birthday");
+        $(".owned").remove();
         this.addHolidays();
         this.addOwnedDays();
         console.log(this.state.loggedIn);
@@ -708,6 +713,7 @@ class App extends Component {
 
         var fullstring = element.find(".event-bar").attr("data-days");
         console.log("$$"+fullstring);
+        if (fullstring==null) return;
         var firstDay = this.getFirstDayFromFullString(fullstring);
         var t = firstDay.offset().top;
         console.log(t);
@@ -822,6 +828,9 @@ class App extends Component {
                 holidays[i].subTitle
             );
         }
+        //hardcoded minecon
+        this.getDayObject("November",18).addClass("minecon");
+        this.getDayObject("October",31).addClass("halloween");
 
     }
 
@@ -885,7 +894,7 @@ class App extends Component {
             "owned",
             "",
             title,
-            subTitle,
+            "",
         );
     }
 
@@ -933,17 +942,28 @@ class App extends Component {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
         var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-        this.addOverlay(
-            this.getDayObject(
-                this.getMonthName(thisDayString[0]),
-                thisDayString[1]
-            ),
-            this.getMonthName(thisDayString[0]),
-            "in-cart",
-            "",
-            title,
-            "in cart"
-        );
+        var rnd = Math.floor(Math.random()*360);
+        var rnd2 = (Math.random()/5);
+        console.log("$$--"+rnd);
+        thisDay.find(".circle")
+            .css("transform","scale("+rnd2+","+rnd2+")")
+            .css("transform","rotate("+rnd+"deg)")
+            .css("display","block");
+
+
+        //disabled the overlay
+
+        // this.addOverlay(
+        //     this.getDayObject(
+        //         this.getMonthName(thisDayString[0]),
+        //         thisDayString[1]
+        //     ),
+        //     this.getMonthName(thisDayString[0]),
+        //     "in-cart",
+        //     "",
+        //     title,
+        //     "in cart"
+        // );
 
     }
 
