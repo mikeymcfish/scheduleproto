@@ -345,7 +345,6 @@
     min-height:20px;
 }
 .date-icon {
-    color: black;
     float: right;
     font-size: 10px;
     height: 20px;
@@ -353,7 +352,12 @@
     right: 0px;
     text-align: right;
     top: 0px;
-    width: 0px;
+    display: none;
+}
+.cart-icon {
+    position:absolute;
+    width:100%;
+    flex-grow: 1;
 }
 .date-number {
     font-size:14px;
@@ -806,4 +810,8 @@ Button.btn-2:hover {
     /*width:100%;*/
     display:none;
 
+}
+
+.in-my-cart {
+    background-color: #333333;
 }

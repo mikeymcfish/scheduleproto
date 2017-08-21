@@ -26,8 +26,6 @@ let isLive = true;
 
 class App extends Component {
 
-
-
     constructor() {
 
         super();
@@ -185,6 +183,7 @@ class App extends Component {
             );
             //TEMP SHOW BUTTON.
             $(".member-log-in").show();
+            _this.logInMember();
 
             //NON TEMP, RUN LOGIN FUNCTION.
             //that.logInMember();
@@ -201,6 +200,8 @@ class App extends Component {
             .not(".birthday")
             .not(".in-cart")
             .remove();
+
+        $(".in-my-cart").remove();
 
         $(".highlighted").removeClass("highlighted");
 
@@ -1067,7 +1068,7 @@ class App extends Component {
             cart: arr
         });
 
-        $("[data-event-id='"+eventID+"'").css("background-color","black");
+        $("[data-event-id='"+eventID+"'").addClass("in-my-cart");
 
         //not a member? they dont own anything
 

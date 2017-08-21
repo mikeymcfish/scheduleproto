@@ -161,9 +161,6 @@ class BigDay extends React.Component {
 
                         </div>
 
-
-
-
                         {
                             parseInt(this.props.spotsLeft) > 0 ?
                             <div className="button-col">

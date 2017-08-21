@@ -131,7 +131,7 @@ class Day extends React.Component {
         this.props.proSeriesEvents ? proSeriesEvents=this.props.proSeriesEvents : proSeriesEvents=[];
         var campEvents = [];
         this.props.campEvents ? campEvents=this.props.campEvents : campEvents=[];
-        var myIcon = this.props.incart ? <CartIcon/> : "";
+        //var myIcon = this.props.incart>0 ? <CartIcon num={this.props.incart}/> : "";
         if (this.props.isclosed=="true") {
             return(
                     <div style={{width: '100%'}} data-month={this.props.month} data-dayNum={this.props.value} className="close-me">
@@ -141,7 +141,8 @@ class Day extends React.Component {
                                 {this.props.value}
                                 {/*<Circle displayCircle="none"/>*/}
                             </div>
-                            <div className="date-icon"> {myIcon}
+                            <div className="date-icon">
+                                <CartIcon/>
                             </div>
                         </div>
                     </div>
@@ -167,7 +168,8 @@ class Day extends React.Component {
                             </g>
                         </svg>
                     </div>
-                    <div className="date-icon"> {myIcon}
+                    <div className="date-icon">
+                        <CartIcon/>
                     </div>
                 </div>
                 {/*<div className="event-boxes">*/}
