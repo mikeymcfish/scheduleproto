@@ -90,7 +90,13 @@ class App extends Component {
             viewingDayEvents: [],
             highlightedDays: "",
             currentSelectedMembersAge: 0,
-            isJSONloaded : false
+            isJSONloaded : false,
+            seriesDiscount : 0,
+            proSeriesDiscount : 0,
+            dropInDiscount : 0,
+            miniCampDiscount : 0,
+
+
         }
 
         global.allEvents = seriesJSON;
@@ -154,6 +160,10 @@ class App extends Component {
             );
 
         }
+
+        var firstDay = this.getFirstDayFromFullString(thisDayFullString);
+        this.scrollViewToCalendarDay(firstDay);
+
 
     }
 
@@ -368,13 +378,13 @@ class App extends Component {
         this.setState({
             loggedIn:true,
             members:global.allEvents.members,
-            currentAgeGroup: "(click to select)"
+            currentAgeGroup: "select member"
 
         });
         // $(".editable-age-group").css("color","rgb(150,150,150");
         // $(".editable-age-group").css("background-color","#333");
         $(".birthday").removeClass("birthday");
-        $(".owned").remove();
+        // $(".owned").remove();
         this.addHolidays();
         this.addOwnedDays();
         console.log(this.state.loggedIn);
@@ -506,6 +516,37 @@ class App extends Component {
         }
     }
 
+    setMembershipType (type) {
+
+        //
+        //
+        // Hardcoded discounts
+        //
+        //
+        //
+
+        if (type.toUpperCase()=="CLASSIC") {
+
+            this.setState({
+                seriesDiscount : 60,
+                proSeriesDiscount : 50,
+                dropInDiscount : 10,
+                miniCampDiscount : 0.05,
+
+            })
+
+        } else if (type.toUpperCase()=="PREMIUM") {
+            this.setState({
+                seriesDiscount : 60,
+                proSeriesDiscount : 50,
+                dropInDiscount : 10,
+                miniCampDiscount : 0.1,
+
+            })
+        }
+
+    }
+
     changeAge = ({ target }) => {
 
         if (target.hasAttribute("data-age-group")) {
@@ -515,7 +556,9 @@ class App extends Component {
                 });
             $(".filter-age")
                 .css("display","none");
-            // is it a member?
+            //
+            // Is it a member?
+            //
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
                     this.setState({
@@ -525,6 +568,7 @@ class App extends Component {
                     });
                     this.setFilterAgeByAge(this.state.members[member].age);
                     this.addMemberBirthday(this.state.members[member]);
+                    this.setMembershipType(this.state.members[member].memberType);
                 }
             }
             this.setFilterAgeByGroup($(target).attr("data-age-group"));
@@ -734,7 +778,13 @@ class App extends Component {
         }, 250);
 
 
+    }
 
+    async scrollViewToCalendarDay (dayObj) {
+        console.log("@@ scrolling");
+        $('html, body').animate({
+            scrollTop: dayObj.offset().top
+        }, 250);
     }
 
     doesAgeMatchEvent (ageGroup) {
@@ -841,7 +891,7 @@ class App extends Component {
         if (!this.state.members[this.state.selectedMemberKey]) return;
 
         //remove previous overlays
-        $(".owned-day").remove();
+        // $(".owned-day").remove();
         ownedEvents = this.state.members[this.state.selectedMemberKey].ownedEvents;
         var allEvents = global.allEvents.events;
         for (var i = 0 ; i < ownedEvents.length; i++) {
@@ -953,17 +1003,17 @@ class App extends Component {
 
         //disabled the overlay
 
-        // this.addOverlay(
-        //     this.getDayObject(
-        //         this.getMonthName(thisDayString[0]),
-        //         thisDayString[1]
-        //     ),
-        //     this.getMonthName(thisDayString[0]),
-        //     "in-cart",
-        //     "",
-        //     title,
-        //     "in cart"
-        // );
+        this.addOverlay(
+            this.getDayObject(
+                this.getMonthName(thisDayString[0]),
+                thisDayString[1]
+            ),
+            this.getMonthName(thisDayString[0]),
+            "owned",
+            "",
+            "CART",
+            ""
+        );
 
     }
 
@@ -1005,6 +1055,27 @@ class App extends Component {
             default:
                 return "NoIdea";
         }
+    }
+
+    getMemberPricing (original, type) {
+        var price = parseInt(original);
+        console.log("%% original for "+type+ " -" +price );
+        if (this.state.loggedIn) {
+            if (type.toLowerCase() == "drop-in") {
+                price -= this.state.dropInDiscount;
+            }
+            else if (type.toLowerCase() == "series") {
+                price -= this.state.seriesDiscount;
+            }
+            else if (type.toLowerCase() == "pro-series") {
+                price -= this.state.proSeriesDiscount;
+            }
+            else if (type.toLowerCase() == "mini-camp" || type.toLowerCase() == "special") {
+                price *= (1 - this.state.miniCampDiscount);
+            }
+        }
+        console.log("%% discount " + price);
+        return price;
     }
 
     render() {
@@ -1050,7 +1121,9 @@ class App extends Component {
                             <div className="change-age-btn" onClick={this.changeAge}>
                                 <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                                 <div className="text-right filtering-hover-text">
-                                    <div>click to change</div>
+                                    <div className={this.state.selectedMemberKey!="" ? "member-type" : ""}>
+                                        {this.state.selectedMemberKey!="" ? this.state.members[this.state.selectedMemberKey].memberType.toUpperCase(): "click to change"}
+                                    </div>
                                 </div>
                                 <div className="filter-selection-box filter-age">
                                     {/*//ageSelectionOptions*/}
@@ -1070,6 +1143,7 @@ class App extends Component {
                                     <div className="filter-option set-location-btn" data-location="TriBeCa">TriBeCa</div>
                                 </div>
                             </div>
+
                             {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
                                 {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
                                 {/*<div className="text-item-center filtering-hover-text">*/}
@@ -1324,7 +1398,7 @@ class App extends Component {
                                                 ages = {event.age}
                                                 dates = {event.daystring}
                                                 time = {event.startTime}
-                                                price = {event.price}
+                                                price = {this.getMemberPricing(event.price, event.type)}
                                                 spotsLeft = {event.spotsLeft}
                                                 eventObj = {event}
                                                 type = {event.type}

@@ -79,9 +79,12 @@ class BigDay extends React.Component {
                     {/*Monday, September 5th*/}
                     {/*</div>*/}
                     {/*</div>*/}
+
                     <div className="content-container">
                         <div className="left-side">
-                            <div className="pic">
+                            <div className={"color-bar " + this.props.type + "-color"}>
+                            </div>
+                            <div className={"pic " + this.props.type + "-color"}>
                             </div>
                         </div>
                         <div className="right-side">

@@ -1,6 +1,8 @@
 :root {
     --shadow : 1px 1px 3px 0 rgba(0, 0, 0, .25);
     --lightColor : #979797;
+    --veryLightColor : #dcdcdc;
+    --mediumColor : rgba(51, 51, 51, 0.75);
 }
 
 .day {
@@ -27,8 +29,18 @@
     background-size: 80%;
     background-color: orange;
 }
+.day.halloween:hover {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: orange;
+}
 .day.halloween .date-number{
    color:transparent;
+}
+.day.halloween:hover .date-number{
+    color:inherit;
 }
 
 .day:hover:not(.closed):not(.no-day):not(.highlighted) {
@@ -51,7 +63,7 @@
 /*}*/
 
 .day.highlighted {
-    border: solid 2px #333;
+    /*border: solid 2px #333;*/
     /*background-color: rgba(156, 158, 255, 0.18);*/
     /*transition: all 100ms;*/
 }
@@ -109,13 +121,26 @@
     flex-direction: column;
     justify-content: flex-end;
     color:white !important;
+    mix-blend-mode: none;
+    pointer-events: none;
+
+}
+.overlay.owned:hover {
+    background-color: rgba(255, 0, 255, .8);
+    z-index: 9002;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color:white !important;
     mix-blend-mode: normal;
+    opacity:0;
+    /*pointer-events: none;*/
 
 }
 .overlay.owned .title{
     font-size: 16px;
     color:white !important;
-    margin-bottom:-7px;
+    margin-bottom:-5px;
 }
 .overlay .big-num {
 
@@ -130,6 +155,7 @@
     mix-blend-mode: normal;
     padding:3px;
 }
+
 .overlay.birthday {
     /*box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .25);*/
     mix-blend-mode: normal;
@@ -174,6 +200,7 @@
 }
 .dates-link {
     text-decoration: underline;
+    color:blue !important;
 }
 .dates-link:hover {
     color:blue;
@@ -285,7 +312,12 @@
 .date-number {
     font-size:14px;
     position:relative;
+    flex-shrink: 1;
+    flex-grow: 0;
 
+}
+.highlighted .date-number {
+    border-bottom: solid 2px var(--mediumColor);
 }
 .square-btn-additional-copy {
     display: none;
@@ -430,8 +462,8 @@
     flex-direction: column;
     justify-content: flex-start;
     min-height: 80px;
-    padding: 15px;
     z-index: 10;
+    padding: 15px;
 }
 
 .big-day .top-container {
@@ -451,10 +483,12 @@
     width:100%;
 }
 .big-day .content-container {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+     margin: 10px;
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+
+
 }
 .big-day .content-container .left-side {
     display: flex;
@@ -473,9 +507,14 @@
 }
 
 .big-day .content-container .left-side .pic {
-    background-color: grey;
-    height: 100%;
-    width: 185px;
+    /*background-color: grey;*/
+    width: 100%;
+    height:100%;
+    background-image: url('./img/square-img.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    min-width:200px;
 }
 
 
@@ -532,6 +571,7 @@
     flex-direction: row;
     justify-items: stretch;
     height: 40px;
+
 
 }
 .or-thing {
@@ -643,7 +683,7 @@ Button.btn-2:hover {
 }
 .pro-tag {
     /*width:60px;*/
-    height:30px;
+    height:26px;
     font-size:18px;
     border: solid 2px #333;
     display: flex;
@@ -655,6 +695,16 @@ Button.btn-2:hover {
     float: left;
     padding:4px;
     margin-right:6px;
+}
+
+.member-type {
+    /*width:60px;*/
+    color: var(--veryLightColor);
+    background-color: #333;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom:3px;
+    /*min-width:100px;*/
 }
 
 
@@ -704,4 +754,11 @@ Button.btn-2:hover {
     fill: rgba(255, 0, 0, 0.8);
     z-index: 1002;
     display:none;
+}
+
+.color-bar {
+    /*height:20px;*/
+    /*width:100%;*/
+    display:none;
+
 }

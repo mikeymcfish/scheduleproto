@@ -1,0 +1,15 @@
+{
+  "premium" : {
+    "drop-in": 10,
+    "series": 60,
+    "pro-series": 50,
+    "mini-camp": 0.1
+  },
+  "classic" : {
+    "drop-in": 10,
+    "series": 60,
+    "pro-series": 50,
+    "mini-camp": 0.05
+  }
+
+}
