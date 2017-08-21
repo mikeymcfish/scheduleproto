@@ -345,19 +345,20 @@
     min-height:20px;
 }
 .date-icon {
-    float: right;
-    font-size: 10px;
-    height: 20px;
+    /*font-size: 10px;*/
+    /*height: 20px;*/
+
+}
+.date-icon {
     position: relative;
-    right: 0px;
-    text-align: right;
-    top: 0px;
     display: none;
+
 }
 .cart-icon {
-    position:absolute;
+
     width:100%;
     flex-grow: 1;
+    align-self: flex-start;
 }
 .date-number {
     font-size:14px;
