@@ -1278,7 +1278,7 @@ class App extends Component {
                         </div>
                         <div className="age-notification">
                             { this.state.selectedMemberKey!="" ?
-                                <div className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></div>
+                                <a href={"member/"+this.state.members[this.state.selectedMemberKey].id+"/pedit"} className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></a>
                                 :
                                 ""
                             }
