@@ -22,7 +22,7 @@ import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
-let isLive = false;
+let isLive = true;
 
 class App extends Component {
 
@@ -116,7 +116,7 @@ class App extends Component {
             $.getJSON('api/v1/scheduler/auth', function (data) {
                 that.getMemberInfoFromAPI(data.user_id);
             });
-            $.getJSON('api/v1/scheduler/events', function (data) {
+            $.getJSON('api/v1/scheduler/all', function (data) {
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 that.parseDateListToString(global.allEvents);
@@ -161,7 +161,23 @@ class App extends Component {
     getMemberInfoFromAPI(userID) {
         //api/v1/scheduler/members?user_id={userID}
         var _this = this;
-        $.getJSON('/api/member-info.json', function(data){
+        if (isLive) {
+            $.getJSON('api/v1/scheduler/members?user_id=' + userID, function(data){
+                _this.setState(
+                    {
+                        members:data.members
+                    }
+                );
+                //TEMP SHOW BUTTON.
+                $(".member-log-in").show();
+
+                //NON TEMP, RUN LOGIN FUNCTION.
+                //that.logInMember();
+
+            });
+        }
+        else {
+           $.getJSON('/api/member-info.json', function(data){
             _this.setState(
                 {
                     members:data.members
@@ -173,7 +189,9 @@ class App extends Component {
             //NON TEMP, RUN LOGIN FUNCTION.
             //that.logInMember();
 
-        });
+        }); 
+        }
+        
     }
 
     clearCalendar() {
