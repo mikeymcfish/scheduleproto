@@ -69,7 +69,7 @@
       "startTime": "4:00 p.m.",
       "tags": ["code", "vr", "magic"],
       "price": 145,
-      "spotsLeft": 3,
+      "spotsLeft": 0,
       "days": {
         "September": [
           11,
@@ -188,14 +188,14 @@
     {
       "id": 27,
       "name": "Makerspace",
-      "age": "age 9 to 11",
+      "age": "age 7 to 14",
       "location": "Tribeca",
       "sub-title": "This is a one sentence dexcription",
       "description": "This is a longer descrption of what this thing is about. It talks about the project and the learning skills. It talks about other things too to fill up space I am just writing words now.",
       "type": "drop-in",
       "span-type": "drop-in",
       "price": 225,
-      "spotsLeft": 2,
+      "spotsLeft": 0,
       "doesOwn": true,
       "days": {
         "September": [

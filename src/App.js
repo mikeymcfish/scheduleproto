@@ -22,11 +22,14 @@ import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
+let isLive = false;
 
 class App extends Component {
 
 
+
     constructor() {
+
         super();
 
         this.toggleSeries = this.toggleSeries.bind(this);
@@ -95,7 +98,7 @@ class App extends Component {
             proSeriesDiscount : 0,
             dropInDiscount : 0,
             miniCampDiscount : 0,
-
+            cart: []
 
         }
 
@@ -106,21 +109,60 @@ class App extends Component {
 
         var that = this;
 
-        $.getJSON('/api/data.json', function(data){
-            global.allEvents = data;
-            //TODO 'DAYSTRING' for all
-            that.parseDateListToString(global.allEvents);
-            global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
-            that.setState(
-                {
-                    isJSONloaded:true
-                }
-            );
-            that.addHolidays();
-            that.addOwnedDays();
-        });
+        //api/v1/scheduler/events
+
+        if (isLive) {
+
+            $.getJSON('api/v1/scheduler/auth', function (data) {
+                that.getMemberInfoFromAPI(data.user_id);
+            });
+            $.getJSON('pi/v1/scheduler/events', function (data) {
+                global.allEvents = data;
+                //TODO 'DAYSTRING' for all
+                that.parseDateListToString(global.allEvents);
+                global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
+                that.setState(
+                    {
+                        isJSONloaded: true
+                    }
+                );
+                that.addHolidays();
+            });
+
+        } else {
+
+            //
+            //
+            //dev
+            //
+            //
+
+            $.getJSON('/api/data.json', function(data){
+                global.allEvents = data;
+                //TODO 'DAYSTRING' for all
+                that.parseDateListToString(global.allEvents);
+                global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
+                that.setState(
+                    {
+                        isJSONloaded:true
+                    }
+                );
+                that.addHolidays();
+            });
+            this.getMemberInfoFromAPI(1);
+
+        }
+
+
+
+
+    }
+
+    getMemberInfoFromAPI(userID) {
+        //api/v1/scheduler/members?user_id={userID}
+        var _this = this;
         $.getJSON('/api/member-info.json', function(data){
-            that.setState(
+            _this.setState(
                 {
                     members:data.members
                 }
@@ -177,19 +219,43 @@ class App extends Component {
         var firstDay = this.getFirstDayFromFullString(thisDayFullString);
         this.scrollViewToCalendarDay(firstDay);
 
-
     }
 
     addToCart = (event) => {
 
+        //add visually
         this.addInCart(event.id);
+
+        //add to hq
         this.sendToCartAPI(event);
 
     }
 
+    rebuildCart(data) {
+        console.log("rebuilding cart");
+        try {
+            if (data.cart.length>0) {
+                this.setState({
+                    cart: data.cart
+                });
+
+                data.cart.forEach((val,index)=>{
+                    this.addInCart(val);
+                });
+
+            }
+
+        } catch (e) {
+            console.log("problem updating cart.")
+        }
+    }
+
     async sendToCartAPI (event) {
 
-        $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id);
+        var _this = this;
+        $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id, function(data) {
+            _this.rebuildCart(data);
+        });
         try {
             let response = await $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id);
             //let responseJson = await response.json();
@@ -198,7 +264,6 @@ class App extends Component {
         } catch(error) {
             console.error(error);
         }
-
 
         // try {
         //     let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
@@ -973,8 +1038,18 @@ class App extends Component {
         );
     }
 
+    //call this when confirmed added to cart
     addInCart(eventID) {
         var inCart = [];
+
+        var arr = this.state.cart;
+
+        arr.push (eventID);
+        this.setState({
+            cart: arr
+        });
+
+        $("[data-event-id='"+eventID+"'").css("background-color","black");
 
         //not a member? they dont own anything
 
@@ -993,7 +1068,6 @@ class App extends Component {
                         var multiDays = thisDayFullString.split(",");
 
                         for (var k = 0; k < multiDays.length; k++) {
-
 
                             this.printCartedDay(multiDays[k],"IN CART",allEvents[j].name+" ("+(k+1)+" of "+multiDays.length+")",allEvents[j].type,allEvents[j].startTime);
 
@@ -1026,19 +1100,22 @@ class App extends Component {
             .css("display","block");
 
 
-        //disabled the overlay
 
-        this.addOverlay(
-            this.getDayObject(
-                this.getMonthName(thisDayString[0]),
-                thisDayString[1]
-            ),
-            this.getMonthName(thisDayString[0]),
-            "owned",
-            "",
-            "CART",
-            ""
-        );
+
+        //disabled the overlay
+        //
+        //
+        // this.addOverlay(
+        //     this.getDayObject(
+        //         this.getMonthName(thisDayString[0]),
+        //         thisDayString[1]
+        //     ),
+        //     this.getMonthName(thisDayString[0]),
+        //     "owned",
+        //     "",
+        //     "CART",
+        //     ""
+        // );
 
     }
 
@@ -1424,6 +1501,8 @@ class App extends Component {
                                                 dates = {event.daystring}
                                                 time = {event.startTime}
                                                 price = {this.getMemberPricing(event.price, event.type)}
+                                                doesOwn = ""
+                                                isInCart = {this.state.cart.indexOf(event.id)}
                                                 spotsLeft = {event.spotsLeft}
                                                 eventObj = {event}
                                                 type = {event.type}

@@ -66,6 +66,10 @@ class BigDay extends React.Component {
             console.log(i);
         }
 
+        var isDisabled = "";
+
+        this.props.isInCart ? isDisabled = "disabled" : isDisabled = "";
+
 
         return (
             <div>
@@ -157,15 +161,25 @@ class BigDay extends React.Component {
 
                         </div>
 
+
+
+
                         {
                             parseInt(this.props.spotsLeft) > 0 ?
                             <div className="button-col">
                                 <div className="add-to-text">
-                                    add to cart
+                                    { this.props.isInCart>=0 ? "" : "add to cart"}
                                 </div>
-                                <Button raised color="primary" className="btn-2" onClick={this.handleAddToCart}>
-                                    <div><span className="price-text">${this.props.price}</span></div>
-                                </Button>
+                                { this.props.isInCart>=0 ?
+                                    <Button disabled raised color="primary" className="btn-2">
+                                        <div><span className="price-text">in cart</span></div>
+                                    </Button>
+                                    :
+                                    <Button raised color="primary" className="btn-2" onClick={this.handleAddToCart}>
+                                        <div><span className="price-text">${this.props.price}</span></div>
+                                    </Button>
+                                }
+
                                 <div className="add-to-text">
                                     {this.props.spotsLeft + " spots left"}
                                 </div>
