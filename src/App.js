@@ -116,7 +116,7 @@ class App extends Component {
             $.getJSON('api/v1/scheduler/auth', function (data) {
                 that.getMemberInfoFromAPI(data.user_id);
             });
-            $.getJSON('pi/v1/scheduler/events', function (data) {
+            $.getJSON('api/v1/scheduler/events', function (data) {
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 that.parseDateListToString(global.allEvents);
