@@ -170,7 +170,7 @@ class App extends Component {
                 $(".member-log-in").show();
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                //that.logInMember();
+                _this.logInMember();
 
             });
         }
@@ -186,7 +186,7 @@ class App extends Component {
             _this.logInMember();
 
             //NON TEMP, RUN LOGIN FUNCTION.
-            //that.logInMember();
+            //_this.logInMember();
 
         }); 
         }
@@ -1278,7 +1278,7 @@ class App extends Component {
                         </div>
                         <div className="age-notification">
                             { this.state.selectedMemberKey!="" ?
-                                <a href={"member/"+this.state.members[this.state.selectedMemberKey].id+"/pedit"} className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <span className="change-birthday">click here</span></a>
+                                <div className="age-note">NOTE: We're showing you only events for members age {this.state.members[this.state.selectedMemberKey].age}. If this is not {this.state.members[this.state.selectedMemberKey].name}'s correct age <a href={"member/"+this.state.members[this.state.selectedMemberKey].id+"/pedit"}><span className="change-birthday">click here</span></a></div>
                                 :
                                 ""
                             }
