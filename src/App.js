@@ -119,6 +119,19 @@ class App extends Component {
             that.addHolidays();
             that.addOwnedDays();
         });
+        $.getJSON('/api/member-info.json', function(data){
+            that.setState(
+                {
+                    members:data.members
+                }
+            );
+            //TEMP SHOW BUTTON.
+            $(".member-log-in").show();
+
+            //NON TEMP, RUN LOGIN FUNCTION.
+            //that.logInMember();
+
+        });
     }
 
     clearCalendar() {
@@ -394,6 +407,18 @@ class App extends Component {
         // });
         this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK","i guess",null,null);
      }
+
+    logInMember() {
+
+        this.setState({
+            loggedIn: true,
+            currentAgeGroup: "select member"
+        });
+        $(".birthday").removeClass("birthday");
+        this.addHolidays();
+        this.addOwnedDays();
+
+    }
 
     toggleSeries() {
 

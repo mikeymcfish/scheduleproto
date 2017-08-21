@@ -36,7 +36,7 @@ class TopLinks extends React.Component {
                 <div className="top-link">
                     sign up for membership
                 </div>
-                <div className="top-link" onClick={this.setLoggedIn}>
+                <div className="top-link member-log-in" style={{display:"none"}} onClick={this.setLoggedIn}>
                     member log-in
                 </div>
 

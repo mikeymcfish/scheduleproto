@@ -3,6 +3,40 @@
     --lightColor : #979797;
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
+    --seriesColor : rgba(231, 30, 183, .75);
+    --proSeriesColor : rgba(185, 24, 147, 0.75);
+    --partiesColor : rgba(190, 190, 190, 0.75);
+    --campColor : rgba(255, 154, 0, .75);
+    --specialColor : rgba(255, 219, 0, 1);
+    --dropInColor : rgba(255, 77, 71, .75);
+}
+
+.series-color {
+    background-color: var(--seriesColor);
+    /*mix-blend-mode: multiply;*/
+}
+.pro-series-color {
+    background-color: var(--proSeriesColor);
+    /*mix-blend-mode: multiply;*/
+}
+.parties-color {
+    background-color: var(--partiesColor);
+    /*mix-blend-mode: multiply;*/
+}
+
+.drop-in-color {
+    background-color: var(--dropInColor);
+}
+
+.camp-color {
+    background-color: var(--campColor);
+}
+
+/*.camp-color:hover {*/
+/*background-color: rgba(255,154,0,1);*/
+/*}*/
+.special-color {
+    background-color: var(--specialColor);
 }
 
 .day {
@@ -17,11 +51,24 @@
     background-size: 100%;
 }
 .day.minecon {
-    background-image: url("img/minecon.png");
+    background-image: url("img/creeper.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: bottom;
+    background-position: center;
+    transition: all 150ms ease-out;
+    background-color: #4ACD4E;
 }
+.day.minecon:hover {
+    background-image: none;
+
+}
+.day.minecon .date-number{
+    color:transparent;
+}
+.day.minecon:hover .date-number{
+    color:inherit;
+}
+
 .day.halloween {
     background-image: url("img/pumpkin.png");
     background-repeat: no-repeat;
@@ -31,13 +78,10 @@
 }
 .day.halloween:hover {
     background-image: none;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 80%;
-    background-color: orange;
+
 }
 .day.halloween .date-number{
-   color:transparent;
+    color:transparent;
 }
 .day.halloween:hover .date-number{
     color:inherit;
@@ -66,10 +110,12 @@
     /*border: solid 2px #333;*/
     /*background-color: rgba(156, 158, 255, 0.18);*/
     /*transition: all 100ms;*/
+    background-image: none !important;
+    background-color: inherit;
 }
 
 .day.highlighted .date-number {
-   /*text-decoration: underline;*/
+   color:inherit;
 }
 
 
@@ -734,7 +780,6 @@ Button.btn-2:hover {
         grid-gap: 2px;
 
     }
-
 
 }
 
