@@ -673,6 +673,8 @@ class App extends Component {
 
     changeAge = ({ target }) => {
 
+        if (this.state.cart>0) return;
+
         if (target.hasAttribute("data-age-group")) {
             this.setState(
                 {
@@ -1254,7 +1256,7 @@ class App extends Component {
                         <h1 className="heading">
                         <div className="filtering-header">
 
-                            <div className="change-age-btn" onClick={this.changeAge}>
+                            <div className="change-age-btn" onClick={this.changeAge} data-tip={this.state.cart>0 ? "You may only add items to the cart for one member at a time." : ""}>
                                 <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                                 <div className="text-right filtering-hover-text">
                                     <div className={this.state.selectedMemberKey!="" ? "member-type" : ""}>
