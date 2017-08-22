@@ -283,8 +283,7 @@ class App extends Component {
         try {
             let response = await $.get('api/v1/scheduler/cart');
             //let responseJson = await response.json();
-            _this.rebuildCart(response);
-            // return responseJson.movies;
+            _this.rebuildCart(response.json());
         } catch (error) {
             console.error(error);
         }
