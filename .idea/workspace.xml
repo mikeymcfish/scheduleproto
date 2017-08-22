@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="735" />
-    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="767" />
+    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="718" />
+    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="750" />
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="531" />
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1122" />
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1634" />
@@ -10,10 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/garland.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/creeper.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -45,12 +43,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <file leaf-file-name="creeper.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/creeper.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding>
+                <element signature="e#37#16902#2" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,13 +74,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pumpkin.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/img/pumpkin.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="minecon.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/img/minecon.png">
           <provider selected="true" editor-type-id="images">
@@ -91,10 +84,10 @@
       <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="65" column="3" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="65" selection-end-column="3" />
+            <state relative-caret-position="30">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
-                <marker date="1503438308000" expanded="true" signature="4832:4883" ph="..." />
+                <marker date="1503438465000" expanded="true" signature="4451:4502" ph="..." />
               </folding>
             </state>
           </provider>
@@ -237,8 +230,9 @@
         <option value="$PROJECT_DIR$/src/BigDay.js" />
         <option value="$PROJECT_DIR$/public/api/data.json" />
         <option value="$PROJECT_DIR$/src/garland.css" />
-        <option value="$PROJECT_DIR$/src/AltViews.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/AltViews.css" />
+        <option value="$PROJECT_DIR$/src/creeper.css" />
       </list>
     </option>
   </component>
@@ -517,12 +511,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="27136000" />
+      <workItem from="1503408559960" duration="27269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374416000" />
+    <option name="totallyTimeSpent" value="374549000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -589,7 +583,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/static/js/main.a149b96e.js" />
     <entry file="file://$PROJECT_DIR$/src/Overlay.js" />
     <entry file="file://$PROJECT_DIR$/src/LinkBar.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -898,6 +891,23 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/creeper.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#33646#34736#0" expanded="false" />
+            <marker date="1503438331000" expanded="true" signature="7593:7653" ph="..." />
+            <marker date="1503438331000" expanded="true" signature="31965:32034" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/pumpkin.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -908,14 +918,14 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/img/creeper.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/img/creeper.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <marker date="1503438465000" expanded="true" signature="4451:4502" ph="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/garland.css">
@@ -928,24 +938,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="65" column="3" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="65" selection-end-column="3" />
-          <folding>
-            <marker date="1503438308000" expanded="true" signature="4832:4883" ph="..." />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/img/creeper.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/creeper.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#33646#34736#0" expanded="false" />
-            <marker date="1503438331000" expanded="true" signature="7593:7653" ph="..." />
-            <marker date="1503438331000" expanded="true" signature="31965:32034" ph="..." />
+            <element signature="e#37#16902#2" expanded="true" />
           </folding>
         </state>
       </provider>

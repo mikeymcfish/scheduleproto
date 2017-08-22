@@ -64,24 +64,7 @@
     /*background-position: center;*/
     /*background-size: 100%;*/
 /*}*/
-.day.minecon {
-    background-image: url("img/creeper.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    transition: all 150ms ease-out;
-    background-color: #4ACD4E;
-}
-.day.minecon:hover {
-    background-image: none;
 
-}
-.day.minecon .date-number{
-    color:transparent;
-}
-.day.minecon:hover .date-number{
-    color:inherit;
-}
 
 .day.halloween {
     background-image: url("img/pumpkin.png");
