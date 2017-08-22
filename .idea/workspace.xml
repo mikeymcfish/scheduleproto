@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/creeper.jpg" afterPath="$PROJECT_DIR$/src/img/creeper.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/garland.png" afterPath="$PROJECT_DIR$/src/img/garland.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="1154" column="14" lean-forward="false" selection-start-line="1154" selection-start-column="14" selection-end-line="1154" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#33622#34712#0" expanded="false" />
@@ -53,21 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigDay.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BigDay.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Day.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Day.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2434">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="106">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -75,30 +68,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Month.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Month.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="366" column="22" lean-forward="false" selection-start-line="366" selection-start-column="16" selection-end-line="366" selection-end-column="22" />
-              <folding>
-                <element signature="e#15610#17879#0" expanded="false" />
-                <element signature="e#16966#16986#0" expanded="false" />
-                <element signature="e#17147#17603#0" expanded="false" />
-                <element signature="e#17229#17458#0" expanded="false" />
-                <element signature="e#17464#17589#0" expanded="false" />
-                <element signature="e#17655#17737#0" expanded="false" />
-              </folding>
-            </state>
+      <file leaf-file-name="garland.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/img/garland.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/api/data.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="128" column="14" lean-forward="false" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="14" />
-              <folding />
-            </state>
+      <file leaf-file-name="pumpkin.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/img/pumpkin.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="minecon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/img/minecon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -112,25 +99,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="624" column="1" lean-forward="true" selection-start-line="624" selection-start-column="1" selection-end-line="624" selection-end-column="1" />
+            <state relative-caret-position="91">
+              <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
               <folding>
-                <marker date="1503436087000" expanded="true" signature="4808:4859" ph="..." />
+                <marker date="1503437951000" expanded="true" signature="4808:4859" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="member-info.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-              <folding />
-            </state>
+      <file leaf-file-name="creeper.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/img/creeper.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creeper.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/img/creeper.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -147,16 +138,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>convertEventsToByDay</find>
-      <find>overlay</find>
-      <find>holiday</find>
-      <find>member-type</find>
       <find>member</find>
       <find>price</find>
       <find>getMemberP</find>
       <find>event-bar</find>
       <find>monday op</find>
-      <find>id&quot;: 25</find>
       <find>this.state.selectedMemberKey</find>
       <find>bigday</find>
       <find>in car</find>
@@ -167,16 +153,21 @@
       <find>font</find>
       <find>@font</find>
       <find>cart</find>
-      <find>halloween</find>
       <find>addHolidays</find>
       <find>clearCalendar</find>
       <find>addASeriesOverlay</find>
       <find>mouse</find>
       <find>scroll</find>
-      <find>@import</find>
       <find>dates-l</find>
       <find>birthday</find>
       <find>addMemberBirthday</find>
+      <find>member_i</find>
+      <find>id&quot;: 25</find>
+      <find>halloween</find>
+      <find>@import</find>
+      <find>hallo</find>
+      <find>pumpk</find>
+      <find>creeper</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -242,10 +233,10 @@
         <option value="$PROJECT_DIR$/src/Day.js" />
         <option value="$PROJECT_DIR$/src/isLive.js" />
         <option value="$PROJECT_DIR$/public/api/member-info.json" />
-        <option value="$PROJECT_DIR$/public/api/data.json" />
         <option value="$PROJECT_DIR$/src/BigDay.js" />
-        <option value="$PROJECT_DIR$/src/AltViews.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/public/api/data.json" />
+        <option value="$PROJECT_DIR$/src/AltViews.css" />
       </list>
     </option>
   </component>
@@ -530,12 +521,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="25900000" />
+      <workItem from="1503408559960" duration="26850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373180000" />
+    <option name="totallyTimeSpent" value="374130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -602,99 +593,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cart.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Span-styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/carbon-components.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/mikefischthal/WebstormProjects/scheduleproto/src">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/App.css</node>
-            <node x="" y="">$PROJECT_DIR$/src/App.js#$#185;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#App.css#130;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#CheckIcon#263;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#Component#15;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#Day#209;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#Modal#308;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#Month#234;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#MyModal#383;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#ReactDOM#48;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#Span-styles.css#150;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#carbon-components.css#342;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#logo#82;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.js#webflow.css#106;</node>
-            <node x="" y="">$PROJECT_DIR$/src/App.test.js#App#68;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.test.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/App.test.js#ReactDOM#34;</node>
-            <node x="" y="">$PROJECT_DIR$/src/icons/CartIcon.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/icons/CartIcon.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/icons/CartIcon.js#ReactDOM#49;</node>
-            <node x="" y="">$PROJECT_DIR$/src/icons/CheckIcon.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/icons/CheckIcon.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/icons/CheckIcon.js#ReactDOM#49;</node>
-            <node x="" y="">$PROJECT_DIR$/src/Day.js#$#162;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#App.css#66;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#CartIcon#121;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#Span-styles.css#86;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#mineconimage#186;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Day.js#webflow.css#42;</node>
-            <node x="" y="">$PROJECT_DIR$/src/Event.js#$#155;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#App.css#100;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#ReactDOM#49;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#Span-styles.css#120;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Event.js#webflow.css#76;</node>
-            <node x="" y="">$PROJECT_DIR$/src/EventContainer.js#$#150;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#App.css#66;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#Event#121;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#Span-styles.css#86;/Users/mikefischthal/WebstormProjects/scheduleproto/src/EventContainer.js#webflow.css#42;</node>
-            <node x="" y="">$PROJECT_DIR$/src/Modal.js#$#162;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#App.css#66;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#CartIcon#121;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#Span-styles.css#86;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Modal.js#webflow.css#42;</node>
-            <node x="" y="">$PROJECT_DIR$/src/Month.js#$#121;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#App#287;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#App.css#66;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#Component#16;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#Day#145;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#Event#170;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#EventContainers#199;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#Span-styles.css#86;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#seriesJSON#247;/Users/mikefischthal/WebstormProjects/scheduleproto/src/Month.js#webflow.css#42;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/react/lib/React.js#Component#2496;</node>
-            <node x="" y="">$PROJECT_DIR$/src/Span-styles.css</node>
-            <node x="" y="">$PROJECT_DIR$/src/carbon-components.css</node>
-            <node x="" y="">$PROJECT_DIR$/src/index.css</node>
-            <node x="" y="">$PROJECT_DIR$/src/index.js#App#150;/Users/mikefischthal/WebstormProjects/scheduleproto/src/index.js#React#7;/Users/mikefischthal/WebstormProjects/scheduleproto/src/index.js#ReactDOM#34;/Users/mikefischthal/WebstormProjects/scheduleproto/src/index.js#index.css#61;/Users/mikefischthal/WebstormProjects/scheduleproto/src/index.js#react-big-calendar.css#83;/Users/mikefischthal/WebstormProjects/scheduleproto/src/index.js#registerServiceWorker#175;</node>
-            <node x="" y="">Modal;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/react-dom/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.js</node>
-            <node x="" y="">$PROJECT_DIR$/src/logo.svg</node>
-            <node x="" y="">$PROJECT_DIR$/src/img/minecon.png</node>
-            <node x="" y="">$PROJECT_DIR$/src/moment.js#name#52101;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/react-big-calendar/lib/css/react-big-calendar.css</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/react/react.js</node>
-            <node x="" y="">$PROJECT_DIR$/src/registerServiceWorker.js</node>
-            <node x="" y="">$PROJECT_DIR$/src/series.json</node>
-            <node x="" y="">$PROJECT_DIR$/src/webflow.css</node>
-            <node x="" y="">name</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7405783991063414" x="998.0" y="1557.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/mikefischthal/WebstormProjects/scheduleproto/build">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/build</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/build/favicon.ico</node>
-            <node x="" y="">$PROJECT_DIR$/build/index.html</node>
-            <node x="" y="">$PROJECT_DIR$/build/static/js/main.3c33cd24.js</node>
-            <node x="" y="">$PROJECT_DIR$/build/static/css/main.64c2e50d.css</node>
-            <node x="" y="">$PROJECT_DIR$/build/manifest.json</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="200.0" y="137.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MOCK_DATA.json" />
     <entry file="file://$PROJECT_DIR$/build/static/css/main.0465a9ce.css" />
     <entry file="file://$PROJECT_DIR$/build/static/js/main.a149b96e.js" />
     <entry file="file://$PROJECT_DIR$/src/Overlay.js" />
@@ -937,44 +835,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/isLive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Day.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2434">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="128" column="14" lean-forward="false" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -987,6 +851,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-262">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -995,25 +875,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="624" column="1" lean-forward="true" selection-start-line="624" selection-start-column="1" selection-end-line="624" selection-end-column="1" />
-          <folding>
-            <marker date="1503436087000" expanded="true" signature="4808:4859" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="1154" column="14" lean-forward="false" selection-start-line="1154" selection-start-column="14" selection-end-line="1154" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#33622#34712#0" expanded="false" />
             <marker date="1503436731000" expanded="true" signature="7569:7629" ph="..." />
             <marker date="1503436731000" expanded="true" signature="31941:32010" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Day.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/minecon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/vrkids.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/pumpkin.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/garland.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/creeper.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/creeper.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding>
+            <marker date="1503437951000" expanded="true" signature="4808:4859" ph="..." />
           </folding>
         </state>
       </provider>
