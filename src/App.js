@@ -281,9 +281,10 @@ class App extends Component {
 
         var _this = this;
         try {
-            let response = await $.get('api/v1/scheduler/cart');
-            //let responseJson = await response.json();
-            _this.rebuildCart(response.json());
+            $.getJSON('api/v1/scheduler/cart', function (data) {
+                //let responseJson = await response.json();
+                _this.rebuildCart(data);
+            });
         } catch (error) {
             console.error(error);
         }
