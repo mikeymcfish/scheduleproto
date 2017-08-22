@@ -58,12 +58,12 @@
     z-index:100;
 }
 
-.day.birthday {
-    background-image: url("img/garland.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-}
+/*.day.birthday {*/
+    /*background-image: url("img/garland.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: 100%;*/
+/*}*/
 .day.minecon {
     background-image: url("img/creeper.png");
     background-repeat: no-repeat;

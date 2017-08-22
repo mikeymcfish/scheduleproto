@@ -3,17 +3,17 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="735" />
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="767" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="530" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1121" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1633" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="298" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="531" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1122" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1634" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="299" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/creeper.jpg" afterPath="$PROJECT_DIR$/src/img/creeper.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/garland.png" afterPath="$PROJECT_DIR$/src/img/garland.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/garland.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,16 +31,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="1154" column="14" lean-forward="false" selection-start-line="1154" selection-start-column="14" selection-end-line="1154" selection-end-column="14" />
+            <state relative-caret-position="275">
+              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#33622#34712#0" expanded="false" />
-                <marker date="1503436731000" expanded="true" signature="7569:7629" ph="..." />
-                <marker date="1503436731000" expanded="true" signature="31941:32010" ph="..." />
+                <element signature="e#33646#34736#0" expanded="false" />
+                <marker date="1503438331000" expanded="true" signature="7593:7653" ph="..." />
+                <marker date="1503438331000" expanded="true" signature="31965:32034" ph="..." />
               </folding>
             </state>
           </provider>
@@ -89,23 +88,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
+      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="1906" column="23" lean-forward="true" selection-start-line="1906" selection-start-column="23" selection-end-line="1906" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="106">
+              <caret line="65" column="3" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="65" selection-end-column="3" />
+              <folding>
+                <marker date="1503438308000" expanded="true" signature="4832:4883" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AltViews.css">
+      <file leaf-file-name="garland.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/garland.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+            <state relative-caret-position="15">
+              <caret line="1" column="33" lean-forward="true" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
               <folding>
-                <marker date="1503437951000" expanded="true" signature="4808:4859" ph="..." />
+                <element signature="e#132#4913#2" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -234,9 +235,10 @@
         <option value="$PROJECT_DIR$/src/isLive.js" />
         <option value="$PROJECT_DIR$/public/api/member-info.json" />
         <option value="$PROJECT_DIR$/src/BigDay.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/public/api/data.json" />
+        <option value="$PROJECT_DIR$/src/garland.css" />
         <option value="$PROJECT_DIR$/src/AltViews.css" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -336,12 +338,6 @@
               <item name="scheduleproto" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scheduleproto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -521,12 +517,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="26850000" />
+      <workItem from="1503408559960" duration="27136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374130000" />
+    <option name="totallyTimeSpent" value="374416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -593,7 +589,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/static/css/main.0465a9ce.css" />
     <entry file="file://$PROJECT_DIR$/build/static/js/main.a149b96e.js" />
     <entry file="file://$PROJECT_DIR$/src/Overlay.js" />
     <entry file="file://$PROJECT_DIR$/src/LinkBar.js">
@@ -883,19 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="1154" column="14" lean-forward="false" selection-start-line="1154" selection-start-column="14" selection-end-line="1154" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#33622#34712#0" expanded="false" />
-            <marker date="1503436731000" expanded="true" signature="7569:7629" ph="..." />
-            <marker date="1503436731000" expanded="true" signature="31941:32010" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Day.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -936,12 +918,34 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/garland.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="33" lean-forward="true" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+          <folding>
+            <element signature="e#132#4913#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="106">
+          <caret line="65" column="3" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="65" selection-end-column="3" />
           <folding>
-            <marker date="1503437951000" expanded="true" signature="4808:4859" ph="..." />
+            <marker date="1503438308000" expanded="true" signature="4832:4883" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#33646#34736#0" expanded="false" />
+            <marker date="1503438331000" expanded="true" signature="7593:7653" ph="..." />
+            <marker date="1503438331000" expanded="true" signature="31965:32034" ph="..." />
           </folding>
         </state>
       </provider>

@@ -23,6 +23,7 @@ import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
 import MDSpinner from "react-md-spinner";
+import './garland.css';
 
 import isLive from "./isLive.js";
 
