@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/creeper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/creeper.css" afterPath="$PROJECT_DIR$/src/creeper.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="creeper.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/creeper.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#37#16902#2" expanded="true" />
               </folding>
@@ -511,12 +510,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="27269000" />
+      <workItem from="1503408559960" duration="27302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374549000" />
+    <option name="totallyTimeSpent" value="374582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -945,8 +944,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/creeper.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#37#16902#2" expanded="true" />
           </folding>
