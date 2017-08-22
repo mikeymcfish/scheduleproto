@@ -304,7 +304,13 @@ class App extends Component {
             this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
-            console.error(error);
+            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id);
+            ///// update my cart with response.json.
+            window.getUpdatedCart();
+            this.getCartCall();
+
+        } finally  {
+            console.log("api call did nothing.");
         }
 
         // try {
@@ -715,7 +721,7 @@ class App extends Component {
             // Is it a member?
             //
             for (var member in Object.keys(this.state.members)) {
-                if (this.state.members[member].name.split(" ")[0] == $(target).attr("data-age-group")) {
+                if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.setState({
                         currentLocation: this.state.members[member].defaultLocation,
                         filterLocation: this.state.members[member].defaultLocation,
