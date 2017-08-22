@@ -22,7 +22,7 @@ import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
-let isLive = false;
+let isLive = true;
 
 class App extends Component {
 
@@ -1251,7 +1251,7 @@ class App extends Component {
         var thisDaysStuff = [];
         return (
             <div className="App">
-                <TopLinks onLogin={this.testLogIn}/>
+                {isLive ? "" : <TopLinks onLogin={this.testLogIn}/>}
                 <div className="full-page-container">
                     <div className="container w-container">
                         {/*<button className="bx--btn bx--btn--secondary" type="button" data-modal-target="#nofooter">Passive</button>*/}
