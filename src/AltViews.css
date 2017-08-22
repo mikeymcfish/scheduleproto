@@ -32,6 +32,17 @@
     background-color: var(--campColor);
 }
 
+.spinner-holder {
+    /*position: relative;*/
+    /*flex-grow: 1;*/
+    /*justify-content: center;*/
+    /*justify-items: center;*/
+    /*align-content: center;*/
+    margin-left:45%;
+    margin-top:30%;
+}
+
+/*}*/
 /*.camp-color:hover {*/
 /*background-color: rgba(255,154,0,1);*/
 /*}*/

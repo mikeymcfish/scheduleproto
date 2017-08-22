@@ -22,7 +22,10 @@ import BigDay from "./BigDay";
 import Moment from "moment";
 import './AltViews.css';
 import Divider from 'material-ui/Divider';
-let isLive = true;
+import MDSpinner from "react-md-spinner";
+
+
+let isLive = false;
 
 class App extends Component {
 
@@ -1523,15 +1526,34 @@ class App extends Component {
                                 <div className="day-sidebar" id="day-start">
 
                                     <div className="big-day-title">
-                                        {this.state.viewingDay=="none" ?
 
-                                            "Select a day on the left to view all of Pixel's offerings for that day."
+                                        {this.state.isJSONloaded ?
+
+                                            this.state.viewingDay=="none" ?
+
+                                                "Select a day on the left to view all of Pixel's offerings for that day."
+
+                                                :
+
+                                                this.getDayTitleString(this.state.viewingDay)
+
 
                                             :
+                                            <div className="spinner-holder">
 
-                                            this.getDayTitleString(this.state.viewingDay)
+                                                <MDSpinner
+                                                    color1="#e91e63"
+                                                    color2="#673ab7"
+                                                    color3="#009688"
+                                                    color4="#ff5722"
+                                                    size={100}/>
+
+                                            </div>
+
+
 
                                         }
+
                                     </div>
                                     <div className="big-day-container">
 

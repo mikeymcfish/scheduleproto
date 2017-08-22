@@ -59,6 +59,7 @@
   "events": [
     {
       "id": 24,
+      "image" : "https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png",
       "name": "Monday Option 1",
       "age": "age 7 to 14",
       "location": "Brooklyn",
