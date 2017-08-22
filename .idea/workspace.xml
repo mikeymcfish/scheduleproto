@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BigDay.js" afterPath="$PROJECT_DIR$/src/BigDay.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -117,10 +115,10 @@
       <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+            <state relative-caret-position="-5200">
+              <caret line="265" column="19" lean-forward="true" selection-start-line="265" selection-start-column="19" selection-end-line="265" selection-end-column="19" />
               <folding>
-                <marker date="1503436005000" expanded="true" signature="4808:4859" ph="..." />
+                <marker date="1503436087000" expanded="true" signature="4808:4859" ph="..." />
               </folding>
             </state>
           </provider>
@@ -532,12 +530,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="25105000" />
+      <workItem from="1503408559960" duration="25197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372385000" />
+    <option name="totallyTimeSpent" value="372477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1012,10 +1010,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        <state relative-caret-position="-5200">
+          <caret line="265" column="19" lean-forward="true" selection-start-line="265" selection-start-column="19" selection-end-line="265" selection-end-column="19" />
           <folding>
-            <marker date="1503436005000" expanded="true" signature="4808:4859" ph="..." />
+            <marker date="1503436087000" expanded="true" signature="4808:4859" ph="..." />
           </folding>
         </state>
       </provider>

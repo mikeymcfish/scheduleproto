@@ -259,12 +259,12 @@
     text-decoration: none;
 }
 .dates-link {
-    text-decoration: underline;
-    color:blue !important;
+    /*text-decoration: underline;*/
+    /*color:blue !important;*/
 }
 .dates-link:hover {
-    color:blue;
-    cursor: pointer;
+    /*color:blue;*/
+    /*cursor: pointer;*/
 }
 
 .page-container {
