@@ -930,23 +930,28 @@ class App extends Component {
     }
 
     doesAgeMatchEvent (ageGroup) {
+
+
+
         var myAge = this.state.currentSelectedMembersAge;
-        // "age 7 to 9",
-        //     "age 9 to 11",
-        //     "age 12 to 14"
-        if (ageGroup=="age 7 to 9" && 7<=myAge<=9) {
+
+        console.log("** " +ageGroup, myAge);
+
+        if (ageGroup=="age 7 to 9" && (myAge<=9 && myAge >=7)) {
+            console.log("** is first true");
             return true;
         }
-        else if (ageGroup=="age 9 to 11" && 9<=myAge<=11) {
+        else if (ageGroup=="age 9 to 11" && (myAge<=11 && myAge >=9)) {
             return true;
         }
-        else if (ageGroup=="age 12 to 14" && 12<=myAge<=14) {
+        else if (ageGroup=="age 12 to 14" && (myAge<=14 && myAge >=12)) {
             return true;
         }
         else if (ageGroup=="age 7 to 14") {
             return true;
         }
         else {
+            console.log("** is false");
             return false;
         }
     }
@@ -964,8 +969,11 @@ class App extends Component {
                 if (this.state.loggedIn) {
                     ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age) ;
                 } else {
-                    ageMatched = (thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase()
-                    || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14");
+                    ageMatched =
+                        (
+                            thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase()
+                            || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
+                        );
                 }
                 if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
                     && ageMatched) {
