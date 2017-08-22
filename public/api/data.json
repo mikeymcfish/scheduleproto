@@ -59,7 +59,7 @@
   "events": [
     {
       "id": 24,
-      "image" : "url('https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png')",
+      "image" : "https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png",
       "name": "Monday Option 1",
       "age": "age 7 to 14",
       "location": "Brooklyn",
@@ -136,6 +136,7 @@
       "span-type": "vertical",
       "price": 225,
       "spotsLeft": 2,
+      "image": "./image.jpg",
       "startTime": "4:00 p.m.",
       "days": {
         "September": [
@@ -187,7 +188,7 @@
       }
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "Makerspace",
       "age": "age 7 to 14",
       "location": "Tribeca",

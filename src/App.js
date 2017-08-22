@@ -102,7 +102,8 @@ class App extends Component {
             proSeriesDiscount: 0,
             dropInDiscount: 0,
             miniCampDiscount: 0,
-            cart: []
+            cart: [],
+            loggedInUserID: 0
 
         }
 
@@ -119,6 +120,9 @@ class App extends Component {
 
             $.getJSON('api/v1/scheduler/auth', function (data) {
                 that.getMemberInfoFromAPI(data.user_id);
+                that.setState({
+                    loggedInUserID:data.user_id
+                })
             });
             $.getJSON('api/v1/scheduler/all', function (data) {
                 global.allEvents = data;
@@ -205,7 +209,7 @@ class App extends Component {
             .not(".in-cart")
             .remove();
 
-        $(".in-my-cart").remove();
+        // $(".in-my-cart").remove();
 
         $(".highlighted").removeClass("highlighted");
 
@@ -247,6 +251,7 @@ class App extends Component {
     addToCart = (event) => {
 
         if (!isLive) this.addInCart(event.id);
+        this.clearCalendar();
 
         //add to hq
         this.sendToCartAPI(event);
@@ -288,7 +293,9 @@ class App extends Component {
     async sendToCartAPI(event) {
 
         try {
-            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id);
+            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
+                this.state.members[this.state.selectedMemberKey].id
+            );
             //let responseJson = await response.json();
             window.getUpdatedCart();
             // return responseJson.movies;
@@ -402,7 +409,7 @@ class App extends Component {
         console.log("jquery");
         $('div:has(> #no-day)').addClass('no-day');
         $('div:has(> .close-me)').addClass('closed');
-        this.addOwnedDays();
+        // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
         $('.view-day')
@@ -484,27 +491,27 @@ class App extends Component {
     }
 
     testLogIn() {
-        //should probably put owned events in these member details.
-
-
-        this.setState({
-            loggedIn: true,
-            members: global.allEvents.members,
-            currentAgeGroup: "select member"
-
-        });
-        // $(".editable-age-group").css("color","rgb(150,150,150");
-        // $(".editable-age-group").css("background-color","#333");
-        $(".birthday").removeClass("birthday");
-        // $(".owned").remove();
-        this.addHolidays();
-        this.addOwnedDays();
-        console.log(this.state.loggedIn);
+        // //should probably put owned events in these member details.
+        //
+        //
         // this.setState({
-        //     currentAgeGroup: this.state.members[0].name,
-        //     ageSelectionOptions: this.state.members
+        //     loggedIn: true,
+        //     members: global.allEvents.members,
+        //     currentAgeGroup: "select member"
+        //
         // });
-        this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK", "i guess", null, null);
+        // // $(".editable-age-group").css("color","rgb(150,150,150");
+        // // $(".editable-age-group").css("background-color","#333");
+        // $(".birthday").removeClass("birthday");
+        // // $(".owned").remove();
+        // this.addHolidays();
+        // this.addOwnedDays();
+        // console.log(this.state.loggedIn);
+        // // this.setState({
+        // //     currentAgeGroup: this.state.members[0].name,
+        // //     ageSelectionOptions: this.state.members
+        // // });
+        // this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK", "i guess", null, null);
     }
 
     logInMember(membersList) {
@@ -529,8 +536,7 @@ class App extends Component {
         this.setFilterAgeByAge(firstMember.age);
         this.setMembershipType(firstMember.memberType);
 
-        this.addHolidays();
-        this.addOwnedDays();
+        this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
 
 
@@ -714,6 +720,7 @@ class App extends Component {
                     this.setFilterAgeByAge(this.state.members[member].age);
                     this.addMemberBirthday(this.state.members[member]);
                     this.setMembershipType(this.state.members[member].memberType);
+                    this.addOwnedDays(this.state.members[member].ownedEvents);
                 }
             }
             this.setFilterAgeByGroup($(target).attr("data-age-group"));
@@ -772,7 +779,6 @@ class App extends Component {
     parseDateListToString(events) {
 
         for (var i = 0; i < Object.keys(global.allEvents.events).length; i++) {
-
 
             var newString = "";
             var thisEvent = global.allEvents.events[i];
@@ -927,9 +933,15 @@ class App extends Component {
 
     async scrollViewToCalendarDay(dayObj) {
         console.log("@@ scrolling");
-        $('html, body').animate({
-            scrollTop: dayObj.offset().top
-        }, 250);
+        try {
+            $('html, body').animate({
+                scrollTop: dayObj.offset().top
+            }, 250);
+        }
+        catch (e) {
+            console.log(e);
+        }
+
     }
 
     doesAgeMatchEvent(ageGroup) {
@@ -1035,28 +1047,28 @@ class App extends Component {
 
     }
 
-    addOwnedDays() {
+    addOwnedDays(eventIDs) {
+
+        console.log("adding owned days");
         var ownedEvents = [];
 
-        //not a member? they dont own anything
-        if (!this.state.members[this.state.selectedMemberKey]) return;
-
-        //remove previous overlays
-        // $(".owned-day").remove();
-        ownedEvents = this.state.members[this.state.selectedMemberKey].ownedEvents;
+        $(".circle").hide();
+        ownedEvents = eventIDs;
         var allEvents = global.allEvents.events;
         for (var i = 0; i < ownedEvents.length; i++) {
-            console.log("i have " + ownedEvents.length + " events");
+            console.log("** i have " + ownedEvents.length + " events");
             for (var j = 0; j < Object.keys(allEvents).length; j++) {
                 if (allEvents[j].id == ownedEvents[i]) {
                     //match
-                    console.log("match " + allEvents[j].daystring);
+                    console.log("** match " + allEvents[j].daystring);
 
                     //check if its more than one day:
                     var thisDayFullString = allEvents[j].daystring;
                     var thisDayString = [];
 
                     if (thisDayFullString.indexOf(",") > 0) {
+
+                        console.log("** multi day");
 
                         var multiDays = thisDayFullString.split(",");
 
@@ -1068,11 +1080,12 @@ class App extends Component {
 
 
                     } else {
+                        //its not multi day
                         this.printOwnedDay(thisDayFullString, "MINE", allEvents[j].name, allEvents[j].type, allEvents[j].startTime);
                     }
-                    $("[data-id='" + allEvents[j].id + "']").hide();
+                    // $("[data-id='" + allEvents[j].id + "']").hide();
 
-                    continue;
+                    // continue;
                 }
             }
         }
@@ -1599,6 +1612,7 @@ class App extends Component {
                                                 isInCart={this.state.cart.indexOf(event.id)}
                                                 spotsLeft={event.spotsLeft}
                                                 eventObj={event}
+                                                image={event.image}
                                                 type={event.type}
                                                 addOverlay={this.addASeriesOverlay}
                                                 addToCart={this.addToCart}

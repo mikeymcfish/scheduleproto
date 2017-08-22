@@ -3,15 +3,21 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="733" />
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="765" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="513" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1088" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1596" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="520" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1101" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1609" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="295" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/isLive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/api/data.json" afterPath="$PROJECT_DIR$/public/api/data.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/api/member-info.json" afterPath="$PROJECT_DIR$/public/api/member-info.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BigDay.js" afterPath="$PROJECT_DIR$/src/BigDay.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,32 +37,33 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="307">
+              <caret line="1619" column="46" lean-forward="true" selection-start-line="1619" selection-start-column="46" selection-end-line="1619" selection-end-column="46" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <marker date="1503422121000" expanded="true" signature="7298:7358" ph="..." />
-                <marker date="1503422121000" expanded="true" signature="30673:30742" ph="..." />
+                <element signature="e#32869#33959#0" expanded="false" />
+                <marker date="1503428244000" expanded="true" signature="7431:7491" ph="..." />
+                <marker date="1503428244000" expanded="true" signature="31189:31258" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/isLive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="0">
+              <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigDay.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BigDay.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BigDay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1822">
-              <caret line="93" column="29" lean-forward="true" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+            <state relative-caret-position="276">
+              <caret line="95" column="77" lean-forward="false" selection-start-line="95" selection-start-column="77" selection-end-line="95" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -94,18 +101,8 @@
       <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/api/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="metaData.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="125">
+              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -124,10 +121,10 @@
       <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="196">
+              <caret line="569" column="27" lean-forward="false" selection-start-line="569" selection-start-column="0" selection-end-line="570" selection-end-column="0" />
               <folding>
-                <marker date="1503420538000" expanded="true" signature="4741:4792" ph="..." />
+                <marker date="1503425418000" expanded="true" signature="4741:4792" ph="..." />
               </folding>
             </state>
           </provider>
@@ -136,8 +133,8 @@
       <file leaf-file-name="member-info.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+            <state relative-caret-position="75">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -156,36 +153,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Topli</find>
-      <find>big</find>
-      <find>isJSONloaded</find>
-      <find>Select a</find>
-      <find>Spinn</find>
-      <find>big da</find>
-      <find>price</find>
-      <find>price-test</find>
-      <find>circle</find>
-      <find>side</find>
-      <find>cart-pla</find>
-      <find>rebuild</find>
-      <find>bigda</find>
-      <find>sendtocart</find>
-      <find>next</find>
-      <find>logInMember</find>
-      <find>addOwnedDays</find>
-      <find>addToCart</find>
-      <find>filter-selec</find>
-      <find>&lt;Day</find>
       <find>incar</find>
       <find>addinca</find>
       <find>cart</find>
       <find>inCart</find>
-      <find>owned</find>
       <find>viewingDayEvents</find>
       <find>doesAgeMatchEvent</find>
       <find>LOADING</find>
-      <find>event-bar</find>
+      <find>scrollView</find>
+      <find>owned</find>
+      <find>changea</find>
+      <find>addowned</find>
+      <find>logInMember</find>
+      <find>addOwnedDays</find>
+      <find>global.allEvents</find>
+      <find>addown</find>
+      <find>isJSON</find>
+      <find>parseDateListToString</find>
+      <find>conver</find>
+      <find>convertEventsToByDay</find>
+      <find>overlay</find>
+      <find>addASeriesOverlay</find>
+      <find>holiday</find>
+      <find>member-type</find>
+      <find>member</find>
+      <find>price</find>
+      <find>getMemberP</find>
       <find>pic</find>
+      <find>event-bar</find>
+      <find>monday op</find>
+      <find>bigda</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -247,14 +244,14 @@
         <option value="$PROJECT_DIR$/public/api/metaData.json" />
         <option value="$PROJECT_DIR$/src/Spinner" />
         <option value="$PROJECT_DIR$/src/Spinner.js" />
-        <option value="$PROJECT_DIR$/public/api/data.json" />
-        <option value="$PROJECT_DIR$/src/BigDay.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/public/api/member-info.json" />
         <option value="$PROJECT_DIR$/src/Day.js" />
-        <option value="$PROJECT_DIR$/src/AltViews.css" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/isLive.js" />
+        <option value="$PROJECT_DIR$/public/api/member-info.json" />
+        <option value="$PROJECT_DIR$/src/AltViews.css" />
+        <option value="$PROJECT_DIR$/public/api/data.json" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/BigDay.js" />
       </list>
     </option>
   </component>
@@ -539,12 +536,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="12370000" />
+      <workItem from="1503408559960" duration="18701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359650000" />
+    <option name="totallyTimeSpent" value="365981000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -560,15 +557,15 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.37575758" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.375" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.6242424" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3387534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2946128" sideWeight="0.625" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3387534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2483165" sideWeight="0.75757575" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33524904" sideWeight="0.53722334" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -931,34 +928,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="2471" column="8" lean-forward="false" selection-start-line="2471" selection-start-column="8" selection-end-line="2471" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -978,12 +951,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="196">
+          <caret line="569" column="27" lean-forward="false" selection-start-line="569" selection-start-column="0" selection-end-line="570" selection-end-column="0" />
           <folding>
-            <marker date="1503420538000" expanded="true" signature="4741:4792" ph="..." />
+            <marker date="1503425418000" expanded="true" signature="4741:4792" ph="..." />
           </folding>
         </state>
       </provider>
@@ -998,30 +995,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BigDay.js">
+    <entry file="file://$PROJECT_DIR$/public/api/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1822">
-          <caret line="93" column="29" lean-forward="true" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+        <state relative-caret-position="125">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="307">
+          <caret line="1619" column="46" lean-forward="true" selection-start-line="1619" selection-start-column="46" selection-end-line="1619" selection-end-column="46" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1503422121000" expanded="true" signature="7298:7358" ph="..." />
-            <marker date="1503422121000" expanded="true" signature="30673:30742" ph="..." />
+            <element signature="e#32869#33959#0" expanded="false" />
+            <marker date="1503428244000" expanded="true" signature="7431:7491" ph="..." />
+            <marker date="1503428244000" expanded="true" signature="31189:31258" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+    <entry file="file://$PROJECT_DIR$/src/BigDay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="276">
+          <caret line="95" column="77" lean-forward="false" selection-start-line="95" selection-start-column="77" selection-end-line="95" selection-end-column="77" />
           <folding />
         </state>
       </provider>

@@ -70,6 +70,7 @@ class BigDay extends React.Component {
 
         this.props.isInCart ? isDisabled = "disabled" : isDisabled = "";
 
+        var backgroundImg = "url('" + this.props.image + "')";
 
         return (
             <div>
@@ -90,8 +91,9 @@ class BigDay extends React.Component {
                             </div>
                             <div
                                 className={"pic " + this.props.type + "-color"}
-                                style={{ backgroundImage: "'"+ this.props.url +"'" }}
-                            >
+                                 style={{backgroundImage: backgroundImg}}
+                                >
+                                {/*<img src={this.props.image} className="event-image"/>*/}
                             </div>
                         </div>
                         <div className="right-side">

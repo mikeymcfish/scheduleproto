@@ -11,39 +11,6 @@
       "ownedEvents": [
         25
       ]
-    }, {
-      "name": "Mikey F",
-      "id": 314,
-      "memberType": "classic",
-      "birthday": "10-26-83",
-      "school": "P.S. 29",
-      "age": 11,
-      "defaultLocation": "Brooklyn",
-      "ownedEvents": [
-        25
-      ]
-    }, {
-      "name": "Mikey F",
-      "id": 314,
-      "memberType": "classic",
-      "birthday": "10-26-83",
-      "school": "P.S. 29",
-      "age": 11,
-      "defaultLocation": "Brooklyn",
-      "ownedEvents": [
-        25
-      ]
-    }, {
-      "name": "Mikey F",
-      "id": 314,
-      "memberType": "classic",
-      "birthday": "10-26-83",
-      "school": "P.S. 29",
-      "age": 11,
-      "defaultLocation": "Brooklyn",
-      "ownedEvents": [
-        25
-      ]
     },
     {
       "name": "Johnny Downtown",
@@ -54,8 +21,7 @@
       "age": 8,
       "defaultLocation": "TriBeCa",
       "ownedEvents": [
-        31,
-        24
+        40,41
       ]
     }
   ]
