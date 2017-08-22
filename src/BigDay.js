@@ -103,13 +103,13 @@ class BigDay extends React.Component {
                                             {this.props.title}
                                         </div>
                                     }
-
-                                <div className="tags">
-                                    {this.props.tags.map((tag, index) => <Tag
-                                        text={tag.text}
-                                        tagType={tag.tagType}
-                                    />)}
-                                </div>
+                                {/*TAGS DISABLED*/}
+                                {/*<div className="tags">*/}
+                                    {/*{this.props.tags.map((tag, index) => <Tag*/}
+                                        {/*text={tag.text}*/}
+                                        {/*tagType={tag.tagType}*/}
+                                    {/*/>)}*/}
+                                {/*</div>*/}
                             </div>
                             <Divider/>
                             <div className="info-section">
@@ -178,7 +178,7 @@ class BigDay extends React.Component {
                                 }
 
                                 <div className="add-to-text">
-                                    {this.props.spotsLeft + " spots left"}
+                                    { this.props.isInCart>=0 ? "" : this.props.spotsLeft + " spots left"}
                                 </div>
                             </div>
                             :

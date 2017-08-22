@@ -440,10 +440,9 @@ class App extends Component {
     }
 
     addMemberBirthday(member) {
-        // $('#birthday-overlay').remove();
-        // if (!this.state.loggedIn) return;
-        // if (!this.state.selectedMemberKey=="") return;
-        // var member = this.state.members[this.state.selectedMemberKey];
+
+        // $(".birthday").attr("data-tip","");
+
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
         var month = this.getMonthName(birthday_array[0]);
@@ -451,8 +450,12 @@ class App extends Component {
         var year = birthday_array[2];
         var nextAge = parseInt(member.age)+1;
         var dayObj = this.getDayObject(month, day);
+        var firstName = member.name.split(" ")[0];
         $(".birthday").removeClass("birthday");
-        dayObj.addClass("birthday");
+        dayObj
+            .addClass("birthday")
+            .attr("data-tip","It's " + firstName + "'s " + nextAge + "th Birthday! Make it a memorable one with a premium Pixel Academy Birthday Experience!" );
+        ReactTooltip.rebuild();
 
         // var firstName = member.name.split(" ")[0];
         // console.log("$$ "+month, day, nextAge);
@@ -499,6 +502,7 @@ class App extends Component {
             firstMember = membersList[member];
             break;
         }
+        $(".birthday").removeClass("birthday");
 
         this.setState({
             loggedIn: true,
@@ -508,12 +512,12 @@ class App extends Component {
             selectedMemberKey: firstKey
         });
         this.setFilterAgeByAge(firstMember.age);
-        this.addMemberBirthday(firstMember);
         this.setMembershipType(firstMember.memberType);
 
-        $(".birthday").removeClass("birthday");
         this.addHolidays();
         this.addOwnedDays();
+        this.addMemberBirthday(firstMember);
+
 
         //set the first member
 
@@ -1005,8 +1009,12 @@ class App extends Component {
             );
         }
         //hardcoded minecon
-        this.getDayObject("November",18).addClass("minecon");
-        this.getDayObject("October",31).addClass("halloween");
+        this.getDayObject("November",18)
+            .addClass("minecon")
+            .attr("data-tip","Minecon Earth live stream! Stay tuned for information about our members-only streaming party");
+        this.getDayObject("October",31)
+            .addClass("halloween")
+            .attr("data-tip","Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
 
     }
 
@@ -1078,6 +1086,9 @@ class App extends Component {
     addInCart(eventID) {
         var inCart = [];
 
+        $("[data-event-id='"+eventID+"']").addClass("in-my-cart");
+
+
         var arr = this.state.cart;
 
         arr.push (eventID);
@@ -1085,7 +1096,9 @@ class App extends Component {
             cart: arr
         });
 
-        $("[data-event-id='"+eventID+"'").addClass("in-my-cart");
+
+
+
 
         //not a member? they dont own anything
 
@@ -1130,10 +1143,11 @@ class App extends Component {
         var rnd = Math.floor(Math.random()*360);
         var rnd2 = (Math.random()/5);
         console.log("$$--"+rnd);
-        thisDay.find(".circle")
-            .css("transform","scale("+rnd2+","+rnd2+")")
-            .css("transform","rotate("+rnd+"deg)")
-            .css("display","block");
+        // thisDay.find(".circle")
+        //     .css("transform","scale("+rnd2+","+rnd2+")")
+        //     .css("transform","rotate("+rnd+"deg)")
+        //     .css("display","block");
+        thisDay.find(".date-icon").show();
 
 
 

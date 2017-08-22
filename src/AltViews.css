@@ -41,7 +41,7 @@
 
 .day {
     transition: all 150ms ease-out;
-    z-index:1000;
+    z-index:100;
 }
 
 .day.birthday {
@@ -143,7 +143,7 @@
 
 .overlay {
     background-color: rgba(111, 107, 255, 0.86);
-    z-index: 1001;
+    z-index: 101;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -274,18 +274,6 @@
     position:relative;
 }
 
-/*//////MONTHS*/
-
-/*.month-label.one-week > div {*/
-    /*align-content: center;*/
-    /*background-color: rgb(247, 247, 247);*/
-    /*display: none;*/
-    /*height: 40px;*/
-    /*justify-content: flex-start;*/
-    /*margin-top:-25px;*/
-
-/*}*/
-
 
 .month-name {
     position: relative;
@@ -345,14 +333,21 @@
     min-height:20px;
 }
 .date-icon {
-    /*font-size: 10px;*/
-    /*height: 20px;*/
+    position: absolute;
+    right:-7px;
+    top:-10px;
+    display:none;
+}
+.cart-number {
+    position: absolute;
+    top:12px;
+    right:10px;
+    font-size: 10px;
 
 }
 .date-icon {
     position: relative;
-    display: none;
-
+    /*display: none;*/
 }
 .cart-icon {
 
