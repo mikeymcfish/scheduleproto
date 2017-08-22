@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 :root {
     --shadow : 1px 1px 3px 0 rgba(0, 0, 0, .25);
     --shadow-inverted : -1px -1px 1px 0 rgba(0, 0, 0, .3);

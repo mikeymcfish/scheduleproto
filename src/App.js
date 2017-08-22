@@ -49,6 +49,7 @@ class App extends Component {
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
         this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
+        this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         this.addToCart = this.addToCart.bind(this);
 
         this.state = {
@@ -214,6 +215,10 @@ class App extends Component {
         $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
     }
 
+    hideSeriesOverlays = () => {
+        this.clearCalendar();
+    }
+
     addASeriesOverlay = (thisDayFullString) => {
         //first remove all overlays
 
@@ -242,7 +247,7 @@ class App extends Component {
         }
 
         var firstDay = this.getFirstDayFromFullString(thisDayFullString);
-        this.scrollViewToCalendarDay(firstDay);
+        //this.scrollViewToCalendarDay(firstDay);
 
     }
 
@@ -462,7 +467,7 @@ class App extends Component {
 
     addMemberBirthday(member) {
 
-        // $(".birthday").attr("data-tip","");
+        console.log("adding birthday for " + member.name);
 
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
@@ -912,20 +917,29 @@ class App extends Component {
         var t = firstDay.offset().top;
         console.log(t);
 
-        //set this guy to start at the first occurance.
         var td = $("#day-start").offset().top;
-        //$("#day-start").css("top",(t-200)+"px");
+        $("#day-start").css("top",(t-300)+"px");
 
-        //scroll it.
+        $('html, body').animate({
+                scrollTop: $("#day-start").offset().top
+        }, 250);
+
+        //this.scrollViewToCalendarDay(firstDay);
+        //
+        // //set this guy to start at the first occurance.
+        // var td = $("#day-start").offset().top;
+        // //$("#day-start").css("top",(t-200)+"px");
+        //
+        // //scroll it.
         // $('html, body').animate({
         //     scrollTop: $("#day-start").offset().top
         // }, 250);
-
-        //lets scroll the calendar?
-
-        $('html, body').animate({
-            scrollTop: $("#day-start").offset().top
-        }, 250);
+        //
+        // //lets scroll the calendar?
+        // //
+        // // $('html, body').animate({
+        // //     scrollTop: $("#day-start").offset().top
+        // // }, 250);
 
 
     }
@@ -1025,6 +1039,14 @@ class App extends Component {
 
     addHolidays() {
         console.log("adding holidays");
+        //hardcoded minecon
+        this.getDayObject("November", 18)
+            .addClass("minecon")
+            .attr("data-tip", "Minecon Earth live stream! Stay tuned for information about our members-only streaming party");
+        this.getDayObject("October", 31)
+            .addClass("halloween")
+            .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
+
         var holidays = global.allEvents.metaData.holidays;
         for (var i = 0; i < Object.keys(holidays).length; i++) {
             this.addOverlay(
@@ -1036,13 +1058,6 @@ class App extends Component {
                 holidays[i].subTitle
             );
         }
-        //hardcoded minecon
-        this.getDayObject("November", 18)
-            .addClass("minecon")
-            .attr("data-tip", "Minecon Earth live stream! Stay tuned for information about our members-only streaming party");
-        this.getDayObject("October", 31)
-            .addClass("halloween")
-            .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
 
     }
 
@@ -1618,6 +1633,7 @@ class App extends Component {
                                                 image={event.image}
                                                 type={event.type}
                                                 addOverlay={this.addASeriesOverlay}
+                                                hideOverlays={this.hideSeriesOverlays}
                                                 addToCart={this.addToCart}
                                                 memberName = {memberName}
 

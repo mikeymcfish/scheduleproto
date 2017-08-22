@@ -46,6 +46,10 @@ class BigDay extends React.Component {
         this.props.addOverlay(this.props.dates);
     }
 
+    hideOverlays = () => {
+        this.props.hideOverlays();
+    }
+
     handleAddToCart = () => {
         this.setState({
             inCart: true
@@ -78,7 +82,7 @@ class BigDay extends React.Component {
                 {/*{this.getDayTitleString()}*/}
                 {/*</div>*/}
                 {/*this.props.onClose(this.state.open)*/}
-                <div className="big-day">
+                <div className="big-day" onMouseOver={this.showOverlay} onMouseOut={this.hideOverlays}>
                     {/*<div className="top-container">*/}
                     {/*<div className="date-container">*/}
                     {/*Monday, September 5th*/}
@@ -138,7 +142,7 @@ class BigDay extends React.Component {
                                     <div className="property">
                                         dates
                                     </div>
-                                    <div className="detail dates-link" onClick={this.showOverlay}>
+                                    <div className="detail dates-link">
                                         {this.convertDayString(this.props.dates)}
                                     </div>
                                 </div>

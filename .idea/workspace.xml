@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="733" />
-    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="765" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="519" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1100" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1612" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="293" />
+    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="735" />
+    <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="767" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="524" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1115" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1627" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="298" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BigDay.js" afterPath="$PROJECT_DIR$/src/BigDay.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,16 +30,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="268" column="19" lean-forward="true" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
+            <state relative-caret-position="126">
+              <caret line="920" column="38" lean-forward="false" selection-start-line="920" selection-start-column="38" selection-end-line="920" selection-end-column="38" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#32851#33941#0" expanded="false" />
-                <marker date="1503434854000" expanded="true" signature="7429:7489" ph="..." />
-                <marker date="1503434854000" expanded="true" signature="31171:31240" ph="..." />
+                <element signature="e#33338#34428#0" expanded="false" />
+                <marker date="1503435916000" expanded="true" signature="7569:7629" ph="..." />
+                <marker date="1503435916000" expanded="true" signature="31657:31726" ph="..." />
               </folding>
             </state>
           </provider>
@@ -56,8 +58,8 @@
       <file leaf-file-name="BigDay.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BigDay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="281">
+              <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -112,13 +114,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="198" column="8" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="8" />
+            <state relative-caret-position="90">
+              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
-                <marker date="1503431470000" expanded="true" signature="4741:4792" ph="..." />
+                <marker date="1503436005000" expanded="true" signature="4808:4859" ph="..." />
               </folding>
             </state>
           </provider>
@@ -147,18 +149,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changea</find>
-      <find>addowned</find>
-      <find>logInMember</find>
-      <find>addOwnedDays</find>
-      <find>global.allEvents</find>
-      <find>addown</find>
-      <find>isJSON</find>
       <find>parseDateListToString</find>
       <find>conver</find>
       <find>convertEventsToByDay</find>
       <find>overlay</find>
-      <find>addASeriesOverlay</find>
       <find>holiday</find>
       <find>member-type</find>
       <find>member</find>
@@ -177,6 +171,14 @@
       <find>font</find>
       <find>@font</find>
       <find>cart</find>
+      <find>halloween</find>
+      <find>addHolidays</find>
+      <find>birthday</find>
+      <find>clearCalendar</find>
+      <find>addASeriesOverlay</find>
+      <find>mouse</find>
+      <find>scroll</find>
+      <find>@import</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -244,8 +246,8 @@
         <option value="$PROJECT_DIR$/public/api/member-info.json" />
         <option value="$PROJECT_DIR$/public/api/data.json" />
         <option value="$PROJECT_DIR$/src/BigDay.js" />
-        <option value="$PROJECT_DIR$/src/AltViews.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/AltViews.css" />
       </list>
     </option>
   </component>
@@ -530,12 +532,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="23958000" />
+      <workItem from="1503408559960" duration="25105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371238000" />
+    <option name="totallyTimeSpent" value="372385000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -981,18 +983,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BigDay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="281">
+          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="198" column="8" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="8" />
+        <state relative-caret-position="126">
+          <caret line="920" column="38" lean-forward="false" selection-start-line="920" selection-start-column="38" selection-end-line="920" selection-end-column="38" />
           <folding>
-            <marker date="1503431470000" expanded="true" signature="4741:4792" ph="..." />
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#33338#34428#0" expanded="false" />
+            <marker date="1503435916000" expanded="true" signature="7569:7629" ph="..." />
+            <marker date="1503435916000" expanded="true" signature="31657:31726" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1005,15 +1010,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="268" column="19" lean-forward="true" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
+        <state relative-caret-position="90">
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#32851#33941#0" expanded="false" />
-            <marker date="1503434854000" expanded="true" signature="7429:7489" ph="..." />
-            <marker date="1503434854000" expanded="true" signature="31171:31240" ph="..." />
+            <marker date="1503436005000" expanded="true" signature="4808:4859" ph="..." />
           </folding>
         </state>
       </provider>
