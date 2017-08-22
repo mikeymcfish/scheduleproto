@@ -1920,7 +1920,7 @@
     align-content: stretch;
 }
 .cart-placeholder {
-    width: 320px;
+    width: 340px;
     align-self: flex-end;
     justify-self: flex-end;
     flex-shrink: 0;

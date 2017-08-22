@@ -173,7 +173,27 @@ class BigDay extends React.Component {
                                     </Button>
                                     :
                                     <Button raised color="primary" className="btn-2" onClick={this.handleAddToCart}>
-                                        <div><span className="price-text">${this.props.price}</span></div>
+                                        <div>
+                                            {
+                                                this.props.price != this.props.originalPrice ?
+
+
+                                                    <span className="price-text">
+                                                        <span className="former-price">
+                                                         ${this.props.originalPrice}
+                                                        </span>
+                                                        ${this.props.price}
+                                                    </span>
+
+                                                    :
+
+                                                    <span className="price-text">
+                                                        ${this.props.price}
+                                                    </span>
+
+                                            }
+
+                                        </div>
                                     </Button>
                                 }
 

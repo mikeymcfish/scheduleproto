@@ -1060,11 +1060,10 @@ class App extends Component {
 
                     continue;
                 }
-
             }
-
-
         }
+        ReactTooltip.rebuild();
+
 
     }
 
@@ -1072,17 +1071,28 @@ class App extends Component {
         var thisDayString = thisDayFullString.split("-");
         var thisMonth = this.getMonthName(thisDayString[0]);
         var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-        this.addOverlay(
-            this.getDayObject(
-                this.getMonthName(thisDayString[0]),
-                thisDayString[1]
-            ),
-            this.getMonthName(thisDayString[0]),
-            "owned",
-            "",
-            title,
-            "",
-        );
+        if (thisDay.attr("data-tip")=="") thisDay.attr("data-tip","You have multiple events scheduled for this day. Click to find out what if any add-ons are available for this day.");
+        else thisDay.attr("data-tip","RESERVED! You have " +subTitle+ " scheduled for this day. Click to find out what if any add-ons are available for this day.");
+        var rnd = Math.floor(Math.random()*360);
+        var rnd2 = (Math.random()/5);
+        thisDay.find(".circle")
+            .css("transform","scale("+rnd2+","+rnd2+")")
+            .css("transform","rotate("+rnd+"deg)")
+            .css("display","block");
+
+
+        //disable overlay for circles
+        // this.addOverlay(
+        //     this.getDayObject(
+        //         this.getMonthName(thisDayString[0]),
+        //         thisDayString[1]
+        //     ),
+        //     this.getMonthName(thisDayString[0]),
+        //     "owned",
+        //     "",
+        //     title,
+        //     "",
+        // );
     }
 
     //call this when confirmed added to cart
@@ -1572,6 +1582,7 @@ class App extends Component {
                                                 ages = {event.age}
                                                 dates = {event.daystring}
                                                 time = {event.startTime}
+                                                originalPrice = {event.price}
                                                 price = {this.getMemberPricing(event.price, event.type)}
                                                 doesOwn = ""
                                                 isInCart = {this.state.cart.indexOf(event.id)}

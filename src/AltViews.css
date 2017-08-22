@@ -281,10 +281,9 @@
 .day-sidebar {
     background-color: transparent;
     box-shadow: none;
-    padding-left:15px;
+    padding-left:5px;
     position:relative;
 }
-
 
 .month-name {
     position: relative;
@@ -662,6 +661,12 @@ Button.btn-2:hover {
 }
 .price-text {
     font-size:26px;
+}
+.former-price {
+    font-size: 19px;
+    text-decoration: line-through;
+    margin-right:10px;
+    opacity: .7;
 }
 .button-col {
     display: flex;
