@@ -152,19 +152,15 @@ class BigDay extends React.Component {
 
                     </div>
 
+                    { parseInt(this.props.doesOwn) >= 0 ?
+                    <div className="bottom-container you-own">
+                        You have purchased this event for {this.props.memberName}
+                    </div>
+
+                        :
+
+                    //bottom container with button
                     <div className="bottom-container">
-                        {/*<Button raised color="secondary" className="btn-1">learn more</Button>*/}
-
-                        {/*<div className="or-thing">*/}
-                            {/*<div className="vertical-bar">*/}
-                            {/*</div>*/}
-                            {/*<div>*/}
-                                {/*OR*/}
-                            {/*</div>*/}
-                            {/*<div className="vertical-bar">*/}
-                            {/*</div>*/}
-
-                        {/*</div>*/}
 
                         {
                             parseInt(this.props.spotsLeft) > 0 ?
@@ -172,6 +168,8 @@ class BigDay extends React.Component {
                                 <div className="add-to-text">
                                     { this.props.isInCart>=0 ? "" : "add to cart"}
                                 </div>
+
+
                                 { this.props.isInCart>=0 ?
                                     <Button disabled raised color="primary" className="btn-2">
                                         <div><span className="price-text">in cart</span></div>
@@ -220,6 +218,9 @@ class BigDay extends React.Component {
                         }
 
                     </div>
+
+                    }
+
                 </div>
 
 

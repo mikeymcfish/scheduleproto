@@ -283,7 +283,7 @@ class App extends Component {
         try {
             let response = await $.get('api/v1/scheduler/cart');
             //let responseJson = await response.json();
-            _this.rebuildCart(response.json());
+            _this.rebuildCart(response);
             // return responseJson.movies;
         } catch (error) {
             console.error(error);
@@ -296,8 +296,9 @@ class App extends Component {
             let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
                 this.state.members[this.state.selectedMemberKey].id
             );
-            //let responseJson = await response.json();
+            ///// update my cart with response.json.
             window.getUpdatedCart();
+            this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
             console.error(error);
@@ -1283,6 +1284,10 @@ class App extends Component {
         }
 
         var thisDaysStuff = [];
+        var willCheckForDoesOwn = [];
+        var memberName = "";
+        this.state.selectedMemberKey!="" ? memberName = this.state.members[this.state.selectedMemberKey].name : memberName = "";
+        this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         return (
             <div className="App">
                 {isLive ? "" : <TopLinks onLogin={this.testLogIn}/>}
@@ -1608,7 +1613,7 @@ class App extends Component {
                                                 originalPrice={event.price}
                                                 price={this.getMemberPricing(event.price, event.type)}
                                                 //TODO
-                                                doesOwn=""
+                                                doesOwn={willCheckForDoesOwn.indexOf(event.id)}
                                                 isInCart={this.state.cart.indexOf(event.id)}
                                                 spotsLeft={event.spotsLeft}
                                                 eventObj={event}
@@ -1616,6 +1621,7 @@ class App extends Component {
                                                 type={event.type}
                                                 addOverlay={this.addASeriesOverlay}
                                                 addToCart={this.addToCart}
+                                                memberName = {memberName}
 
                                             />
                                         )}

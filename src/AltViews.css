@@ -843,3 +843,12 @@ Button.btn-2:hover {
     width:5px;
     transform: scale(.6,.6);
 }
+.you-own {
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    width:100%;
+    font-size: 20px;
+    color: var(--lightColor);
+    padding-top:5px;
+}
