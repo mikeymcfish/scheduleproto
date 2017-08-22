@@ -88,7 +88,10 @@ class BigDay extends React.Component {
                         <div className="left-side">
                             <div className={"color-bar " + this.props.type + "-color"}>
                             </div>
-                            <div className={"pic " + this.props.type + "-color"}>
+                            <div
+                                className={"pic " + this.props.type + "-color"}
+                                style={{ backgroundImage: "'"+ this.props.url +"'" }}
+                            >
                             </div>
                         </div>
                         <div className="right-side">
@@ -208,9 +211,9 @@ class BigDay extends React.Component {
                                 <Button disabled color="primary" className="btn-2">
                                     <div><span className="price-text">SOLD OUT!</span></div>
                                 </Button>
-                                <div className="add-to-text waitlist-text">
-                                    join waitlist
-                                </div>
+                                {/*<div className="add-to-text waitlist-text">*/}
+                                    {/*join waitlist*/}
+                                {/*</div>*/}
                             </div>
                         }
 

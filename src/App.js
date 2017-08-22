@@ -173,6 +173,7 @@ class App extends Component {
                 _this.logInMember(data.members);
 
             });
+            _this.getCartCall();
         }
         else {
            $.getJSON('/api/member-info.json', function(data){
@@ -242,8 +243,7 @@ class App extends Component {
 
     addToCart = (event) => {
 
-        //add visually
-        this.addInCart(event.id);
+
 
         //add to hq
         this.sendToCartAPI(event);
@@ -266,6 +266,19 @@ class App extends Component {
 
         } catch (e) {
             console.log("problem updating cart.")
+        }
+    }
+
+    async getCartCall() {
+
+        var _this = this;
+        try {
+            let response = await $.get('api/v1/scheduler/cart');
+            //let responseJson = await response.json();
+            _this.addInCart(response.json());
+            // return responseJson.movies;
+        } catch(error) {
+            console.error(error);
         }
     }
 
