@@ -3,10 +3,10 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="733" />
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="765" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="521" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1102" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1614" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="295" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="519" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1100" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1612" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="293" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
@@ -31,13 +31,13 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="291" column="0" lean-forward="true" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
+            <state relative-caret-position="181">
+              <caret line="268" column="19" lean-forward="true" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#32868#33958#0" expanded="false" />
-                <marker date="1503434366000" expanded="true" signature="7431:7491" ph="..." />
-                <marker date="1503434366000" expanded="true" signature="31188:31257" ph="..." />
+                <element signature="e#32851#33941#0" expanded="false" />
+                <marker date="1503434854000" expanded="true" signature="7429:7489" ph="..." />
+                <marker date="1503434854000" expanded="true" signature="31171:31240" ph="..." />
               </folding>
             </state>
           </provider>
@@ -530,12 +530,12 @@
       <workItem from="1502582053791" duration="63262000" />
       <workItem from="1502985252082" duration="35544000" />
       <workItem from="1503095660707" duration="18682000" />
-      <workItem from="1503408559960" duration="23471000" />
+      <workItem from="1503408559960" duration="23958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370751000" />
+    <option name="totallyTimeSpent" value="371238000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1007,13 +1007,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="291" column="0" lean-forward="true" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
+        <state relative-caret-position="181">
+          <caret line="268" column="19" lean-forward="true" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#32868#33958#0" expanded="false" />
-            <marker date="1503434366000" expanded="true" signature="7431:7491" ph="..." />
-            <marker date="1503434366000" expanded="true" signature="31188:31257" ph="..." />
+            <element signature="e#32851#33941#0" expanded="false" />
+            <marker date="1503434854000" expanded="true" signature="7429:7489" ph="..." />
+            <marker date="1503434854000" expanded="true" signature="31171:31240" ph="..." />
           </folding>
         </state>
       </provider>

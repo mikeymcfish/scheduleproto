@@ -28,8 +28,6 @@ import isLive from "./isLive.js";
 
 class App extends Component {
 
-
-
     constructor() {
 
         super();
@@ -261,12 +259,12 @@ class App extends Component {
     rebuildCart(data) {
         console.log("rebuilding cart");
         try {
-            if (data.cart.length > 0) {
+            if (data.length > 0) {
                 this.setState({
-                    cart: data.cart
+                    cart: data
                 });
 
-                data.cart.forEach((val, index) => {
+                data.forEach((val, index) => {
                     this.addInCart(val);
                 });
 
