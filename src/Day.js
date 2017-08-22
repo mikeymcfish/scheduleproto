@@ -6,6 +6,8 @@ import CartIcon from './icons/CartIcon';
 import $ from 'jquery';
 import 'react-hint/css/index.css';
 import ReactTooltip from 'react-tooltip';
+import Badge from 'material-ui/Badge';
+
 
 class Day extends React.Component {
 
@@ -142,7 +144,7 @@ class Day extends React.Component {
                                 {/*<Circle displayCircle="none"/>*/}
                             </div>
                             <div className="date-icon">
-                                <CartIcon/>
+
                             </div>
                         </div>
                     </div>
@@ -169,7 +171,7 @@ class Day extends React.Component {
                         </svg>
                     </div>
                     <div className="date-icon">
-                        <CartIcon/>
+                        <Badge data-tip="You have an event from this day in you cart" className="badge-class" badgeContent={this.props.incart} color="accent"/>
                     </div>
                 </div>
                 {/*<div className="event-boxes">*/}

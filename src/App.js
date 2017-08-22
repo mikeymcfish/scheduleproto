@@ -1109,6 +1109,7 @@ class App extends Component {
         var inCart = [];
 
         $("[data-event-id='"+eventID+"']").addClass("in-my-cart");
+        // $(".inCartLabel").addClass("in-my-cart");
 
 
         var arr = this.state.cart;
@@ -1293,7 +1294,8 @@ class App extends Component {
                         <div className="filtering-header">
 
                             <div className="change-age-btn" onClick={this.changeAge} data-tip={this.state.cart>0 ? "You may only add items to the cart for one member at a time." : ""}>
-                                <div className="text-right"><span className="def-no-hover">Showing events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
+                                <div className="text-right"><span className="def-no-hover">
+                                    {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span></div>
                                 <div className="text-right filtering-hover-text">
                                     <div className={this.state.selectedMemberKey!="" ? "member-type" : ""}>
                                         {this.state.selectedMemberKey!="" ? this.state.members[this.state.selectedMemberKey].memberType.toUpperCase(): "click to change"}
@@ -1593,6 +1595,7 @@ class App extends Component {
                                                 time = {event.startTime}
                                                 originalPrice = {event.price}
                                                 price = {this.getMemberPricing(event.price, event.type)}
+                                                //TODO
                                                 doesOwn = ""
                                                 isInCart = {this.state.cart.indexOf(event.id)}
                                                 spotsLeft = {event.spotsLeft}

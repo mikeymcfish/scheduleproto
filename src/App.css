@@ -2469,7 +2469,7 @@ container-hover {
     cursor: pointer;
     display: none;
     flex-direction: column;
-    height: 100px;
+    min-height: 100px;
     justify-content: space-around;
     margin-top: -21px;
     padding: 10px;

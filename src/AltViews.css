@@ -1,5 +1,6 @@
 :root {
     --shadow : 1px 1px 3px 0 rgba(0, 0, 0, .25);
+    --shadow-inverted : -1px -1px 1px 0 rgba(0, 0, 0, .3);
     --lightColor : #979797;
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
@@ -825,5 +826,19 @@ Button.btn-2:hover {
 }
 
 .in-my-cart {
-    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-inverted);
+    /*margin-top:2px;*/
+    /*!*border-bottom: dashed 2px rgba(51, 51, 51, 0.44);*!*/
+    /*!*height:1px;*!*/
+    /*!*transform: scale(1,3);*!*/
+}
+
+.badge-class {
+    z-index:205;
+    margin-right:5px;
+    margin-top:7px;
+    cursor: help;
+    width:5px;
+    transform: scale(.6,.6);
 }
