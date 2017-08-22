@@ -243,7 +243,7 @@ class App extends Component {
 
     addToCart = (event) => {
 
-
+        if (!isLive) this.addInCart(event.id);
 
         //add to hq
         this.sendToCartAPI(event);
@@ -275,7 +275,7 @@ class App extends Component {
         try {
             let response = await $.get('api/v1/scheduler/cart');
             //let responseJson = await response.json();
-            _this.addInCart(response.json());
+            _this.rebuildCart(response.json());
             // return responseJson.movies;
         } catch(error) {
             console.error(error);
@@ -284,10 +284,6 @@ class App extends Component {
 
     async sendToCartAPI (event) {
 
-        var _this = this;
-        $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id, function(data) {
-            _this.rebuildCart(data);
-        });
         try {
             let response = await $.get('/api/v1/scheduler/add_to_cart?product_id='+event.id);
             //let responseJson = await response.json();
