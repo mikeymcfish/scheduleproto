@@ -260,7 +260,7 @@ class App extends Component {
     }
 
     rebuildCart(data) {
-        console.log("rebuilding cart");
+        console.log("rebuilding cart with "+data);
         try {
             if (data.length > 0) {
                 this.setState({
@@ -284,7 +284,7 @@ class App extends Component {
         try {
             $.getJSON('api/v1/scheduler/cart', function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
+                _this.rebuildCart(data);
             });
         } catch (error) {
             console.error(error);
