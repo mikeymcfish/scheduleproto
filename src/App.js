@@ -304,9 +304,10 @@ class App extends Component {
                 , function (data) {
                 //let responseJson = await response.json();
                 _this.rebuildCart(data.cart);
+                window.getUpdatedCart();
             });
             ///// update my cart with response.json.
-            window.getUpdatedCart();
+
             // this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
@@ -315,6 +316,7 @@ class App extends Component {
                 function (data) {
                 //let responseJson = await response.json();
                 _this.rebuildCart(data.cart);
+                window.getUpdatedCart();
             });
 
         } finally  {
@@ -1073,6 +1075,21 @@ class App extends Component {
         this.getDayObject("October", 31)
             .addClass("halloween")
             .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
+
+        // Winter break camp
+        // this.getDayObject("December", 26)
+        //     .addClass("Winter-Camp")
+        //     .attr("data-tip", "On sale soon!");
+        // this.getDayObject("December", 27)
+        //     .addClass("Winter Camp")
+        //     .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
+        // this.getDayObject("December", 28)
+        //     .addClass("Winter Camp")
+        //     .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
+        // this.getDayObject("December", 29)
+        //     .addClass("Winter Camp")
+        //     .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
+        //
 
         var holidays = global.allEvents.metaData.holidays;
         for (var i = 0; i < Object.keys(holidays).length; i++) {
