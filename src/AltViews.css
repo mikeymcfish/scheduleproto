@@ -64,7 +64,13 @@
     /*background-position: center;*/
     /*background-size: 100%;*/
 /*}*/
-
+.birthday-link {
+    text-decoration: underline;
+    color:inherit;
+}
+.birthday-link:hover {
+    color:blue;
+}
 
 .day.halloween {
     background-image: url("img/pumpkin.png");
