@@ -61,8 +61,44 @@ class Month extends React.Component {
     }
 
     RenderWeekNames(i) {
+
+        var pickupString = "";
+        try {
+            var pickupdata;
+            switch (i.toLowerCase()) {
+                case "mon" :
+                    pickupdata = this.props.pickups.mon;
+                    break;
+                case "tue" :
+                    pickupdata = this.props.pickups.tue;
+                    break;
+                case "wed" :
+                    pickupdata = this.props.pickups.wed;
+                    break;
+                case "thu" :
+                    pickupdata = this.props.pickups.thu;
+                    break;
+                case "fri" :
+                    pickupdata = this.props.pickups.fri;
+                    break;
+            }
+            if (pickupdata.length>0) {
+                pickupString = "Walk-over from ";
+                for (var j=0; j< pickupdata.length; j) {
+                    if (j==(pickupdata.length-1)) pickupString+="and  ";
+                    pickupString+= pickupdata[j];
+                    // if (j == (pickupdata.length-1)) pickupString+=", and  ";
+                    if (++j < pickupdata.length) pickupString+=", ";
+                }
+                pickupString+=". FREE for members!";
+            }
+
+        } catch (e) {
+
+        }
+
         return (
-            <div className="week-names">{i}</div>
+            <div className="week-names" data-tip={pickupString}>{i}</div>
         )
     }
 

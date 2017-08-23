@@ -766,6 +766,7 @@ Button.btn-2:hover {
 
 .week-names {
     color: #979797;
+    cursor: help;
 }
 
 @media (max-width: 1200px) {

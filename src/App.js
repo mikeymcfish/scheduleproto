@@ -99,7 +99,8 @@ class App extends Component {
             dropInDiscount: 0,
             miniCampDiscount: 0,
             cart: [],
-            loggedInUserID: 0
+            loggedInUserID: 0,
+            pickups: {}
 
         }
 
@@ -144,6 +145,9 @@ class App extends Component {
                 //TODO 'DAYSTRING' for all
                 that.parseDateListToString(global.allEvents);
                 that.convertEventsToByDay(global.allEvents.events);
+                that.setState({
+                    pickups: global.allEvents.metaData.pickUpDays
+                });
             });
             this.getMemberInfoFromAPI(1);
 
@@ -346,6 +350,7 @@ class App extends Component {
             }
         );
         this.addHolidays();
+
         console.log("done.");
     }
 
@@ -1462,6 +1467,7 @@ class App extends Component {
                                            filterAge9to11={this.state.filter9to11}
                                            filterAge12to14={this.state.filter12to14}
                                            filterLocation={this.state.filterLocation}
+                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                            events={global.eventsByDay["September"]}
                                     />
                                     <Month name="October" numDays="31" skipDays="0"
@@ -1475,6 +1481,7 @@ class App extends Component {
                                            filterAge9to11={this.state.filter9to11}
                                            filterAge12to14={this.state.filter12to14}
                                            filterLocation={this.state.filterLocation}
+                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                            events={global.eventsByDay["October"]}
                                     />
                                     <Month name="November" numDays="30" skipDays="3"
@@ -1488,6 +1495,7 @@ class App extends Component {
                                            filterAge9to11={this.state.filter9to11}
                                            filterAge12to14={this.state.filter12to14}
                                            filterLocation={this.state.filterLocation}
+                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                            events={global.eventsByDay["November"]}
                                     />
                                     <Month name="December" numDays="31" skipDays="5"
@@ -1501,6 +1509,7 @@ class App extends Component {
                                            filterAge9to11={this.state.filter9to11}
                                            filterAge12to14={this.state.filter12to14}
                                            filterLocation={this.state.filterLocation}
+                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                            events={global.eventsByDay["December"]}
                                     />
 

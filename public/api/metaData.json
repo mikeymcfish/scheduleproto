@@ -26,33 +26,33 @@
         "icon": ""
       }
     ],
-    "pick-up-days": {
+    "pickUpDays": {
       "Brooklyn": {
-        "mondays" :
+        "mon" :
         [
           "P.S. 29",
           "P.S. 261",
           "P.S. 8"
         ],
-        "tuesdays" :
+        "tue" :
         [
           "P.S. 29",
           "Brooklyn Heights Montessori",
           "St. Anne's"
         ],
-        "wednesdays" :
+        "wed" :
         [
           "P.S. 261",
           "Brooklyn Friends",
           "P.S. 32"
         ],
-        "thursdays" :
+        "thu" :
         [
           "P.S. 58",
           "Brooklyn Friends",
           "P.S. 32"
         ],
-        "fridays" :
+        "fri" :
         [
           "P.S. 58",
           "Packer Collegiate",
@@ -60,25 +60,25 @@
         ]
       },
       "TriBeCa": {
-        "mondays" :
+        "mon" :
         [
           "P.S. 234"
         ],
-        "tuesdays" :
+        "tue" :
         [
           "P.S. 234"
         ],
-        "wednesdays" :
+        "wed" :
         [
 
         ],
-        "thursdays" :
+        "thu" :
         [
           "P.S. 89",
           "P.S. 150",
           "Village Community School"
         ],
-        "fridays" :
+        "fri" :
         [
 
         ]
