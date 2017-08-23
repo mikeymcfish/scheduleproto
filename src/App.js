@@ -423,6 +423,7 @@ class App extends Component {
         console.log("did update");
         //this.runJquery();
         ReactTooltip.rebuild();
+        this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
 
     }
