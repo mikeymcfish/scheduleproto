@@ -176,7 +176,7 @@ class BigDay extends React.Component {
 
                                 { this.props.isInCart>=0 ?
                                     <Button disabled raised color="primary" className="btn-2">
-                                        <div><span className="price-text">in cart</span></div>
+                                        <div><span className="price-text-btn1">in cart</span></div>
                                     </Button>
                                     :
                                     <Button raised color="primary" className="btn-2" onClick={this.handleAddToCart}>
@@ -185,7 +185,7 @@ class BigDay extends React.Component {
                                                 this.props.price != this.props.originalPrice ?
 
 
-                                                    <span className="price-text">
+                                                    <span className="price-text-btn1">
                                                         <span className="former-price">
                                                          ${this.props.originalPrice}
                                                         </span>
@@ -194,7 +194,7 @@ class BigDay extends React.Component {
 
                                                     :
 
-                                                    <span className="price-text">
+                                                    <span className="price-text-btn1">
                                                         ${this.props.price}
                                                     </span>
 

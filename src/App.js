@@ -1010,7 +1010,9 @@ class App extends Component {
                 }
                 if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
                     && ageMatched) {
-                    thisDaysFilteredEvents.push(thisDaysEvents[i]);
+
+                    if (thisDaysEvents[i].type=="series" || thisDaysEvents[i].type=="pro-series") thisDaysFilteredEvents.unshift(thisDaysEvents[i]);
+                    else thisDaysFilteredEvents.push(thisDaysEvents[i]);
                 }
             }
             var firstEventDates = thisDaysFilteredEvents[0].daystring;
