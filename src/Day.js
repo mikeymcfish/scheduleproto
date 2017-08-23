@@ -171,7 +171,7 @@ class Day extends React.Component {
                         </svg>
                     </div>
                     <div className="date-icon">
-                        <Badge data-tip="You have an event from this day in you cart" className="badge-class" badgeContent={this.props.incart} color="accent"/>
+                        <Badge data-tip="You have an event from this day in you cart" className="badge-class" children="" badgeContent={this.props.incart} color="accent"/>
                     </div>
                 </div>
                 {/*<div className="event-boxes">*/}

@@ -4,14 +4,9 @@ import './webflow.css';
 import './App.css';
 import './Span-styles.css';
 import $ from 'jquery';
-import Day from './Day';
 import Month from './Month';
-import Week from './Week';
 import CheckIcon from './icons/CheckIcon';
-import {Modal} from 'carbon-components';
 import './carbon-components.css';
-import MyModal from './Modal';
-import {StickyContainer, Sticky} from 'react-sticky';
 import AlertDialog from "./AlertDialog";
 import Button from 'material-ui/Button';
 import TopLinks from "./TopLinks";
@@ -129,13 +124,11 @@ class App extends Component {
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 that.parseDateListToString(global.allEvents);
-                global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
-                that.setState(
-                    {
-                        isJSONloaded: true
-                    }
-                );
-                that.addHolidays();
+
+                //async
+                that.convertEventsToByDay(global.allEvents.events);
+
+
             });
 
         } else {
@@ -150,13 +143,7 @@ class App extends Component {
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 that.parseDateListToString(global.allEvents);
-                global.eventsByDay = that.convertEventsToByDay(global.allEvents.events);
-                that.setState(
-                    {
-                        isJSONloaded: true
-                    }
-                );
-                that.addHolidays();
+                that.convertEventsToByDay(global.allEvents.events);
             });
             this.getMemberInfoFromAPI(1);
 
@@ -324,8 +311,11 @@ class App extends Component {
         // }
     }
 
-    convertEventsToByDay(events) {
+    async convertEventsToByDay(events) {
 
+        //this should update a progess bar to be good.
+
+        console.log("converting all events...")
         var daysOfEvents = {};
 
         for (var i = 0; i < Object.keys(events).length; i++) {
@@ -349,9 +339,17 @@ class App extends Component {
 
 
         }
-        return daysOfEvents;
-
+        global.eventsByDay = daysOfEvents;
+        this.setState(
+            {
+                isJSONloaded: true
+            }
+        );
+        this.addHolidays();
+        console.log("done.");
     }
+
+    //YouTube Production
 
     updateDayEvents() {
 
@@ -411,8 +409,8 @@ class App extends Component {
     componentDidUpdate() {
         console.log("did update");
         //this.runJquery();
-        ReactTooltip.rebuild();
-        if (global.isUpdating != true) this.runJquery();
+        // ReactTooltip.rebuild();
+        // if (global.isUpdating != true) this.runJquery();
 
     }
 
@@ -1033,8 +1031,6 @@ class App extends Component {
         var thisCol = day.css("grid-column-start");
         day.addClass("day-under-overlay " + addclass);
         var monthGrid = $('#year-calendar_' + month);
-        console.log(day.attr("data-month"));
-
         monthGrid.append(
             "<div class='overlay " + addclass + "' style='background-color:" + color + ";grid-row:" + thisRow + ";grid-column: " + thisCol + "'>" +
             "<div class='title'>" + title +
@@ -1288,6 +1284,11 @@ class App extends Component {
 
     render() {
 
+        //
+        //HARDCODED TAGS
+        //
+
+
 
         var campFilterIcon = this.state.filterCamp ? "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
@@ -1396,7 +1397,6 @@ class App extends Component {
                                  button2={this.state.view.button2}
                                  id={this.state.view.id}
                         />
-                        <StickyContainer style={{background: 'transparent'}}>
                             <div className="filters">
                                 <div className="filter-circle-container" onClick={this.toggleSeries}>
                                     <div className="filter-circle-filled series-color">
@@ -1444,7 +1444,7 @@ class App extends Component {
                                         {partiesFilterIcon}
                                     </div>
                                     <div className="filter-circle-label disabled">
-                                        Parties<br/><span style={{fontSize: "80%"}}>(coming soon)</span>
+                                        Parties<br/><span style={{fontSize: "80%"}}><a href="http://www.pixelacademy.org/birthdays/" className="birthday-link">(coming soon)</a></span>
                                     </div>
                                 </div>
 
@@ -1503,84 +1503,89 @@ class App extends Component {
                                            filterLocation={this.state.filterLocation}
                                            events={global.eventsByDay["December"]}
                                     />
-                                    <Month name="January" numDays="31" skipDays="1"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["January"]}
-                                    />
-                                    <Month name="February" numDays="28" skipDays="4"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["February"]}
-                                    />
-                                    <Month name="March" numDays="31" skipDays="4"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["March"]}
-                                    />
-                                    <Month name="April" numDays="30" skipDays="0"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["April"]}
-                                    />
-                                    <Month name="May" numDays="31" skipDays="2"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["May"]}
-                                    />
-                                    <Month name="June" numDays="30" skipDays="5"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           events={global.eventsByDay["June"]}
-                                    />
+
+                                    {/*HIDING NEXT YEAR*/}
+
+                                    {/*<Month */}
+                                            {/*name="January" numDays="31" skipDays="1"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["January"]}*/}
+                                    {/*/>*/}
+                                    {/*<Month */}
+                                            {/*name="February" numDays="28" skipDays="4"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["February"]}*/}
+                                    {/*/>*/}
+                                    {/*<Month name="March" numDays="31" skipDays="4"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["March"]}*/}
+                                    {/*/>*/}
+                                    {/*<Month name="April" numDays="30" skipDays="0"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["April"]}*/}
+                                    {/*/>*/}
+                                    {/*<Month name="May" numDays="31" skipDays="2"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["May"]}*/}
+                                    {/*/>*/}
+                                    {/*<Month name="June" numDays="30" skipDays="5"*/}
+                                           {/*filterDropIn={this.state.filterDropIn}*/}
+                                           {/*filterSpecial={this.state.filterSpecial}*/}
+                                           {/*filterSeries={this.state.filterSeries}*/}
+                                           {/*filterProSeries={this.state.filterProSeries}*/}
+                                           {/*filterParties={this.state.filterParties}*/}
+                                           {/*filterCamp={this.state.filterCamp}*/}
+                                           {/*filterAge7to9={this.state.filter7to9}*/}
+                                           {/*filterAge9to11={this.state.filter9to11}*/}
+                                           {/*filterAge12to14={this.state.filter12to14}*/}
+                                           {/*filterLocation={this.state.filterLocation}*/}
+                                           {/*events={global.eventsByDay["June"]}*/}
+                                    {/*/>*/}
 
                                 </div>
                                 <div className="day-sidebar" id="day-start">
@@ -1653,7 +1658,6 @@ class App extends Component {
                                 </div>
                             </div>
 
-                        </StickyContainer>
                         <ReactTooltip class='tip-class' delayHide={100} place="right" type="dark" effect="solid"/>
 
 

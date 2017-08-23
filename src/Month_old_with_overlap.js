@@ -8,6 +8,7 @@ import Event from './Event';
 import EventContainers from "./EventContainer";
 import seriesJSON from "./series.json";
 import App from "./App";
+import { StickyContainer, Sticky } from 'react-sticky';
 import ReactTooltip from 'react-tooltip'
 import Divider from 'material-ui/Divider';
 
@@ -537,6 +538,8 @@ class Month extends React.Component {
 
         return (
             <div className="monthly-view">
+                <StickyContainer style={{ background:'transparent'}}>
+
                     <div className="month-label">
                         <div className="filler-with-bar">
                             <div className="month-bar"></div>
@@ -556,7 +559,49 @@ class Month extends React.Component {
                     {this.RenderWeekNames("Fri")}
                     {this.RenderWeekNames("Sat")}
                     {allDays.map((day, index) => <div className="day" key={index} > {day} </div>)}
+
+                    {/*{overlappingEvents.map((container, index) => <EventContainers*/}
+                        {/*key = {index}*/}
+                        {/*allDupes={container}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*month={this.props.name}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                    {/*/>)}*/}
+                    {/*{overlappingCamp.map((container, index) => <EventContainers*/}
+                        {/*key = {index}*/}
+                        {/*allDupes={container}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*month={this.props.name}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                    {/*/>)}*/}
+                    {/*{eventsList.map((event, index) => <Event*/}
+                        {/*key={index}*/}
+                        {/*skipDays={this.props.skipDays}*/}
+                        {/*type={event.type}*/}
+                        {/*month={this.props.name}*/}
+                        {/*name={event.name}*/}
+                        {/*price = {event.price}*/}
+                        {/*id = {event.id}*/}
+                        {/*age = {event.age}*/}
+                        {/*location = {event.location}*/}
+                        {/*spotsLeft = {event.spotsLeft}*/}
+                        {/*description = {event.description}*/}
+                        {/*days = {event.days}*/}
+                        {/*startTime = {event.startTime}*/}
+                        {/*filterAge7to9={this.props.filterAge7to9}*/}
+                        {/*filterAge9to11={this.props.filterAge9to11}*/}
+                        {/*filterAge12to14={this.props.filterAge12to14}*/}
+                        {/*filterLocation={this.props.filterLocation}*/}
+                        {/*monthObject={this}*/}
+                    {/*/>)}*/}
                 </div>
+                </StickyContainer>
 
             </div>
         )
