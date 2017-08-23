@@ -289,12 +289,19 @@ class App extends Component {
     async sendToCartAPI(event) {
 
         try {
-            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
+            // let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
+            //     this.state.members[this.state.selectedMemberKey].id
+            // );
+            $.getJSON(
+                '/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
                 this.state.members[this.state.selectedMemberKey].id
-            );
+                , function (data) {
+                //let responseJson = await response.json();
+                _this.rebuildCart(data);
+            });
             ///// update my cart with response.json.
             window.getUpdatedCart();
-            this.getCartCall();
+            // this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
             let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id);
