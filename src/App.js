@@ -731,7 +731,10 @@ class App extends Component {
 
     changeAge = ({target}) => {
 
-        if (this.state.cart > 0) return;
+        if (this.state.cart.length > 0) {
+            ReactTooltip.rebuild();
+            return;
+        }
 
         if (target.hasAttribute("data-age-group")) {
             this.setState(
@@ -775,6 +778,11 @@ class App extends Component {
     };
 
     changeLocation = ({target}) => {
+
+        if (this.state.cart.length > 0) {
+            ReactTooltip.rebuild();
+            return;
+        }
 
         if (target.hasAttribute("data-location")) {
             this.setState(
@@ -1360,7 +1368,7 @@ class App extends Component {
                             <div className="filtering-header">
 
                                 <div className="change-age-btn" onClick={this.changeAge}
-                                     data-tip={this.state.cart > 0 ? "You may only add items to the cart for one member at a time." : ""}>
+                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
                                     <div className="text-right"><span className="def-no-hover">
                                     {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span
                                         className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
@@ -1379,7 +1387,9 @@ class App extends Component {
                                     </div>
                                 </div>
                                 <div className="text-center"> in</div>
-                                <div className="change-location-btn" onClick={this.changeLocation}>
+                                <div className="change-location-btn" onClick={this.changeLocation}
+                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
+                                >
                                     <div className="text-left"><span
                                         className="editable-heading">{this.state.currentLocation} </span></div>
                                     <div className="text-center filtering-hover-text">
