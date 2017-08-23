@@ -132,7 +132,7 @@ class App extends Component {
                 that.setState({
                     pickups: global.allEvents.metaData.pickUpDays
                 });
-
+                that.getCartCall();
 
             });
 
