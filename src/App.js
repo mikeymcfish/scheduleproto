@@ -129,6 +129,10 @@ class App extends Component {
                 //async
                 that.convertEventsToByDay(global.allEvents.events);
 
+                that.setState({
+                    pickups: global.allEvents.metaData.pickUpDays
+                });
+
 
             });
 
