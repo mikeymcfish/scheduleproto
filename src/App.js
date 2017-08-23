@@ -193,6 +193,7 @@ class App extends Component {
                 //_this.logInMember();
 
             });
+            _this.getCartCall();
         }
 
     }
