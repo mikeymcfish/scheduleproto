@@ -288,13 +288,14 @@ class App extends Component {
 
     async sendToCartAPI(event) {
 
+        var _this = this;
         try {
             // let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
             //     this.state.members[this.state.selectedMemberKey].id
             // );
             $.getJSON(
                 '/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
-                this.state.members[this.state.selectedMemberKey].id
+                _this.state.members[this.state.selectedMemberKey].id
                 , function (data) {
                 //let responseJson = await response.json();
                 _this.rebuildCart(data);
