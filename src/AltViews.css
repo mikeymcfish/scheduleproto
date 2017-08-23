@@ -819,8 +819,9 @@ Button.btn-2:hover {
 }
 
 .in-my-cart {
-    background-color: rgba(0, 0, 0, 0.05);
-    box-shadow: var(--shadow-inverted);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: solid 1px rgba(0, 0, 0, 0.25);
+    /*box-shadow: var(--shadow-inverted);*/
     /*margin-top:2px;*/
     /*!*border-bottom: dashed 2px rgba(51, 51, 51, 0.44);*!*/
     /*!*height:1px;*!*/
