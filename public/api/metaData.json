@@ -6,7 +6,7 @@
         "day": 7,
         "title": "Open House",
         "subTitle": "3p-5p",
-        "backgroundColor": "rgba(255,255,0,.7)",
+        "backgroundColor": "rgba(255,255,0,1)",
         "icon": ""
       },
       {
@@ -14,7 +14,7 @@
         "day": 8,
         "title": "Open House",
         "subTitle": "3-5p",
-        "backgroundColor": "rgba(255,255,0,.7)",
+        "backgroundColor": "rgba(255,255,0,1)",
         "icon": ""
       },
       {
@@ -22,7 +22,7 @@
         "day": 9,
         "title": "Open House",
         "subTitle": "10a-12p",
-        "backgroundColor": "rgba(255,255,0,.7)",
+        "backgroundColor": "rgba(255,255,0,1)",
         "icon": ""
       }
     ],
