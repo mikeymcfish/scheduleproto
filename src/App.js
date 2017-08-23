@@ -279,7 +279,7 @@ class App extends Component {
         try {
             $.getJSON('api/v1/scheduler/cart', function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data);
+                _this.rebuildCart(data.cart);
             });
         } catch (error) {
             console.error(error);
@@ -298,17 +298,19 @@ class App extends Component {
                 _this.state.members[this.state.selectedMemberKey].id
                 , function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data);
+                _this.rebuildCart(data.cart);
             });
             ///// update my cart with response.json.
             window.getUpdatedCart();
             // this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
-            let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id);
-            ///// update my cart with response.json.
-            window.getUpdatedCart();
-            this.getCartCall();
+            $.getJSON(
+            '/api/v1/scheduler/add_to_cart?product_id=' + event.id,
+                function (data) {
+                //let responseJson = await response.json();
+                _this.rebuildCart(data.cart);
+            });
 
         } finally  {
             console.log("api call did nothing.");
