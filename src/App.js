@@ -500,9 +500,9 @@ class App extends Component {
 
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
-        var month = this.getMonthName(birthday_array[0]);
+        var month = this.getMonthName(birthday_array[2]);
         var day = birthday_array[1];
-        var year = birthday_array[2];
+        var year = birthday_array[0];
         var nextAge = parseInt(member.age) + 1;
         var dayObj = this.getDayObject(month, day);
         var firstName = member.name.split(" ")[0];
