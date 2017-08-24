@@ -22,6 +22,7 @@ import './garland.css';
 import './creeper.css';
 
 import isLive from "./isLive.js";
+import DayView from "./DayView";
 
 class App extends Component {
 
@@ -1501,6 +1502,9 @@ class App extends Component {
                             </div>
                             <div className="page-container">
                                 <div className="month-sidebar">
+                                    <DayView
+                                        isWeekDay = "true"
+                                    />
                                     <Month name="September" numDays="30" skipDays="5"
                                            filterDropIn={this.state.filterDropIn}
                                            filterSpecial={this.state.filterSpecial}
