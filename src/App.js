@@ -946,8 +946,15 @@ class App extends Component {
     scrollView(element) {
 
         //find the first event-bar
+        var fullstring = "";
+        //try long ones first
+        if (element.find(".event-bar.pro-series-color").length)
+            fullstring = element.find(".event-bar.pro-series-color").attr("data-days");
+        else if (element.find(".event-bar.series-color").length)
+            fullstring = element.find(".event-bar.series-color").attr("data-days");
+        else
+            fullstring = element.find(".event-bar").attr("data-days");
 
-        var fullstring = element.find(".event-bar").attr("data-days");
         console.log("$$" + fullstring);
         if (fullstring == null) return;
         var firstDay = this.getFirstDayFromFullString(fullstring);
@@ -957,11 +964,11 @@ class App extends Component {
         var td = $("#day-start").offset().top;
         $("#day-start").css("top",(t-300)+"px");
 
-        $('html, body').animate({
-                scrollTop: $("#day-start").offset().top
-        }, 250);
+        // $('html, body').animate({
+        //         scrollTop: $("#day-start").offset().top
+        // }, 250);
 
-        //this.scrollViewToCalendarDay(firstDay);
+        this.scrollViewToCalendarDay(firstDay);
         //
         // //set this guy to start at the first occurance.
         // var td = $("#day-start").offset().top;
