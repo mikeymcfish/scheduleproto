@@ -1478,7 +1478,7 @@ class App extends Component {
                                         {dropInFilterIcon}
                                     </div>
                                     <div className="filter-circle-label">
-                                        Drop-in
+                                        Makerspace
                                     </div>
                                 </div>
                                 <div className="filter-circle-container" onClick={this.toggleSpecial}>
@@ -1659,6 +1659,8 @@ class App extends Component {
 
                                             :
                                             <div className="spinner-holder">
+
+                                                <div className="fun-fact">Loading Pixel Experiences<br/>(this may take a few seconds)</div>
 
                                                 <MDSpinner
                                                     color1="rgba(255, 77, 71, 1)"

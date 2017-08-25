@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Walter+Turncoat');
+
+
+
+/*font-family: 'Pacifico', cursive;*/
+
+/*font-family: 'Coming Soon', cursive;*/
+
+/*font-family: 'Walter Turncoat', cursive;*/
+
+
 
 :root {
     --shadow : 1px 1px 3px 0 rgba(0, 0, 0, .25);
@@ -6,13 +16,17 @@
     --lightColor : #979797;
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
+    --calendarColor: rgb(151,151,151);
     --seriesColor : rgba(231, 30, 183, .75);
     --proSeriesColor : rgba(185, 24, 147, 0.75);
     --partiesColor : rgba(190, 190, 190, 0.75);
     --campColor : rgba(255, 154, 0, .75);
     --specialColor : rgba(255, 219, 0, 1);
     --dropInColor : rgba(255, 77, 71, .75);
+    font-family: 'Walter Turncoat', cursive;
+
 }
+
 
 .series-color {
     background-color: var(--seriesColor);
@@ -41,8 +55,17 @@
     /*justify-content: center;*/
     /*justify-items: center;*/
     /*align-content: center;*/
-    margin-left:45%;
-    margin-top:30%;
+
+    margin-left:10%;
+}
+.fun-fact {
+    font-size:20px;
+    margin-bottom:10px;
+    color:var(--mediumColor);
+    line-height:24px;
+    font-weight: 600;
+    padding:5px;
+    color: #333;
 }
 
 /*}*/
