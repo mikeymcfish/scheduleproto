@@ -23,6 +23,7 @@
     --campColor : rgba(255, 154, 0, .75);
     --specialColor : rgba(255, 219, 0, 1);
     --dropInColor : rgba(255, 77, 71, .75);
+    --pickupColor: rgba(0, 0, 0, 0.75);
     font-family: 'Walter Turncoat', cursive;
 
 }
@@ -47,6 +48,9 @@
 
 .camp-color {
     background-color: var(--campColor);
+}
+.pickup-color {
+    background-color: var(--pickupColor);
 }
 
 .spinner-holder {
@@ -868,4 +872,12 @@ Button.btn-2:hover {
     font-size: 20px;
     color: var(--lightColor);
     padding-top:5px;
+}
+
+.pick-up-available {
+    background-image: url("img/walk.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 50%;
+    background-color: white;
 }

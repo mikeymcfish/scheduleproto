@@ -41,7 +41,6 @@ class App extends Component {
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
-        this.testLogIn = this.testLogIn.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
@@ -173,7 +172,7 @@ class App extends Component {
                 $(".member-log-in").show();
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember(data.members);
+                _this.logInMember(data.members, null);
 
             });
             _this.getCartCall();
@@ -187,7 +186,7 @@ class App extends Component {
                 );
                 //TEMP SHOW BUTTON.
                 $(".member-log-in").show();
-                _this.logInMember(data.members);
+                _this.logInMember(data.members, null);
 
                 //NON TEMP, RUN LOGIN FUNCTION.
                 //_this.logInMember();
@@ -247,6 +246,69 @@ class App extends Component {
         $(".highlighted").removeClass("highlighted");
 
         $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
+    }
+
+    isMemberLoggedIn() {
+        console.log("LOGIN -"+this.state.selectedMemberKey!="");
+        return this.state.selectedMemberKey!="";
+    }
+
+    getLoggedInMember(){
+        console.log("LOGIN -"+this.state.members[this.state.selectedMemberKey].name);
+        if (!this.isMemberLoggedIn()) return null;
+        return this.state.members[this.state.selectedMemberKey];
+    }
+
+    isSchoolAvail(school, location) {
+
+        var avail_days = [];
+        var pickups = location =="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa;
+        console.log("!! looking for days for "+school+" location "+pickups);
+        if (pickups.mon.indexOf(school)>=0) avail_days.push("mon");
+        if (pickups.tue.indexOf(school)>=0) avail_days.push("tue");
+        if (pickups.wed.indexOf(school)>=0) avail_days.push("wed");
+        if (pickups.thu.indexOf(school)>=0) avail_days.push("thu");
+        if (pickups.fri.indexOf(school)>=0) avail_days.push("fri");
+        return avail_days;
+    }
+
+    highlightAllPickUpDays(school, location) {
+        var pickupdays = this.isSchoolAvail(school, location);
+        console.log("!! highlighting days for school "+school+". " +pickupdays);
+
+        $(".day").removeClass("pick-up-available");
+
+        if (pickupdays.indexOf("mon")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "2 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("tue")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "3 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("wed")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "4 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("thu")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "5 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("fri")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "6 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+
     }
 
     hideSeriesOverlays = () => {
@@ -567,40 +629,32 @@ class App extends Component {
         //     "");
     }
 
-    testLogIn() {
-        // //should probably put owned events in these member details.
-        //
-        //
-        // this.setState({
-        //     loggedIn: true,
-        //     members: global.allEvents.members,
-        //     currentAgeGroup: "select member"
-        //
-        // });
-        // // $(".editable-age-group").css("color","rgb(150,150,150");
-        // // $(".editable-age-group").css("background-color","#333");
-        // $(".birthday").removeClass("birthday");
-        // // $(".owned").remove();
-        // this.addHolidays();
-        // this.addOwnedDays();
-        // console.log(this.state.loggedIn);
-        // // this.setState({
-        // //     currentAgeGroup: this.state.members[0].name,
-        // //     ageSelectionOptions: this.state.members
-        // // });
-        // this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK", "i guess", null, null);
+
+    refreshOverlays(newLocation) {
+        var firstMember = this.getLoggedInMember();
+        this.highlightAllPickUpDays(firstMember.school, newLocation);
+
     }
 
-    logInMember(membersList) {
+
+    logInMember(membersList, memberKey) {
+
+        console.log("changing member");
 
         var firstMember = {};
         var firstKey;
+        if (memberKey!=null) {
+            firstMember = this.state.members[memberKey];
+            firstKey = memberKey;
 
-        for (var member in Object.keys(membersList)) {
-            firstKey = member;
-            firstMember = membersList[member];
-            break;
+        } else {
+            for (var member in Object.keys(membersList)) {
+                firstKey = member;
+                firstMember = membersList[member];
+                break;
+            }
         }
+
         $(".birthday").removeClass("birthday");
 
         this.setState({
@@ -612,12 +666,10 @@ class App extends Component {
         });
         this.setFilterAgeByAge(firstMember.age);
         this.setMembershipType(firstMember.memberType);
-
         this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
+        this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
 
-
-        //set the first member
 
     }
 
@@ -792,15 +844,7 @@ class App extends Component {
             //
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
-                    this.setState({
-                        currentLocation: this.state.members[member].defaultLocation,
-                        filterLocation: this.state.members[member].defaultLocation,
-                        selectedMemberKey: member
-                    });
-                    this.setFilterAgeByAge(this.state.members[member].age);
-                    this.addMemberBirthday(this.state.members[member]);
-                    this.setMembershipType(this.state.members[member].memberType);
-                    this.addOwnedDays(this.state.members[member].ownedEvents);
+                    this.logInMember(this.state.members, member);
                 }
             }
             this.setFilterAgeByGroup($(target).attr("data-age-group"));
@@ -836,6 +880,9 @@ class App extends Component {
                 });
             $(".filter-location")
                 .css("display", "none");
+
+            this.refreshOverlays($(target).attr("data-location"));
+
 
         } else {
             $(".filter-location")
@@ -1408,6 +1455,15 @@ class App extends Component {
         var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
         var partiesFilterIcon = "";
         var proSeriesFilterIcon = this.state.filterProSeries ? "" : <CheckIcon/>;
+        var pickupFilterIcon =
+            (
+            <svg width="30" height="30" version="1.1" viewBox="0 0 24 24" >
+                <g fill="none">
+                    <path d="M0,0h24v24h-24Z"></path>
+                    <path fill="#000000" d="M7.5,4c1.1,0 2,-0.9 2,-2c0,-1.1 -0.9,-2 -2,-2c-1.1,0 -2,0.9 -2,2c0,1.1 0.9,2 2,2Zm-3.7,3.4l-2.8,14.1h2.1l1.8,-8l2.1,2v6h2v-7.5l-2.1,-2l0.6,-3c1.3,1.5 3.3,2.5 5.5,2.5v-2c-1.9,0 -3.5,-1 -4.3,-2.4l-1,-1.6c-0.4,-0.6 -1,-1 -1.7,-1c-0.3,0 -0.5,0.1 -0.8,0.1l-5.2,2.2v4.7h2v-3.4l1.8,-0.7" transform="translate(2, 0)"></path>
+                </g>
+            </svg>
+            );
 
         var listOfAgeSelections = this.state.ageSelectionOptions;
         if (this.state.members.length > 0) {
@@ -1424,7 +1480,7 @@ class App extends Component {
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         return (
             <div className="App">
-                {isLive ? "" : <TopLinks onLogin={this.testLogIn}/>}
+                {isLive ? "" : <TopLinks></TopLinks>}
                 <div className="full-page-container">
                     <div className="container w-container">
 
@@ -1553,6 +1609,25 @@ class App extends Component {
                                         Special events
                                     </div>
                                 </div>
+                                { this.isMemberLoggedIn() && this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
+
+
+                                    <div className="filter-circle-container">
+                                        <div className="">
+                                            {pickupFilterIcon}
+                                        </div>
+                                        <div className="filter-circle-label">
+                                            Pickups from<br/>{this.getLoggedInMember().school}
+                                            <br/>
+                                        </div>
+                                    </div>
+
+                                    :
+
+                                    ""
+
+                                }
+
                                 <div className="filter-circle-container disabled">
                                     <div className="filter-circle-filled parties-color disabled">
                                         {partiesFilterIcon}
