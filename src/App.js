@@ -198,6 +198,42 @@ class App extends Component {
 
     }
 
+    checkProSeriesForPreReqs (event) {
+        //check for owning a makerspace or a series on the same day.
+        /*
+        0. confirm it's a pro-series
+        1. get day of Pro series
+        2. check all other events on that day to see if either
+           a. in cart or
+           b. owned
+
+       if yes, reply true
+       else reply false.
+       */
+
+        if (event.type != "pro-series") return true;
+        var dayObj = this.getFirstDayFromFullString(event.daystring);
+        var month = dayObj.find("[data-month]").attr("data-month");
+        var day = dayObj.find("[data-daynum]").attr("data-daynum");
+        console.log(dayObj, month, day);
+        var allEventsOnThisDay = global.eventsByDay[month][day];
+        for (var i = 0; i < allEventsOnThisDay.length; i++) {
+            if (allEventsOnThisDay[i].type == "series") {
+
+            // if (allEventsOnThisDay[i].type == "series" || allEventsOnThisDay[i].type == "drop-in") {
+                console.log("!!! found a matching event");
+
+                var willCheckForDoesOwn = [];
+                this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
+                if (willCheckForDoesOwn.indexOf(allEventsOnThisDay[i].id)>=0) return true;
+                if (this.state.cart.indexOf(allEventsOnThisDay[i].id)>=0) return true;
+            }
+        }
+        this.openAlert("Whoops!", "You are trying to add a PRO series to your schedule without first adding a Regular Series. PRO Series are only available as ADD-ONS to an existing afternoon at the Pixel Academy. Please add one of the earlier Series and then add the PRO series.", null, "GO BACK", null, null);
+        return false;
+
+    }
+
     clearCalendar() {
         console.log("$$ clearing overlays");
         $(".overlay")
@@ -250,6 +286,14 @@ class App extends Component {
     }
 
     addToCart = (event) => {
+
+        //check if OK
+
+        if (this.checkProSeriesForPreReqs(event)==false) {
+            console.log("YOU CANT ADD THIS YET");
+            return;
+
+        }
 
         if (!isLive) this.addInCart(event.id);
         this.clearCalendar();
@@ -446,44 +490,44 @@ class App extends Component {
         var myThis = this;
         $('.view-day').unbind("click");
         $('.view-day')
-            .click(function () {
-                myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
-                    , "Here is where all the info and more buying options are", "close", "checkout", 0);
-            });
-        $('.selectable').unbind("click");
-        $('.selectable').unbind("mouseenter");
-        $('.selectable').unbind("mouseleave");
-
-        $('.selectable')
-            .click(function () {
-
-                var myColor;
-                $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
-                    myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-                myThis.openAlert($(this).attr("data-name"), $(this).attr("data-description"), "cancel", "add for $" + $(this).attr("data-price"), $(this).attr("data-spotsleft"), $(this).attr("data-id"));
-            });
-
-        $('.selectable')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $("[data-id=" + $(this).attr('data-id') + "]").addClass('selectable-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $("[data-id=" + $(this).attr('data-id') + "]").removeClass('selectable-hover');
-            });
-        $('.event-container-series, .event-container-pro-series')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $(this).addClass('container-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $(this).removeClass('container-hover');
-            });
-
+        //     .click(function () {
+        //         myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
+        //             , "Here is where all the info and more buying options are", "close", "checkout", 0);
+        //     });
+        // $('.selectable').unbind("click");
+        // $('.selectable').unbind("mouseenter");
+        // $('.selectable').unbind("mouseleave");
+        //
+        // $('.selectable')
+        //     .click(function () {
+        //
+        //         var myColor;
+        //         $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
+        //             myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
+        //         myThis.openAlert($(this).attr("data-name"), $(this).attr("data-description"), "cancel", "add for $" + $(this).attr("data-price"), $(this).attr("data-spotsleft"), $(this).attr("data-id"));
+        //     });
+        //
+        // $('.selectable')
+        //     .mouseenter(function () {
+        //         //console.log("clicked");
+        //         $("[data-id=" + $(this).attr('data-id') + "]").addClass('selectable-hover');
+        //
+        //     })
+        //     .mouseleave(function () {
+        //         //console.log("clicked");
+        //         $("[data-id=" + $(this).attr('data-id') + "]").removeClass('selectable-hover');
+        //     });
+        // $('.event-container-series, .event-container-pro-series')
+        //     .mouseenter(function () {
+        //         //console.log("clicked");
+        //         $(this).addClass('container-hover');
+        //
+        //     })
+        //     .mouseleave(function () {
+        //         //console.log("clicked");
+        //         $(this).removeClass('container-hover');
+        //     });
+        //
 
         global.isUpdating = false;
 
@@ -892,7 +936,7 @@ class App extends Component {
         }
     }
 
-    openAlert(title, text, btn1, btn2, spots, id) {
+    openAlert(title, text, btn1, btn2, spots, id, callback, callback2) {
         this.setState({
             open: !this.state.open,
             alert: {
@@ -901,7 +945,9 @@ class App extends Component {
                 button1: btn1,
                 button2: btn2,
                 spotsLeft: spots,
-                id: id
+                id: id,
+                button1callback: callback,
+                button2callback: callback2
             }
         });
     }
