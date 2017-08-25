@@ -4,14 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="748" />
     <bookmark url="file://$PROJECT_DIR$/src/AltViews.css" line="780" />
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="497" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1091" />
-    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1703" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1102" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.js" line="1714" />
     <bookmark url="file://$PROJECT_DIR$/src/App.js" line="290" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,7 +31,7 @@
       <file leaf-file-name="Month.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Month.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="316">
               <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
               <folding />
             </state>
@@ -61,18 +61,18 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="962" column="0" lean-forward="true" selection-start-line="962" selection-start-column="0" selection-end-line="962" selection-end-column="0" />
+            <state relative-caret-position="196">
+              <caret line="994" column="51" lean-forward="true" selection-start-line="994" selection-start-column="51" selection-end-line="994" selection-end-column="51" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <marker date="1503682608000" expanded="true" signature="7408:7468" ph="..." />
-                <marker date="1503682608000" expanded="true" signature="33241:33310" ph="..." />
+                <marker date="1503683592000" expanded="true" signature="7408:7468" ph="..." />
+                <marker date="1503683592000" expanded="true" signature="33686:33755" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/isLive.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -92,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="2744" column="20" lean-forward="false" selection-start-line="2744" selection-start-column="20" selection-end-line="2744" selection-end-column="20" />
+            <state relative-caret-position="226">
+              <caret line="2741" column="21" lean-forward="true" selection-start-line="2741" selection-start-column="21" selection-end-line="2741" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -115,8 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hall</find>
-      <find>change-age-bt</find>
       <find>changeAge</find>
       <find>changeAg</find>
       <find>owned</find>
@@ -136,15 +134,17 @@
       <find>walter tu</find>
       <find>MDSpinner</find>
       <find>fun-</find>
-      <find>scrollViewToCalendarDay</find>
-      <find>span</find>
-      <find>scroll</find>
       <find>scrollView</find>
       <find>cart</find>
       <find>cart-</find>
       <find>.grid</find>
       <find>month-sidebar</find>
       <find>age-noti</find>
+      <find>age-notifi</find>
+      <find>span</find>
+      <find>viewingDayEvents</find>
+      <find>scroll</find>
+      <find>scrollViewToCalendarDay</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -213,10 +213,10 @@
         <option value="$PROJECT_DIR$/src/Month.js" />
         <option value="$PROJECT_DIR$/public/api/member-info.json" />
         <option value="$PROJECT_DIR$/src/FunFacts.js" />
-        <option value="$PROJECT_DIR$/src/isLive.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/AltViews.css" />
         <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/isLive.js" />
       </list>
     </option>
   </component>
@@ -500,7 +500,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394955000" />
+    <option name="totallyTimeSpent" value="395413000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -852,34 +852,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FunFacts.js" />
-    <entry file="file://$PROJECT_DIR$/src/isLive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Month.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="962" column="0" lean-forward="true" selection-start-line="962" selection-start-column="0" selection-end-line="962" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <marker date="1503682608000" expanded="true" signature="7408:7468" ph="..." />
-            <marker date="1503682608000" expanded="true" signature="33241:33310" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -890,8 +862,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="2744" column="20" lean-forward="false" selection-start-line="2744" selection-start-column="20" selection-end-line="2744" selection-end-column="20" />
+        <state relative-caret-position="226">
+          <caret line="2741" column="21" lean-forward="true" selection-start-line="2741" selection-start-column="21" selection-end-line="2741" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Month.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="994" column="51" lean-forward="true" selection-start-line="994" selection-start-column="51" selection-end-line="994" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <marker date="1503683592000" expanded="true" signature="7408:7468" ph="..." />
+            <marker date="1503683592000" expanded="true" signature="33686:33755" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           <folding />
         </state>
       </provider>

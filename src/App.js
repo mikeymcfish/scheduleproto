@@ -992,7 +992,7 @@ class App extends Component {
         console.log("@@ scrolling");
         try {
             $('html, body').animate({
-                scrollTop: dayObj.offset().top
+                scrollTop: dayObj.offset().top - 20
             }, 250);
         }
         catch (e) {
@@ -1031,6 +1031,17 @@ class App extends Component {
             thisDaysEvents = global.eventsByDay[month][day];
             for (var i = 0; i < thisDaysEvents.length; i++) {
                 console.log("found " + thisDaysEvents.length + " events on the selected day");
+
+
+                //check if matches current filters:
+
+
+                if (thisDaysEvents[i].type == "series" && this.state.filterSeries) continue;
+                if (thisDaysEvents[i].type == "pro-series" && this.state.filterProSeries) continue;
+                if (thisDaysEvents[i].type == "special" && this.state.filterSpecial) continue;
+                if (thisDaysEvents[i].type == "drop-in" && this.state.filterDropIn) continue;
+
+
                 var ageMatched = false;
                 if (this.state.loggedIn) {
                     ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
