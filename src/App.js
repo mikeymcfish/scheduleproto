@@ -40,6 +40,7 @@ class App extends Component {
         this.changeLocation = this.changeLocation.bind(this);
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
+        this.confirmAddToCart = this.confirmAddToCart.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
@@ -78,7 +79,8 @@ class App extends Component {
                 button1: "cancel",
                 button2: "ok",
                 id: 0,
-                spotsLeft: 0
+                event: {},
+                callback: null
             },
             viewOpen: false,
             view: {
@@ -99,7 +101,8 @@ class App extends Component {
             miniCampDiscount: 0,
             cart: [],
             loggedInUserID: 0,
-            pickups: {}
+            pickups: {},
+            warnedAboutPro: false
 
         }
 
@@ -210,7 +213,7 @@ class App extends Component {
        else reply false.
        */
 
-        if (event.type != "pro-series") return true;
+        if (event.type != "pro-series" || this.state.warnedAboutPro==true) return true;
         var dayObj = this.getFirstDayFromFullString(event.daystring);
         var month = dayObj.find("[data-month]").attr("data-month");
         var day = dayObj.find("[data-daynum]").attr("data-daynum");
@@ -228,9 +231,30 @@ class App extends Component {
                 if (this.state.cart.indexOf(allEventsOnThisDay[i].id)>=0) return true;
             }
         }
-        this.openAlert("Whoops!", "You are trying to add a PRO series to your schedule without first adding a Regular Series. PRO Series are only available as ADD-ONS to an existing afternoon at the Pixel Academy. Please add one of the earlier Series and then add the PRO series.", null, "GO BACK", null, null);
+
+
+        this.openAlert(
+            "You're adding a PRO series!",
+            "Pro series are our newest workshops featureing" +
+            "cutting-edge technology topics and small group size. Please keep in mind that " +
+            "PRO series start at 5:45 p.m. Members that are not also scheduled for " +
+            "early afternoon progamming (such as Makerspace or a 4 p.m. series) " +
+            "should arrive no earlier than 5:30 p.m. If you want "+this.getLoggedInMember(true)+ " to " +
+            "take advantage of school walk-over or to arrive and use Pixel technology before 5:30 p.m. " +
+            "then you should also add an earlier series or makerspace to "+this.getLoggedInMember(true)+ "'s day.",
+            null,
+            "I UNDERSTAND",
+            event
+        );
+        this.setState({
+            warnedAboutPro : true
+        });
         return false;
 
+    }
+
+    confirmAddToCart(event) {
+        this.addInCart(event);
     }
 
     clearCalendar() {
@@ -253,9 +277,10 @@ class App extends Component {
         return this.state.selectedMemberKey!="";
     }
 
-    getLoggedInMember(){
+    getLoggedInMember(firstNameOnly = false){
         console.log("LOGIN -"+this.state.members[this.state.selectedMemberKey].name);
         if (!this.isMemberLoggedIn()) return null;
+        if (firstNameOnly) return (this.state.members[this.state.selectedMemberKey].name.split(" ")[0]);
         return this.state.members[this.state.selectedMemberKey];
     }
 
@@ -351,7 +376,7 @@ class App extends Component {
 
         //check if OK
 
-        if (this.checkProSeriesForPreReqs(event)==false) {
+        if (this.checkProSeriesForPreReqs(event)==false && this.state.warnedAboutPro==false) {
             console.log("YOU CANT ADD THIS YET");
             return;
 
@@ -983,7 +1008,7 @@ class App extends Component {
         }
     }
 
-    openAlert(title, text, btn1, btn2, spots, id, callback, callback2) {
+    openAlert(title, text, btn1, btn2, event, callback) {
         this.setState({
             open: !this.state.open,
             alert: {
@@ -991,10 +1016,8 @@ class App extends Component {
                 text: text,
                 button1: btn1,
                 button2: btn2,
-                spotsLeft: spots,
-                id: id,
-                button1callback: callback,
-                button2callback: callback2
+                event: event,
+                callback: callback
             }
         });
     }
@@ -1556,7 +1579,8 @@ class App extends Component {
                                      text={this.state.alert.text}
                                      button1={this.state.alert.button1}
                                      button2={this.state.alert.button2}
-                                     spotsLeft={this.state.alert.spotsLeft}
+                                     callback={this.state.alert.callback}
+                                     event={this.state.alert.event}
                                      id={this.state.alert.id}
                         />
                         <ViewDay open={this.state.viewOpen}

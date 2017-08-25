@@ -17,6 +17,11 @@ export default class AlertDialog extends Component {
         this.props.onClose(this.state.open);
     };
 
+    // handleCustomRequest = () => {
+    //     this.setState({ open: false });
+    //     this.props.callback(this.props.event);
+    // };
+
     render() {
         return (
             <div>
