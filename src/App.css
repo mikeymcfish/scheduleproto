@@ -2738,9 +2738,11 @@ hr {
     color: #333;
     /*margin-left:20%;*/
     /*margin-right:20%;*/
-    line-height: 50px;
+    line-height: 18px;
     font-weight: 400;
     font-style: italic;
+    margin-top: 20px;
+    margin-bottom:15px;
 }
 .change-birthday:hover {
     text-decoration: underline !important;
