@@ -11,8 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968fc639-2b94-4c31-a924-60f076aaba35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AlertDialog.js" afterPath="$PROJECT_DIR$/src/AlertDialog.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
     </list>
@@ -54,7 +52,7 @@
       <file leaf-file-name="metaData.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
+            <state relative-caret-position="420">
               <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="15" />
               <folding />
             </state>
@@ -64,8 +62,8 @@
       <file leaf-file-name="member-info.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -74,8 +72,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="246" column="17" lean-forward="true" selection-start-line="246" selection-start-column="17" selection-end-line="246" selection-end-column="17" />
+            <state relative-caret-position="241">
+              <caret line="640" column="14" lean-forward="true" selection-start-line="640" selection-start-column="14" selection-end-line="640" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#2363#2470#0" expanded="false" />
@@ -398,8 +396,8 @@
                 <element signature="e#72309#72712#0" expanded="false" />
                 <element signature="e#73244#73565#0" expanded="false" />
                 <element signature="e#75290#75351#0" expanded="false" />
-                <marker date="1503704577000" expanded="false" signature="12600:12660" ph="..." />
-                <marker date="1503704577000" expanded="false" signature="38176:38245" ph="..." />
+                <marker date="1503711811000" expanded="false" signature="12600:12660" ph="..." />
+                <marker date="1503711811000" expanded="false" signature="38176:38245" ph="..." />
               </folding>
             </state>
           </provider>
@@ -480,7 +478,6 @@
       <find>pickup</find>
       <find>highligh</find>
       <find>login</find>
-      <find>birthday</find>
       <find>addMemberBirthday</find>
       <find>refreshOv</find>
       <find>highl</find>
@@ -498,6 +495,7 @@
       <find>openAlert</find>
       <find>alert.callback</find>
       <find>openal</find>
+      <find>birthday</find>
     </findStrings>
     <replaceStrings>
       <replace>2017</replace>
@@ -860,7 +858,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407462000" />
+    <option name="totallyTimeSpent" value="407836000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1214,26 +1212,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="869" column="28" lean-forward="true" selection-start-line="869" selection-start-column="28" selection-end-line="869" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1254,10 +1236,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/metaData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/member-info.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="246" column="17" lean-forward="true" selection-start-line="246" selection-start-column="17" selection-end-line="246" selection-end-column="17" />
+        <state relative-caret-position="241">
+          <caret line="640" column="14" lean-forward="true" selection-start-line="640" selection-start-column="14" selection-end-line="640" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#2363#2470#0" expanded="false" />
@@ -1580,8 +1578,8 @@
             <element signature="e#72309#72712#0" expanded="false" />
             <element signature="e#73244#73565#0" expanded="false" />
             <element signature="e#75290#75351#0" expanded="false" />
-            <marker date="1503704577000" expanded="false" signature="12600:12660" ph="..." />
-            <marker date="1503704577000" expanded="false" signature="38176:38245" ph="..." />
+            <marker date="1503711811000" expanded="false" signature="12600:12660" ph="..." />
+            <marker date="1503711811000" expanded="false" signature="38176:38245" ph="..." />
           </folding>
         </state>
       </provider>
