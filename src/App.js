@@ -135,6 +135,7 @@ class App extends Component {
                     pickups: global.allEvents.metaData.pickUpDays
                 });
                 that.getCartCall();
+                if (that.state.members.length>0) that.logInMember("0");
 
             });
 
@@ -154,6 +155,9 @@ class App extends Component {
                 that.setState({
                     pickups: global.allEvents.metaData.pickUpDays
                 });
+                if (that.state.members.length>0) that.logInMember("0");
+
+
             });
             this.getMemberInfoFromAPI(1);
 
@@ -175,7 +179,7 @@ class App extends Component {
                 $(".member-log-in").show();
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember(data.members, null);
+                _this.logInMember("0");
 
             });
             _this.getCartCall();
@@ -189,10 +193,10 @@ class App extends Component {
                 );
                 //TEMP SHOW BUTTON.
                 $(".member-log-in").show();
-                _this.logInMember(data.members, null);
+
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                //_this.logInMember();
+                _this.logInMember("0");
 
             });
             _this.getCartCall();
@@ -662,23 +666,32 @@ class App extends Component {
     }
 
 
-    logInMember(membersList, memberKey) {
+    logInMember(memberKey) {
 
         console.log("changing member");
-
+        if (this.state.members.length <0 ) {
+            console.log("aborting no member list");
+            return;
+        }
         var firstMember = {};
         var firstKey;
-        if (memberKey!=null) {
-            firstMember = this.state.members[memberKey];
-            firstKey = memberKey;
 
-        } else {
-            for (var member in Object.keys(membersList)) {
-                firstKey = member;
-                firstMember = membersList[member];
-                break;
-            }
-        }
+        // if (memberKey!=null && memberKey!=undefined ) {
+        //     console.log("logging in the key " + memberKey);
+        //     firstKey = memberKey;
+        //     firstMember = this.state.members[memberKey];
+        // } else {
+        //     for (var member in Object.keys(this.state.members)) {
+        //         firstKey = member;
+        //         firstMember = this.state.members[member];
+        //         console.log("logging in the first key");
+        //         break;
+        //     }
+        // }
+
+        console.log("logging in the key " + memberKey);
+        firstKey = memberKey;
+        firstMember = this.state.members[memberKey];
 
         $(".birthday").removeClass("birthday");
 
@@ -693,8 +706,7 @@ class App extends Component {
         this.setMembershipType(firstMember.memberType);
         this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
-        this.highlightAllPickUpDays(firstMember.school, this.state.currentLocation);
-
+        this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
 
     }
 
@@ -869,7 +881,7 @@ class App extends Component {
             //
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
-                    this.logInMember(this.state.members, member);
+                    this.logInMember(member);
                 }
             }
             this.setFilterAgeByGroup($(target).attr("data-age-group"));
