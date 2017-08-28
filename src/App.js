@@ -29,7 +29,7 @@ class App extends Component {
 
         super();
 
-        console.log(isLive);
+        console.log("I am live? " + isLive);
 
         this.toggleSeries = this.toggleSeries.bind(this);
         this.toggleProSeries = this.toggleProSeries.bind(this);
@@ -113,103 +113,87 @@ class App extends Component {
 
         var that = this;
 
+        /*
 
-        if (isLive) {
+        1. Make sure no dummy data needed
+        2. Call auth -
+        2. If authed user, get member data then get all data
+        3. If not, get all data
+        4. Wait for all data to finish and then populate the page.
 
-            $.getJSON('api/v1/scheduler/auth', function (data) {
+
+         */
+
+        $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
+            console.log("received auth user: " + data.user_id);
+            if (data.user_id) {
                 that.getMemberInfoFromAPI(data.user_id);
                 that.setState({
                     loggedInUserID:data.user_id
                 })
-            });
-            $.getJSON('api/v1/scheduler/all', function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                that.parseDateListToString(global.allEvents);
-
-                //async
-                that.convertEventsToByDay(global.allEvents.events);
-                that.setState({
-                    pickups: global.allEvents.metaData.pickUpDays
-                });
+            } else {
+                that.loadScheduleData();
                 that.getCartCall();
-                that.allDataLoaded();
-                //that.addHolidays();
 
-                if (!that.isMemberLoggedIn()) that.logInMember("0");
+            }
 
-            });
-
-        } else {
-
-            //
-            //
-            //dev
-            //
-            //
-
-            $.getJSON('/api/data.json', function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                that.parseDateListToString(global.allEvents);
-                that.convertEventsToByDay(global.allEvents.events);
-                that.setState({
-                    pickups: data.metaData.pickUpDays
-                });
-                //that.addHolidays();
-                that.allDataLoaded();
-
-                //if (!that.isMemberLoggedIn()) that.logInMember("0");
-
-
-            });
-            this.getMemberInfoFromAPI(1);
-
-        }
+        });
 
     }
 
+    loadScheduleData() {
+        var _this = this;
+        $.getJSON('api/v1/scheduler/all'+(!isLive? ".json" : ""), function (data) {
+            global.allEvents = data;
+            //TODO 'DAYSTRING' for all
+            _this.parseDateListToString(global.allEvents);
+
+            //async
+            _this.convertEventsToByDay(global.allEvents.events);
+            _this.setState({
+                pickups: global.allEvents.metaData.pickUpDays
+            });
+            _this.getCartCall();
+            _this.allDataLoaded();
+            // _this.addHolidays();
+
+            if (_this.state.loggedInUserID!=0) {
+                _this.logInMember("0");
+            }
+
+        });
+    }
+
     getMemberInfoFromAPI(userID) {
-        //api/v1/scheduler/members?user_id={userID}
         var _this = this;
         if (isLive) {
+            console.log("loading live member data");
             $.getJSON('api/v1/scheduler/members?user_id=' + userID, function (data) {
                 _this.setState(
                     {
                         members: data.members
                     }
                 );
-                //TEMP SHOW BUTTON.
-                $(".member-log-in").show();
-
-                //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember("0");
-
+                //log in the first member
+                _this.getCartCall();
+                _this.loadScheduleData();
             });
-            _this.getCartCall();
-            if (!_this.isMemberLoggedIn()) _this.logInMember("0");
 
         }
         else {
-            $.getJSON('/api/member-info.json', function (data) {
+            console.log("loading test member data");
+            $.getJSON('/api/v1/scheduler/members.json', function (data) {
                 _this.setState(
                     {
                         members: data.members
                     }
                 );
                 //TEMP SHOW BUTTON.
-                $(".member-log-in").show();
-                if (!_this.isMemberLoggedIn()) _this.logInMember("0");
-
-
-
-                //NON TEMP, RUN LOGIN FUNCTION.
-               // if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+                _this.getCartCall();
+                _this.loadScheduleData();
 
             });
-            _this.getCartCall();
         }
-
     }
 
     checkProSeriesForPreReqs (event) {
@@ -287,12 +271,10 @@ class App extends Component {
     }
 
     isMemberLoggedIn() {
-        console.log("LOGIN -"+this.state.selectedMemberKey!="");
         return this.state.selectedMemberKey!="";
     }
 
     getLoggedInMember(firstNameOnly = false){
-        console.log("LOGIN -"+this.state.members[this.state.selectedMemberKey].name);
         if (!this.isMemberLoggedIn()) return null;
         if (firstNameOnly) return (this.state.members[this.state.selectedMemberKey].name.split(" ")[0]);
         return this.state.members[this.state.selectedMemberKey];
@@ -303,7 +285,7 @@ class App extends Component {
         var avail_days = [];
         var pickups;
         // if (location == 'undefined') return [];
-        console.log("location: "+location, "current: "+ this.state.currentLocation)
+        console.log("location: "+location, "current: "+ this.state.currentLocation);
         if (location =="Brooklyn") {
             pickups = this.state.pickups.Brooklyn;
         } else {
@@ -573,60 +555,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
-        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
-        // $("#calendar").css('display', 'none');
-        // $("#calendar").css('display', 'grid');
-        //
-        // $('body').click(function () {
-        //     $(".filter-location").css("display", "none");
-        //     $(".filter-age").css("display", "none");
-        //     $(".filter-view").css("display", "none");
-        // });
-        // $('.change-age-btn').unbind("hover");
-        // $('.change-age-btn').hover(function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color", "blue");
-        // }, function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color", "#333");
-        // });
-        // $('.change-location-btn').unbind("hover");
-        // $('.change-location-btn').hover(function () {
-        //     $('.change-location-btn > .filtering-hover-text').css("color", "blue");
-        // }, function () {
-        //     $('.change-location-btn > .filtering-hover-text').css("color", "#333");
-        // });
-        // $('.change-view-btn').unbind("hover");
-        // $('.change-view-btn').hover(function () {
-        //     $('.change-view-btn > .filtering-hover-text').css("color", "blue");
-        // }, function () {
-        //     $('.change-view-btn > .filtering-hover-text').css("color", "#333");
-        // });
-        // var _this = this;
-        // $('.day').not(".closed").not(".no-day").unbind("click");
-        // $('.day').not(".closed").not(".no-day")
-        //     .click(function () {
-        //         var child = $(this).find("[data-month!='undefined']");
-        //         _this.clearCalendar();
-        //         $('.highlighted').removeClass("highlighted");
-        //         _this.addASeriesOverlay("");
-        //         $(this).addClass("highlighted");
-        //         _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
-        //         _this.scrollView($(this));
-        //         // _this.updateDayEvents();
-        //         // console.log("day click "+ child.attr("data-month"));
-        //     });
-        // this.runJquery();
-
-        //try and hide
-
-
+        this.runJquery();
     }
 
     componentDidUpdate() {
-        console.log("did update");
+        console.log("component did update, running rebuild of tooltips");
         //this.runJquery();
         ReactTooltip.rebuild();
-        this.runJquery();
+        //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
 
     }
