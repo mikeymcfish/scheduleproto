@@ -41,8 +41,8 @@ class App extends Component {
         this.changeLocation = this.changeLocation.bind(this);
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
+        this.confirmAddToCart = this.confirmAddToCart.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
-        this.testLogIn = this.testLogIn.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
         this.setViewDay = this.setViewDay.bind(this);
@@ -80,7 +80,8 @@ class App extends Component {
                 button1: "cancel",
                 button2: "ok",
                 id: 0,
-                spotsLeft: 0
+                event: {},
+                callback: null
             },
             viewOpen: false,
             view: {
@@ -101,18 +102,18 @@ class App extends Component {
             miniCampDiscount: 0,
             cart: [],
             loggedInUserID: 0,
-            pickups: {}
+            pickups: {},
+            warnedAboutPro: false
 
         }
 
-        global.allEvents = seriesJSON;
+        //global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
-        this.parseDateListToString(global.allEvents);
-        global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
+        //this.parseDateListToString(global.allEvents);
+        //global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
 
         var that = this;
 
-        //api/v1/scheduler/events
 
         if (isLive) {
 
@@ -129,11 +130,14 @@ class App extends Component {
 
                 //async
                 that.convertEventsToByDay(global.allEvents.events);
-
                 that.setState({
                     pickups: global.allEvents.metaData.pickUpDays
                 });
                 that.getCartCall();
+                that.allDataLoaded();
+                //that.addHolidays();
+
+                if (!that.isMemberLoggedIn()) that.logInMember("0");
 
             });
 
@@ -151,8 +155,14 @@ class App extends Component {
                 that.parseDateListToString(global.allEvents);
                 that.convertEventsToByDay(global.allEvents.events);
                 that.setState({
-                    pickups: global.allEvents.metaData.pickUpDays
+                    pickups: data.metaData.pickUpDays
                 });
+                //that.addHolidays();
+                that.allDataLoaded();
+
+                //if (!that.isMemberLoggedIn()) that.logInMember("0");
+
+
             });
             this.getMemberInfoFromAPI(1);
 
@@ -174,10 +184,12 @@ class App extends Component {
                 $(".member-log-in").show();
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember(data.members);
+                _this.logInMember("0");
 
             });
             _this.getCartCall();
+            if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+
         }
         else {
             $.getJSON('/api/member-info.json', function (data) {
@@ -188,15 +200,74 @@ class App extends Component {
                 );
                 //TEMP SHOW BUTTON.
                 $(".member-log-in").show();
-                _this.logInMember(data.members);
+                if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+
+
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                //_this.logInMember();
+               // if (!_this.isMemberLoggedIn()) _this.logInMember("0");
 
             });
             _this.getCartCall();
         }
 
+    }
+
+    checkProSeriesForPreReqs (event) {
+        //check for owning a makerspace or a series on the same day.
+        /*
+        0. confirm it's a pro-series
+        1. get day of Pro series
+        2. check all other events on that day to see if either
+           a. in cart or
+           b. owned
+
+       if yes, reply true
+       else reply false.
+       */
+
+        if (event.type != "pro-series" || this.state.warnedAboutPro==true) return true;
+        var dayObj = this.getFirstDayFromFullString(event.daystring);
+        var month = dayObj.find("[data-month]").attr("data-month");
+        var day = dayObj.find("[data-daynum]").attr("data-daynum");
+        console.log(dayObj, month, day);
+        var allEventsOnThisDay = global.eventsByDay[month][day];
+        for (var i = 0; i < allEventsOnThisDay.length; i++) {
+            if (allEventsOnThisDay[i].type == "series") {
+
+            // if (allEventsOnThisDay[i].type == "series" || allEventsOnThisDay[i].type == "drop-in") {
+                console.log("!!! found a matching event");
+
+                var willCheckForDoesOwn = [];
+                this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
+                if (willCheckForDoesOwn.indexOf(allEventsOnThisDay[i].id)>=0) return true;
+                if (this.state.cart.indexOf(allEventsOnThisDay[i].id)>=0) return true;
+            }
+        }
+
+
+        this.openAlert(
+            "You're adding a PRO series!",
+            "Pro series are our newest workshops featureing" +
+            "cutting-edge technology topics and small group size. Please keep in mind that " +
+            "PRO series start at 5:45 p.m. Members that are not also scheduled for " +
+            "early afternoon progamming (such as Makerspace or a 4 p.m. series) " +
+            "should arrive no earlier than 5:30 p.m. If you want "+this.getLoggedInMember(true)+ " to " +
+            "take advantage of school walk-over or to arrive and use Pixel technology before 5:30 p.m. " +
+            "then you should also add an earlier series or makerspace to "+this.getLoggedInMember(true)+ "'s day.",
+            null,
+            "I UNDERSTAND",
+            event
+        );
+        this.setState({
+            warnedAboutPro : true
+        });
+        return false;
+
+    }
+
+    confirmAddToCart(event) {
+        this.addInCart(event);
     }
 
     clearCalendar() {
@@ -212,6 +283,80 @@ class App extends Component {
         $(".highlighted").removeClass("highlighted");
 
         $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
+
+
+    }
+
+    isMemberLoggedIn() {
+        console.log("LOGIN -"+this.state.selectedMemberKey!="");
+        return this.state.selectedMemberKey!="";
+    }
+
+    getLoggedInMember(firstNameOnly = false){
+        console.log("LOGIN -"+this.state.members[this.state.selectedMemberKey].name);
+        if (!this.isMemberLoggedIn()) return null;
+        if (firstNameOnly) return (this.state.members[this.state.selectedMemberKey].name.split(" ")[0]);
+        return this.state.members[this.state.selectedMemberKey];
+    }
+
+    isSchoolAvail(school, location) {
+
+        var avail_days = [];
+        var pickups;
+        // if (location == 'undefined') return [];
+        console.log("location: "+location, "current: "+ this.state.currentLocation)
+        if (location =="Brooklyn") {
+            pickups = this.state.pickups.Brooklyn;
+        } else {
+            pickups = this.state.pickups.TriBeCa;
+        }
+        console.log("!! looking for days for "+school+" location " +location);
+        if (pickups.mon.indexOf(school)>=0) avail_days.push("mon");
+        if (pickups.tue.indexOf(school)>=0) avail_days.push("tue");
+        if (pickups.wed.indexOf(school)>=0) avail_days.push("wed");
+        if (pickups.thu.indexOf(school)>=0) avail_days.push("thu");
+        if (pickups.fri.indexOf(school)>=0) avail_days.push("fri");
+        return avail_days;
+    }
+
+    highlightAllPickUpDays(school, location) {
+        console.log("about to check for days for location " + location);
+        var pickupdays = this.isSchoolAvail(school, location);
+        console.log("!! highlighting days for school "+school+". " +pickupdays);
+
+        $(".day").removeClass("pick-up-available");
+
+        if (pickupdays.indexOf("mon")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "2 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("tue")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "3 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("wed")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "4 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("thu")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "5 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+        if (pickupdays.indexOf("fri")>=0) {
+            $(".day:not(.closed):not(.no-day)").each(function() {
+                if ($(this).css("grid-column-start")== "6 col")
+                    $(this).addClass("pick-up-available");
+            });
+        }
+
     }
 
     hideSeriesOverlays = () => {
@@ -251,6 +396,14 @@ class App extends Component {
     }
 
     addToCart = (event) => {
+
+        //check if OK
+
+        if (this.checkProSeriesForPreReqs(event)==false && this.state.warnedAboutPro==false) {
+            console.log("YOU CANT ADD THIS YET");
+            return;
+
+        }
 
         if (!isLive) this.addInCart(event.id);
         this.clearCalendar();
@@ -362,28 +515,16 @@ class App extends Component {
 
         }
         global.eventsByDay = daysOfEvents;
-        this.setState(
+        await this.setState(
             {
                 isJSONloaded: true
             }
         );
-        this.addHolidays();
 
         console.log("done.");
     }
 
-    //YouTube Production
-
-    updateDayEvents() {
-
-    }
-
-    componentDidMount() {
-        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
-        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
-        $("#calendar").css('display', 'none');
-        $("#calendar").css('display', 'grid');
-
+    allDataLoaded() {
         $('body').click(function () {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
@@ -421,8 +562,61 @@ class App extends Component {
                 // _this.updateDayEvents();
                 // console.log("day click "+ child.attr("data-month"));
             });
-
+        this.addHolidays();
         this.runJquery();
+        $('.month-sidebar').show();
+    }
+
+    //YouTube Production
+
+    updateDayEvents() {
+
+    }
+
+    componentDidMount() {
+        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
+        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
+        // $("#calendar").css('display', 'none');
+        // $("#calendar").css('display', 'grid');
+        //
+        // $('body').click(function () {
+        //     $(".filter-location").css("display", "none");
+        //     $(".filter-age").css("display", "none");
+        //     $(".filter-view").css("display", "none");
+        // });
+        // $('.change-age-btn').unbind("hover");
+        // $('.change-age-btn').hover(function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // $('.change-location-btn').unbind("hover");
+        // $('.change-location-btn').hover(function () {
+        //     $('.change-location-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-location-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // $('.change-view-btn').unbind("hover");
+        // $('.change-view-btn').hover(function () {
+        //     $('.change-view-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-view-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // var _this = this;
+        // $('.day').not(".closed").not(".no-day").unbind("click");
+        // $('.day').not(".closed").not(".no-day")
+        //     .click(function () {
+        //         var child = $(this).find("[data-month!='undefined']");
+        //         _this.clearCalendar();
+        //         $('.highlighted').removeClass("highlighted");
+        //         _this.addASeriesOverlay("");
+        //         $(this).addClass("highlighted");
+        //         _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
+        //         _this.scrollView($(this));
+        //         // _this.updateDayEvents();
+        //         // console.log("day click "+ child.attr("data-month"));
+        //     });
+        // this.runJquery();
 
         //try and hide
 
@@ -446,46 +640,6 @@ class App extends Component {
         // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
-        $('.view-day')
-            .click(function () {
-                myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
-                    , "Here is where all the info and more buying options are", "close", "checkout", 0);
-            });
-        $('.selectable').unbind("click");
-        $('.selectable').unbind("mouseenter");
-        $('.selectable').unbind("mouseleave");
-
-        $('.selectable')
-            .click(function () {
-
-                var myColor;
-                $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
-                    myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-                myThis.openAlert($(this).attr("data-name"), $(this).attr("data-description"), "cancel", "add for $" + $(this).attr("data-price"), $(this).attr("data-spotsleft"), $(this).attr("data-id"));
-            });
-
-        $('.selectable')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $("[data-id=" + $(this).attr('data-id') + "]").addClass('selectable-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $("[data-id=" + $(this).attr('data-id') + "]").removeClass('selectable-hover');
-            });
-        $('.event-container-series, .event-container-pro-series')
-            .mouseenter(function () {
-                //console.log("clicked");
-                $(this).addClass('container-hover');
-
-            })
-            .mouseleave(function () {
-                //console.log("clicked");
-                $(this).removeClass('container-hover');
-            });
-
-
         global.isUpdating = false;
 
     }
@@ -502,8 +656,8 @@ class App extends Component {
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
         var month = this.getMonthName(birthday_array[2]);
-        var day = birthday_array[1];
-        var year = birthday_array[0];
+        var day = parseInt(birthday_array[1]);
+        var year = parseInt(birthday_array[0]);
         var nextAge = parseInt(member.age) + 1;
         var dayObj = this.getDayObject(month, day);
         var firstName = member.name.split(" ")[0];
@@ -524,40 +678,46 @@ class App extends Component {
         //     "");
     }
 
-    testLogIn() {
-        // //should probably put owned events in these member details.
-        //
-        //
-        // this.setState({
-        //     loggedIn: true,
-        //     members: global.allEvents.members,
-        //     currentAgeGroup: "select member"
-        //
-        // });
-        // // $(".editable-age-group").css("color","rgb(150,150,150");
-        // // $(".editable-age-group").css("background-color","#333");
-        // $(".birthday").removeClass("birthday");
-        // // $(".owned").remove();
-        // this.addHolidays();
-        // this.addOwnedDays();
-        // console.log(this.state.loggedIn);
-        // // this.setState({
-        // //     currentAgeGroup: this.state.members[0].name,
-        // //     ageSelectionOptions: this.state.members
-        // // });
-        // this.openAlert("Test Login", "This is a test of the login. You are now fake logged in as a parent with two members. One is 11 with a default location of Brooklyn and one is 8 with a default location of Tribeca.", "OK", "i guess", null, null);
+
+    refreshOverlays(newLocation) {
+        // var firstMember = this.getLoggedInMember();
+        // this.highlightAllPickUpDays(firstMember.school, newLocation);
+        this.setState({
+            viewingDay: "none",
+            viewingDayEvents: []
+
+        })
+
     }
 
-    logInMember(membersList) {
 
+    logInMember(memberKey) {
+
+        console.log("changing member");
+        if (this.state.members.length <0 ) {
+            console.log("aborting no member list");
+            return;
+        }
         var firstMember = {};
         var firstKey;
 
-        for (var member in Object.keys(membersList)) {
-            firstKey = member;
-            firstMember = membersList[member];
-            break;
-        }
+        // if (memberKey!=null && memberKey!=undefined ) {
+        //     console.log("logging in the key " + memberKey);
+        //     firstKey = memberKey;
+        //     firstMember = this.state.members[memberKey];
+        // } else {
+        //     for (var member in Object.keys(this.state.members)) {
+        //         firstKey = member;
+        //         firstMember = this.state.members[member];
+        //         console.log("logging in the first key");
+        //         break;
+        //     }
+        // }
+
+        console.log("logging in the key " + memberKey);
+        firstKey = memberKey;
+        firstMember = this.state.members[memberKey];
+
         $(".birthday").removeClass("birthday");
 
         this.setState({
@@ -569,12 +729,9 @@ class App extends Component {
         });
         this.setFilterAgeByAge(firstMember.age);
         this.setMembershipType(firstMember.memberType);
-
         this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
-
-
-        //set the first member
+        this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
 
     }
 
@@ -749,18 +906,11 @@ class App extends Component {
             //
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
-                    this.setState({
-                        currentLocation: this.state.members[member].defaultLocation,
-                        filterLocation: this.state.members[member].defaultLocation,
-                        selectedMemberKey: member
-                    });
-                    this.setFilterAgeByAge(this.state.members[member].age);
-                    this.addMemberBirthday(this.state.members[member]);
-                    this.setMembershipType(this.state.members[member].memberType);
-                    this.addOwnedDays(this.state.members[member].ownedEvents);
+                    this.logInMember(member);
+                    this.refreshOverlays($(target).attr("data-location"));
                 }
             }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
+            this.setFilterAgeByGroup(this.state.members[member].defaultLocation);
 
 
         } else {
@@ -769,6 +919,7 @@ class App extends Component {
         }
         $(".editable-age-group").css("color", "inherit");
         $(".editable-age-group").css("background-color", "inherit");
+        // this.refreshOverlays();
         // $('.change-age-btn').unbind("hover");
         // $('.change-age-btn').hover(function () {
         //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
@@ -793,6 +944,9 @@ class App extends Component {
                 });
             $(".filter-location")
                 .css("display", "none");
+
+            this.refreshOverlays($(target).attr("data-location"));
+
 
         } else {
             $(".filter-location")
@@ -890,10 +1044,19 @@ class App extends Component {
 
             thisEvent.daystring = newString;
 
+            var priority = 4;
+            if (thisEvent.type=="pro-series") priority = 2;
+            if (thisEvent.type=="series") priority = 1;
+            if (thisEvent.type=="drop-in") priority = 3;
+            if (thisEvent.type=="special") priority = 0;
+
+            thisEvent.priority = priority;
+
+
         }
     }
 
-    openAlert(title, text, btn1, btn2, spots, id) {
+    openAlert(title, text, btn1, btn2, event, callback) {
         this.setState({
             open: !this.state.open,
             alert: {
@@ -901,8 +1064,8 @@ class App extends Component {
                 text: text,
                 button1: btn1,
                 button2: btn2,
-                spotsLeft: spots,
-                id: id
+                event: event,
+                callback: callback
             }
         });
     }
@@ -947,8 +1110,15 @@ class App extends Component {
     scrollView(element) {
 
         //find the first event-bar
+        var fullstring = "";
+        //try long ones first
+        if (element.find(".event-bar.pro-series-color").length)
+            fullstring = element.find(".event-bar.pro-series-color").attr("data-days");
+        else if (element.find(".event-bar.series-color").length)
+            fullstring = element.find(".event-bar.series-color").attr("data-days");
+        else
+            fullstring = element.find(".event-bar").attr("data-days");
 
-        var fullstring = element.find(".event-bar").attr("data-days");
         console.log("$$" + fullstring);
         if (fullstring == null) return;
         var firstDay = this.getFirstDayFromFullString(fullstring);
@@ -958,11 +1128,11 @@ class App extends Component {
         var td = $("#day-start").offset().top;
         $("#day-start").css("top",(t-300)+"px");
 
-        $('html, body').animate({
-                scrollTop: $("#day-start").offset().top
-        }, 250);
+        // $('html, body').animate({
+        //         scrollTop: $("#day-start").offset().top
+        // }, 250);
 
-        //this.scrollViewToCalendarDay(firstDay);
+        this.scrollViewToCalendarDay(firstDay);
         //
         // //set this guy to start at the first occurance.
         // var td = $("#day-start").offset().top;
@@ -986,7 +1156,7 @@ class App extends Component {
         console.log("@@ scrolling");
         try {
             $('html, body').animate({
-                scrollTop: dayObj.offset().top
+                scrollTop: dayObj.offset().top - 20
             }, 250);
         }
         catch (e) {
@@ -1025,6 +1195,17 @@ class App extends Component {
             thisDaysEvents = global.eventsByDay[month][day];
             for (var i = 0; i < thisDaysEvents.length; i++) {
                 console.log("found " + thisDaysEvents.length + " events on the selected day");
+
+
+                //check if matches current filters:
+
+
+                if (thisDaysEvents[i].type == "series" && this.state.filterSeries) continue;
+                if (thisDaysEvents[i].type == "pro-series" && this.state.filterProSeries) continue;
+                if (thisDaysEvents[i].type == "special" && this.state.filterSpecial) continue;
+                if (thisDaysEvents[i].type == "drop-in" && this.state.filterDropIn) continue;
+
+
                 var ageMatched = false;
                 if (this.state.loggedIn) {
                     ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
@@ -1042,6 +1223,9 @@ class App extends Component {
                     else thisDaysFilteredEvents.push(thisDaysEvents[i]);
                 }
             }
+            thisDaysFilteredEvents.sort(function(a,b) {
+                return a.priority - b.priority;
+            });
             var firstEventDates = thisDaysFilteredEvents[0].daystring;
             var firstDay = this.getFirstDayFromFullString(firstEventDates);
 
@@ -1054,7 +1238,7 @@ class App extends Component {
             viewingDay: month + " " + day,
             viewingDayEvents: thisDaysFilteredEvents
 
-        })
+        });
 
 
     }
@@ -1100,17 +1284,22 @@ class App extends Component {
         //     .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
         //
 
-        var holidays = global.allEvents.metaData.holidays;
-        for (var i = 0; i < Object.keys(holidays).length; i++) {
-            this.addOverlay(
-                this.getDayObject(holidays[i].month, holidays[i].day),
-                holidays[i].month,
-                "holiday",
-                holidays[i].backgroundColor,
-                holidays[i].title,
-                holidays[i].subTitle
-            );
+        try{
+            var holidays = global.allEvents.metaData.holidays;
+            for (var i = 0; i < Object.keys(holidays).length; i++) {
+                this.addOverlay(
+                    this.getDayObject(holidays[i].month, holidays[i].day),
+                    holidays[i].month,
+                    "holiday",
+                    holidays[i].backgroundColor,
+                    holidays[i].title,
+                    holidays[i].subTitle
+                );
+            }
+        } catch (e) {
+            console.log("holidays issue", e);
         }
+
 
     }
 
@@ -1358,6 +1547,15 @@ class App extends Component {
         var specialFilterIcon = this.state.filterSpecial ? "" : <CheckIcon/>;
         var partiesFilterIcon = "";
         var proSeriesFilterIcon = this.state.filterProSeries ? "" : <CheckIcon/>;
+        var pickupFilterIcon =
+            (
+            <svg width="30" height="30" version="1.1" viewBox="0 0 24 24" >
+                <g fill="none">
+                    <path d="M0,0h24v24h-24Z"></path>
+                    <path fill="#000000" d="M7.5,4c1.1,0 2,-0.9 2,-2c0,-1.1 -0.9,-2 -2,-2c-1.1,0 -2,0.9 -2,2c0,1.1 0.9,2 2,2Zm-3.7,3.4l-2.8,14.1h2.1l1.8,-8l2.1,2v6h2v-7.5l-2.1,-2l0.6,-3c1.3,1.5 3.3,2.5 5.5,2.5v-2c-1.9,0 -3.5,-1 -4.3,-2.4l-1,-1.6c-0.4,-0.6 -1,-1 -1.7,-1c-0.3,0 -0.5,0.1 -0.8,0.1l-5.2,2.2v4.7h2v-3.4l1.8,-0.7" transform="translate(2, 0)"></path>
+                </g>
+            </svg>
+            );
 
         var listOfAgeSelections = this.state.ageSelectionOptions;
         if (this.state.members.length > 0) {
@@ -1374,7 +1572,7 @@ class App extends Component {
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         return (
             <div className="App">
-                {isLive ? "" : <TopLinks onLogin={this.testLogIn}/>}
+                {isLive ? "" : <TopLinks></TopLinks>}
                 <div className="full-page-container">
                     <div className="container w-container">
 
@@ -1450,7 +1648,8 @@ class App extends Component {
                                      text={this.state.alert.text}
                                      button1={this.state.alert.button1}
                                      button2={this.state.alert.button2}
-                                     spotsLeft={this.state.alert.spotsLeft}
+                                     callback={this.state.alert.callback}
+                                     event={this.state.alert.event}
                                      id={this.state.alert.id}
                         />
                         <ViewDay open={this.state.viewOpen}
@@ -1492,7 +1691,7 @@ class App extends Component {
                                         {dropInFilterIcon}
                                     </div>
                                     <div className="filter-circle-label">
-                                        Drop-in
+                                        Makerspace
                                     </div>
                                 </div>
                                 <div className="filter-circle-container" onClick={this.toggleSpecial}>
@@ -1503,6 +1702,28 @@ class App extends Component {
                                         Special events
                                     </div>
                                 </div>
+                                { this.isMemberLoggedIn() ?
+                                    this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
+
+                                    <div className="filter-circle-container">
+                                        <div className="">
+                                            {pickupFilterIcon}
+                                        </div>
+                                        <div className="filter-circle-label">
+                                            Pickups from<br/>{this.getLoggedInMember().school}
+                                            <br/>
+                                        </div>
+                                    </div>
+
+                                    :
+
+                                    ""
+                                    :
+
+                                    ""
+
+                                }
+
                                 <div className="filter-circle-container disabled">
                                     <div className="filter-circle-filled parties-color disabled">
                                         {partiesFilterIcon}
@@ -1514,6 +1735,7 @@ class App extends Component {
 
                             </div>
                             <div className="page-container">
+<<<<<<< HEAD
                                 <div className="month-sidebar">
 
                                     <Month name="September" numDays="30" skipDays="5"
@@ -1655,8 +1877,154 @@ class App extends Component {
                                            {/*filterLocation={this.state.filterLocation}*/}
                                            {/*events={global.eventsByDay["June"]}*/}
                                     {/*/>*/}
+=======
+>>>>>>> master
 
-                                </div>
+                                    <div className="month-sidebar">
+                                        <Month name="September" numDays="30" skipDays="5"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["September"] : []}
+                                        />
+                                        <Month name="October" numDays="31" skipDays="0"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["October"]:[]}
+                                        />
+                                        <Month name="November" numDays="30" skipDays="3"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["November"]:[]}
+                                        />
+                                        <Month name="December" numDays="31" skipDays="5"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["December"]:[]}
+                                        />
+
+                                        {/*HIDING NEXT YEAR*/}
+
+                                        {/*<Month */}
+                                        {/*name="January" numDays="31" skipDays="1"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["January"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month */}
+                                        {/*name="February" numDays="28" skipDays="4"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["February"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="March" numDays="31" skipDays="4"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["March"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="April" numDays="30" skipDays="0"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["April"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="May" numDays="31" skipDays="2"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["May"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="June" numDays="30" skipDays="5"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["June"]}*/}
+                                        {/*/>*/}
+
+                                    </div>
+
+
+
                                 <div className="day-sidebar" id="day-start">
 
                                     <div className="big-day-title">
@@ -1674,6 +2042,8 @@ class App extends Component {
 
                                             :
                                             <div className="spinner-holder">
+
+                                                <div className="fun-fact">Loading Pixel Experiences<br/>(this may take a few seconds)</div>
 
                                                 <MDSpinner
                                                     color1="rgba(255, 77, 71, 1)"

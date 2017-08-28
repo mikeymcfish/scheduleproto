@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Walter+Turncoat');
+
+
+
+/*font-family: 'Pacifico', cursive;*/
+
+/*font-family: 'Coming Soon', cursive;*/
+
+/*font-family: 'Walter Turncoat', cursive;*/
+
+
 
 :root {
     --shadow : 1px 1px 3px 0 rgba(0, 0, 0, .25);
@@ -6,13 +16,18 @@
     --lightColor : #979797;
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
+    --calendarColor: rgb(151,151,151);
     --seriesColor : rgba(231, 30, 183, .75);
     --proSeriesColor : rgba(185, 24, 147, 0.75);
     --partiesColor : rgba(190, 190, 190, 0.75);
     --campColor : rgba(255, 154, 0, .75);
     --specialColor : rgba(255, 219, 0, 1);
     --dropInColor : rgba(255, 77, 71, .75);
+    --pickupColor: rgba(0, 0, 0, 0.75);
+    font-family: 'Walter Turncoat', cursive;
+
 }
+
 
 .series-color {
     background-color: var(--seriesColor);
@@ -34,6 +49,9 @@
 .camp-color {
     background-color: var(--campColor);
 }
+.pickup-color {
+    background-color: var(--pickupColor);
+}
 
 .spinner-holder {
     /*position: relative;*/
@@ -41,8 +59,17 @@
     /*justify-content: center;*/
     /*justify-items: center;*/
     /*align-content: center;*/
-    margin-left:45%;
-    margin-top:30%;
+
+    margin-left:10%;
+}
+.fun-fact {
+    font-size:20px;
+    margin-bottom:10px;
+    color:var(--mediumColor);
+    line-height:24px;
+    font-weight: 600;
+    padding:5px;
+    color: #333;
 }
 
 /*}*/
@@ -267,6 +294,7 @@
     /*width:20%;*/
     /*margin-left:-100px;*/
     max-width:500px;
+    min-width:360px;
     margin-top:30px;
     position: relative;
 }
@@ -846,6 +874,7 @@ Button.btn-2:hover {
     padding-top:5px;
 }
 
+<<<<<<< HEAD
 .day-view {
     display: grid;
     grid-template-rows: repeat(25, 1fr);
@@ -940,4 +969,15 @@ Button.btn-2:hover {
     font-weight: 800;
     border-bottom: solid 2px #333;
     padding-bottom: 2px;
+=======
+.pick-up-available {
+    background-image: url("img/walk.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 50%;
+    background-color: white;
+}
+.month-sidebar {
+    display:none;
+>>>>>>> master
 }

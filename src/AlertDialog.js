@@ -17,6 +17,11 @@ export default class AlertDialog extends Component {
         this.props.onClose(this.state.open);
     };
 
+    // handleCustomRequest = () => {
+    //     this.setState({ open: false });
+    //     this.props.callback(this.props.event);
+    // };
+
     render() {
         return (
             <div>
@@ -30,10 +35,17 @@ export default class AlertDialog extends Component {
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleRequestClose} color="primary">
-                            {this.props.button1}
-                        </Button>
-                        <Button raised onClick={this.handleRequestClose} color="primary">
+                        {
+                            this.props.button1 != null ?
+                                <Button onClick={this.handleRequestClose} color="primary">
+                                    {this.props.button1}
+                                </Button>
+                                :
+                                ""
+                        }
+
+                        <Button raised
+                         onClick={this.handleRequestClose} color="primary">
                             {this.props.button2}
                         </Button>
                     </DialogActions>

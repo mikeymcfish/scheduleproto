@@ -484,6 +484,8 @@
 }
 
 .month-name {
+    /*font-family: 'Walter Turncoat', cursive;*/
+
     position: relative;
     z-index: 10;
     display: block;
@@ -1908,6 +1910,8 @@
 }
 .App {
     font-family: 'Open Sans', sans-serif;
+
+
     font-weight: 700;
     /*font-size: 20px;*/
     text-align: center;
@@ -1920,7 +1924,7 @@
     align-content: stretch;
 }
 .cart-placeholder {
-    width: 340px;
+    max-width: 340px;
     align-self: flex-end;
     justify-self: flex-end;
     flex-shrink: 0;
@@ -2068,6 +2072,7 @@ body {
 
 
 .grid {
+    /*font-family: 'Walter Turncoat', cursive;*/
     color: #444;
     display: grid;
     /*grid-template-columns: repeat(7, [col] auto ); auto makes some columns wider or shoert which is :-( */
@@ -2310,6 +2315,8 @@ body {
     text-align: left;
     font-size: 15px;
     margin-right:10px;
+    line-height: 17px;
+    margin-top:-2px;
 }
 
 .filter-circle-label.disabled {
@@ -2452,7 +2459,7 @@ container-hover {
 .filtering-header .filtering-hover-text {
     cursor: pointer;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 800;
     margin-top: 5px;
 }
 
@@ -2590,7 +2597,7 @@ container-hover {
     .filtering-header .filtering-hover-text {
         cursor: pointer;
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 800;
         margin-top: 5px;
     }
 
@@ -2731,9 +2738,11 @@ hr {
     color: #333;
     /*margin-left:20%;*/
     /*margin-right:20%;*/
-    line-height: 50px;
+    line-height: 18px;
     font-weight: 400;
     font-style: italic;
+    margin-top: 20px;
+    margin-bottom:15px;
 }
 .change-birthday:hover {
     text-decoration: underline !important;
