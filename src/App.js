@@ -30,7 +30,7 @@ class App extends Component {
 
         super();
 
-        console.log(isLive);
+        console.log("I am live? " + isLive);
 
         this.toggleSeries = this.toggleSeries.bind(this);
         this.toggleProSeries = this.toggleProSeries.bind(this);
@@ -115,103 +115,87 @@ class App extends Component {
 
         var that = this;
 
+        /*
 
-        if (isLive) {
+        1. Make sure no dummy data needed
+        2. Call auth -
+        2. If authed user, get member data then get all data
+        3. If not, get all data
+        4. Wait for all data to finish and then populate the page.
 
-            $.getJSON('api/v1/scheduler/auth', function (data) {
+
+         */
+
+        $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
+            console.log("received auth user: " + data.user_id);
+            if (data.user_id) {
                 that.getMemberInfoFromAPI(data.user_id);
                 that.setState({
                     loggedInUserID:data.user_id
                 })
-            });
-            $.getJSON('api/v1/scheduler/all', function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                that.parseDateListToString(global.allEvents);
-
-                //async
-                that.convertEventsToByDay(global.allEvents.events);
-                that.setState({
-                    pickups: global.allEvents.metaData.pickUpDays
-                });
+            } else {
+                that.loadScheduleData();
                 that.getCartCall();
-                that.allDataLoaded();
-                //that.addHolidays();
 
-                if (!that.isMemberLoggedIn()) that.logInMember("0");
+            }
 
-            });
-
-        } else {
-
-            //
-            //
-            //dev
-            //
-            //
-
-            $.getJSON('/api/data.json', function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                that.parseDateListToString(global.allEvents);
-                that.convertEventsToByDay(global.allEvents.events);
-                that.setState({
-                    pickups: data.metaData.pickUpDays
-                });
-                //that.addHolidays();
-                that.allDataLoaded();
-
-                //if (!that.isMemberLoggedIn()) that.logInMember("0");
-
-
-            });
-            this.getMemberInfoFromAPI(1);
-
-        }
+        });
 
     }
 
+    loadScheduleData() {
+        var _this = this;
+        $.getJSON('api/v1/scheduler/all'+(!isLive? ".json" : ""), function (data) {
+            global.allEvents = data;
+            //TODO 'DAYSTRING' for all
+            _this.parseDateListToString(global.allEvents);
+
+            //async
+            _this.convertEventsToByDay(global.allEvents.events);
+            _this.setState({
+                pickups: global.allEvents.metaData.pickUpDays
+            });
+            _this.getCartCall();
+            _this.allDataLoaded();
+            // _this.addHolidays();
+
+            if (_this.state.loggedInUserID!=0) {
+                _this.logInMember("0");
+            }
+
+        });
+    }
+
     getMemberInfoFromAPI(userID) {
-        //api/v1/scheduler/members?user_id={userID}
         var _this = this;
         if (isLive) {
+            console.log("loading live member data");
             $.getJSON('api/v1/scheduler/members?user_id=' + userID, function (data) {
                 _this.setState(
                     {
                         members: data.members
                     }
                 );
-                //TEMP SHOW BUTTON.
-                $(".member-log-in").show();
-
-                //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember("0");
-
+                //log in the first member
+                _this.getCartCall();
+                _this.loadScheduleData();
             });
-            _this.getCartCall();
-            if (!_this.isMemberLoggedIn()) _this.logInMember("0");
 
         }
         else {
-            $.getJSON('/api/member-info.json', function (data) {
+            console.log("loading test member data");
+            $.getJSON('/api/v1/scheduler/members.json', function (data) {
                 _this.setState(
                     {
                         members: data.members
                     }
                 );
                 //TEMP SHOW BUTTON.
-                $(".member-log-in").show();
-                if (!_this.isMemberLoggedIn()) _this.logInMember("0");
-
-
-
-                //NON TEMP, RUN LOGIN FUNCTION.
-               // if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+                _this.getCartCall();
+                _this.loadScheduleData();
 
             });
-            _this.getCartCall();
         }
-
     }
 
     checkProSeriesForPreReqs (event) {
@@ -289,12 +273,10 @@ class App extends Component {
     }
 
     isMemberLoggedIn() {
-        console.log("LOGIN -"+this.state.selectedMemberKey!="");
         return this.state.selectedMemberKey!="";
     }
 
     getLoggedInMember(firstNameOnly = false){
-        console.log("LOGIN -"+this.state.members[this.state.selectedMemberKey].name);
         if (!this.isMemberLoggedIn()) return null;
         if (firstNameOnly) return (this.state.members[this.state.selectedMemberKey].name.split(" ")[0]);
         return this.state.members[this.state.selectedMemberKey];
@@ -305,7 +287,7 @@ class App extends Component {
         var avail_days = [];
         var pickups;
         // if (location == 'undefined') return [];
-        console.log("location: "+location, "current: "+ this.state.currentLocation)
+        console.log("location: "+location, "current: "+ this.state.currentLocation);
         if (location =="Brooklyn") {
             pickups = this.state.pickups.Brooklyn;
         } else {
@@ -575,16 +557,20 @@ class App extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
 
 
 
+=======
+        this.runJquery();
+>>>>>>> master
     }
 
     componentDidUpdate() {
-        console.log("did update");
+        console.log("component did update, running rebuild of tooltips");
         //this.runJquery();
         ReactTooltip.rebuild();
-        this.runJquery();
+        //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
 
     }

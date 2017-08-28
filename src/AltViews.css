@@ -982,7 +982,7 @@ Button.btn-2:hover {
     background-image: url("img/walk.png");
     background-repeat: no-repeat;
     background-position: top right;
-    background-size: 50%;
+    background-size: 40%;
     background-color: white;
 }
 .month-sidebar {
