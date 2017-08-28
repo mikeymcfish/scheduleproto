@@ -106,14 +106,13 @@ class App extends Component {
 
         }
 
-        global.allEvents = seriesJSON;
+        //global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
-        this.parseDateListToString(global.allEvents);
-        global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
+        //this.parseDateListToString(global.allEvents);
+        //global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
 
         var that = this;
 
-        //api/v1/scheduler/events
 
         if (isLive) {
 
@@ -130,12 +129,14 @@ class App extends Component {
 
                 //async
                 that.convertEventsToByDay(global.allEvents.events);
-
                 that.setState({
                     pickups: global.allEvents.metaData.pickUpDays
                 });
                 that.getCartCall();
-                if (that.state.members.length>0) that.logInMember("0");
+                that.allDataLoaded();
+                //that.addHolidays();
+
+                if (!that.isMemberLoggedIn()) that.logInMember("0");
 
             });
 
@@ -153,9 +154,12 @@ class App extends Component {
                 that.parseDateListToString(global.allEvents);
                 that.convertEventsToByDay(global.allEvents.events);
                 that.setState({
-                    pickups: global.allEvents.metaData.pickUpDays
+                    pickups: data.metaData.pickUpDays
                 });
-                if (that.state.members.length>0) that.logInMember("0");
+                //that.addHolidays();
+                that.allDataLoaded();
+
+                //if (!that.isMemberLoggedIn()) that.logInMember("0");
 
 
             });
@@ -183,6 +187,8 @@ class App extends Component {
 
             });
             _this.getCartCall();
+            if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+
         }
         else {
             $.getJSON('/api/member-info.json', function (data) {
@@ -193,10 +199,12 @@ class App extends Component {
                 );
                 //TEMP SHOW BUTTON.
                 $(".member-log-in").show();
+                if (!_this.isMemberLoggedIn()) _this.logInMember("0");
+
 
 
                 //NON TEMP, RUN LOGIN FUNCTION.
-                _this.logInMember("0");
+               // if (!_this.isMemberLoggedIn()) _this.logInMember("0");
 
             });
             _this.getCartCall();
@@ -291,8 +299,15 @@ class App extends Component {
     isSchoolAvail(school, location) {
 
         var avail_days = [];
-        var pickups = location =="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa;
-        console.log("!! looking for days for "+school+" location "+pickups);
+        var pickups;
+        // if (location == 'undefined') return [];
+        console.log("location: "+location, "current: "+ this.state.currentLocation)
+        if (location =="Brooklyn") {
+            pickups = this.state.pickups.Brooklyn;
+        } else {
+            pickups = this.state.pickups.TriBeCa;
+        }
+        console.log("!! looking for days for "+school+" location " +location);
         if (pickups.mon.indexOf(school)>=0) avail_days.push("mon");
         if (pickups.tue.indexOf(school)>=0) avail_days.push("tue");
         if (pickups.wed.indexOf(school)>=0) avail_days.push("wed");
@@ -302,6 +317,7 @@ class App extends Component {
     }
 
     highlightAllPickUpDays(school, location) {
+        console.log("about to check for days for location " + location);
         var pickupdays = this.isSchoolAvail(school, location);
         console.log("!! highlighting days for school "+school+". " +pickupdays);
 
@@ -496,28 +512,16 @@ class App extends Component {
 
         }
         global.eventsByDay = daysOfEvents;
-        this.setState(
+        await this.setState(
             {
                 isJSONloaded: true
             }
         );
-        this.addHolidays();
 
         console.log("done.");
     }
 
-    //YouTube Production
-
-    updateDayEvents() {
-
-    }
-
-    componentDidMount() {
-        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
-        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
-        $("#calendar").css('display', 'none');
-        $("#calendar").css('display', 'grid');
-
+    allDataLoaded() {
         $('body').click(function () {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
@@ -555,8 +559,60 @@ class App extends Component {
                 // _this.updateDayEvents();
                 // console.log("day click "+ child.attr("data-month"));
             });
-
+        this.addHolidays();
         this.runJquery();
+    }
+
+    //YouTube Production
+
+    updateDayEvents() {
+
+    }
+
+    componentDidMount() {
+        // $("#calendar").append("<div class='spanner span-monday-friday camp-color camp-span-week-2 selectable'>" +
+        //     "<div class='spanner-copy'> Spring Break Camp</div></div>");
+        // $("#calendar").css('display', 'none');
+        // $("#calendar").css('display', 'grid');
+        //
+        // $('body').click(function () {
+        //     $(".filter-location").css("display", "none");
+        //     $(".filter-age").css("display", "none");
+        //     $(".filter-view").css("display", "none");
+        // });
+        // $('.change-age-btn').unbind("hover");
+        // $('.change-age-btn').hover(function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-age-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // $('.change-location-btn').unbind("hover");
+        // $('.change-location-btn').hover(function () {
+        //     $('.change-location-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-location-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // $('.change-view-btn').unbind("hover");
+        // $('.change-view-btn').hover(function () {
+        //     $('.change-view-btn > .filtering-hover-text').css("color", "blue");
+        // }, function () {
+        //     $('.change-view-btn > .filtering-hover-text').css("color", "#333");
+        // });
+        // var _this = this;
+        // $('.day').not(".closed").not(".no-day").unbind("click");
+        // $('.day').not(".closed").not(".no-day")
+        //     .click(function () {
+        //         var child = $(this).find("[data-month!='undefined']");
+        //         _this.clearCalendar();
+        //         $('.highlighted').removeClass("highlighted");
+        //         _this.addASeriesOverlay("");
+        //         $(this).addClass("highlighted");
+        //         _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
+        //         _this.scrollView($(this));
+        //         // _this.updateDayEvents();
+        //         // console.log("day click "+ child.attr("data-month"));
+        //     });
+        // this.runJquery();
 
         //try and hide
 
@@ -580,46 +636,6 @@ class App extends Component {
         // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
-        $('.view-day')
-        //     .click(function () {
-        //         myThis.openFullDay("Viewing date: " + $(this).attr("data-month") + "/" + $(this).attr("data-day")
-        //             , "Here is where all the info and more buying options are", "close", "checkout", 0);
-        //     });
-        // $('.selectable').unbind("click");
-        // $('.selectable').unbind("mouseenter");
-        // $('.selectable').unbind("mouseleave");
-        //
-        // $('.selectable')
-        //     .click(function () {
-        //
-        //         var myColor;
-        //         $(this).is(".drop-in-color,.special-color,.camp-color,.series-color") ?
-        //             myColor = $(this).css("background-color") : myColor = $(this).parent(".drop-in-color,.special-color,.camp-color,.series-color").css("background-color");
-        //         myThis.openAlert($(this).attr("data-name"), $(this).attr("data-description"), "cancel", "add for $" + $(this).attr("data-price"), $(this).attr("data-spotsleft"), $(this).attr("data-id"));
-        //     });
-        //
-        // $('.selectable')
-        //     .mouseenter(function () {
-        //         //console.log("clicked");
-        //         $("[data-id=" + $(this).attr('data-id') + "]").addClass('selectable-hover');
-        //
-        //     })
-        //     .mouseleave(function () {
-        //         //console.log("clicked");
-        //         $("[data-id=" + $(this).attr('data-id') + "]").removeClass('selectable-hover');
-        //     });
-        // $('.event-container-series, .event-container-pro-series')
-        //     .mouseenter(function () {
-        //         //console.log("clicked");
-        //         $(this).addClass('container-hover');
-        //
-        //     })
-        //     .mouseleave(function () {
-        //         //console.log("clicked");
-        //         $(this).removeClass('container-hover');
-        //     });
-        //
-
         global.isUpdating = false;
 
     }
@@ -660,8 +676,8 @@ class App extends Component {
 
 
     refreshOverlays(newLocation) {
-        var firstMember = this.getLoggedInMember();
-        this.highlightAllPickUpDays(firstMember.school, newLocation);
+        // var firstMember = this.getLoggedInMember();
+        // this.highlightAllPickUpDays(firstMember.school, newLocation);
 
     }
 
@@ -882,9 +898,10 @@ class App extends Component {
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.logInMember(member);
+                    this.refreshOverlays($(target).attr("data-location"));
                 }
             }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
+            this.setFilterAgeByGroup(this.state.members[member].defaultLocation);
 
 
         } else {
@@ -893,6 +910,7 @@ class App extends Component {
         }
         $(".editable-age-group").css("color", "inherit");
         $(".editable-age-group").css("background-color", "inherit");
+        // this.refreshOverlays();
         // $('.change-age-btn').unbind("hover");
         // $('.change-age-btn').hover(function () {
         //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
@@ -1245,17 +1263,22 @@ class App extends Component {
         //     .attr("data-tip", "Boo! We're open for drop in on Halloween. Even if you're trick-or-treating, stop in and show us your costume for some candy!");
         //
 
-        var holidays = global.allEvents.metaData.holidays;
-        for (var i = 0; i < Object.keys(holidays).length; i++) {
-            this.addOverlay(
-                this.getDayObject(holidays[i].month, holidays[i].day),
-                holidays[i].month,
-                "holiday",
-                holidays[i].backgroundColor,
-                holidays[i].title,
-                holidays[i].subTitle
-            );
+        try{
+            var holidays = global.allEvents.metaData.holidays;
+            for (var i = 0; i < Object.keys(holidays).length; i++) {
+                this.addOverlay(
+                    this.getDayObject(holidays[i].month, holidays[i].day),
+                    holidays[i].month,
+                    "holiday",
+                    holidays[i].backgroundColor,
+                    holidays[i].title,
+                    holidays[i].subTitle
+                );
+            }
+        } catch (e) {
+            console.log("holidays issue", e);
         }
+
 
     }
 
@@ -1645,8 +1668,8 @@ class App extends Component {
                                         Special events
                                     </div>
                                 </div>
-                                { this.isMemberLoggedIn() && this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
-
+                                { this.isMemberLoggedIn() ?
+                                    this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
 
                                     <div className="filter-circle-container">
                                         <div className="">
@@ -1658,6 +1681,9 @@ class App extends Component {
                                         </div>
                                     </div>
 
+                                    :
+
+                                    ""
                                     :
 
                                     ""
@@ -1675,148 +1701,152 @@ class App extends Component {
 
                             </div>
                             <div className="page-container">
-                                <div className="month-sidebar">
-                                    <Month name="September" numDays="30" skipDays="5"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
-                                           events={global.eventsByDay["September"]}
-                                    />
-                                    <Month name="October" numDays="31" skipDays="0"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
-                                           events={global.eventsByDay["October"]}
-                                    />
-                                    <Month name="November" numDays="30" skipDays="3"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
-                                           events={global.eventsByDay["November"]}
-                                    />
-                                    <Month name="December" numDays="31" skipDays="5"
-                                           filterDropIn={this.state.filterDropIn}
-                                           filterSpecial={this.state.filterSpecial}
-                                           filterSeries={this.state.filterSeries}
-                                           filterProSeries={this.state.filterProSeries}
-                                           filterParties={this.state.filterParties}
-                                           filterCamp={this.state.filterCamp}
-                                           filterAge7to9={this.state.filter7to9}
-                                           filterAge9to11={this.state.filter9to11}
-                                           filterAge12to14={this.state.filter12to14}
-                                           filterLocation={this.state.filterLocation}
-                                           pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
-                                           events={global.eventsByDay["December"]}
-                                    />
 
-                                    {/*HIDING NEXT YEAR*/}
+                                    <div className="month-sidebar">
+                                        <Month name="September" numDays="30" skipDays="5"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["September"] : []}
+                                        />
+                                        <Month name="October" numDays="31" skipDays="0"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["October"]:[]}
+                                        />
+                                        <Month name="November" numDays="30" skipDays="3"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["November"]:[]}
+                                        />
+                                        <Month name="December" numDays="31" skipDays="5"
+                                               filterDropIn={this.state.filterDropIn}
+                                               filterSpecial={this.state.filterSpecial}
+                                               filterSeries={this.state.filterSeries}
+                                               filterProSeries={this.state.filterProSeries}
+                                               filterParties={this.state.filterParties}
+                                               filterCamp={this.state.filterCamp}
+                                               filterAge7to9={this.state.filter7to9}
+                                               filterAge9to11={this.state.filter9to11}
+                                               filterAge12to14={this.state.filter12to14}
+                                               filterLocation={this.state.filterLocation}
+                                               pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
+                                               events={this.state.isJSONloaded ? global.eventsByDay["December"]:[]}
+                                        />
 
-                                    {/*<Month */}
-                                            {/*name="January" numDays="31" skipDays="1"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["January"]}*/}
-                                    {/*/>*/}
-                                    {/*<Month */}
-                                            {/*name="February" numDays="28" skipDays="4"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["February"]}*/}
-                                    {/*/>*/}
-                                    {/*<Month name="March" numDays="31" skipDays="4"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["March"]}*/}
-                                    {/*/>*/}
-                                    {/*<Month name="April" numDays="30" skipDays="0"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["April"]}*/}
-                                    {/*/>*/}
-                                    {/*<Month name="May" numDays="31" skipDays="2"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["May"]}*/}
-                                    {/*/>*/}
-                                    {/*<Month name="June" numDays="30" skipDays="5"*/}
-                                           {/*filterDropIn={this.state.filterDropIn}*/}
-                                           {/*filterSpecial={this.state.filterSpecial}*/}
-                                           {/*filterSeries={this.state.filterSeries}*/}
-                                           {/*filterProSeries={this.state.filterProSeries}*/}
-                                           {/*filterParties={this.state.filterParties}*/}
-                                           {/*filterCamp={this.state.filterCamp}*/}
-                                           {/*filterAge7to9={this.state.filter7to9}*/}
-                                           {/*filterAge9to11={this.state.filter9to11}*/}
-                                           {/*filterAge12to14={this.state.filter12to14}*/}
-                                           {/*filterLocation={this.state.filterLocation}*/}
-                                           {/*events={global.eventsByDay["June"]}*/}
-                                    {/*/>*/}
+                                        {/*HIDING NEXT YEAR*/}
 
-                                </div>
+                                        {/*<Month */}
+                                        {/*name="January" numDays="31" skipDays="1"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["January"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month */}
+                                        {/*name="February" numDays="28" skipDays="4"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["February"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="March" numDays="31" skipDays="4"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["March"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="April" numDays="30" skipDays="0"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["April"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="May" numDays="31" skipDays="2"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["May"]}*/}
+                                        {/*/>*/}
+                                        {/*<Month name="June" numDays="30" skipDays="5"*/}
+                                        {/*filterDropIn={this.state.filterDropIn}*/}
+                                        {/*filterSpecial={this.state.filterSpecial}*/}
+                                        {/*filterSeries={this.state.filterSeries}*/}
+                                        {/*filterProSeries={this.state.filterProSeries}*/}
+                                        {/*filterParties={this.state.filterParties}*/}
+                                        {/*filterCamp={this.state.filterCamp}*/}
+                                        {/*filterAge7to9={this.state.filter7to9}*/}
+                                        {/*filterAge9to11={this.state.filter9to11}*/}
+                                        {/*filterAge12to14={this.state.filter12to14}*/}
+                                        {/*filterLocation={this.state.filterLocation}*/}
+                                        {/*events={global.eventsByDay["June"]}*/}
+                                        {/*/>*/}
+
+                                    </div>
+
+
+
                                 <div className="day-sidebar" id="day-start">
 
                                     <div className="big-day-title">
