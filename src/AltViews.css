@@ -874,7 +874,6 @@ Button.btn-2:hover {
     padding-top:5px;
 }
 
-<<<<<<< HEAD
 .day-view {
     display: grid;
     grid-template-rows: repeat(25, 1fr);
@@ -891,6 +890,12 @@ Button.btn-2:hover {
     float:left;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+.day-view-container {
+    display:flex;
+    flex-direction: column;
+    margin-right:10px;
+    margin-top:20px;
 
 }
 .time-display {
@@ -934,12 +939,15 @@ Button.btn-2:hover {
 }
 
 .cart-placeholder {
+
     align-self: flex-start;
     margin-left:15px;
     position:relative;
     float:left;
-    margin-top:-10px;
+    margin-top:30px;
     top:210px;
+    margin-right:20px;
+
 }
 
 .age-notification {
@@ -969,7 +977,7 @@ Button.btn-2:hover {
     font-weight: 800;
     border-bottom: solid 2px #333;
     padding-bottom: 2px;
-=======
+}
 .pick-up-available {
     background-image: url("img/walk.png");
     background-repeat: no-repeat;
@@ -979,5 +987,4 @@ Button.btn-2:hover {
 }
 .month-sidebar {
     display:none;
->>>>>>> master
 }
