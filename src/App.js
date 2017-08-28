@@ -1338,6 +1338,19 @@ class App extends Component {
         //
 
 
+        ///blocks array
+
+        var blocks = [
+            {
+                isWeekDay : true,
+                start: "4:00pm",
+                length: 90,
+                customClass: "",
+                name: "Test block",
+                type: "series"
+            }
+        ];
+
 
         var campFilterIcon = this.state.filterCamp ? "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
@@ -1419,7 +1432,7 @@ class App extends Component {
                             </div>
                             <div className="age-notification">
                                 {this.state.selectedMemberKey != "" ?
-                                    <div className="age-note">NOTE: We're showing you only events for members
+                                    <div className="age-note">NOTE: We're showing only events for
                                         age {this.state.members[this.state.selectedMemberKey].age}. If this is
                                         not {this.state.members[this.state.selectedMemberKey].name}'s correct age <a
                                             href={"member/" + this.state.members[this.state.selectedMemberKey].id + "/pedit"}><span
@@ -1502,9 +1515,7 @@ class App extends Component {
                             </div>
                             <div className="page-container">
                                 <div className="month-sidebar">
-                                    <DayView
-                                        isWeekDay = "true"
-                                    />
+
                                     <Month name="September" numDays="30" skipDays="5"
                                            filterDropIn={this.state.filterDropIn}
                                            filterSpecial={this.state.filterSpecial}
@@ -1721,6 +1732,11 @@ class App extends Component {
 
                     </div>
                     <div className="cart-placeholder">
+                        <DayView
+                            isWeekDay = "true"
+                            selectedDay = "tue"
+                            blocks = {blocks}
+                        />
                     </div>
                 </div>
             </div>

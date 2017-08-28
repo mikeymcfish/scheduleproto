@@ -50,10 +50,22 @@ class DayView extends React.Component {
 
         var dayColArr = this.makeTimeArray();
 
+        var blocksToDisplay = [];
+        blocksToDisplay = this.props.blocks;
 
         return (
-
+            <div>
+                <div className="my-day-selection-box">
+                    <div className={this.props.selectedDay=="mon"? "selected-day-of-week" : ""}>M</div>
+                    <div className={this.props.selectedDay=="tue"? "selected-day-of-week" : ""}>T</div>
+                    <div className={this.props.selectedDay=="wed"? "selected-day-of-week" : ""}>W</div>
+                    <div className={this.props.selectedDay=="thu"? "selected-day-of-week" : ""}>Th</div>
+                    <div className={this.props.selectedDay=="fri"? "selected-day-of-week" : ""}>F</div>
+                    <div className={this.props.selectedDay=="sat"? "selected-day-of-week" : ""}>Sa</div>
+                    <div className={this.props.selectedDay=="sun"? "selected-day-of-week" : ""}>Su</div>
+                </div>
             <div className="day-view">
+                <div></div>
 
                 {dayColArr.map((time, index) =>
 
@@ -68,45 +80,22 @@ class DayView extends React.Component {
                     </div>
 
                 )}
-                <DayViewTimeBlock
-                    isWeekDay = "true"
-                    start = "2:30pm"
-                    length = {60*1.5}
-                    end = "7:00pm"
-                    customClass = "striped"
-                    name = "NOT PURCHASED"
-                />
 
-               <DayViewTimeBlock
-                   isWeekDay = "true"
-                   start = "4:00pm"
-                   length = "90"
-                   end = "5:00pm"
-                   type = "series"
-                   customClass = ""
-                   name = "Regular Series"
-               />
-                <DayViewTimeBlock
-                    isWeekDay = "true"
-                    start = "5:45pm"
-                    length = "75"
-                    end = "7:00pm"
-                    type = "pro-series"
-                    customClass = ""
-                    name = "PRO series"
+                {blocksToDisplay.map((block, index) =>
 
-                />
-                <DayViewTimeBlock
-                    isWeekDay = "true"
-                    start = "2:00pm"
-                    length = "30"
-                    end = "7:00pm"
-                    type = "drop-in"
-                    customClass = ""
-                    name = "Drop-in"
+                    <DayViewTimeBlock
+                        isWeekDay = {block.isWeekDay}
+                        start = {block.start}
+                        length = {block.length}
+                        end = ""
+                        customClass = {block.customClass}
+                        name = {block.name}
+                        type = {block.type}
+                    />
 
-                />
+                )}
 
+                </div>
             </div>
 
         )
