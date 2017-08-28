@@ -126,7 +126,7 @@ class App extends Component {
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
             console.log("received auth user: " + data.user_id);
-            if (data.user_id) {
+            if (data.user_id>=0) {
                 that.getMemberInfoFromAPI(data.user_id);
                 that.setState({
                     loggedInUserID:data.user_id
@@ -181,6 +181,9 @@ class App extends Component {
 
         }
         else {
+
+            //member test:
+
             console.log("loading test member data");
             $.getJSON('/api/v1/scheduler/members.json', function (data) {
                 _this.setState(
@@ -261,7 +264,6 @@ class App extends Component {
             .not(".in-cart")
             .remove();
 
-        // $(".in-my-cart").remove();
 
         $(".highlighted").removeClass("highlighted");
 
@@ -636,19 +638,6 @@ class App extends Component {
         var firstMember = {};
         var firstKey;
 
-        // if (memberKey!=null && memberKey!=undefined ) {
-        //     console.log("logging in the key " + memberKey);
-        //     firstKey = memberKey;
-        //     firstMember = this.state.members[memberKey];
-        // } else {
-        //     for (var member in Object.keys(this.state.members)) {
-        //         firstKey = member;
-        //         firstMember = this.state.members[member];
-        //         console.log("logging in the first key");
-        //         break;
-        //     }
-        // }
-
         console.log("logging in the key " + memberKey);
         firstKey = memberKey;
         firstMember = this.state.members[memberKey];
@@ -830,6 +819,10 @@ class App extends Component {
         }
 
         if (target.hasAttribute("data-age-group")) {
+
+            $(".editable-age-group").css("color", "inherit");
+            $(".editable-age-group").css("background-color", "inherit");
+
             this.setState(
                 {
                     currentAgeGroup: $(target).attr("data-age-group")
@@ -842,25 +835,16 @@ class App extends Component {
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.logInMember(member);
-                    this.refreshOverlays($(target).attr("data-location"));
+                    return;
                 }
             }
-            this.setFilterAgeByGroup(this.state.members[member].defaultLocation);
+            this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
         } else {
             $(".filter-age")
                 .css("display", "flex");
         }
-        $(".editable-age-group").css("color", "inherit");
-        $(".editable-age-group").css("background-color", "inherit");
-        // this.refreshOverlays();
-        // $('.change-age-btn').unbind("hover");
-        // $('.change-age-btn').hover(function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
-        // }, function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","#333");
-        // });
 
     };
 
@@ -882,11 +866,11 @@ class App extends Component {
 
             this.refreshOverlays($(target).attr("data-location"));
 
-
         } else {
             $(".filter-location")
                 .css("display", "flex");
         }
+        this.clearCalendar();
 
     };
 
@@ -1625,7 +1609,7 @@ class App extends Component {
                                     </div>
                                 </div>
                                 { this.isMemberLoggedIn() ?
-                                    this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
+                                    this.isSchoolAvail(this.getLoggedInMember().school, this.state.currentLocation).length>0 ?
 
                                     <div className="filter-circle-container">
                                         <div className="">

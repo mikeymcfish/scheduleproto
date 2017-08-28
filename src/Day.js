@@ -79,7 +79,7 @@ class Day extends React.Component {
 
     }
 
-    renderBar(event) {
+    renderBar(event, type, key) {
 
         //console.log(this.props.filterAge7to9, event.age);
 
@@ -115,7 +115,7 @@ class Day extends React.Component {
         var soldOutClass = "";
         event.spotsLeft<=0 ? soldOutClass="sold-out" : soldOutClass="selectable";
         return(
-            <div className={"event-bar " + colorClass + " " + hiddenClass} data-days={event.daystring} data-event-id={event.id}>
+            <div id={"bar-id-"+key} className={"event-bar " + colorClass + " " + hiddenClass} data-days={event.daystring} data-event-id={event.id}>
             </div>
         );
 
@@ -181,11 +181,11 @@ class Day extends React.Component {
 
                 {/*</div>*/}
                 <div className="event-bars">
-                    {dropInEvents.map((item,i) => this.renderBar(item, "dropin"), this)}
-                    {specialEvents.map((item,i) => this.renderBar(item, "special"), this)}
-                    {seriesEvents.map((item,i) => this.renderBar(item, "series"), this)}
-                    {proSeriesEvents.map((item,i) => this.renderBar(item, "proSeries"), this)}
-                    {campEvents.map((item,i) => this.renderBar(item, "camp"), this)}
+                    {dropInEvents.map((item,i) => this.renderBar(item, "dropin", i), this)}
+                    {specialEvents.map((item,i) => this.renderBar(item, "special", i), this)}
+                    {seriesEvents.map((item,i) => this.renderBar(item, "series", i), this)}
+                    {proSeriesEvents.map((item,i) => this.renderBar(item, "proSeries", i), this)}
+                    {campEvents.map((item,i) => this.renderBar(item, "camp", i), this)}
                 </div>
             </div>
         );
