@@ -1043,6 +1043,15 @@ class App extends Component {
 
             thisEvent.daystring = newString;
 
+            var priority = 4;
+            if (thisEvent.type=="pro-series") priority = 2;
+            if (thisEvent.type=="series") priority = 1;
+            if (thisEvent.type=="drop-in") priority = 3;
+            if (thisEvent.type=="special") priority = 0;
+
+            thisEvent.priority = priority;
+
+
         }
     }
 
@@ -1213,6 +1222,9 @@ class App extends Component {
                     else thisDaysFilteredEvents.push(thisDaysEvents[i]);
                 }
             }
+            thisDaysFilteredEvents.sort(function(a,b) {
+                return a.priority - b.priority;
+            });
             var firstEventDates = thisDaysFilteredEvents[0].daystring;
             var firstDay = this.getFirstDayFromFullString(firstEventDates);
 
