@@ -282,6 +282,8 @@ class App extends Component {
         $(".highlighted").removeClass("highlighted");
 
         $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
+
+
     }
 
     isMemberLoggedIn() {
@@ -561,6 +563,7 @@ class App extends Component {
             });
         this.addHolidays();
         this.runJquery();
+        $('.month-sidebar').show();
     }
 
     //YouTube Production
@@ -678,6 +681,11 @@ class App extends Component {
     refreshOverlays(newLocation) {
         // var firstMember = this.getLoggedInMember();
         // this.highlightAllPickUpDays(firstMember.school, newLocation);
+        this.setState({
+            viewingDay: "none",
+            viewingDayEvents: []
+
+        })
 
     }
 
@@ -1217,7 +1225,7 @@ class App extends Component {
             viewingDay: month + " " + day,
             viewingDayEvents: thisDaysFilteredEvents
 
-        })
+        });
 
 
     }

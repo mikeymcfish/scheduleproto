@@ -881,3 +881,6 @@ Button.btn-2:hover {
     background-size: 50%;
     background-color: white;
 }
+.month-sidebar {
+    display:none;
+}
