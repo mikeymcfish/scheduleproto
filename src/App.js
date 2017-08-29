@@ -590,8 +590,12 @@ class App extends Component {
     runJquery() {
         global.isUpdating = true;
         console.log("jquery");
-        $('div:has(> #no-day)').addClass('no-day');
-        $('div:has(> .close-me)').addClass('closed');
+        $('div:has(> #no-day)')
+            .addClass('no-day')
+            .removeClass('pick-up-available');
+        $('div:has(> .close-me)')
+            .addClass('closed')
+            .removeClass('pick-up-available');
         // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
