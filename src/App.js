@@ -127,9 +127,10 @@ class App extends Component {
          */
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
-            console.log("received auth user: " + data.user_id);
+            console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
             if (data.user_id>=0) {
-                that.getMemberInfoFromAPI(data.user_id);
+
+                that.getMemberInfoFromAPI(data.user_id, data.access_token);
                 that.setState({
                     loggedInUserID:data.user_id
                 })
@@ -174,11 +175,11 @@ class App extends Component {
         }
     }
 
-    getMemberInfoFromAPI(userID) {
+    getMemberInfoFromAPI(userID, access_token) {
         var _this = this;
         if (isLive) {
             console.log("loading live member data");
-            $.getJSON('api/v1/scheduler/members?user_id=' + userID, function (data) {
+            $.getJSON('api/v1/scheduler/members?user_id=' + userID+"&access_token="+access_token, function (data) {
                 _this.setState(
                     {
                         members: data.members
