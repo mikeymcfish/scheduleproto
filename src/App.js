@@ -113,6 +113,8 @@ class App extends Component {
 
         var that = this;
 
+
+
         /*
 
         1. Make sure no dummy data needed
@@ -143,25 +145,33 @@ class App extends Component {
 
     loadScheduleData() {
         var _this = this;
-        $.getJSON('api/v1/scheduler/all'+(!isLive? ".json" : ""), function (data) {
-            global.allEvents = data;
-            //TODO 'DAYSTRING' for all
-            _this.parseDateListToString(global.allEvents);
+        try {
+            global.allEvents = sessionStorage.getItem('all_events');
+            global.eventsByDay = sessionStorage.getItem('events_by_day');
+            console.log("trying to use session data");
+            this.allDataLoaded();
+        } catch (e) {
+            console.log("falling back on new data");
+            $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+                global.allEvents = data;
+                //TODO 'DAYSTRING' for all
+                _this.parseDateListToString(global.allEvents);
 
-            //async
-            _this.convertEventsToByDay(global.allEvents.events);
-            _this.setState({
-                pickups: global.allEvents.metaData.pickUpDays
+                //async
+                _this.convertEventsToByDay(global.allEvents.events);
+                _this.allDataLoaded();
+                sessionStorage.setItem('all_events', global.allEvents);
+                sessionStorage.setItem('events_by_day', global.eventsByDay);
+
+                // // _this.addHolidays();
+                //
+                // if (_this.state.loggedInUserID != 0) {
+                //     _this.logInMember("0");
+                // }
+
+
             });
-            _this.getCartCall();
-            _this.allDataLoaded();
-            // _this.addHolidays();
-
-            if (_this.state.loggedInUserID!=0) {
-                _this.logInMember("0");
-            }
-
-        });
+        }
     }
 
     getMemberInfoFromAPI(userID) {
@@ -508,6 +518,14 @@ class App extends Component {
     }
 
     allDataLoaded() {
+
+        this.setState({
+            pickups: global.allEvents.metaData.pickUpDays
+        });
+        if (this.state.loggedInUserID != 0) {
+            this.logInMember("0");
+        }
+        this.getCartCall();
         $('body').click(function () {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
