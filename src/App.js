@@ -667,6 +667,12 @@ class App extends Component {
 
         $(".birthday").removeClass("birthday");
 
+        if (typeof firstMember != 'undefined'){
+            console.log("Member for key " + memberKey + " Undefined. Aborting", this.state.members, this.state.members.length);
+            return;
+        }
+
+
         this.setState({
             loggedIn: true,
             currentAgeGroup: firstMember.name.split(" ")[0],
