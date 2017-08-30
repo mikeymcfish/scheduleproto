@@ -115,6 +115,8 @@ class App extends Component {
 
         var that = this;
 
+
+
         /*
 
         1. Make sure no dummy data needed
@@ -127,9 +129,10 @@ class App extends Component {
          */
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
-            console.log("received auth user: " + data.user_id);
-            if (data.user_id) {
-                that.getMemberInfoFromAPI(data.user_id);
+            console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
+            if (data.user_id>=0) {
+
+                that.getMemberInfoFromAPI(data.user_id, data.access_token);
                 that.setState({
                     loggedInUserID:data.user_id
                 })
@@ -145,32 +148,40 @@ class App extends Component {
 
     loadScheduleData() {
         var _this = this;
-        $.getJSON('api/v1/scheduler/all'+(!isLive? ".json" : ""), function (data) {
-            global.allEvents = data;
-            //TODO 'DAYSTRING' for all
-            _this.parseDateListToString(global.allEvents);
+        try {
+            global.allEvents = sessionStorage.getItem('all_events');
+            global.eventsByDay = sessionStorage.getItem('events_by_day');
+            console.log("trying to use session data");
+            this.allDataLoaded();
+        } catch (e) {
+            console.log("falling back on new data");
+            $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+                global.allEvents = data;
+                //TODO 'DAYSTRING' for all
+                _this.parseDateListToString(global.allEvents);
 
-            //async
-            _this.convertEventsToByDay(global.allEvents.events);
-            _this.setState({
-                pickups: global.allEvents.metaData.pickUpDays
+                //async
+                _this.convertEventsToByDay(global.allEvents.events);
+                _this.allDataLoaded();
+                sessionStorage.setItem('all_events', global.allEvents);
+                sessionStorage.setItem('events_by_day', global.eventsByDay);
+
+                // // _this.addHolidays();
+                //
+                // if (_this.state.loggedInUserID != 0) {
+                //     _this.logInMember("0");
+                // }
+
+
             });
-            _this.getCartCall();
-            _this.allDataLoaded();
-            // _this.addHolidays();
-
-            if (_this.state.loggedInUserID!=0) {
-                _this.logInMember("0");
-            }
-
-        });
+        }
     }
 
-    getMemberInfoFromAPI(userID) {
+    getMemberInfoFromAPI(userID, access_token) {
         var _this = this;
         if (isLive) {
             console.log("loading live member data");
-            $.getJSON('api/v1/scheduler/members?user_id=' + userID, function (data) {
+            $.getJSON('api/v1/scheduler/members?user_id=' + userID+"&access_token="+access_token, function (data) {
                 _this.setState(
                     {
                         members: data.members
@@ -183,6 +194,9 @@ class App extends Component {
 
         }
         else {
+
+            //member test:
+
             console.log("loading test member data");
             $.getJSON('/api/v1/scheduler/members.json', function (data) {
                 _this.setState(
@@ -263,7 +277,6 @@ class App extends Component {
             .not(".in-cart")
             .remove();
 
-        // $(".in-my-cart").remove();
 
         $(".highlighted").removeClass("highlighted");
 
@@ -508,6 +521,14 @@ class App extends Component {
     }
 
     allDataLoaded() {
+
+        this.setState({
+            pickups: global.allEvents.metaData.pickUpDays
+        });
+        if (this.state.loggedInUserID != 0) {
+            this.logInMember("0");
+        }
+        this.getCartCall();
         $('body').click(function () {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
@@ -557,13 +578,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-<<<<<<< HEAD
-
-
-
-=======
         this.runJquery();
->>>>>>> master
+
     }
 
     componentDidUpdate() {
@@ -578,8 +594,12 @@ class App extends Component {
     runJquery() {
         global.isUpdating = true;
         console.log("jquery");
-        $('div:has(> #no-day)').addClass('no-day');
-        $('div:has(> .close-me)').addClass('closed');
+        $('div:has(> #no-day)')
+            .addClass('no-day')
+            .removeClass('pick-up-available');
+        $('div:has(> .close-me)')
+            .addClass('closed')
+            .removeClass('pick-up-available');
         // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
@@ -644,24 +664,17 @@ class App extends Component {
         var firstMember = {};
         var firstKey;
 
-        // if (memberKey!=null && memberKey!=undefined ) {
-        //     console.log("logging in the key " + memberKey);
-        //     firstKey = memberKey;
-        //     firstMember = this.state.members[memberKey];
-        // } else {
-        //     for (var member in Object.keys(this.state.members)) {
-        //         firstKey = member;
-        //         firstMember = this.state.members[member];
-        //         console.log("logging in the first key");
-        //         break;
-        //     }
-        // }
-
         console.log("logging in the key " + memberKey);
         firstKey = memberKey;
         firstMember = this.state.members[memberKey];
 
         $(".birthday").removeClass("birthday");
+
+        if (typeof firstMember == 'undefined'){
+            console.log("Member for key " + memberKey + " Undefined. Aborting", this.state.members, this.state.members.length);
+            return;
+        }
+
 
         this.setState({
             loggedIn: true,
@@ -826,7 +839,16 @@ class App extends Component {
                 miniCampDiscount: 0.1,
 
             })
+        } else {
+            this.setState({
+                seriesDiscount: 0,
+                proSeriesDiscount: 0,
+                dropInDiscount: 0,
+                miniCampDiscount: 0,
+
+            })
         }
+
 
     }
 
@@ -838,6 +860,10 @@ class App extends Component {
         }
 
         if (target.hasAttribute("data-age-group")) {
+
+            $(".editable-age-group").css("color", "inherit");
+            $(".editable-age-group").css("background-color", "inherit");
+
             this.setState(
                 {
                     currentAgeGroup: $(target).attr("data-age-group")
@@ -850,25 +876,16 @@ class App extends Component {
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.logInMember(member);
-                    this.refreshOverlays($(target).attr("data-location"));
+                    return;
                 }
             }
-            this.setFilterAgeByGroup(this.state.members[member].defaultLocation);
+            this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
         } else {
             $(".filter-age")
                 .css("display", "flex");
         }
-        $(".editable-age-group").css("color", "inherit");
-        $(".editable-age-group").css("background-color", "inherit");
-        // this.refreshOverlays();
-        // $('.change-age-btn').unbind("hover");
-        // $('.change-age-btn').hover(function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","blue");
-        // }, function () {
-        //     $('.change-age-btn > .filtering-hover-text').css("color","#333");
-        // });
 
     };
 
@@ -890,11 +907,11 @@ class App extends Component {
 
             this.refreshOverlays($(target).attr("data-location"));
 
-
         } else {
             $(".filter-location")
                 .css("display", "flex");
         }
+        this.clearCalendar();
 
     };
 
@@ -1654,7 +1671,7 @@ class App extends Component {
                                     </div>
                                 </div>
                                 { this.isMemberLoggedIn() ?
-                                    this.isSchoolAvail(this.getLoggedInMember().school, this.getLoggedInMember().defaultLocation).length>0 ?
+                                    this.isSchoolAvail(this.getLoggedInMember().school, this.state.currentLocation).length>0 ?
 
                                     <div className="filter-circle-container">
                                         <div className="">

@@ -30,6 +30,13 @@ src/ViewDay.js
 src/isLive.js
 
 src/isLive.js
+<<<<<<< HEAD
 >>>>>>> master
 
 .idea/workspace.xml
+=======
+
+.idea/workspace.xml
+
+src/isLive.js
+>>>>>>> master
