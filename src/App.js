@@ -104,7 +104,13 @@ class App extends Component {
             loggedInUserID: 0,
             pickups: {},
             warnedAboutPro: false,
-            dayViewBlocks: []
+            dayView: {
+                blocks: [],
+                isWeekday: true,
+                hasPickupScheduled:false,
+                hasPickupOptions:false,
+                school: ""
+            }
 
         }
 
@@ -1490,7 +1496,10 @@ class App extends Component {
 
         this.setState(
             {
-                dayViewBlocks: blocks
+                dayView: {
+                    blocks: blocks,
+
+                }
             }
         )
 
@@ -1928,10 +1937,17 @@ class App extends Component {
                     <div className="cart-placeholder" id="cart-holder">
                         <DayView
                             isViewingDay = {this.state.viewingDay!="none"}
-                            isWeekDay = "true"
-                            selectedDay = "tue"
-                            blocks = {this.state.dayViewBlocks}
+                            isWeekDay = {true}
+                            selectedDay = {this.getDayTitleString(this.state.viewingDay).split(",")[0]}
+                            blocks = {this.state.dayView.blocks}
                             dayOfWeek = {this.getDayTitleString(this.state.viewingDay).split(",")[0]}
+                            hasPickupScheduled = {false}
+                            hasPickupOption = {true}
+                            school = "P.S. 29"
+                            pickupPrice = {10 - this.state.dropInDiscount}
+                            hasSeries = ""
+                            hasDropIn = ""
+                            hasProSeries = "Something stuff"
                         />
                     </div>
                 </div>
