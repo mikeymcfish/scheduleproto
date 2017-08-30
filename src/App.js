@@ -836,7 +836,16 @@ class App extends Component {
                 miniCampDiscount: 0.1,
 
             })
+        } else {
+            this.setState({
+                seriesDiscount: 0,
+                proSeriesDiscount: 0,
+                dropInDiscount: 0,
+                miniCampDiscount: 0,
+
+            })
         }
+
 
     }
 
