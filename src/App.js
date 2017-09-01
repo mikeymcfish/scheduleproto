@@ -566,6 +566,7 @@ class App extends Component {
             });
         this.addHolidays();
         this.runJquery();
+        this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
     }
 
@@ -1213,6 +1214,23 @@ class App extends Component {
             "</div>" +
             "</div>"
         );
+
+    }
+
+    doHardCodedOpenHouses() {
+
+        var _this = this;
+        $(".overlay.holiday")
+            .click(function() {
+                _this.state.currentLocation == "Brooklyn" ?
+                window.open("https://www.eventbrite.com/e/fall-open-houses-at-pixel-academy-brooklyn-registration-37432156588","_blank")
+                :
+                window.open("https://www.eventbrite.com/e/fall-open-houses-at-pixel-academy-tribeca-registration-37432029207","_blank");
+
+             })
+            .attr("data-tip","Visit Pixel Academy's fall open houses and get an exclusive peek at the coolest tech we're using this fall after school! Kids (ages 7+) and their families are welcome to swing by, experience awesome technology like Virtual and Augmented Reality, and speak with our friendly staff about how to get started this fall.")
+            .css("cursor","pointer");
+        ReactTooltip.rebuild();
 
     }
 
