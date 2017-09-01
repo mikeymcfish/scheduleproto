@@ -140,7 +140,7 @@ class DayView extends React.Component {
                                     type = ""
                                 />
 
-                            
+
                         </div>
                     </div>
                 )
