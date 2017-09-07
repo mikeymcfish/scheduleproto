@@ -1,27 +1,23 @@
-import { Provider } from 'react-redux';
-import createStore from './store';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
+
 import './index.css';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
 import App from './App';
-import $ from 'jquery';
-
-import registerServiceWorker from './registerServiceWorker';
-import seriesJSON from "./series.json";
-
-var _this = this;
+import createStore from './shared/store';
+import history from './shared/history';
 
 // Create Redux global store
 const store = createStore();
 
 ReactDOM.render(
     <Provider store={ store }>
-        <App/>
+        <ConnectedRouter history={ history }>
+            { /* Add routes here */ }
+            <Route exact path="/" component={ App } />
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
 );
-
-
-registerServiceWorker();

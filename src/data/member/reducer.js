@@ -1,10 +1,28 @@
 import Member from './model.js';
 import EntityState from './../EntityState';
+import { LIST_MEMBERS } from './../../shared/state/action-types';
 
-export default (state = new EntityState(), action) => {
+import moment from 'moment';
+
+export default function (state = new EntityState(), action) {
+    console.log(action, LIST_MEMBERS);
     switch (action.type) {
+        case LIST_MEMBERS.REQUEST:
+            return state.merge({
+                loaded: false,
+                loading: true,
+                error: null,
+                receivedAt: null,
+            });
+        case LIST_MEMBERS.SUCCESS:
+           return state.merge({
+               loaded: true,
+               loading: false,
+               error: null,
+               receivedAt: moment(),
+               items: state.items.merge(action.payload.map(member => [member.id, new Member(member)])),
+           });
         default:
-            console.log(action);
             return state;
     }
 };
