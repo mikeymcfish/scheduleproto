@@ -5,7 +5,6 @@ import { LIST_MEMBERS } from './../../shared/state/action-types';
 import moment from 'moment';
 
 export default function (state = new EntityState(), action) {
-    console.log(action, LIST_MEMBERS);
     switch (action.type) {
         case LIST_MEMBERS.REQUEST:
             return state.merge({
