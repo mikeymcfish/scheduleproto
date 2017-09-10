@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import './index.css';
 import App from './App';
 import Cart from './cart';
+import Schedule from './schedule';
 import createStore from './shared/store';
 import history from './shared/history';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
                 { /* Add routes here */ }
                 <Route exact path="/" component={ App } />
                 <Route path="/cart" component={ Cart } />
+                <Route path="/schedule" component={ Schedule } />
             </div>
         </ConnectedRouter>
     </Provider>,

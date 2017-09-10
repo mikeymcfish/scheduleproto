@@ -19,6 +19,7 @@ class Index extends Component {
 
                 {/* Payment Options */}
                 <div>
+                    {/* We should render into this container (pay now / select payment / etc )*/}
                     <div>How do you want to pay?</div>
                     <div>
                         <button>Pay Now</button>
