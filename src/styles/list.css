@@ -1,0 +1,86 @@
+#list-container {
+    text-align: left;
+}
+
+/* This should be simplified with scss */
+.list-item {
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    width: 550px;
+    min-width: 500px;
+    max-width: 700px;
+    margin-left: 10px;
+    background-color: white;
+    border-color: #444444;
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .3);
+    min-height: 80px;
+    z-index: 10;
+}
+
+.list-item-date-container {
+    color: #fff;
+    flex: 0 0 20%;
+    display: flex;
+    /*background: red;*/
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-item-body {
+    flex: 0 0 80%;
+    margin-left: 10px;
+}
+
+.list-item-date-name {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.list-item-date-number {
+    font-size: 35px;
+    margin-top: 1px;
+}
+
+.list-item-title {
+    display: flex;
+    margin-top: 8px;
+}
+
+.list-item-title-name {
+    flex: 0 0 75%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.list-item-title-age {
+    flex: 0 0 20%;
+    color: #a8a8a8;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.list-item-dates {
+    display: flex;
+    margin-top: 13px;
+    margin-bottom: 5px;
+}
+
+.list-item-dates-title {
+    flex: 0 0 10%;
+    color: #a8a8a8;
+    font-size: 16px;
+    text-align: right;
+    margin-left: 20px;
+}
+
+.list-item-dates-dates {
+    flex: 0 0 90%;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+}

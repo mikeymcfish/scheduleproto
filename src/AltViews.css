@@ -137,6 +137,7 @@
 /*}*/
 
 .day.highlighted {
+    cursor: pointer;
     /*border: solid 2px #333;*/
     /*background-color: rgba(156, 158, 255, 0.18);*/
     /*transition: all 100ms;*/
@@ -748,7 +749,7 @@ Button.btn-2:hover {
 .big-day-title {
     font-size: 28px;
     margin-top:30px;
-    margin-bottom:20px;
+    margin-bottom:0px;
     text-align: center;
     /*border: solid 4px #333;*/
     padding:12px;
