@@ -63,6 +63,7 @@ class App extends Component {
             filter7to9: false,
             filter9to11: true,
             filter12to14: true,
+            filterAllAges: true,
             eventFilter: "events",
             filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
@@ -698,6 +699,26 @@ class App extends Component {
         this.addMemberBirthday(firstMember);
         this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
 
+    }
+
+    toggleAllAges = () => {
+        this.clearCalendar();
+        if (this.state.filterAllAges) {
+            this.setState({
+                filterAllAges: !this.state.filterAllAges,
+                filter7to9: false,
+                filter9to11: false,
+                filter12to14: false,
+            });
+        } else {
+            this.setState({
+                filterAllAges: !this.state.filterAllAges,
+                filter7to9: true,
+                filter9to11: true,
+                filter12to14: true,
+            });
+            this.setFilterAgeByAge(this.state.members[this.state.selectedMemberKey].age);
+        }
     }
 
     toggleSeries() {
@@ -1514,6 +1535,7 @@ class App extends Component {
 
 
 
+        var allAgesFilterIcon = this.state.filterAllAges ? "" : <CheckIcon />;
         var campFilterIcon = this.state.filterCamp ? "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
         var seriesFilterIcon = this.state.filterSeries ? "" : <CheckIcon/>;
@@ -1635,6 +1657,10 @@ class App extends Component {
                                  id={this.state.view.id}
                         />
                             <div className="filters">
+                                <div className="filter-circle-container" onClick={ this.toggleAllAges }>
+                                    <div className="filter-circle-filled series-color">{ allAgesFilterIcon }</div>
+                                    <div className="filter-circle-label">All Ages</div>
+                                </div>
                                 <div className="filter-circle-container" onClick={this.toggleSeries}>
                                     <div className="filter-circle-filled series-color">
                                         {seriesFilterIcon}
