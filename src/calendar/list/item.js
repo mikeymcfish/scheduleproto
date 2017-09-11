@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 export default class extends Component {
+
+    openBigDay = (event) => {
+        // console.log(event);
+        this.props.setViewDay(event.dateObject.format('MMMM'), event.dateObject.format('D'));
+    }
+
     render() {
         const { event } = this.props;
 
         return (
-            <div key={ event.id } className="list-item">
+            <div key={ event.id } className="list-item" onClick={ this.openBigDay.bind(null, event) }>
                 <div className={ "list-item-date-container " + event.type + "-color" }>
                     <div className="list-item-date">
                         <div className="list-item-date-name">{ event.dateObject.format('ddd') }</div>

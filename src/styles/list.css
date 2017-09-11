@@ -4,6 +4,7 @@
 
 /* This should be simplified with scss */
 .list-item {
+    cursor: pointer;
     display: flex;
     margin-bottom: 10px;
     border-radius: 4px;

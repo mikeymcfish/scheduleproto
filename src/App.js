@@ -1910,7 +1910,11 @@ class App extends Component {
                                         }
 
                                     </div>
-                                    <ListView allEvents={ this.listEvents } hide={ this.state.viewingDayEvents.length > 0 } />
+                                    <ListView
+                                        allEvents={ this.listEvents }
+                                        hide={ this.state.viewingDayEvents.length > 0 }
+                                        setViewDay={ this.setViewDay }
+                                    />
                                     <div className="big-day-container">
 
                                         {this.state.viewingDayEvents.map((event, index) =>

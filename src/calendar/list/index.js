@@ -56,6 +56,6 @@ export default class extends Component {
             return null;
         }
 
-        return <div id="list-container">{events.map(event => <ListItem event={ event } />)}</div>;
+        return <div id="list-container">{events.map(event =><ListItem event={ event } setViewDay={ this.props.setViewDay } />)}</div>;
     }
 }
