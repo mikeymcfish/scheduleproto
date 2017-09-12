@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 export default class extends Component {
 
     openBigDay = (event) => {
-        // console.log(event);
-        this.props.setViewDay(event.dateObject.format('MMMM'), event.dateObject.format('D'));
+        this.props.setViewDay(event.dateObject.format('MMMM'), event.dateObject.format('D'), event);
     }
 
     render() {

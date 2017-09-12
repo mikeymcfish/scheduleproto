@@ -1176,7 +1176,7 @@ class App extends Component {
         }
     }
 
-    setViewDay(month, day) {
+    setViewDay(month, day, singleEvent = null) {
 
         var thisDaysEvents = [];
         var thisDaysFilteredEvents = [];
@@ -1224,13 +1224,14 @@ class App extends Component {
 
         }
 
+        if (singleEvent) {
+            thisDaysFilteredEvents = [singleEvent];
+        }
+
         this.setState({
             viewingDay: month + " " + day,
             viewingDayEvents: thisDaysFilteredEvents
-
         });
-
-
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
