@@ -532,10 +532,19 @@ class App extends Component {
             this.logInMember("0");
         }
         this.getCartCall();
-        $('body').click(function () {
+        $('body').click(function (event) {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
             $(".filter-view").css("display", "none");
+
+            if(!$(event.target).closest('.month-sidebar').length) {
+                // $(this).removeClass("highlighted");
+                _this.clearCalendar();
+                _this.setState({
+                    viewingDay: "none",
+                    viewingDayEvents: [],
+                });
+            }
         });
         $('.change-age-btn').unbind("hover");
         $('.change-age-btn').hover(function () {
