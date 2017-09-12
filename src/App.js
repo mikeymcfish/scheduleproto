@@ -1658,7 +1658,7 @@ class App extends Component {
                         />
                             <div className="filters">
                                 <div className="filter-circle-container" onClick={ this.toggleAllAges }>
-                                    <div className="filter-circle-filled series-color">{ allAgesFilterIcon }</div>
+                                    <div className="filter-circle-filled all-ages-color">{ allAgesFilterIcon }</div>
                                     <div className="filter-circle-label">All Ages</div>
                                 </div>
                                 <div className="filter-circle-container" onClick={this.toggleSeries}>

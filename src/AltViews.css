@@ -17,6 +17,7 @@
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
     --calendarColor: rgb(151,151,151);
+    --allAgesColor: rgba(0, 0, 0, 0.75);
     --seriesColor : rgba(231, 30, 183, .75);
     --proSeriesColor : rgba(185, 24, 147, 0.75);
     --partiesColor : rgba(190, 190, 190, 0.75);
@@ -28,7 +29,9 @@
 
 }
 
-
+.all-ages-color {
+    background-color: var(--allAgesColor);
+}
 .series-color {
     background-color: var(--seriesColor);
     /*mix-blend-mode: multiply;*/

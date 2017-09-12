@@ -5,6 +5,7 @@ import ListItem from './item';
 import moment from 'moment';
 import uniqBy from 'lodash/uniqBy';
 import flattenDeep from 'lodash/flattenDeep';
+import orderBy from 'lodash/orderBy';
 
 import './../../styles/list.css';
 
@@ -39,8 +40,8 @@ export default class extends Component {
 
             if (dayStringOrdered[dateString]) {
                 var events = dayStringOrdered[dateString].map(event => {
-                    event.dateObject = today;
-                    return event;
+                    event.dateObject = today.clone();
+                    return Object.assign({}, event);
                 });
 
                 listEvents.push(events);
@@ -55,8 +56,12 @@ export default class extends Component {
         }
     }
 
+    orderEvents(events) {
+        return orderBy(events, event => event.dateObject.format('YYYYDDDD'));
+    }
+
     render() {
-        const events = this.getEvents(this.props.allEvents);
+        const events = this.orderEvents(this.getEvents(this.props.allEvents));
 
         if (!events || events.length === 0 || this.props.hide) {
             return null;
