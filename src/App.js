@@ -537,8 +537,7 @@ class App extends Component {
             $(".filter-age").css("display", "none");
             $(".filter-view").css("display", "none");
 
-            if(!$(event.target).closest('.month-sidebar').length) {
-                // $(this).removeClass("highlighted");
+            if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
                 _this.clearCalendar();
                 _this.setState({
                     viewingDay: "none",
