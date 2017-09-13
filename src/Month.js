@@ -297,7 +297,9 @@ class Month extends React.Component {
                     filterAge9to11={this.props.filterAge9to11}
                     filterAge12to14={this.props.filterAge12to14}
                     filterLocation={this.props.filterLocation}
-                    incart={inCart}/>
+                    incart={inCart}
+                    listEvents={ this.props.listEvents }
+        />
 
     }
 

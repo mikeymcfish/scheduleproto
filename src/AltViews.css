@@ -17,6 +17,7 @@
     --veryLightColor : #dcdcdc;
     --mediumColor : rgba(51, 51, 51, 0.75);
     --calendarColor: rgb(151,151,151);
+    --allAgesColor: rgba(0, 0, 0, 0.75);
     --seriesColor : rgba(231, 30, 183, .75);
     --proSeriesColor : rgba(185, 24, 147, 0.75);
     --partiesColor : rgba(190, 190, 190, 0.75);
@@ -28,7 +29,9 @@
 
 }
 
-
+.all-ages-color {
+    background-color: var(--allAgesColor);
+}
 .series-color {
     background-color: var(--seriesColor);
     /*mix-blend-mode: multiply;*/
@@ -137,6 +140,7 @@
 /*}*/
 
 .day.highlighted {
+    cursor: pointer;
     /*border: solid 2px #333;*/
     /*background-color: rgba(156, 158, 255, 0.18);*/
     /*transition: all 100ms;*/
@@ -748,7 +752,7 @@ Button.btn-2:hover {
 .big-day-title {
     font-size: 28px;
     margin-top:30px;
-    margin-bottom:20px;
+    margin-bottom:0px;
     text-align: center;
     /*border: solid 4px #333;*/
     padding:12px;
