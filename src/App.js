@@ -21,6 +21,8 @@ import MDSpinner from "react-md-spinner";
 import './garland.css';
 import './creeper.css';
 
+import ListView from './calendar/list';
+
 import isLive from "./isLive.js";
 
 class App extends Component {
@@ -49,6 +51,8 @@ class App extends Component {
         this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         this.addToCart = this.addToCart.bind(this);
 
+        this.listEvents = [];
+
         this.state = {
             filterDropIn: false,
             filterSpecial: false,
@@ -59,6 +63,7 @@ class App extends Component {
             filter7to9: false,
             filter9to11: true,
             filter12to14: true,
+            filterAllAges: true,
             eventFilter: "events",
             filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
@@ -527,10 +532,18 @@ class App extends Component {
             this.logInMember("0");
         }
         this.getCartCall();
-        $('body').click(function () {
+        $('body').click(function (event) {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
             $(".filter-view").css("display", "none");
+
+            if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
+                _this.clearCalendar();
+                _this.setState({
+                    viewingDay: "none",
+                    viewingDayEvents: [],
+                });
+            }
         });
         $('.change-age-btn').unbind("hover");
         $('.change-age-btn').hover(function () {
@@ -554,15 +567,22 @@ class App extends Component {
         $('.day').not(".closed").not(".no-day").unbind("click");
         $('.day').not(".closed").not(".no-day")
             .click(function () {
-                var child = $(this).find("[data-month!='undefined']");
-                _this.clearCalendar();
-                $('.highlighted').removeClass("highlighted");
-                _this.addASeriesOverlay("");
-                $(this).addClass("highlighted");
-                _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
-                _this.scrollView($(this));
-                // _this.updateDayEvents();
-                // console.log("day click "+ child.attr("data-month"));
+                if ($(this).hasClass('highlighted')) {
+                    $(this).removeClass("highlighted");
+                    _this.clearCalendar();
+                    _this.setState({
+                        viewingDay: "none",
+                        viewingDayEvents: [],
+                    });
+                } else {
+                    var child = $(this).find("[data-month!='undefined']");
+                    _this.clearCalendar();
+                    $('.highlighted').removeClass("highlighted");
+                    _this.addASeriesOverlay("");
+                    $(this).addClass("highlighted");
+                    _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
+                    _this.scrollView($(this));
+                }
             });
         this.addHolidays();
         this.runJquery();
@@ -687,6 +707,26 @@ class App extends Component {
         this.addMemberBirthday(firstMember);
         this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
 
+    }
+
+    toggleAllAges = () => {
+        this.clearCalendar();
+        if (this.state.filterAllAges) {
+            this.setState({
+                filterAllAges: !this.state.filterAllAges,
+                filter7to9: false,
+                filter9to11: false,
+                filter12to14: false,
+            });
+        } else {
+            this.setState({
+                filterAllAges: !this.state.filterAllAges,
+                filter7to9: true,
+                filter9to11: true,
+                filter12to14: true,
+            });
+            this.setFilterAgeByAge(this.state.members[this.state.selectedMemberKey].age);
+        }
     }
 
     toggleSeries() {
@@ -1144,7 +1184,7 @@ class App extends Component {
         }
     }
 
-    setViewDay(month, day) {
+    setViewDay(month, day, singleEvent = null) {
 
         var thisDaysEvents = [];
         var thisDaysFilteredEvents = [];
@@ -1192,13 +1232,14 @@ class App extends Component {
 
         }
 
+        if (singleEvent) {
+            thisDaysFilteredEvents = [singleEvent];
+        }
+
         this.setState({
             viewingDay: month + " " + day,
             viewingDayEvents: thisDaysFilteredEvents
-
         });
-
-
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
@@ -1503,6 +1544,7 @@ class App extends Component {
 
 
 
+        var allAgesFilterIcon = this.state.filterAllAges ? "" : <CheckIcon />;
         var campFilterIcon = this.state.filterCamp ? "" : <CheckIcon/>;
         var dropInFilterIcon = this.state.filterDropIn ? "" : <CheckIcon/>;
         var seriesFilterIcon = this.state.filterSeries ? "" : <CheckIcon/>;
@@ -1532,6 +1574,7 @@ class App extends Component {
         var memberName = "";
         this.state.selectedMemberKey!="" ? memberName = this.state.members[this.state.selectedMemberKey].name : memberName = "";
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
+        this.listEvents = [];
         return (
             <div className="App">
                 {isLive ? "" : <TopLinks></TopLinks>}
@@ -1623,6 +1666,10 @@ class App extends Component {
                                  id={this.state.view.id}
                         />
                             <div className="filters">
+                                <div className="filter-circle-container" onClick={ this.toggleAllAges }>
+                                    <div className="filter-circle-filled all-ages-color">{ allAgesFilterIcon }</div>
+                                    <div className="filter-circle-label">All Ages</div>
+                                </div>
                                 <div className="filter-circle-container" onClick={this.toggleSeries}>
                                     <div className="filter-circle-filled series-color">
                                         {seriesFilterIcon}
@@ -1712,6 +1759,7 @@ class App extends Component {
                                                filterLocation={this.state.filterLocation}
                                                pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                                events={this.state.isJSONloaded ? global.eventsByDay["September"] : []}
+                                               listEvents={ this.listEvents }
                                         />
                                         <Month name="October" numDays="31" skipDays="0"
                                                filterDropIn={this.state.filterDropIn}
@@ -1726,6 +1774,7 @@ class App extends Component {
                                                filterLocation={this.state.filterLocation}
                                                pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                                events={this.state.isJSONloaded ? global.eventsByDay["October"]:[]}
+                                               listEvents={ this.listEvents }
                                         />
                                         <Month name="November" numDays="30" skipDays="3"
                                                filterDropIn={this.state.filterDropIn}
@@ -1740,6 +1789,7 @@ class App extends Component {
                                                filterLocation={this.state.filterLocation}
                                                pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                                events={this.state.isJSONloaded ? global.eventsByDay["November"]:[]}
+                                               listEvents={ this.listEvents }
                                         />
                                         <Month name="December" numDays="31" skipDays="5"
                                                filterDropIn={this.state.filterDropIn}
@@ -1754,6 +1804,7 @@ class App extends Component {
                                                filterLocation={this.state.filterLocation}
                                                pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}
                                                events={this.state.isJSONloaded ? global.eventsByDay["December"]:[]}
+                                               listEvents={ this.listEvents }
                                         />
 
                                         {/*HIDING NEXT YEAR*/}
@@ -1844,18 +1895,10 @@ class App extends Component {
 
 
                                 <div className="day-sidebar" id="day-start">
-
                                     <div className="big-day-title">
 
                                         {this.state.isJSONloaded ?
-
-                                            this.state.viewingDay == "none" ?
-
-                                                "Select a day on the left to view all of Pixel's offerings for that day."
-
-                                                :
-
-                                                this.getDayTitleString(this.state.viewingDay)
+                                            this.state.viewingDay == "none" ? "" : ""
 
 
                                             :
@@ -1876,6 +1919,11 @@ class App extends Component {
                                         }
 
                                     </div>
+                                    <ListView
+                                        allEvents={ this.listEvents }
+                                        hide={ this.state.viewingDayEvents.length > 0 }
+                                        setViewDay={ this.setViewDay }
+                                    />
                                     <div className="big-day-container">
 
                                         {this.state.viewingDayEvents.map((event, index) =>
