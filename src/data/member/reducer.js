@@ -1,4 +1,4 @@
-import Member from './model.js';
+import Member from './model';
 import EntityState from './../EntityState';
 import { LIST_MEMBERS } from './../../shared/state/action-types';
 

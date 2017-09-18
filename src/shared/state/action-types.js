@@ -20,5 +20,8 @@ export function createAsyncTypes(base) {
   }, {});
 }
 
+// Auth
+export const AUTH = createAsyncTypes('AUTH');
+
 // Members
 export const LIST_MEMBERS = createAsyncTypes('LIST_MEMBERS');
