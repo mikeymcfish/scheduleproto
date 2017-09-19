@@ -24,10 +24,12 @@ function listMembersFailed(error) {
 export function fetchMembers() {
     return dispatch => {
         dispatch(listMembersRequested());
+
+        // Remove .json
         return request.get('/api/v1/scheduler/members.json')
             .then(response => dispatch(listMembersSuccess(response.data.members)))
             .catch(error => {
-                console.log('error', error);
+                console.log('list-member-error', error);
             });
     }
 }

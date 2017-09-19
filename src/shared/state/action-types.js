@@ -25,3 +25,9 @@ export const AUTH = createAsyncTypes('AUTH');
 
 // Members
 export const LIST_MEMBERS = createAsyncTypes('LIST_MEMBERS');
+
+// Schedule Closed Day
+export const LIST_SCHEDULE_CLOSED_DAY = createAsyncTypes('LIST_SCHEDULE_CLOSED_DAY');
+export const LIST_SCHEDULE_EVENT = createAsyncTypes('LIST_SCHEDULE_EVENT');
+export const LIST_SCHEDULE_HOLIDAY = createAsyncTypes('LIST_SCHEDULE_HOLIDAY');
+export const LIST_SCHEDULE_PICKUP_DAY = createAsyncTypes('LIST_SCHEDULE_PICKUP_DAY');

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import AgeLocationFilter from './header/filter/ageLocation';
+
+import { fetchSchedule } from './../data/scheduler/actions';
 
 import './../webflow.css';
 import './../App.css';
@@ -26,10 +32,12 @@ import ListView from './../calendar/list';
 
 import isLive from "./../isLive.js";
 
-export default class extends Component {
+class Schedule extends Component {
 
     static propTypes = {
+        fetchSchedule: PropTypes.func.isRequired,
         auth: PropTypes.object.isRequired,
+        members: PropTypes.object.isRequired,
     }
 
     constructor() {
@@ -73,11 +81,6 @@ export default class extends Component {
             currentLocation: "Brooklyn",
             currentAgeGroup: "age 7 to 9",
             currentView: "week",
-            ageSelectionOptions: [
-                "age 7 to 9",
-                "age 9 to 11",
-                "age 12 to 14"
-            ],
             selectedEvent: "",
             loggedIn: false,
             members: [],
@@ -136,8 +139,8 @@ export default class extends Component {
          */
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
-            console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
             if (data.user_id>=0) {
+                console.log('mrt', data);
 
                 that.getMemberInfoFromAPI(data.user_id, data.access_token);
                 that.setState({
@@ -155,14 +158,15 @@ export default class extends Component {
 
     loadScheduleData() {
         var _this = this;
-        try {
-            global.allEvents = sessionStorage.getItem('all_events');
-            global.eventsByDay = sessionStorage.getItem('events_by_day');
-            console.log("trying to use session data");
-            this.allDataLoaded();
-        } catch (e) {
+        // try {
+        //     global.allEvents = sessionStorage.getItem('all_events');
+        //     global.eventsByDay = sessionStorage.getItem('events_by_day');
+        //     console.log("trying to use session data");
+        //     this.allDataLoaded();
+        // } catch (e) {
             console.log("falling back on new data");
             $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+                console.log('mrt', 'event', data);
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 _this.parseDateListToString(global.allEvents);
@@ -181,7 +185,7 @@ export default class extends Component {
 
 
             });
-        }
+        // }
     }
 
     getMemberInfoFromAPI(userID, access_token) {
@@ -201,9 +205,7 @@ export default class extends Component {
 
         }
         else {
-
             //member test:
-
             console.log("loading test member data");
             $.getJSON('/api/v1/scheduler/members.json', function (data) {
                 _this.setState(
@@ -440,6 +442,7 @@ export default class extends Component {
         var _this = this;
         try {
             $.getJSON('api/v1/scheduler/cart', function (data) {
+                console.log('mrt', data);
                 //let responseJson = await response.json();
                 _this.rebuildCart(data);
             });
@@ -536,19 +539,19 @@ export default class extends Component {
             this.logInMember("0");
         }
         this.getCartCall();
-        $('body').click(function (event) {
-            $(".filter-location").css("display", "none");
-            $(".filter-age").css("display", "none");
-            $(".filter-view").css("display", "none");
+        // $('body').click(function (event) {
+        //     $(".filter-location").css("display", "none");
+        //     $(".filter-age").css("display", "none");
+        //     $(".filter-view").css("display", "none");
 
-            if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
-                _this.clearCalendar();
-                _this.setState({
-                    viewingDay: "none",
-                    viewingDayEvents: [],
-                });
-            }
-        });
+        //     if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
+        //         _this.clearCalendar();
+        //         _this.setState({
+        //             viewingDay: "none",
+        //             viewingDayEvents: [],
+        //         });
+        //     }
+        // });
         $('.change-age-btn').unbind("hover");
         $('.change-age-btn').hover(function () {
             $('.change-age-btn > .filtering-hover-text').css("color", "blue");
@@ -601,6 +604,7 @@ export default class extends Component {
     }
 
     componentDidMount() {
+        this.props.fetchSchedule();
         this.runJquery();
     }
 
@@ -894,40 +898,42 @@ export default class extends Component {
 
     }
 
-    changeAge = ({target}) => {
+    changeAge = (value) => {
 
-        if (this.state.cart.length > 0) {
-            ReactTooltip.rebuild();
-            return;
-        }
+        console.log('mrt', 'change-age', value);
 
-        if (target.hasAttribute("data-age-group")) {
+        // if (this.state.cart.length > 0) {
+        //     ReactTooltip.rebuild();
+        //     return;
+        // }
 
-            $(".editable-age-group").css("color", "inherit");
-            $(".editable-age-group").css("background-color", "inherit");
+        // if (target.hasAttribute("data-age-group")) {
 
-            this.setState(
-                {
-                    currentAgeGroup: $(target).attr("data-age-group")
-                });
-            $(".filter-age")
-                .css("display", "none");
-            //
-            // Is it a member?
-            //
-            for (var member in Object.keys(this.state.members)) {
-                if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
-                    this.logInMember(member);
-                    return;
-                }
-            }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
+        //     $(".editable-age-group").css("color", "inherit");
+        //     $(".editable-age-group").css("background-color", "inherit");
+
+        //     this.setState(
+        //         {
+        //             currentAgeGroup: $(target).attr("data-age-group")
+        //         });
+        //     $(".filter-age")
+        //         .css("display", "none");
+        //     //
+        //     // Is it a member?
+        //     //
+        //     for (var member in Object.keys(this.state.members)) {
+        //         if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
+        //             this.logInMember(member);
+        //             return;
+        //         }
+        //     }
+        //     this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
-        } else {
-            $(".filter-age")
-                .css("display", "flex");
-        }
+        // } else {
+        //     $(".filter-age")
+        //         .css("display", "flex");
+        // }
 
     };
 
@@ -1564,89 +1570,21 @@ export default class extends Component {
             </svg>
             );
 
-        var listOfAgeSelections = this.state.ageSelectionOptions;
-        if (this.state.members.length > 0) {
-            listOfAgeSelections = [];
-            for (var member in Object.keys(this.state.members)) {
-                listOfAgeSelections.push(this.state.members[member].name.split(" ")[0]);
-            }
-        }
-
         var thisDaysStuff = [];
         var willCheckForDoesOwn = [];
         var memberName = "";
         this.state.selectedMemberKey!="" ? memberName = this.state.members[this.state.selectedMemberKey].name : memberName = "";
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         this.listEvents = [];
+
         return (
             <div>
                 <div className="container w-container">
-
-                    <h1 className="heading">
-                        <div className="filtering-header">
-
-                            <div className="change-age-btn" onClick={this.changeAge}
-                                    data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
-                                <div className="text-right"><span className="def-no-hover">
-                                {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span
-                                    className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
-                                </div>
-                                <div className="text-right filtering-hover-text">
-                                    <div className={this.state.selectedMemberKey != "" ? "member-type" : ""}>
-                                        {this.state.selectedMemberKey != "" ? this.state.members[this.state.selectedMemberKey].memberType.toUpperCase() : "click to change"}
-                                    </div>
-                                </div>
-                                <div className="filter-selection-box filter-age">
-                                    {/*//ageSelectionOptions*/}
-                                    {listOfAgeSelections.map((selection, index) =>
-                                        <div className="filter-option set-age-btn"
-                                                data-age-group={selection}>{selection}</div>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="text-center"> in</div>
-                            <div className="change-location-btn" onClick={this.changeLocation}
-                                    data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
-                            >
-                                <div className="text-left"><span
-                                    className="editable-heading">{this.state.currentLocation} </span></div>
-                                <div className="text-center filtering-hover-text">
-                                    <div>click to change</div>
-                                </div>
-                                <div className="filter-selection-box filter-location">
-                                    <div className="filter-option set-location-btn" data-location="Brooklyn">
-                                        Brooklyn
-                                    </div>
-                                    <div className="filter-option set-location-btn" data-location="TriBeCa">
-                                        TriBeCa
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
-                            {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
-                            {/*<div className="text-item-center filtering-hover-text">*/}
-                            {/*<div>click to change</div>*/}
-                            {/*</div>*/}
-                            {/*<div className="filter-selection-box filter-view">*/}
-                            {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
-                            {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
-                            {/*</div>*/}
-                            {/*</div>*/}
-                        </div>
-                        <div className="age-notification">
-                            {this.state.selectedMemberKey != "" ?
-                                <div className="age-note">NOTE: We're showing you only events for members
-                                    age {this.state.members[this.state.selectedMemberKey].age}. If this is
-                                    not {this.state.members[this.state.selectedMemberKey].name}'s correct age <a
-                                        href={"member/" + this.state.members[this.state.selectedMemberKey].id + "/pedit"}><span
-                                        className="change-birthday">click here</span></a></div>
-                                :
-                                ""
-                            }
-                        </div>
-                    </h1>
-                    {/*<Button onClick={this.openAlert.bind(this)}>Open alert dialog</Button>*/}
+                    <AgeLocationFilter
+                        changeAge={ this.changeAge }
+                        cart={ [] /* TODO */ }
+                        members={ this.props.members }
+                    />
 
                     <AlertDialog open={this.state.open}
                                     onClose={this.closeAlert}
@@ -1891,3 +1829,10 @@ export default class extends Component {
     };
 
 }
+
+export default connect(
+    null,
+    dispatch => bindActionCreators({
+        fetchSchedule,
+    }, dispatch)
+)(Schedule);
