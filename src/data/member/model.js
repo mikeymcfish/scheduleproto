@@ -8,7 +8,10 @@ class Member extends BaseModel ({
     school: null, // Should be an ID
     defaultLocation: null,
 }) {
-    // Nothing!
+
+    firstName() {
+        return this.name.split(" ")[0];
+    }
 };
 
 Member.TYPE = {

@@ -6,26 +6,33 @@ import { Route, Switch } from 'react-router';
 
 import './index.css';
 import { fetchAuth } from './shared/auth/actions';
+import { fetchMembers } from './data/member/actions';
 import TopLinks from './TopLinks';
 import isLive from './isLive';
 import Cart from './cart';
 import Schedule from './schedule';
+import './styles/general.css';
 
 class App extends Component {
 
     static propTypes = {
-        auth: PropTypes.object.isRequired,
         fetchAuth: PropTypes.func.isRequired,
+        fetchMembers: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired,
+        members: PropTypes.object.isRequired,
     }
 
     componentDidMount() {
-        this.props.fetchAuth();
+        this.props.fetchAuth()
+            .then(() => {
+                this.props.fetchMembers();
+            })
     }
 
     render() {
-        const { auth } = this.props;
+        const { auth, members } = this.props;
 
-        if (!auth.loaded) {
+        if (!auth.loaded || !members.loaded) {
             // TODO: Add a better loader
             return <div>loading...</div>;
         }
@@ -37,9 +44,11 @@ class App extends Component {
                     <Switch>
                         { /* Add routes here */ }
                         <Route exact path="/" render={(props) => {
-                            return <Schedule auth={ auth } />
+                            return <Schedule auth={ auth } members={ members } />;
                         }} />
-                        <Route path="/cart" component={ Cart } />
+                        <Route path="/cart" render={() => {
+                            return <Cart auth={ auth } members={ members } />;
+                        }} />
                     </Switch>
                 </div>
             </div>
@@ -50,8 +59,10 @@ class App extends Component {
 export default connect(
     state => ({
         auth: state.auth,
+        members: state.data.members,
     }),
     dispatch => bindActionCreators({
         fetchAuth,
+        fetchMembers,
     }, dispatch)
 )(App);
