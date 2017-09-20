@@ -37,9 +37,11 @@ class App extends Component {
                     <Switch>
                         { /* Add routes here */ }
                         <Route exact path="/" render={(props) => {
-                            return <Schedule auth={ auth } />
+                            return <Schedule {...props} auth={ auth } />;
                         }} />
-                        <Route path="/cart" component={ Cart } />
+                        <Route path="/cart" render={(props) => {
+                            return <Cart {...props} auth={ auth } />;
+                        }} />
                     </Switch>
                 </div>
             </div>

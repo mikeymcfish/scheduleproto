@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { fetchCart, addToCart } from './../data/cart/actions';
 
 import './../webflow.css';
 import './../App.css';
@@ -26,10 +30,13 @@ import ListView from './../calendar/list';
 
 import isLive from "./../isLive.js";
 
-export default class extends Component {
+class Schedule extends Component {
 
     static propTypes = {
+        fetchCart: PropTypes.func.isRequired,
+        addToCart: PropTypes.func.isRequired,
         auth: PropTypes.object.isRequired,
+        cart: PropTypes.array.isRequired,
     }
 
     constructor() {
@@ -46,7 +53,6 @@ export default class extends Component {
         this.changeLocation = this.changeLocation.bind(this);
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
-        this.confirmAddToCart = this.confirmAddToCart.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
@@ -108,7 +114,6 @@ export default class extends Component {
             proSeriesDiscount: 0,
             dropInDiscount: 0,
             miniCampDiscount: 0,
-            cart: [],
             loggedInUserID: 0,
             pickups: {},
             warnedAboutPro: false
@@ -145,7 +150,6 @@ export default class extends Component {
                 })
             } else {
                 that.loadScheduleData();
-                that.getCartCall();
 
             }
 
@@ -195,7 +199,6 @@ export default class extends Component {
                     }
                 );
                 //log in the first member
-                _this.getCartCall();
                 _this.loadScheduleData();
             });
 
@@ -212,7 +215,6 @@ export default class extends Component {
                     }
                 );
                 //TEMP SHOW BUTTON.
-                _this.getCartCall();
                 _this.loadScheduleData();
 
             });
@@ -247,7 +249,7 @@ export default class extends Component {
                 var willCheckForDoesOwn = [];
                 this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
                 if (willCheckForDoesOwn.indexOf(allEventsOnThisDay[i].id)>=0) return true;
-                if (this.state.cart.indexOf(allEventsOnThisDay[i].id)>=0) return true;
+                if (this.props.cart.indexOf(allEventsOnThisDay[i].id)>=0) return true;
             }
         }
 
@@ -270,10 +272,6 @@ export default class extends Component {
         });
         return false;
 
-    }
-
-    confirmAddToCart(event) {
-        this.addInCart(event);
     }
 
     clearCalendar() {
@@ -408,23 +406,24 @@ export default class extends Component {
 
         }
 
-        if (!isLive) this.addInCart(event.id);
-        this.clearCalendar();
+        this.props.addToCart(event)
+            .then(() => {
+                this.clearCalendar();
+                this.rebuildCart();
+            });
 
-        //add to hq
-        this.sendToCartAPI(event);
-
+        // if (!isLive) this.addInCart(event.id);
     }
 
-    rebuildCart(data) {
-        console.log("rebuilding cart with "+data);
+    rebuildCart() {
+        console.log("rebuilding cart with "+this.props.cart);
         try {
-            if (data.length > 0) {
+            if (this.props.cart.length > 0) {
                 this.setState({
-                    cart: data
+                    cart: this.props.cart
                 });
 
-                data.forEach((val, index) => {
+                this.props.cart.forEach((val, index) => {
                     this.addInCart(val);
                 });
 
@@ -433,60 +432,6 @@ export default class extends Component {
         } catch (e) {
             console.log("problem updating cart.")
         }
-    }
-
-    async getCartCall() {
-
-        var _this = this;
-        try {
-            $.getJSON('api/v1/scheduler/cart', function (data) {
-                //let responseJson = await response.json();
-                _this.rebuildCart(data);
-            });
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    async sendToCartAPI(event) {
-
-        var _this = this;
-        try {
-            // let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
-            //     this.state.members[this.state.selectedMemberKey].id
-            // );
-            $.getJSON(
-                '/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
-                _this.state.members[this.state.selectedMemberKey].id
-                , function (data) {
-                //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
-                window.getUpdatedCart();
-            });
-            ///// update my cart with response.json.
-
-            // this.getCartCall();
-            // return responseJson.movies;
-        } catch (error) {
-            $.getJSON(
-            '/api/v1/scheduler/add_to_cart?product_id=' + event.id,
-                function (data) {
-                //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
-                window.getUpdatedCart();
-            });
-
-        } finally  {
-            console.log("api call did nothing.");
-        }
-
-        // try {
-        //     let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
-        //     let responseJson = await response();
-        //     // return response;
-        // } catch(error) {
-        //     console.error(error);
-        // }
     }
 
     async convertEventsToByDay(events) {
@@ -535,7 +480,6 @@ export default class extends Component {
         if (this.state.loggedInUserID != 0) {
             this.logInMember("0");
         }
-        this.getCartCall();
         $('body').click(function (event) {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
@@ -601,6 +545,11 @@ export default class extends Component {
     }
 
     componentDidMount() {
+        this.props.fetchCart()
+            .then(() => {
+                this.rebuildCart();
+            });
+
         this.runJquery();
     }
 
@@ -896,7 +845,7 @@ export default class extends Component {
 
     changeAge = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.props.cart.length > 0) {
             ReactTooltip.rebuild();
             return;
         }
@@ -933,7 +882,7 @@ export default class extends Component {
 
     changeLocation = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.props.cart.length > 0) {
             ReactTooltip.rebuild();
             return;
         }
@@ -1406,7 +1355,7 @@ export default class extends Component {
         // $(".inCartLabel").addClass("in-my-cart");
 
 
-        var arr = this.state.cart;
+        var arr = this.props.cart;
 
         arr.push(eventID);
         this.setState({
@@ -1586,7 +1535,7 @@ export default class extends Component {
                         <div className="filtering-header">
 
                             <div className="change-age-btn" onClick={this.changeAge}
-                                    data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
+                                    data-tip={this.props.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
                                 <div className="text-right"><span className="def-no-hover">
                                 {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span
                                     className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
@@ -1606,7 +1555,7 @@ export default class extends Component {
                             </div>
                             <div className="text-center"> in</div>
                             <div className="change-location-btn" onClick={this.changeLocation}
-                                    data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
+                                    data-tip={this.props.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
                             >
                                 <div className="text-left"><span
                                     className="editable-heading">{this.state.currentLocation} </span></div>
@@ -1863,7 +1812,7 @@ export default class extends Component {
                                             price={this.getMemberPricing(event.price, event.type)}
                                             //TODO
                                             doesOwn={willCheckForDoesOwn.indexOf(event.id)}
-                                            isInCart={this.state.cart.indexOf(event.id)}
+                                            isInCart={this.props.cart.indexOf(event.id)}
                                             spotsLeft={event.spotsLeft}
                                             eventObj={event}
                                             image={event.image}
@@ -1891,3 +1840,13 @@ export default class extends Component {
     };
 
 }
+
+export default connect(
+    state => ({
+        cart: state.data.cart.items.toArray(),
+    }),
+    dispatch => bindActionCreators({
+        fetchCart,
+        addToCart,
+    }, dispatch)
+)(Schedule);
