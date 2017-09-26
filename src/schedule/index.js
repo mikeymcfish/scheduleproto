@@ -126,35 +126,6 @@ class Schedule extends Component {
         //global.eventsByDay = this.convertEventsToByDay(global.allEvents.events);
 
         var that = this;
-
-
-
-        /*
-
-        1. Make sure no dummy data needed
-        2. Call auth -
-        2. If authed user, get member data then get all data
-        3. If not, get all data
-        4. Wait for all data to finish and then populate the page.
-
-
-         */
-
-        $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
-            console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
-            if (data.user_id>=0) {
-
-                that.getMemberInfoFromAPI(data.user_id, data.access_token);
-                that.setState({
-                    loggedInUserID:data.user_id
-                })
-            } else {
-                that.loadScheduleData();
-
-            }
-
-        });
-
     }
 
     loadScheduleData() {
@@ -166,7 +137,7 @@ class Schedule extends Component {
             this.allDataLoaded();
         } catch (e) {
             console.log("falling back on new data");
-            $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+            $.getJSON('api/v1/scheduler/all', function (data) {
                 global.allEvents = data;
                 //TODO 'DAYSTRING' for all
                 _this.parseDateListToString(global.allEvents);
@@ -545,6 +516,17 @@ class Schedule extends Component {
     }
 
     componentDidMount() {
+        const { auth } = this.props;
+
+        if (auth.person.user_id >= 0) {
+            this.getMemberInfoFromAPI(auth.person.user_id, auth.person.access_token);
+            this.setState({
+                loggedInUserID: auth.person.user_id
+            })
+        } else {
+            this.loadScheduleData();
+        }
+
         this.props.fetchCart()
             .then(() => {
                 this.rebuildCart();

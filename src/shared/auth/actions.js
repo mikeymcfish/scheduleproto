@@ -31,3 +31,10 @@ export function fetchAuth() {
             });
     }
 }
+
+export function login(email, password) {
+    return dispatch => {
+        console.log('login', email, password);
+        return Promise.resolve();
+    }
+}
