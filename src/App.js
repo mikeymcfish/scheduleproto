@@ -637,6 +637,13 @@ class App extends Component {
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
         var month = this.getMonthName(birthday_array[2]);
+
+        //TODO
+        //Hack, temporary, remove me!
+        //This hides birthdays
+
+        if (month<9) return;
+
         var day = parseInt(birthday_array[1]);
         var year = parseInt(birthday_array[0]);
         var nextAge = parseInt(member.age) + 1;
@@ -1806,89 +1813,132 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["December"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-
                                         {/*HIDING NEXT YEAR*/}
 
-                                        {/*<Month */}
-                                        {/*name="January" numDays="31" skipDays="1"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["January"]}*/}
+                                        {/*<Month name="January" numDays="31" skipDays="1"*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["January"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
-                                        {/*<Month */}
-                                        {/*name="February" numDays="28" skipDays="4"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["February"]}*/}
+                                        {/*<Month name="February" numDays="28" skipDays="4"*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["February"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
                                         {/*<Month name="March" numDays="31" skipDays="4"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["March"]}*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["March"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
                                         {/*<Month name="April" numDays="30" skipDays="0"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["April"]}*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["April"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
                                         {/*<Month name="May" numDays="31" skipDays="2"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["May"]}*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["May"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
                                         {/*<Month name="June" numDays="30" skipDays="5"*/}
-                                        {/*filterDropIn={this.state.filterDropIn}*/}
-                                        {/*filterSpecial={this.state.filterSpecial}*/}
-                                        {/*filterSeries={this.state.filterSeries}*/}
-                                        {/*filterProSeries={this.state.filterProSeries}*/}
-                                        {/*filterParties={this.state.filterParties}*/}
-                                        {/*filterCamp={this.state.filterCamp}*/}
-                                        {/*filterAge7to9={this.state.filter7to9}*/}
-                                        {/*filterAge9to11={this.state.filter9to11}*/}
-                                        {/*filterAge12to14={this.state.filter12to14}*/}
-                                        {/*filterLocation={this.state.filterLocation}*/}
-                                        {/*events={global.eventsByDay["June"]}*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["June"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
                                         {/*/>*/}
+                                        {/*<Month name="July" numDays="31" skipDays="0"*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["July"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
+                                        {/*/>*/}
+                                        {/*<Month name="August" numDays="31" skipDays="3"*/}
+                                               {/*filterDropIn={this.state.filterDropIn}*/}
+                                               {/*filterSpecial={this.state.filterSpecial}*/}
+                                               {/*filterSeries={this.state.filterSeries}*/}
+                                               {/*filterProSeries={this.state.filterProSeries}*/}
+                                               {/*filterParties={this.state.filterParties}*/}
+                                               {/*filterCamp={this.state.filterCamp}*/}
+                                               {/*filterAge7to9={this.state.filter7to9}*/}
+                                               {/*filterAge9to11={this.state.filter9to11}*/}
+                                               {/*filterAge12to14={this.state.filter12to14}*/}
+                                               {/*filterLocation={this.state.filterLocation}*/}
+                                               {/*pickups={this.state.filterLocation=="Brooklyn" ? this.state.pickups.Brooklyn : this.state.pickups.TriBeCa}*/}
+                                               {/*events={this.state.isJSONloaded ? global.eventsByDay["August"]:[]}*/}
+                                               {/*listEvents={ this.listEvents }*/}
+                                        {/*/>*/}
+
+
+
+
 
                                     </div>
 
