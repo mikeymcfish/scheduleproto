@@ -636,14 +636,15 @@ class App extends Component {
 
         var birthday = member.birthday;
         var birthday_array = birthday.split("-");
-        var month = this.getMonthName(birthday_array[2]);
 
         //TODO
         //Hack, temporary, remove me!
         //This hides birthdays
 
-        if (month<9) return;
+        if (parseInt(birthday_array[2]) < 9) return;
 
+        var month = this.getMonthName(birthday_array[2]);
+        
         var day = parseInt(birthday_array[1]);
         var year = parseInt(birthday_array[0]);
         var nextAge = parseInt(member.age) + 1;
