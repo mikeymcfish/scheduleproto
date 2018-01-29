@@ -1538,7 +1538,8 @@ class App extends Component {
             }
         }
         console.log("%% discount " + price);
-        return price;
+        //format it
+        return Math.round(price*100)/100;
     }
 
     render() {
