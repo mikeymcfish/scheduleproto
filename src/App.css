@@ -2259,7 +2259,7 @@ body {
     background-color: rgb(247, 247, 247);
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     /*padding-left: 0px;*/
     /*padding-right: 50px;*/
     z-index: 1000;
@@ -2440,7 +2440,13 @@ container-hover {
     display: flex;
     flex-direction: column;
     overflow: visible;
-    width: 140px;
+    /*width: 140px;*/
+}
+.change-day-of-week-btn {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
 }
 .change-view-btn {
     align-items: flex-start;
@@ -2769,4 +2775,10 @@ hr {
             "header header header header header header header"
             "week week week week week week week "
             "expand expand expand expand expand expand expand ";
+}
+
+.allTracks {
+    width:50%;
+    font-family: Helvetica;
+    margin-left:-50px;
 }

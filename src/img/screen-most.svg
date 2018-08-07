@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1.25in" height="1.083in" viewBox="0 0 90.013 77.991">
+    <title>screen-icon</title>
+    <line x1="84.782" y1="1.871" x2="34.479" y2="52.174" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="78.699" y1="1.871" x2="28.396" y2="52.174" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="72.616" y1="1.871" x2="22.313" y2="52.174" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="66.533" y1="1.871" x2="16.23" y2="52.174" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="87.967" y1="4.354" x2="40.939" y2="51.381" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.577" y1="9.41" x2="45.878" y2="52.109" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.135" y1="15.519" x2="52.923" y2="50.731" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.161" y1="21.159" x2="58.681" y2="50.639" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="89.122" y1="25.865" x2="63.035" y2="51.952" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.212" y1="32.441" x2="68.559" y2="52.095" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.004" y1="38.316" x2="73.732" y2="52.588" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="88.381" y1="43.606" x2="80.309" y2="51.678" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <line x1="87.705" y1="49.949" x2="84.195" y2="53.459" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    <g>
+        <line x1="10.676" y1="52.172" x2="60.161" y2="2.688" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="2.579" y1="54.603" x2="53.408" y2="3.774" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="2.148" y1="49.367" x2="48.298" y2="3.217" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="2.855" y1="42.993" x2="44.291" y2="1.558" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="3.056" y1="37.126" x2="39.702" y2="0.479" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="2.246" y1="32.269" x2="33.126" y2="1.389" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="3.458" y1="25.39" x2="27.485" y2="1.364" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="3.913" y1="19.269" x2="22.429" y2="0.753" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="3.734" y1="13.78" x2="16.086" y2="1.429" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+        <line x1="2.575" y1="9.273" x2="8.488" y2="3.361" fill="#fff" stroke="#666" stroke-miterlimit="10"/>
+    </g>
+    <rect x="6.245" y="5.738" width="63.197" height="41.774" fill="#666"/>
+    <g>
+        <path d="M90.613,9.289H4.6a2,2,0,0,0-2,2V73.247a2.028,2.028,0,0,0,2,2.033s28.439-.006,28.984,0l-6.6,8.781a2,2,0,0,0-.174,2.088A2.031,2.031,0,0,0,28.6,87.28h38a2,2,0,0,0,1.61-3.186L61.6,75.28c.635,0,29.012,0,29.012,0a2.029,2.029,0,0,0,2-2.033V11.289A2,2,0,0,0,90.613,9.289ZM32.6,83.247l3.011-4H59.588l3.012,4Zm56-11.967H6.6v-8h82Zm.013-12.033H6.6V13.289H88.613Z" transform="translate(-2.6 -9.289)" fill="#666"/>
+        <circle cx="44.921" cy="57.958" r="2" fill="#666"/>
+    </g>
+</svg>

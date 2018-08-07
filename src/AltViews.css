@@ -583,6 +583,8 @@
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
+    margin:auto;
+    width:100%;
     margin-left:30px;
 }
 
@@ -630,12 +632,14 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
+    /*margin:auto;*/
 }
 .big-day .content-container .right-side .info-section .line-item .property{
     color: #929292;
     /*font-style: italic;*/
-    text-align: right;
-    min-width:40px;
+    text-align: left;
+    /*min-width:40px;*/
+    width:15%;
 }
 .big-day .content-container .right-side .info-section .line-item .detail{
     margin-left:10px;
@@ -651,8 +655,24 @@
     flex-direction: row;
     justify-items: stretch;
     height: 40px;
-
-
+}
+.bottom-container-new {
+    margin: 10px;
+    margin-top:15px;
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+    /*height: 40px;*/
+}
+.seasons-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-items: stretch;
+    /*height: 40px;*/
+}
+.season-button {
+    width:30%;
+    margin: auto;
 }
 .or-thing {
     display: flex;
@@ -678,6 +698,19 @@ Button.btn-2 {
     height:40px;
     flex-shrink: 0;
     /*background-color: #00dc00;*/
+}
+Button.btn-3 {
+
+    height:40px;
+    flex-shrink: 0;
+    background-color: #006fff;
+}
+Button.btn-3:hover {
+
+    background-color: #004293;
+}
+.season-button {
+    margin-top:30px;
 }
 Button.btn-2:hover {
 
@@ -783,16 +816,16 @@ Button.btn-2:hover {
     margin-right:6px;
 }
 
-.member-type {
-    /*width:60px;*/
-    color: var(--veryLightColor);
-    background-color: #333;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom:3px;
-    margin-top:-1px;
-    /*min-width:100px;*/
-}
+/*.member-type {*/
+    /*!*width:60px;*!*/
+    /*color: var(--veryLightColor);*/
+    /*background-color: #333;*/
+    /*padding-left: 5px;*/
+    /*padding-right: 5px;*/
+    /*padding-bottom:3px;*/
+    /*margin-top:-1px;*/
+    /*!*min-width:100px;*!*/
+/*}*/
 
 
 

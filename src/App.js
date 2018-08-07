@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
+import styles from './tracks-2.css';
 import $ from 'jquery';
 import Month from './Month';
 import CheckIcon from './icons/CheckIcon';
@@ -20,14 +21,26 @@ import Divider from 'material-ui/Divider';
 import MDSpinner from "react-md-spinner";
 import './garland.css';
 import './creeper.css';
+import default_data from './json/data.json';
+
+
+import Track from './Track';
 
 import ListView from './calendar/list';
 
 import isLive from "./isLive.js";
+import TrackSelection from "./TrackSelection";
+
+
+// TODO
+// - look through all series (only get after # xxx)
+// - filter by age
 
 class App extends Component {
 
     constructor() {
+
+
 
         super();
 
@@ -40,6 +53,7 @@ class App extends Component {
         this.toggleSpecial = this.toggleSpecial.bind(this);
         this.changeAge = this.changeAge.bind(this);
         this.changeLocation = this.changeLocation.bind(this);
+        this.changeDayOfWeek = this.changeDayOfWeek.bind(this);
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
         this.confirmAddToCart = this.confirmAddToCart.bind(this);
@@ -54,21 +68,23 @@ class App extends Component {
         this.listEvents = [];
 
         this.state = {
-            filterDropIn: false,
+            filterDropIn: true,
             filterSpecial: false,
             filterSeries: false,
-            filterProSeries: false,
+            filterProSeries: true,
             filterParties: true,
             filterCamp: false,
             filter7to9: false,
             filter9to11: true,
             filter12to14: true,
             filterAllAges: true,
+            filterDayOfWeek: "Mondays",
             eventFilter: "events",
             filterLocation: "Brooklyn",
             currentLocation: "Brooklyn",
             currentAgeGroup: "age 7 to 9",
             currentView: "week",
+            currentDayOfWeek: "Mondays",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -158,25 +174,39 @@ class App extends Component {
             this.allDataLoaded();
         } catch (e) {
             console.log("falling back on new data");
-            $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                _this.parseDateListToString(global.allEvents);
+            if (isLive) {
+                $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+                    global.allEvents = data;
+                    //TODO 'DAYSTRING' for all
+                    _this.parseDateListToString(global.allEvents);
 
-                //async
-                _this.convertEventsToByDay(global.allEvents.events);
-                _this.allDataLoaded();
-                sessionStorage.setItem('all_events', global.allEvents);
-                sessionStorage.setItem('events_by_day', global.eventsByDay);
+                    //async
+                    _this.convertEventsToByDay(global.allEvents.events);
+                    _this.allDataLoaded();
+                    sessionStorage.setItem('all_events', global.allEvents);
+                    sessionStorage.setItem('events_by_day', global.eventsByDay);
 
-                // // _this.addHolidays();
-                //
-                // if (_this.state.loggedInUserID != 0) {
-                //     _this.logInMember("0");
-                // }
+                    // // _this.addHolidays();
+                    //
+                    // if (_this.state.loggedInUserID != 0) {
+                    //     _this.logInMember("0");
+                    // }
+
+                });
+            } else {
+                    console.log("JSON - using default data");
+
+                    global.allEvents = default_data;
+                    _this.parseDateListToString(global.allEvents);
+                    //async
+                    _this.convertEventsToByDay(global.allEvents.events);
+                    _this.allDataLoaded();
+                    sessionStorage.setItem('all_events', global.allEvents);
+                    sessionStorage.setItem('events_by_day', global.eventsByDay);
 
 
-            });
+            }
+
         }
     }
 
@@ -398,11 +428,6 @@ class App extends Component {
 
         //check if OK
 
-        if (this.checkProSeriesForPreReqs(event)==false && this.state.warnedAboutPro==false) {
-            console.log("YOU CANT ADD THIS YET");
-            return;
-
-        }
 
         if (!isLive) this.addInCart(event.id);
         this.clearCalendar();
@@ -557,6 +582,12 @@ class App extends Component {
         }, function () {
             $('.change-location-btn > .filtering-hover-text').css("color", "#333");
         });
+        $('.change-day-of-week-btn').unbind("hover");
+        $('.change-day-of-week-btn').hover(function () {
+            $('.change-day-of-week-btn > .filtering-hover-text').css("color", "blue");
+        }, function () {
+            $('.change-day-of-week-btn> .filtering-hover-text').css("color", "#333");
+        });
         $('.change-view-btn').unbind("hover");
         $('.change-view-btn').hover(function () {
             $('.change-view-btn > .filtering-hover-text').css("color", "blue");
@@ -588,6 +619,7 @@ class App extends Component {
         this.runJquery();
         this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
+        this.setTracksToView();
     }
 
     //YouTube Production
@@ -606,6 +638,7 @@ class App extends Component {
         ReactTooltip.rebuild();
         //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
+        // this.setTracksToView();
 
     }
 
@@ -830,6 +863,8 @@ class App extends Component {
             })
         }
 
+        this.setTracksToView();
+
     }
 
     setFilterAgeByGroup(group) {
@@ -856,6 +891,8 @@ class App extends Component {
                 filter12to14: false
             })
         }
+        this.setTracksToView();
+
     }
 
     setMembershipType(type) {
@@ -933,6 +970,40 @@ class App extends Component {
                 .css("display", "flex");
         }
 
+
+    };
+
+    changeDayOfWeek = ({target}) => {
+
+        console.log("TRACKS changing day of week BEGIN");
+        console.log("TRACKS clicked " + $(target).attr("data-day-of-week"));
+
+        if (this.state.cart.length > 0) {
+            ReactTooltip.rebuild();
+            return;
+        }
+
+        if (target.hasAttribute("data-day-of-week")) {
+            this.setState(
+                {
+                    currentDayOfWeek: $(target).attr("data-day-of-week"),
+                    filterDayOfWeek: $(target).attr("data-day-of-week")
+                });
+            $(".filter-day-of-week")
+                .css("display", "none");
+
+            this.refreshOverlays($(target).attr("data-day-of-week"));
+
+        } else {
+            $(".filter-day-of-week")
+                .css("display", "flex");
+        }
+        this.clearCalendar();
+        console.log("TRACKS day is now " + this.state.filterDayOfWeek);
+        console.log("TRACKS changing day of week END");
+
+        this.setTracksToView(null,$(target).attr("data-day-of-week"),null);
+
     };
 
     changeLocation = ({target}) => {
@@ -958,8 +1029,10 @@ class App extends Component {
                 .css("display", "flex");
         }
         this.clearCalendar();
+        this.setTracksToView(null,null,$(target).attr("data-location"));
 
     };
+
 
     changeView = ({target}) => {
 
@@ -1250,6 +1323,108 @@ class App extends Component {
         });
     }
 
+    setTracksToView(age=null, day=null, location=null)  {
+
+        var ageToCheck = age;
+        ageToCheck==null?  ageToCheck = this.state.currentAgeGroup : ageToCheck=ageToCheck;
+        var dayToCheck = day;
+        dayToCheck==null?  dayToCheck = this.state.filterDayOfWeek : dayToCheck=dayToCheck;
+        var locationToCheck = location;
+        locationToCheck==null?  locationToCheck = this.state.currentLocation : locationToCheck=locationToCheck;
+
+        console.log("TRACKS - setting tracks to view")
+        var thisDaysEvents = [];
+        var thisDaysFilteredEvents = [];
+
+        try {
+            thisDaysEvents = global.allEvents.events;
+            console.log("TRACKS - found " + thisDaysEvents.length + " total events");
+            for (var i = 0; i < thisDaysEvents.length; i++) {
+
+                // check age
+                // console.log("TRACKS checking" + i);
+                var ageMatched = false;
+                if (this.state.loggedIn) {
+                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
+                } else {
+                    ageMatched =
+                        (
+                            thisDaysEvents[i].age.toUpperCase() == ageToCheck.toUpperCase()
+                            || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
+                        );
+                }
+                // check location
+                var locationMatched = false;
+                if (thisDaysEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()
+                    && ageMatched) {
+                    locationMatched = true;
+                }
+                // check day of week
+                // split id by underscore, get index 1, check for match first three letters MON, TUE, etc.
+                var dayOfWeekMatched = false;
+                var firstThreeOfDay = thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2);
+                if (firstThreeOfDay === dayToCheck.toUpperCase().slice(0,2))
+                    dayOfWeekMatched = true;
+                console.log("TRACKS - filtered day: " +  " - " + dayToCheck.toUpperCase().slice(0,2));
+                ageMatched? console.log("TRACKS age matched") : "";
+                locationMatched? console.log("TRACKS location matched") : "";
+                dayOfWeekMatched? console.log("TRACKS day matched " + thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2)): "";
+
+
+                if (ageMatched && locationMatched && dayOfWeekMatched) {
+                    thisDaysFilteredEvents.push(thisDaysEvents[i]);
+                    console.log('TRACKS - matched id ' + thisDaysEvents[i].length);
+                }
+            }
+
+
+            thisDaysFilteredEvents.sort(function(a,b) {
+                return a.priority - b.priority;
+            });
+            var firstEventDates = thisDaysFilteredEvents[0].daystring;
+            var firstDay = this.getFirstDayFromFullString(firstEventDates);
+
+
+        } catch (e) {
+                console.log("TRACKS FAILED " + e);
+        }
+
+        //take all events and combine into tracks.
+        //series ID last digits should be the same, split _ [2] and [3]
+
+        var tracksListing = {};
+        for (i=0; i<thisDaysFilteredEvents.length; i++) {
+            var trackSeriesId = thisDaysFilteredEvents[i].id.split("_");
+            var endIDString = trackSeriesId[2] + "_" + trackSeriesId[3];
+            var season;
+            if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("SPRING")>0)
+                season="spring";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("WINTER")>0)
+                season="winter";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FALL")>0)
+                season="fall";
+            else season = "UNKNOWN";
+
+            console.log("found season " + season);
+
+            // tracksListing[endIDString] = {season:thisDaysFilteredEvents[i] };
+            if (tracksListing[endIDString]===undefined)
+                tracksListing[endIDString] = [];
+            tracksListing[endIDString][season]=thisDaysFilteredEvents[i];
+
+            // if (tracksListing[endIDString]==undefined) {
+            //     tracksListing.push(endIDString);
+            // }
+            // tracksListing[endIDString].push(thisDaysFilteredEvents[i]);
+        }
+        console.log("TRACKS pushed = " + tracksListing["4_122"]["winter"].name);
+
+
+        this.setState({
+            viewingDayEvents: tracksListing
+        });
+    }
+
     addOverlay(day, month, addclass, color, title, subtitle) {
         console.log("$$ adding overlay " + addclass + " to", day);
         var thisRow = day.css("grid-row-start");
@@ -1488,6 +1663,63 @@ class App extends Component {
 
     }
 
+    showRoblox() {
+        // if filtering then that means dont show that age, so you return false to now show it.
+        //show only if either 9-11 ot 7-9 AND not 12-14.
+        if (this.state.filter9to11 && this.state.filter7to9) {
+            return false;
+        }
+        return true;
+    }
+
+    showMinecraft() {
+        if (this.state.filter7to9) {
+            return false;
+        }
+        return true;
+    }
+
+    showFortnite() {
+        // Also need to check location
+        if (this.state.filter9to11 && this.state.filter12to14) {
+            return false;
+        }
+        if (this.state.filterLocation=="Brooklyn") {
+            return true;
+        }
+        return false;
+    }
+
+    showCoding() {
+        // Also need to check location, only in brooklyn
+        if (this.state.filter9to11 && this.state.filter12to14) {
+            return false;
+        }
+        if (this.state.filterLocation=="Brooklyn") {
+            return true;
+        }
+        return false;
+    }
+
+    showVideo() {
+        // Also need to check location, only in brooklyn
+        if (this.state.filter7to9) {
+            return false;
+        }
+        return true;
+    }
+
+    showHardware() {
+        // Also need to check location, only in brooklyn
+        if (this.state.filter12to14) {
+            return false;
+        }
+        if (this.state.filterLocation=="Brooklyn") {
+            return true;
+        }
+        return false;
+    }
+
     getMonthName(num) {
         num = parseInt(num);
         switch (num) {
@@ -1598,7 +1830,7 @@ class App extends Component {
                                     </div>
                                     <div className="text-right filtering-hover-text">
                                         <div className={this.state.selectedMemberKey != "" ? "member-type" : ""}>
-                                            {this.state.selectedMemberKey != "" ? this.state.members[this.state.selectedMemberKey].memberType.toUpperCase() : "click to change"}
+                                            click to change
                                         </div>
                                     </div>
                                     <div className="filter-selection-box filter-age">
@@ -1624,6 +1856,33 @@ class App extends Component {
                                         </div>
                                         <div className="filter-option set-location-btn" data-location="TriBeCa">
                                             TriBeCa
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="text-center" style={{marginLeft: "10px"}}>  on</div>
+                                <div className="change-day-of-week-btn" onClick={this.changeDayOfWeek}
+                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
+                                >
+                                    <div className="text-left"><span
+                                        className="editable-heading">{this.state.currentDayOfWeek} </span></div>
+                                    <div className="text-center filtering-hover-text">
+                                        <div>click to change</div>
+                                    </div>
+                                    <div className="filter-selection-box filter-day-of-week">
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Mondays">
+                                            Mondays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Tuesdays">
+                                            Tuesdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Wednesdays">
+                                            Wednesdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Thursdays">
+                                            Thursdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Fridays">
+                                            Fridays
                                         </div>
                                     </div>
                                 </div>
@@ -1681,26 +1940,26 @@ class App extends Component {
                                         {seriesFilterIcon}
                                     </div>
                                     <div className="filter-circle-label">
-                                        Series
+                                        Tracks
                                     </div>
                                 </div>
-                                <div className="filter-circle-container">
-                                    <div className="filter-circle-filled pro-series-color"
-                                         onClick={this.toggleProSeries}>
-                                        {proSeriesFilterIcon}
-                                    </div>
-                                    <div className="filter-circle-label">
-                                        Pro Series
-                                    </div>
-                                </div>
-                                <div className="filter-circle-container" onClick={this.toggleCamp}>
-                                    <div className="filter-circle-filled camp-color">
-                                        {campFilterIcon}
-                                    </div>
-                                    <div className="filter-circle-label">
-                                        Camp
-                                    </div>
-                                </div>
+                                {/*<div className="filter-circle-container">*/}
+                                    {/*<div className="filter-circle-filled pro-series-color"*/}
+                                         {/*onClick={this.toggleProSeries}>*/}
+                                        {/*{proSeriesFilterIcon}*/}
+                                    {/*</div>*/}
+                                    {/*<div className="filter-circle-label">*/}
+                                        {/*Pro Series*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                                {/*<div className="filter-circle-container" onClick={this.toggleCamp}>*/}
+                                    {/*<div className="filter-circle-filled camp-color">*/}
+                                        {/*{campFilterIcon}*/}
+                                    {/*</div>*/}
+                                    {/*<div className="filter-circle-label">*/}
+                                        {/*Camp*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
                                 <div className="filter-circle-container" onClick={this.toggleDropin}>
                                     <div className="filter-circle-filled drop-in-color">
                                         {dropInFilterIcon}
@@ -1744,15 +2003,65 @@ class App extends Component {
                                         {partiesFilterIcon}
                                     </div>
                                     <div className="filter-circle-label disabled">
-                                        Parties<br/><span style={{fontSize: "80%"}}><a href="http://www.pixelacademy.org/birthdays/" className="birthday-link">(coming soon)</a></span>
+                                        Weekends<br/><span style={{fontSize: "80%"}}>(coming soon)</span>
                                     </div>
                                 </div>
 
                             </div>
                             <div className="page-container">
 
-                                    <div className="month-sidebar">
-                                        <Month name="September" numDays="30" skipDays="5"
+                                {/*TRACKS BEGIN*/}
+                                <div className="allTracks">
+                                    {this.showRoblox()?
+                                        <Track topic="Roblox">
+                                        </Track>
+                                    :
+                                       ""
+                                    }
+
+                                    {this.showFortnite()?
+                                        <Track topic="Fortnite">
+                                        </Track>
+                                        :
+                                        ""
+                                    }
+
+                                    {this.showMinecraft()?
+                                        <Track topic="Minecraft">
+                                        </Track>
+                                        :
+                                        ""
+                                    }
+
+                                    {this.showCoding()?
+                                        <Track topic="Coding">
+                                        </Track>
+                                        :
+                                        ""
+                                    }
+
+                                    {this.showVideo()?
+                                        <Track topic="Video">
+                                        </Track>
+                                        :
+                                        ""
+                                    }
+
+                                    {this.showHardware()?
+                                        <Track topic="Hardware">
+                                        </Track>
+                                        :
+                                        ""
+                                    }
+
+                                </div>
+
+
+                                {/*Month sidebar:*/}
+                                {/*
+
+                                <div className="month-sidebar">
+                                        <Month name="September" numDays="30" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1767,7 +2076,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["September"] : []}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="October" numDays="31" skipDays="0"
+                                        <Month name="October" numDays="31" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1782,7 +2091,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["October"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="November" numDays="30" skipDays="3"
+                                        <Month name="November" numDays="30" skipDays="4"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1797,7 +2106,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["November"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="December" numDays="31" skipDays="5"
+                                        <Month name="December" numDays="31" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1813,7 +2122,7 @@ class App extends Component {
                                                listEvents={ this.listEvents }
                                         />
 
-                                        <Month name="January" numDays="31" skipDays="1"
+                                        <Month name="January" numDays="31" skipDays="2"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1828,7 +2137,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["January"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="February" numDays="28" skipDays="4"
+                                        <Month name="February" numDays="28" skipDays="5"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1843,7 +2152,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["February"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="March" numDays="31" skipDays="4"
+                                        <Month name="March" numDays="31" skipDays="5"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1858,7 +2167,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["March"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="April" numDays="30" skipDays="0"
+                                        <Month name="April" numDays="30" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1873,7 +2182,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["April"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="May" numDays="31" skipDays="2"
+                                        <Month name="May" numDays="31" skipDays="3"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1888,7 +2197,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["May"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="June" numDays="30" skipDays="5"
+                                        <Month name="June" numDays="30" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1903,7 +2212,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["June"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="July" numDays="31" skipDays="0"
+                                        <Month name="July" numDays="31" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1918,7 +2227,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["July"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="August" numDays="31" skipDays="3"
+                                        <Month name="August" numDays="31" skipDays="4"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1939,6 +2248,8 @@ class App extends Component {
 
 
                                     </div>
+
+                                    */}
 
 
 
@@ -1967,17 +2278,14 @@ class App extends Component {
                                         }
 
                                     </div>
-                                    <ListView
-                                        allEvents={ this.listEvents }
-                                        hide={ this.state.viewingDayEvents.length > 0 }
-                                        setViewDay={ this.setViewDay }
-                                    />
+
                                     <div className="big-day-container">
 
                                         {this.state.viewingDayEvents.map((event, index) =>
 
-                                            <BigDay
-                                                title={event.name}
+
+                                            <TrackSelection
+                                                title="Test"
                                                 tags={
                                                     [
                                                         {text: "Code", tagType: "red"},
@@ -1985,26 +2293,44 @@ class App extends Component {
                                                         {text: "Magic", tagType: "green"}
                                                     ]
                                                 }
-                                                copy={event.description}
-                                                ages={event.age}
-                                                dates={event.daystring}
-                                                time={event.startTime}
-                                                originalPrice={event.price}
-                                                price={this.getMemberPricing(event.price, event.type)}
-                                                //TODO
-                                                doesOwn={willCheckForDoesOwn.indexOf(event.id)}
-                                                isInCart={this.state.cart.indexOf(event.id)}
-                                                spotsLeft={event.spotsLeft}
-                                                eventObj={event}
-                                                image={event.image}
-                                                type={event.type}
-                                                addOverlay={this.addASeriesOverlay}
-                                                hideOverlays={this.hideSeriesOverlays}
+                                                copy="test copy"
+                                                ages="9-11"
+                                                dates="no dates"
+                                                time="no time"
+                                                originalPrice="510"
+                                                price="500"
+                                                trackPrice="500"
+                                                trackSpots="4"
+                                                trackInCart={-1}
+                                                trackDoesOwn={-1}
+                                                fallPrice="200"
+                                                winterPrice="200"
+                                                springPrice="200"
+                                                fallSpots="3"
+                                                winterSpots="3"
+                                                springSpots="3"
+                                                fallInCart={-1}
+                                                winterInCart={-1}
+                                                springInCart={-1}
+                                                fallDoesOwn={false}
+                                                winterDoesOwn={false}
+                                                springDoesOwn={false}
+
+                                                doesOwn={false}
+                                                isInCart={-1}
+                                                spotsLeft="5"
                                                 addToCart={this.addToCart}
-                                                memberName = {memberName}
+                                                memberName = "Mikey"
 
                                             />
+
+
                                         )}
+
+
+
+
+
 
                                     </div>
 
