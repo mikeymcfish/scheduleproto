@@ -21,6 +21,13 @@ body {
     background-color: var(--background-color);
     font-family: Helvetica;
     color: var(--font-color);
+
+    --button-shadow: 3px 3px 1px rgba(0,0,0,.3);
+    --button-shadow-pressed: 2px 2px 0px rgba(0,0,0,.05) inset;
+
+    --highlight-color: white;
+    --faded-color: #ccc;
+
 }
 
 .track-details {
@@ -237,7 +244,7 @@ body {
     /*align-content: flex-start;*/
     height:40px;
     width: 100%;
-    margin-top:35px;
+    margin-top:30px;
     margin-left: 50px;
 }
 .track-line {
@@ -1445,24 +1452,54 @@ div .age12to14 {
     padding:8px;
     height:auto;
     min-height: unset;
+    box-shadow: var(--button-shadow);
+
 }
+
 .seasons-button-container {
-    width: 90%;
-    margin: auto;
+    width:90%;
     display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    /*justify-items: space-between;*/
+    justify-content: space-between;
+    /*height: 40px;*/
 }
+
 .season-button Button {
     width:100%;
     margin:auto;
     padding:8px;
     height:auto;
     min-height: unset;
+    /*margin-left:30px;*/
+    /*cursor: pointer;*/
+    pointer-events: none;
+    box-shadow:  var(--button-shadow);
 }
 .season-button:hover Button {
-    box-shadow: 2px 2px 0px #999;
+    /*box-shadow: 2px 2px 0px rgba(0,0,0,.3);*/
+    filter: brightness(1.1);
+    /*--background-color: white;*/
+    /*cursor: pointer;*/
 }
+
 .full-track-button:hover Button {
-    box-shadow: 2px 2px 0px #999;
+    /*box-shadow: 2px 2px 0px rgba(0,0,0,.3);*/
+    filter: brightness(1.1);
+
+}
+.season-button:active Button {
+    /*box-shadow: none;*/
+    filter: brightness(.95);
+    box-shadow:  var(--button-shadow-pressed);
+    /*cursor: pointer;*/
+}
+.full-track-button:active Button {
+    /*box-shadow: none;*/
+    filter: brightness(.95);
+    box-shadow:  var(--button-shadow-pressed);
 }
 .price-text {
     font-weight:300;
@@ -1476,4 +1513,49 @@ div .age12to14 {
 .allTracks #roblox-track {
     padding-bottom:100px;
     padding-top:20px;
+}
+
+.color {
+    /*filter: brightness(1.5);*/
+}
+.track-fade {
+    /*opacity:.5;*/
+}
+.highlight {
+    /*filter: brightness(1.5);*/
+    /*background-color: var(--highlight-color);*/
+    /*border-color: #545454;*/
+    /*opacity:1;*/
+}
+.highlight .project-name {
+    filter:none;
+}
+#roblox-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--roblox-color), var(--roblox-color) 33%, var(--faded-color) 34%);
+}
+#roblox-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--roblox-color) 34%, var(--roblox-color) 66%,var(--faded-color) 67%);
+}
+#roblox-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--roblox-color) 67%);
+}
+.highlight-track-full {
+    filter: brightness(1.1);
+}
+.hide-me {
+    /*opacity:.2;*/
+    /*filter:grayscale(100%);*/
+    background-color: var(--faded-color);
+    border-color: var(--faded-color);
+    box-shadow: none;
+    /*opacity:.8;*/
+}
+.hide-me .project-name{
+    /*opacity:.2;*/
+    color:var(--faded-color);
+    /*opacity:.8;*/
+}
+.season-button {
+    margin-top:16px;
+    width:32%;
 }

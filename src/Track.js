@@ -10,8 +10,77 @@ import Badge from 'material-ui/Badge';
 import Button from 'material-ui/Button';
 
 
-
 class Track extends React.Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            highlightColor : "blue",
+            fallHighlightClass: "",
+            winterHighlightClass: "",
+            springHighlightClass: "",
+            fall: true,
+            winter: true,
+            spring: true,
+            highlightTrack: "",
+            highlightAll: false
+        }
+        this.changeFallHighlight = this.changeFallHighlight.bind(this);
+        this.changeWinterHighlight = this.changeWinterHighlight.bind(this);
+        this.changeSpringHighlight = this.changeSpringHighlight.bind(this);
+        this.highlightFullTrack = this.highlightFullTrack.bind(this);
+        this.removeAllHighlights = this.removeAllHighlights.bind(this);
+
+
+    }
+
+
+    changeFallHighlight() {
+        this.removeAllHighlights();
+        console.log("HIGHLIGHT - changing fall highlight");
+        this.setState({fallHighlightTrack:"highlight-track-fall"});
+        this.setState({fall:true});
+        this.setState({winter:false});
+        this.setState({spring:false});
+        this.setState({highlightTrack:"highlight-track-fall"});
+
+    }
+
+    changeWinterHighlight() {
+        this.removeAllHighlights();
+        this.setState({highlightTrack:"highlight-track-winter"});
+        this.setState({fall:false});
+        this.setState({winter:true});
+        this.setState({spring:false});
+    }
+
+    changeSpringHighlight() {
+        this.removeAllHighlights();
+        this.setState({highlightTrack:"highlight-track-spring"});
+        this.setState({fall:false});
+        this.setState({winter:false});
+        this.setState({spring:true});
+
+    }
+
+    highlightFullTrack() {
+        this.removeAllHighlights();
+        this.setState({highlightTrack:"highlight-track-full"});
+
+        // this.setState({highlightAll:true});
+    }
+
+    removeAllHighlights() {
+        console.log("HIGHLIGHT - clearing all");
+
+        this.setState({fall:true});
+        this.setState({winter:true});
+        this.setState({spring:true});
+        this.setState({highlightTrack:""});
+        this.setState({highlightAll:false});
+
+    }
 
     render() {
         if (this.props.topic=="Roblox") {
@@ -91,14 +160,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Roblox Coding & Game Design</div>
-
-                                <div className="track-label-description">
-                                    This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.
-                                </div>
-
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -169,6 +230,15 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+
+                                <div className="backup-title">Roblox Coding & Game Design</div>
+                                <div className="track-label-description">
+                                    This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.
+                                </div>
+
+                            </div>
+
 
                         </div>
                     </div>
@@ -187,51 +257,82 @@ class Track extends React.Component {
                 </div>
 
                 <div className="bottom-container-new">
-                    <div className="full-track-button">
+                    <div className="full-track-button" onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                        {/*
                         <div className="add-to-text">
                             add full track to cart - (3 spots left)
                         </div>
+                        */}
                         <Button disabled color="primary" className="color">
-                            <div><span className="price-text">old price - new price</span></div>
+                            <div><span className="price-text">+ Full Track <span className="former-price">$1024</span> $155 (or $40/month for 6 months)</span></div>
                         </Button>
                     </div>
                     <div className="seasons-button-container">
-                        <div className="season-button fall-season">
-                            <Button disabled color="primary" className="color">
-                                <div><span className="price-text">SOLD OUT!</span></div>
+                        <div className="season-button fall-season" onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                            <Button disabled color="primary" className="color" >
+                                <div><span className="price-text">+ Fall $255</span></div>
                             </Button>
                         </div>
-                        <div className="season-button fall-season">
+                        <div className="season-button winter-season" onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
                             <Button disabled color="primary" className="color">
-                                <div><span className="price-text">SOLD OUT!</span></div>
+                                <div><span className="price-text">+ Winter $334</span></div>
                             </Button>
                         </div>
-                        <div className="season-button fall-season">
+                        <div className="season-button spring-season" onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
                             <Button disabled color="primary" className="color">
-                                <div><span className="price-text">SOLD OUT!</span></div>
+                                <div><span className="price-text">+ Spring $352</span></div>
                             </Button>
                         </div>
                     </div>
                 </div>
 
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0%"}}>
+
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
+                        <div className={
+
+                            !this.state.fall?
+                                "season-start hide-me"
+                                :
+                                "season-start"
+                        }
+                             style={{left: "0%"}}>
 
                         </div>
-                        <div className="project-start" style={{left: "5%"}}>
+                        <div className={
+
+                            !this.state.fall?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "5%"}}>
                             <div className="project-name mini-course">
                                 *Online Safety and<br></br>Anti-Bullying
                             </div>
 
                         </div>
-                        <div className="project-start" style={{left: "9%"}}>
+                        <div className={
+
+                            !this.state.fall?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "9%"}}>
                             <div className="project-name">
                                 3D Modeling<br></br>for Roblox
                             </div>
 
                         </div>
-                        <div className="project-start" style={{left: "15%"}}>
+                        <div className={
+
+                            !this.state.fall?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "15%"}}>
                             <div className="project-name">
                                 Build Obstacle Courses<br></br>in Roblox Studio
                             </div>
@@ -239,16 +340,37 @@ class Track extends React.Component {
                         </div>
 
 
-                        <div className="season-start" style={{left: "33%"}}>
+                        <div className={
+
+                                !this.state.winter?
+                                    "season-start hide-me"
+                                :
+                                    "season-start"
+                        }
+                             style={{left: "33%"}}>
 
                         </div>
-                        <div className="project-start" style={{left: "39%"}}>
+                        <div className={
+
+                            !this.state.winter?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "39%"}}>
                             <div className="project-name">
                                 Roblox<br></br>Monetization
                             </div>
 
                         </div>
-                        <div className="project-start" style={{left: "50%"}}>
+                        <div className={
+
+                            !this.state.winter?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "50%"}}>
                             <div className="project-name">
                                 Build Survival Games<br></br>in Roblox Studio
                             </div>
@@ -256,16 +378,37 @@ class Track extends React.Component {
                         </div>
 
 
-                        <div className="season-start" style={{left: "66%"}}>
+                        <div className={
 
-            </div>
-            <div className="project-start" style={{left: "73%"}}>
+                            !this.state.spring?
+                                "season-start hide-me"
+                                :
+                                "season-start"
+                        }
+                             style={{left: "66%"}}>
+
+                        </div>
+                        <div className={
+
+                            !this.state.spring?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "73%"}}>
                         <div className="project-name">
                             Game Design<br></br>Patterns
                         </div>
 
                     </div>
-                    <div className="project-start" style={{left: "80%"}}>
+                        <div className={
+
+                            !this.state.spring?
+                                "project-start hide-me"
+                                :
+                                "project-start"
+                        }
+                             style={{left: "80%"}}>
                         <div className="project-name">
                             Build A.I. Characters<br></br>in Roblox Studio
                         </div>

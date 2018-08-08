@@ -1447,6 +1447,7 @@ class App extends Component {
                 fallPrice: this.calculateCost(tracksListing[topic]['fall']),
                 winterPrice: this.calculateCost(tracksListing[topic]['winter']),
                 springPrice: this.calculateCost(tracksListing[topic]['spring']),
+                trackPaymentPlanPrice: this.calculatePaymentPlanPrice(tracksListing[topic],6),
                 fallSpots: tracksListing[topic]['fall'].spotsLeft,
                 winterSpots: tracksListing[topic]['winter'].spotsLeft,
                 springSpots: tracksListing[topic]['spring'].spotsLeft,
@@ -1489,13 +1490,22 @@ class App extends Component {
         // console.log('COST count is: ' + count);
         // console.log('COST price is: ' + parseInt(event.price));
         // return (count*(parseInt(event.price)-discount));
-        console.log("COST - " + (parseInt(event.price)/55));
+        console.log("COST - number of days - " + (parseInt(event.price)/55));
         if (event.location=="Brooklyn") {
             return ((parseInt(event.price)/55) * (55-discount));
         } else if (event.location=="TriBeCa") {
             return ((parseInt(event.price)/65) * (65-discount));
         }
         return parseInt(event.price);
+    }
+
+    calculatePaymentPlanPrice(event, months) {
+        var trackCost =
+        this.calculateCost(event['spring'],5) +
+        this.calculateCost(event['winter'],5) +
+        this.calculateCost(event['fall'],5);
+        console.log("COST - payment plan for 6 months: " + Math.ceil(trackCost/months));
+        return Math.ceil(trackCost/months);
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
@@ -2382,6 +2392,7 @@ class App extends Component {
                                                         fallPrice={name.fallPrice}
                                                         winterPrice={name.winterPrice}
                                                         springPrice={name.springPrice}
+                                                        trackPaymentPlanPrice = {name.trackPaymentPlanPrice}
                                                         fallSpots="3"
                                                         winterSpots="3"
                                                         springSpots="3"

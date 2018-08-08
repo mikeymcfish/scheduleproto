@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e16ad2c-8c93-4ddb-84b0-f67a8efb6c91" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AltViews.css" afterPath="$PROJECT_DIR$/src/AltViews.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Track.js" afterPath="$PROJECT_DIR$/src/Track.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TrackSelection.js" afterPath="$PROJECT_DIR$/src/TrackSelection.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tracks-2.css" afterPath="$PROJECT_DIR$/src/tracks-2.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,31 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="1494" column="47" lean-forward="true" selection-start-line="1494" selection-start-column="47" selection-end-line="1494" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="n#!!block;n#checkProSeriesForPreReqs#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
-                <element signature="e#29145#29212#0" expanded="false" />
-                <element signature="n#!!block;n#showRoblox#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#showMinecraft#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#showFortnite#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#showCoding#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#showHardware#0;n#App#0" expanded="false" />
-                <element signature="e#75259#77084#0" expanded="false" />
-                <element signature="e#77173#93523#0" expanded="false" />
-                <marker date="1533681864578" expanded="true" signature="14301:14361" ph="..." />
-                <marker date="1533681864578" expanded="true" signature="48789:48858" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/json/data.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,10 +60,9 @@
       <file leaf-file-name="TrackSelection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrackSelection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="141" column="20" lean-forward="false" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+            <state relative-caret-position="135">
+              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#2228#2535#0" expanded="false" />
                 <element signature="e#2284#2412#0" expanded="false" />
                 <element signature="e#2560#4541#0" expanded="false" />
@@ -105,19 +78,44 @@
       <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="2782" column="18" lean-forward="false" selection-start-line="2782" selection-start-column="18" selection-end-line="2782" selection-end-column="18" />
+            <state relative-caret-position="310">
+              <caret line="2785" column="0" lean-forward="false" selection-start-line="2785" selection-start-column="0" selection-end-line="2787" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AltViews.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AltViews.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="677" column="25" lean-forward="true" selection-start-line="677" selection-start-column="25" selection-end-line="677" selection-end-column="25" />
+            <state relative-caret-position="247">
+              <caret line="665" column="17" lean-forward="false" selection-start-line="665" selection-start-column="17" selection-end-line="665" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#!!block;n#checkProSeriesForPreReqs#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+                <element signature="e#29145#29212#0" expanded="false" />
+                <element signature="n#!!block;n#showRoblox#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#showMinecraft#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#showFortnite#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#showCoding#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#showHardware#0;n#App#0" expanded="false" />
+                <element signature="e#75723#77548#0" expanded="false" />
+                <element signature="e#77637#93987#0" expanded="false" />
+                <marker date="1533752671567" expanded="true" signature="14301:14361" ph="..." />
+                <marker date="1533752671567" expanded="true" signature="49253:49322" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,34 +123,27 @@
       <file leaf-file-name="Track.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Track.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="188" column="16" lean-forward="false" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
+            <state relative-caret-position="49">
+              <caret line="265" column="75" lean-forward="true" selection-start-line="265" selection-start-column="75" selection-end-line="265" selection-end-column="75" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#1142#2953#0" expanded="false" />
-                <element signature="e#2970#8061#0" expanded="false" />
-                <element signature="e#8079#8260#0" expanded="false" />
-                <element signature="e#8278#9790#0" expanded="false" />
-                <element signature="e#9808#12133#0" expanded="false" />
-                <element signature="e#9852#12114#0" expanded="false" />
-                <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-                <element signature="e#12216#21489#0" expanded="false" />
+                <element signature="e#10169#10350#0" expanded="false" />
                 <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
-                <element signature="e#21556#30754#0" expanded="false" />
+                <element signature="e#26510#35708#0" expanded="false" />
                 <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-                <element signature="e#30825#40989#0" expanded="false" />
-                <element signature="e#41059#49956#0" expanded="false" />
+                <element signature="e#35779#45943#0" expanded="false" />
+                <element signature="e#46013#54910#0" expanded="false" />
                 <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="1458" column="22" lean-forward="true" selection-start-line="1458" selection-start-column="22" selection-end-line="1458" selection-end-column="22" />
+            <state relative-caret-position="135">
+              <caret line="1513" column="18" lean-forward="false" selection-start-line="1513" selection-start-column="18" selection-end-line="1513" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -162,43 +153,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data-day-of-week</find>
-      <find>setTracksToView</find>
-      <find>map</find>
-      <find>age 7 to 9</find>
-      <find>setviewday</find>
-      <find>4_122</find>
-      <find>viewingday</find>
-      <find>ilter</find>
-      <find>bigday</find>
-      <find>tracks</find>
-      <find>Settracks</find>
-      <find>.map(</find>
-      <find>this.add</find>
-      <find>this.addToCart</find>
-      <find>#roblox</find>
-      <find>.colo</find>
-      <find>media</find>
-      <find>first-tr</find>
-      <find>.color</find>
-      <find>list-of-skills</find>
-      <find>bottom-contain</find>
-      <find>fall</find>
-      <find>.project-name</find>
       <find>bottom-container-new</find>
       <find>.allTr</find>
       <find>line-</find>
       <find>viewingDayEvents</find>
+      <find>Price</find>
       <find>bottom-con</find>
-      <find>allTra</find>
       <find>button</find>
+      <find>trackPaymentPlanPrice</find>
+      <find>calculateCost</find>
+      <find>allTra</find>
+      <find>filter</find>
+      <find>box-shadow</find>
+      <find>calculatePaymentPlanPrice</find>
+      <find>?</find>
+      <find>mouse</find>
+      <find>mouse</find>
+      <find>highlightColor</find>
+      <find>bind</find>
+      <find>var</find>
+      <find>changeHighlight</find>
+      <find>fallHighlightClass</find>
+      <find>price</find>
+      <find>old pri</find>
+      <find>Button</find>
+      <find>add full</find>
+      <find>.track</find>
+      <find>season-b</find>
+      <find>season-button</find>
+      <find>.season-button</find>
+      <find>bottom-</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;br&gt;&lt;/br&gt;</replace>
       <replace>className=&quot;</replace>
       <replace>winter</replace>
-      <replace>age 9 to 11</replace>
       <replace>spring</replace>
+      <replace>age 9 to 11</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -220,12 +211,12 @@
         <option value="$PROJECT_DIR$/src/TopLinks.js" />
         <option value="$PROJECT_DIR$/src/calendar/list/item.js" />
         <option value="$PROJECT_DIR$/src/json/data.json" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/TrackSelection.js" />
-        <option value="$PROJECT_DIR$/src/Track.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/AltViews.css" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/Track.js" />
         <option value="$PROJECT_DIR$/src/tracks-2.css" />
+        <option value="$PROJECT_DIR$/src/AltViews.css" />
       </list>
     </option>
   </component>
@@ -416,12 +407,12 @@
       <workItem from="1517261345182" duration="1539000" />
       <workItem from="1517542097044" duration="422000" />
       <workItem from="1533135815811" duration="6147000" />
-      <workItem from="1533572612977" duration="36125000" />
+      <workItem from="1533572612977" duration="49031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74446000" />
+    <option name="totallyTimeSpent" value="87352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,12 +487,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>2136</line>
+          <line>2146</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>2085</line>
+          <line>2095</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
@@ -808,12 +799,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/list.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-615">
+          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="2785" column="0" lean-forward="false" selection-start-line="2785" selection-start-column="0" selection-end-line="2787" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrackSelection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="141" column="20" lean-forward="false" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+        <state relative-caret-position="135">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
             <element signature="e#2228#2535#0" expanded="false" />
             <element signature="e#2284#2412#0" expanded="false" />
             <element signature="e#2560#4541#0" expanded="false" />
@@ -825,42 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Track.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="188" column="16" lean-forward="false" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#1142#2953#0" expanded="false" />
-            <element signature="e#2970#8061#0" expanded="false" />
-            <element signature="e#8079#8260#0" expanded="false" />
-            <element signature="e#8278#9790#0" expanded="false" />
-            <element signature="e#9808#12133#0" expanded="false" />
-            <element signature="e#9852#12114#0" expanded="false" />
-            <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-            <element signature="e#12216#21489#0" expanded="false" />
-            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
-            <element signature="e#21556#30754#0" expanded="false" />
-            <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-            <element signature="e#30825#40989#0" expanded="false" />
-            <element signature="e#41059#49956#0" expanded="false" />
-            <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/list.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="1494" column="47" lean-forward="true" selection-start-line="1494" selection-start-column="47" selection-end-line="1494" selection-end-column="47" />
+        <state relative-caret-position="175">
+          <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="57" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#checkProSeriesForPreReqs#0;n#App#0" expanded="false" />
@@ -872,34 +846,43 @@
             <element signature="n#!!block;n#showFortnite#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#showCoding#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#showHardware#0;n#App#0" expanded="false" />
-            <element signature="e#75259#77084#0" expanded="false" />
-            <element signature="e#77173#93523#0" expanded="false" />
-            <marker date="1533681864578" expanded="true" signature="14301:14361" ph="..." />
-            <marker date="1533681864578" expanded="true" signature="48789:48858" ph="..." />
+            <element signature="e#75723#77548#0" expanded="false" />
+            <element signature="e#77637#93987#0" expanded="false" />
+            <marker date="1533752671567" expanded="true" signature="14301:14361" ph="..." />
+            <marker date="1533752671567" expanded="true" signature="49253:49322" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
+    <entry file="file://$PROJECT_DIR$/src/Track.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="2782" column="18" lean-forward="false" selection-start-line="2782" selection-start-column="18" selection-end-line="2782" selection-end-column="18" />
+        <state relative-caret-position="49">
+          <caret line="265" column="75" lean-forward="true" selection-start-line="265" selection-start-column="75" selection-end-line="265" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#10169#10350#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#26510#35708#0" expanded="false" />
+            <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
+            <element signature="e#35779#45943#0" expanded="false" />
+            <element signature="e#46013#54910#0" expanded="false" />
+            <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="1513" column="18" lean-forward="false" selection-start-line="1513" selection-start-column="18" selection-end-line="1513" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AltViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="677" column="25" lean-forward="true" selection-start-line="677" selection-start-column="25" selection-end-line="677" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="1458" column="22" lean-forward="true" selection-start-line="1458" selection-start-column="22" selection-end-line="1458" selection-end-column="22" />
+        <state relative-caret-position="247">
+          <caret line="665" column="17" lean-forward="false" selection-start-line="665" selection-start-column="17" selection-end-line="665" selection-end-column="17" />
           <folding />
         </state>
       </provider>
