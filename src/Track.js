@@ -7,6 +7,8 @@ import $ from 'jquery';
 import 'react-hint/css/index.css';
 import ReactTooltip from 'react-tooltip';
 import Badge from 'material-ui/Badge';
+import Button from 'material-ui/Button';
+
 
 
 class Track extends React.Component {
@@ -184,6 +186,34 @@ class Track extends React.Component {
                     </div>
                 </div>
 
+                <div className="bottom-container-new">
+                    <div className="full-track-button">
+                        <div className="add-to-text">
+                            add full track to cart - (3 spots left)
+                        </div>
+                        <Button disabled color="primary" className="color">
+                            <div><span className="price-text">old price - new price</span></div>
+                        </Button>
+                    </div>
+                    <div className="seasons-button-container">
+                        <div className="season-button fall-season">
+                            <Button disabled color="primary" className="color">
+                                <div><span className="price-text">SOLD OUT!</span></div>
+                            </Button>
+                        </div>
+                        <div className="season-button fall-season">
+                            <Button disabled color="primary" className="color">
+                                <div><span className="price-text">SOLD OUT!</span></div>
+                            </Button>
+                        </div>
+                        <div className="season-button fall-season">
+                            <Button disabled color="primary" className="color">
+                                <div><span className="price-text">SOLD OUT!</span></div>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="track">
                     <div className="track-line color">
                         <div className="season-start" style={{left: "0%"}}>
@@ -246,6 +276,8 @@ class Track extends React.Component {
 
                 </div>
             </div>
+
+
 
     </div>
         )

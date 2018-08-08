@@ -2778,7 +2778,11 @@ hr {
 }
 
 .allTracks {
-    width:50%;
+    width:65%;
     font-family: Helvetica;
-    margin-left:-50px;
+    margin-left:-10px;
+}
+/*Hide the list of bi day buttons (button trackselection)*/
+#day-start {
+    display: none;
 }

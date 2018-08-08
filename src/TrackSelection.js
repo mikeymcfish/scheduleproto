@@ -147,7 +147,7 @@ class TrackSelection extends React.Component {
                                     <div className="button-col">
                                         <div className="add-to-text">
                                             { this.props.trackInCart>=0 ? "" : "add FULL TRACK to cart"}
-                                             - ({ this.props.trackInCart>=0 ? "" : this.props.trackSpots + " spots left"})
+                                            - ({ this.props.trackInCart>=0 ? "" : this.props.trackSpots + " spots left"})
 
                                         </div>
 
@@ -322,7 +322,7 @@ class TrackSelection extends React.Component {
                                 }
 
                             </div>
-                    </div>
+                        </div>
                     </div>
 
                 </div>

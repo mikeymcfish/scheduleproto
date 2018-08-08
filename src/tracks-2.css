@@ -54,7 +54,7 @@ body {
 
 .first-track {
 
-    margin-top:40px;
+    /*margin-top:40px;*/
     /*border: solid;*/
     /*border-color: #666666;*/
     /*border-width: 2px;*/
@@ -66,62 +66,85 @@ body {
     background-color: var(--minecraft-color);
     --season-stop-color: var(--minecraft-color);
     --stop-outline-color: var(--minecraft-color);
+    color:white;
+
 }
 #roblox-track .color {
     background-color: var(--roblox-color);
     --season-stop-color: var(--roblox-color);
     --stop-outline-color: var(--roblox-color);
+    color:white;
 }
 #fortnite-track .color {
     background-color: var(--fortnite-color);
     --season-stop-color: var(--fortnite-color);
     --stop-outline-color: var(--fortnite-color);
+    color:white;
+
 }
 #coding-track .color {
     background-color: var(--coding-color);
     --season-stop-color: var(--coding-color);
     --stop-outline-color: var(--coding-color);
+    color:white;
+
 }
 #hardware-track .color {
     background-color: var(--hardware-color);
     --season-stop-color: var(--hardware-color);
     --stop-outline-color: var(--hardware-color);
+    color:white;
+
 }
 #video-track .color {
     background-color: var(--video-color);
     --season-stop-color: var(--video-color);
     --stop-outline-color: var(--video-color);
+    color:white;
+
 }
 
 #minecraft-track .color {
     background-color: var(--minecraft-color);
     --season-stop-color: var(--minecraft-color);
     --stop-outline-color: var(--minecraft-color);
+    color:white;
+
 }
 .roblox-track.color {
     background-color: var(--roblox-color);
     --season-stop-color: var(--roblox-color);
     --stop-outline-color: var(--roblox-color);
+    color:white;
+
 }
 .fortnite-track.color {
     background-color: var(--fortnite-color);
     --season-stop-color: var(--fortnite-color);
     --stop-outline-color: var(--fortnite-color);
+    color:white;
+
 }
 .coding-track.color {
     background-color: var(--coding-color);
     --season-stop-color: var(--coding-color);
     --stop-outline-color: var(--coding-color);
+    color:white;
+
 }
 .hardware-track.color {
     background-color: var(--hardware-color);
     --season-stop-color: var(--hardware-color);
     --stop-outline-color: var(--hardware-color);
+    color:white;
+
 }
 .video-track.color {
     background-color: var(--video-color);
     --season-stop-color: var(--video-color);
     --stop-outline-color: var(--video-color);
+    color:white;
+
 }
 
 
@@ -386,6 +409,7 @@ body {
     border-radius: 8px;
     /*flex-grow: 1;*/
     text-align: center;
+    font-weight: 100;
 }
 
 
@@ -690,132 +714,132 @@ div .age12to14 {
 }
 
 
-@media screen and (max-width: 950px) {
-    .left-container {
-        display:none;
-    }
-    .project-name, .project-name.mini-course {
-        font-size: 80%;
-        margin-top:10px;
-        margin-left:10px;
-    }
-    .project-name.mini-course {
-        font-size: 60%;
-        margin-top:25px;
-        margin-left:-10px;
-    }
+/*@media screen and (max-width: 950px) {*/
+    /*.left-container {*/
+        /*display:none;*/
+    /*}*/
+    /*.project-name, .project-name.mini-course {*/
+        /*font-size: 80%;*/
+        /*margin-top:10px;*/
+        /*margin-left:10px;*/
+    /*}*/
+    /*.project-name.mini-course {*/
+        /*font-size: 60%;*/
+        /*margin-top:25px;*/
+        /*margin-left:-10px;*/
+    /*}*/
 
-    .project-start {
-        height:15px;
-        width:15px;
-        margin-top:4px;
-    }
-    .season-start {
-        width: 25px;
-        height: 25px;
-        margin-top:6px;
-    }
-    .track-details {
-        font-size: 90%;
-    }
-    .track-label-description {
-        font-size: 70%;
-    }
-    .track-label {
-        font-size:20px;
-    }
-    .new-track {
-        margin-top:120px;
-    }
-    .season-labels {
-        display: none;
-    }
-    .color-overlay {
-        display:none;
-    }
-    .backup-title {
-        display: block;
-    }
+    /*.project-start {*/
+        /*height:15px;*/
+        /*width:15px;*/
+        /*margin-top:4px;*/
+    /*}*/
+    /*.season-start {*/
+        /*width: 25px;*/
+        /*height: 25px;*/
+        /*margin-top:6px;*/
+    /*}*/
+    /*.track-details {*/
+        /*font-size: 90%;*/
+    /*}*/
+    /*.track-label-description {*/
+        /*font-size: 70%;*/
+    /*}*/
+    /*.track-label {*/
+        /*font-size:20px;*/
+    /*}*/
+    /*.new-track {*/
+        /*margin-top:120px;*/
+    /*}*/
+    /*.season-labels {*/
+        /*display: none;*/
+    /*}*/
+    /*.color-overlay {*/
+        /*display:none;*/
+    /*}*/
+    /*.backup-title {*/
+        /*display: block;*/
+    /*}*/
 
 
-}
-@media screen and (max-width: 650px) {
+/*}*/
+/*@media screen and (max-width: 650px) {*/
 
-    .tag-section  {
-        display: flex;
-        flex-direction: column;
-        /*font-size: 14px;*/
-        /*align-content: flex-start;*/
-        /*justify-content: flex-start;*/
-        /*width: 100%;*/
-        /*!*flex-wrap: wrap;*!*/
+    /*.tag-section  {*/
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*!*font-size: 14px;*!*/
+        /*!*align-content: flex-start;*!*/
+        /*!*justify-content: flex-start;*!*/
+        /*!*width: 100%;*!*/
+        /*!*!*flex-wrap: wrap;*!*!*/
+        /*!*margin: auto;*!*/
+        /*!*padding-bottom:4px;*!*/
+        /*!*font-weight: 400;*!*/
+        /*!*height: auto;*!*/
+    /*}*/
+    /*.options-section {*/
+        /*flex-direction: column;*/
+        /*!*font-size: 130%;*!*/
+    /*}*/
+    /*.ages-tags {*/
+        /*flex-direction: column;*/
+    /*}*/
+    /*.location {*/
+        /*margin:10px;*/
+    /*}*/
+    /*.track-details {*/
+        /*display: none;*/
+    /*}*/
+    /*.track {*/
+        /*display: none;*/
+    /*}*/
+    /*.track-name {*/
+        /*width:95%;*/
         /*margin: auto;*/
-        /*padding-bottom:4px;*/
-        /*font-weight: 400;*/
-        /*height: auto;*/
-    }
-    .options-section {
-        flex-direction: column;
-        /*font-size: 130%;*/
-    }
-    .ages-tags {
-        flex-direction: column;
-    }
-    .location {
-        margin:10px;
-    }
-    .track-details {
-        display: none;
-    }
-    .track {
-        display: none;
-    }
-    .track-name {
-        width:95%;
-        margin: auto;
-        text-align: center;
-    }
-    .track-photo {
-        width:95%;
-        min-height:400px;
-        margin:auto;
-        margin-top:10px;
-    }
-    .track-label-description {
-        font-size: 18px;
-        text-align: justify;
-    }
-    .track-label {
-        font-size:25px;
-        margin: auto;
-        line-height: normal;
-    }
-    .new-track {
-        margin-top:50px;
-    }
-    .track-info {
-        flex-direction: column;
-        margin: auto;
-    }
-    .tag-section div {
-        flex-grow: 2;
-    }
-    .age-section div {
-        flex-grow: 2;
-    }
+        /*text-align: center;*/
+    /*}*/
+    /*.track-photo {*/
+        /*width:95%;*/
+        /*min-height:400px;*/
+        /*margin:auto;*/
+        /*margin-top:10px;*/
+    /*}*/
+    /*.track-label-description {*/
+        /*font-size: 18px;*/
+        /*text-align: justify;*/
+    /*}*/
+    /*.track-label {*/
+        /*font-size:25px;*/
+        /*margin: auto;*/
+        /*line-height: normal;*/
+    /*}*/
+    /*.new-track {*/
+        /*margin-top:50px;*/
+    /*}*/
+    /*.track-info {*/
+        /*flex-direction: column;*/
+        /*margin: auto;*/
+    /*}*/
+    /*.tag-section div {*/
+        /*flex-grow: 2;*/
+    /*}*/
+    /*.age-section div {*/
+        /*flex-grow: 2;*/
+    /*}*/
 
 
-    .inner-photo {
-        background-size: contain;
-    }
-    .subway-icon {
-        display: none;
-    }
+    /*.inner-photo {*/
+        /*background-size: contain;*/
+    /*}*/
+    /*.subway-icon {*/
+        /*display: none;*/
+    /*}*/
 
-    .photo-text {
-        display: none;
-    }
-}
+    /*.photo-text {*/
+        /*display: none;*/
+    /*}*/
+/*}*/
 
 
 /*BEGIN CHARTS SECTION*/
@@ -1313,9 +1337,7 @@ div .age12to14 {
         width: 100%;
         margin-top:50mm
     }
-    .project-name {
-        font-size:13px;
-    }
+
     .price-chart {
         /*margin-left:-100px;*/
     }
@@ -1409,4 +1431,49 @@ div .age12to14 {
         font-size:70%;
         font-weight:200;
     }
+}
+
+/*buttons*/
+
+.full-track-button {
+    width:90%;
+    margin:auto;
+}
+.full-track-button Button {
+    width:100%;
+    margin:auto;
+    padding:8px;
+    height:auto;
+    min-height: unset;
+}
+.seasons-button-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+.season-button Button {
+    width:100%;
+    margin:auto;
+    padding:8px;
+    height:auto;
+    min-height: unset;
+}
+.season-button:hover Button {
+    box-shadow: 2px 2px 0px #999;
+}
+.full-track-button:hover Button {
+    box-shadow: 2px 2px 0px #999;
+}
+.price-text {
+    font-weight:300;
+}
+
+.project-name {
+    font-size:13px;
+    color: #333;
+}
+
+.allTracks #roblox-track {
+    padding-bottom:100px;
+    padding-top:20px;
 }

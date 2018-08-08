@@ -659,11 +659,26 @@
 .bottom-container-new {
     margin: 10px;
     margin-top:15px;
-    display: flex;
+    /*display: none;*/
     flex-direction: column;
     justify-items: stretch;
     /*height: 40px;*/
 }
+.bottom-container-new {
+    /*display: none;*/
+}
+.track {
+    /*display: none;*/
+}
+
+
+/*#roblox-track:hover .track {*/
+    /*display: block;*/
+/*}*/
+/*#roblox-track:hover {*/
+    /*box-shadow: 0px 0px 10px #aaa;*/
+/*}*/
+
 .seasons-button-container {
     display: flex;
     flex-direction: row;
@@ -920,4 +935,7 @@ Button.btn-2:hover {
 }
 .month-sidebar {
     display:none;
+}
+.filters {
+    display: none;
 }

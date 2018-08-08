@@ -60,7 +60,7 @@ class App extends Component {
         this.closeAlert = this.closeAlert.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
-        this.setViewDay = this.setViewDay.bind(this);
+        // this.setViewDay = this.setViewDay.bind(this);
         this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
         this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         this.addToCart = this.addToCart.bind(this);
@@ -564,10 +564,10 @@ class App extends Component {
 
             if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
                 _this.clearCalendar();
-                _this.setState({
-                    viewingDay: "none",
-                    viewingDayEvents: [],
-                });
+                // _this.setState({
+                //     viewingDay: "none",
+                //     viewingDayEvents: [],
+                // });
             }
         });
         $('.change-age-btn').unbind("hover");
@@ -601,17 +601,17 @@ class App extends Component {
                 if ($(this).hasClass('highlighted')) {
                     $(this).removeClass("highlighted");
                     _this.clearCalendar();
-                    _this.setState({
-                        viewingDay: "none",
-                        viewingDayEvents: [],
-                    });
+                    // _this.setState({
+                    //     viewingDay: "none",
+                    //     viewingDayEvents: [],
+                    // });
                 } else {
                     var child = $(this).find("[data-month!='undefined']");
                     _this.clearCalendar();
                     $('.highlighted').removeClass("highlighted");
                     _this.addASeriesOverlay("");
                     $(this).addClass("highlighted");
-                    _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
+                    // _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
                     _this.scrollView($(this));
                 }
             });
@@ -704,11 +704,11 @@ class App extends Component {
     refreshOverlays(newLocation) {
         // var firstMember = this.getLoggedInMember();
         // this.highlightAllPickUpDays(firstMember.school, newLocation);
-        this.setState({
-            viewingDay: "none",
-            viewingDayEvents: []
-
-        })
+        // this.setState({
+        //     viewingDay: "none",
+        //     viewingDayEvents: []
+        //
+        // })
 
     }
 
@@ -1265,63 +1265,6 @@ class App extends Component {
         }
     }
 
-    setViewDay(month, day, singleEvent = null) {
-
-        var thisDaysEvents = [];
-        var thisDaysFilteredEvents = [];
-
-        try {
-            thisDaysEvents = global.eventsByDay[month][day];
-            for (var i = 0; i < thisDaysEvents.length; i++) {
-                console.log("found " + thisDaysEvents.length + " events on the selected day");
-
-
-                //check if matches current filters:
-
-
-                if (thisDaysEvents[i].type == "series" && this.state.filterSeries) continue;
-                if (thisDaysEvents[i].type == "pro-series" && this.state.filterProSeries) continue;
-                if (thisDaysEvents[i].type == "special" && this.state.filterSpecial) continue;
-                if (thisDaysEvents[i].type == "drop-in" && this.state.filterDropIn) continue;
-
-
-                var ageMatched = false;
-                if (this.state.loggedIn) {
-                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
-                } else {
-                    ageMatched =
-                        (
-                            thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase()
-                            || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
-                        );
-                }
-                if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
-                    && ageMatched) {
-
-                    if (thisDaysEvents[i].type=="series" || thisDaysEvents[i].type=="pro-series") thisDaysFilteredEvents.unshift(thisDaysEvents[i]);
-                    else thisDaysFilteredEvents.push(thisDaysEvents[i]);
-                }
-            }
-            thisDaysFilteredEvents.sort(function(a,b) {
-                return a.priority - b.priority;
-            });
-            var firstEventDates = thisDaysFilteredEvents[0].daystring;
-            var firstDay = this.getFirstDayFromFullString(firstEventDates);
-
-
-        } catch (e) {
-
-        }
-
-        if (singleEvent) {
-            thisDaysFilteredEvents = [singleEvent];
-        }
-
-        this.setState({
-            viewingDay: month + " " + day,
-            viewingDayEvents: thisDaysFilteredEvents
-        });
-    }
 
     setTracksToView(age=null, day=null, location=null)  {
 
@@ -1392,10 +1335,46 @@ class App extends Component {
         //take all events and combine into tracks.
         //series ID last digits should be the same, split _ [2] and [3]
 
-        var tracksListing = {};
+        var tracksListing = {
+            "minecraft" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "roblox" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "video" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "fortnite" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "coding" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "hardware" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "UNKNOWN" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            }
+         };
         for (i=0; i<thisDaysFilteredEvents.length; i++) {
-            var trackSeriesId = thisDaysFilteredEvents[i].id.split("_");
-            var endIDString = trackSeriesId[2] + "_" + trackSeriesId[3];
+            // var trackSeriesId = thisDaysFilteredEvents[i].id.split("_");
+            // var endIDString = trackSeriesId[2] + "_" + trackSeriesId[3];
             var season;
             if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("SPRING")>0)
                 season="spring";
@@ -1405,24 +1384,118 @@ class App extends Component {
                 season="fall";
             else season = "UNKNOWN";
 
-            console.log("found season " + season);
+            console.log("TRACKS found season " + season);
 
-            // tracksListing[endIDString] = {season:thisDaysFilteredEvents[i] };
-            if (tracksListing[endIDString]===undefined)
-                tracksListing[endIDString] = [];
-            tracksListing[endIDString][season]=thisDaysFilteredEvents[i];
 
-            // if (tracksListing[endIDString]==undefined) {
-            //     tracksListing.push(endIDString);
-            // }
-            // tracksListing[endIDString].push(thisDaysFilteredEvents[i]);
+            //check the name of the series
+            var topic;
+            if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ROBLOX")>=0)
+                topic="roblox";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("MINECRAFT")>=0)
+                topic="minecraft";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("HARDWARE")>=0)
+                topic="hardware";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("VIDEO")>=0)
+                topic="video";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FORTNITE")>=0)
+                topic="fortnite";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ADVANCED")>=0)
+                topic="coding";
+            else topic = "UNKNOWN";
+
+            console.log("TRACKS found topic " + topic);
+            // topic="roblox";
+            // season="spring";
+            tracksListing[topic][season] = thisDaysFilteredEvents[i];
+            // Object.defineProperty(tracksListing, 'roblox', {'spring' : '5'});
+            // tracksListing[topic][season].push(thisDaysFilteredEvents[i]);
+
         }
-        console.log("TRACKS pushed = " + tracksListing["4_122"]["winter"].name);
+
+        //console.log("TRACKS-X-"+tracksListing.roblox.spring.name);
+    //     title="Test"
+    //     copy="test copy"
+    //     ages="9-11"
+    //
+
+
+        var combinedSeasons = [];
+
+        for (var topic in tracksListing) {
+            console.log(topic);
+            if (tracksListing[topic]['spring'].name===undefined) continue;
+            combinedSeasons.push({
+                title: tracksListing[topic]['spring'].name,
+                copy: tracksListing[topic]['spring'].description,
+                ages: tracksListing[topic]['spring'].age,
+                dates: tracksListing[topic]['spring'].days,
+                time: tracksListing[topic]['spring'].startTime,
+                originalPrice:
+                    this.calculateCost(tracksListing[topic]['spring']) +
+                    this.calculateCost(tracksListing[topic]['winter']) +
+                    this.calculateCost(tracksListing[topic]['fall'])
+                ,
+                price: tracksListing[topic]['spring'].price,
+                trackPrice:
+                    this.calculateCost(tracksListing[topic]['spring'],5) +
+                    this.calculateCost(tracksListing[topic]['winter'],5) +
+                    this.calculateCost(tracksListing[topic]['fall'],5)
+                ,
+                trackSpots: '0',
+                trackInCart: -1,
+                trackDoesOwn: -1,
+                fallPrice: this.calculateCost(tracksListing[topic]['fall']),
+                winterPrice: this.calculateCost(tracksListing[topic]['winter']),
+                springPrice: this.calculateCost(tracksListing[topic]['spring']),
+                fallSpots: tracksListing[topic]['fall'].spotsLeft,
+                winterSpots: tracksListing[topic]['winter'].spotsLeft,
+                springSpots: tracksListing[topic]['spring'].spotsLeft,
+                fallInCart: -1,
+                winterInCart: -1,
+                springInCart: -1,
+                fallDoesOwn: false,
+                winterDoesOwn: false,
+                springDoesOwn: false,
+
+                doesOwn: false,
+                isInCart: -1,
+                spotsLeft: 0,
+                addToCart: tracksListing[topic]['fall'].addToCart,
+                memberName: "Mikey"
+
+            });
+            // for (var season in tracksListing[topic]) {
+            //     console.log(season);
+            //     console.log("TRACKS-X-"+tracksListing[topic][season].name);
+            // }
+        }
+
+        console.log(combinedSeasons[0]);
 
 
         this.setState({
-            viewingDayEvents: tracksListing
+            viewingDayEvents: combinedSeasons
         });
+    }
+
+    calculateCost(event, discount=0) {
+        // var count;
+        // // for (var i=0; i<event.days.length; i++) {
+        // //     count+=event.days[i].length;
+        // // }
+        // for (var month in event.days) {
+        //     count+=month.length
+        // }
+        // console.log('COST count is: ' + count);
+        // console.log('COST price is: ' + parseInt(event.price));
+        // return (count*(parseInt(event.price)-discount));
+        console.log("COST - " + (parseInt(event.price)/55));
+        if (event.location=="Brooklyn") {
+            return ((parseInt(event.price)/55) * (55-discount));
+        } else if (event.location=="TriBeCa") {
+            return ((parseInt(event.price)/65) * (65-discount));
+        }
+        return parseInt(event.price);
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
@@ -2281,50 +2354,53 @@ class App extends Component {
 
                                     <div className="big-day-container">
 
-                                        {this.state.viewingDayEvents.map((event, index) =>
 
+                                        {this.state.viewingDayEvents.map(
+                                            function(name, index) {
+                                                console.log( "forEach:" + name );
+                                                return (
 
-                                            <TrackSelection
-                                                title="Test"
-                                                tags={
-                                                    [
-                                                        {text: "Code", tagType: "red"},
-                                                        {text: "Fun", tagType: "blue"},
-                                                        {text: "Magic", tagType: "green"}
-                                                    ]
-                                                }
-                                                copy="test copy"
-                                                ages="9-11"
-                                                dates="no dates"
-                                                time="no time"
-                                                originalPrice="510"
-                                                price="500"
-                                                trackPrice="500"
-                                                trackSpots="4"
-                                                trackInCart={-1}
-                                                trackDoesOwn={-1}
-                                                fallPrice="200"
-                                                winterPrice="200"
-                                                springPrice="200"
-                                                fallSpots="3"
-                                                winterSpots="3"
-                                                springSpots="3"
-                                                fallInCart={-1}
-                                                winterInCart={-1}
-                                                springInCart={-1}
-                                                fallDoesOwn={false}
-                                                winterDoesOwn={false}
-                                                springDoesOwn={false}
+                                                    <TrackSelection
+                                                        title={name.title}
+                                                        tags={
+                                                            [
+                                                                {text: "Code", tagType: "red"},
+                                                                {text: "Fun", tagType: "blue"},
+                                                                {text: "Magic", tagType: "green"}
+                                                            ]
+                                                        }
+                                                        copy={name.copy}
+                                                        ages={name.ages}
+                                                        dates={name.dates}
+                                                        time="no time"
+                                                        originalPrice={name.originalPrice}
+                                                        price={name.trackPrice}
+                                                        trackPrice={name.trackPrice}
+                                                        trackSpots="4"
+                                                        trackInCart={-1}
+                                                        trackDoesOwn={-1}
+                                                        fallPrice={name.fallPrice}
+                                                        winterPrice={name.winterPrice}
+                                                        springPrice={name.springPrice}
+                                                        fallSpots="3"
+                                                        winterSpots="3"
+                                                        springSpots="3"
+                                                        fallInCart={-1}
+                                                        winterInCart={-1}
+                                                        springInCart={-1}
+                                                        fallDoesOwn={false}
+                                                        winterDoesOwn={false}
+                                                        springDoesOwn={false}
 
-                                                doesOwn={false}
-                                                isInCart={-1}
-                                                spotsLeft="5"
-                                                addToCart={this.addToCart}
-                                                memberName = "Mikey"
+                                                        doesOwn={false}
+                                                        isInCart={-1}
+                                                        spotsLeft="5"
+                                                        memberName = "Mikey"
 
-                                            />
+                                                    />
 
-
+                                                );
+                                            }
                                         )}
 
 
