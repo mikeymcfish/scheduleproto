@@ -22,8 +22,11 @@ body {
     font-family: Helvetica;
     color: var(--font-color);
 
-    --button-shadow: 3px 3px 1px rgba(0,0,0,.3);
-    --button-shadow-pressed: 2px 2px 0px rgba(0,0,0,.05) inset;
+    --button-shadow: 4px 4px 2px rgba(0,0,0,.5);
+    --button-shadow-pressed: 2px 2px 1px rgba(0,0,0,.6);
+    /*//, 2px 2px 0px rgba(0,0,0,.05) inset;*/
+    --button-shadow-inverse: 0px -3px 10px rgba(0,0,0,.3);
+    --floating-shadow: -1px -1px 5px 0 rgba(0, 0, 0, .5);
 
     --highlight-color: white;
     --faded-color: #ccc;
@@ -34,9 +37,6 @@ body {
     display: none;
 }
 
-.new-track:not(.demo-track) {
-    margin-top:130px;
-}
 
 #container {
 
@@ -65,6 +65,37 @@ body {
     /*border: solid;*/
     /*border-color: #666666;*/
     /*border-width: 2px;*/
+    z-index: 100;
+
+}
+
+#minecraft-track .color-text {
+    color: var(--minecraft-color);
+}
+#roblox-track .color-text {
+    color: var(--roblox-color);
+}
+#fortnite-track .color-text {
+    color: var(--fortnite-color);
+
+}
+#coding-track .color-text {
+    color: var(--coding-color);
+
+}
+#hardware-track .color-text {
+    color: var(--hardware-color);
+
+}
+#video-track .color-text {
+    color:var(--video-color);
+}
+
+#minecraft-track .color {
+    background-color: var(--minecraft-color);
+    --season-stop-color: var(--minecraft-color);
+    --stop-outline-color: var(--minecraft-color);
+    color:white;
 
 }
 
@@ -417,6 +448,10 @@ body {
     /*flex-grow: 1;*/
     text-align: center;
     font-weight: 100;
+    /*box-shadow: var(--button-shadow-pressed);*/
+    /*border-style:solid;*/
+    border-width: 1px;
+    border-color: #999;
 }
 
 
@@ -1453,6 +1488,8 @@ div .age12to14 {
     height:auto;
     min-height: unset;
     box-shadow: var(--button-shadow);
+    font-size:125%;
+    transition: box-shadow 0s;
 
 }
 
@@ -1477,6 +1514,9 @@ div .age12to14 {
     /*cursor: pointer;*/
     pointer-events: none;
     box-shadow:  var(--button-shadow);
+    font-size:100%;
+    transition: box-shadow 0s;
+
 }
 .season-button:hover Button {
     /*box-shadow: 2px 2px 0px rgba(0,0,0,.3);*/
@@ -1502,7 +1542,7 @@ div .age12to14 {
     box-shadow:  var(--button-shadow-pressed);
 }
 .price-text {
-    font-weight:300;
+    font-weight:400;
 }
 
 .project-name {
@@ -1530,6 +1570,7 @@ div .age12to14 {
 .highlight .project-name {
     filter:none;
 }
+/*highlighting*/
 #roblox-track .highlight-track-fall {
     background: linear-gradient(to right, var(--roblox-color), var(--roblox-color) 33%, var(--faded-color) 34%);
 }
@@ -1538,6 +1579,56 @@ div .age12to14 {
 }
 #roblox-track .highlight-track-spring {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--roblox-color) 67%);
+}
+
+#minecraft-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--minecraft-color), var(--minecraft-color) 33%, var(--faded-color) 34%);
+}
+#minecraft-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--minecraft-color) 34%, var(--minecraft-color) 66%,var(--faded-color) 67%);
+}
+#minecraft-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--minecraft-color) 67%);
+}
+
+#fortnite-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--fortnite-color), var(--fortnite-color) 33%, var(--faded-color) 34%);
+}
+#fortnite-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--fortnite-color) 34%, var(--fortnite-color) 66%,var(--faded-color) 67%);
+}
+#fortnite-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--fortnite-color) 67%);
+}
+
+#coding-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--coding-color), var(--coding-color) 33%, var(--faded-color) 34%);
+}
+#coding-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--coding-color) 34%, var(--coding-color) 66%,var(--faded-color) 67%);
+}
+#coding-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--coding-color) 67%);
+}
+
+#hardware-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--hardware-color), var(--hardware-color) 33%, var(--faded-color) 34%);
+}
+#hardware-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--hardware-color) 34%, var(--hardware-color) 66%,var(--faded-color) 67%);
+}
+#hardware-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--hardware-color) 67%);
+}
+
+#video-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--video-color), var(--video-color) 33%, var(--faded-color) 34%);
+}
+#video-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--video-color) 34%, var(--video-color) 66%,var(--faded-color) 67%);
+}
+#video-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--video-color) 67%);
 }
 .highlight-track-full {
     filter: brightness(1.1);
@@ -1548,6 +1639,11 @@ div .age12to14 {
     background-color: var(--faded-color);
     border-color: var(--faded-color);
     box-shadow: none;
+    /*-webkit-transition: background-color .5s;*/
+    /*-moz-transition:background-color .5s;*/
+    /*-ms-transition:background-color .5s;*/
+    /*-o-transition: background-color .5s;*/
+    transition:background-color 0.3s, border-color 0.3s, box-shadow 1s;
     /*opacity:.8;*/
 }
 .hide-me .project-name{
@@ -1558,4 +1654,153 @@ div .age12to14 {
 .season-button {
     margin-top:16px;
     width:32%;
+}
+
+.allTracks #fortnite-track {
+    padding-bottom:95px;
+
+}
+.allTracks #coding-track {
+    padding-bottom:95px;
+
+}
+.allTracks #video-track {
+    padding-bottom:95px;
+
+}
+.allTracks #minecraft-track {
+    padding-bottom:95px;
+
+}
+.allTracks #hardware-track {
+    padding-bottom:95px;
+
+}
+
+
+.dates-list {
+    font-size: 85%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-weight:400;
+    color: white;
+    text-align: center;
+
+    position: fixed;
+    bottom:-40px;
+    left:0;
+    margin:auto;
+
+    /*background-color: var(--background-color);*/
+    background-color: #525252;
+    z-index: 200;
+    /*display: none;*/
+    /*padding-top:10px;*/
+    /*padding-bottom:10px;*/
+    height:40px;
+    /*margin-left:-75px;*/
+    /*margin-left:-5%;*/
+    box-shadow: var(--floating-shadow);
+    width:100%;
+    transition: bottom 1s;
+    padding-top:5px;
+
+
+
+}
+.dates-list span {
+    display: inline;
+    margin:5px;
+    line-height: 110%;
+}
+.hide-dates {
+    color: #858585;
+    transition: color 0.25s;
+}
+.first-track:hover .dates-list{
+    /*display: flex;*/
+    bottom:0px;
+    /*transition: bottom .25s;*/
+
+
+}
+.new-track:hover .dates-list{
+    /*display: flex;*/
+    bottom:0px;
+    /*transition: bottom .25s;*/
+
+}
+
+.dates-preface {
+    font-weight:400;
+    font-size:120%;
+    /*color: #333;*/
+}
+div:not(.track-line) {
+    transition:background-color 0.25s, border-color 0.25s, box-shadow 1s;
+
+}
+.price-btn-type {
+    font-weight: 100;
+    font-size:70%;
+}
+.number-of-weeks {
+    font-weight: 100;
+    font-size:70%;
+}
+.actual-price-text {
+    font-size:155%;
+}
+.button-price-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /*width: 75%;*/
+}
+.button-left-container {
+    font-size:70%;
+    line-height: 110%;
+    margin:auto;
+    padding-right: 10px;
+    /*margin-bottom:-3px;*/
+    /*margin-right:10px;*/
+    /*width:45%;*/
+}
+.button-left-container div:first-child {
+    font-weight: 200;
+    font-size: 110%;
+}
+.button-right-container {
+    font-size:150%;
+    margin:auto;
+    text-align: left;
+    border-style: none none none solid;
+    border-width:1px;
+    border-color: rgba(255,255,255,.4);
+    padding-left:10px;
+    margin-top:0px;
+    margin-bottom:0px;
+    /*align-content: center;*/
+    display: flex;
+    align-content:center;
+    /*height:100%;*/
+    /*width:55%;*/
+    /*padding-left:10px;*/
+}
+.button-right-container div {
+    margin:auto;
+}
+.button-right-container div:nth-child(2) {
+    font-size:65%;
+    line-height: 110%;
+    margin:auto;
+    margin-top:1px;
+    margin-left: 10px;
+    padding-left:10px;
+    font-style: italic;
+    border-style: none none none solid;
+    border-width:1px;
+    border-color: rgba(255,255,255,.4);
+    font-weight:200;
 }

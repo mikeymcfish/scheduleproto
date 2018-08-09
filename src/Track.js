@@ -35,7 +35,6 @@ class Track extends React.Component {
 
     }
 
-
     changeFallHighlight() {
         this.removeAllHighlights();
         console.log("HIGHLIGHT - changing fall highlight");
@@ -83,29 +82,202 @@ class Track extends React.Component {
     }
 
     render() {
-        if (this.props.topic=="Roblox") {
+        if (this.props.topic=="roblox") {
             return(this.renderRoblox())
         }
-        if (this.props.topic=="Fortnite") {
+        if (this.props.topic=="fortnite") {
             return(this.renderFortnite())
         }
-        if (this.props.topic=="Minecraft") {
+        if (this.props.topic=="minecraft") {
             return(this.renderMinecraft())
         }
-        if (this.props.topic=="Coding") {
+        if (this.props.topic=="coding") {
             return(this.renderCoding())
         }
-
-        if (this.props.topic=="Video") {
+        if (this.props.topic=="video") {
             return(this.renderVideo())
         }
-        if (this.props.topic=="Hardware") {
+        if (this.props.topic=="hardware") {
             return(this.renderHardware())
         }
         return (
             <div></div>
         )
 
+    }
+
+    getFullTrackText() {
+        return (
+            <div className="price-text button-price-container">
+                <div className="button-left-container">
+                    <div className="">full track</div>
+                </div>
+                <div className="button-right-container">
+                    <div className="">${this.props.springPrice}</div>
+                    <div classname="">save ${this.props.originalPrice-this.props.trackPrice}!</div>
+                </div>
+            </div>
+
+        )
+    }
+
+    getFallText() {
+        return (
+            <div className="price-text button-price-container">
+                <div className="button-left-container">
+                    <div className="">fall season</div>
+                    <div className="">{this.props.fallWeeks} weeks</div>
+                </div>
+                <div className="button-right-container">
+                    <div className="">${this.props.fallPrice}</div>
+                </div>
+            </div>
+
+        )
+    }
+
+    getWinterText() {
+        return (
+            <div className="price-text button-price-container">
+                <div className="button-left-container">
+                    <div className="">winter season</div>
+                    <div className="">{this.props.winterWeeks} weeks</div>
+                </div>
+                <div className="button-right-container">
+                    <div className="">${this.props.winterPrice}</div>
+                </div>
+            </div>        )
+    }
+
+    getSpringText() {
+        return (
+            <div className="price-text button-price-container">
+                <div className="button-left-container">
+                    <div className="">spring season</div>
+                    <div className="">{this.props.springWeeks} weeks</div>
+                </div>
+                <div className="button-right-container">
+                    <div className="">${this.props.springPrice}</div>
+                </div>
+            </div>
+        )
+    }
+
+    getSeasonHTML(left, season) {
+        var showOrHideTest = false;
+        if (season=="fall") {
+            showOrHideTest = !this.state.fall;
+        } else if (season=="winter") {
+            showOrHideTest = !this.state.winter;
+        } else if (season=="spring") {
+            showOrHideTest = !this.state.spring;
+        }
+        return (
+            <div className={
+
+                showOrHideTest?
+                    "season-start hide-me"
+                    :
+                    "season-start"
+            }
+                 style={{left: left+"%"}}>
+
+            </div>
+        )
+    }
+
+    getProjectHTML(left, description_line1, description_line2="", season, isMini=false) {
+        var showOrHideTest = false;
+        if (season=="fall") {
+            showOrHideTest = !this.state.fall;
+        } else if (season=="winter") {
+            showOrHideTest = !this.state.winter;
+        } else if (season=="spring") {
+            showOrHideTest = !this.state.spring;
+        }
+        return(
+            <div className={
+
+                showOrHideTest?
+                    "project-start hide-me"
+                    :
+                    "project-start"
+                }
+                 style={{left: left+"%"}}>
+                <div className={isMini? "project-name mini-course" : "project-name"}>
+                    {description_line1}<br></br>
+                    {description_line2}
+                </div>
+            </div>
+            )
+
+    }
+
+    getButtonsHTML() {
+        return (
+            <div className="bottom-container-new">
+                <div className="dates-list">
+                    <span className="dates-preface">Dates for {this.props.dayOfWeek} at {this.props.location}: </span>
+                    <span className={
+                        this.state.fall ?
+                            "show-dates" :
+                            "hide-dates"
+
+                    }>
+                        {this.props.fallDates+" "}
+                    </span>
+                    <span className={
+                        this.state.winter ?
+                            "show-dates" :
+                            "hide-dates"
+
+                    }>
+                        {this.props.winterDates+ " "}
+                    </span>
+                    <span className={
+                        this.state.spring ?
+                            "show-dates" :
+                            "hide-dates"
+
+                    }>
+                        {this.props.springDates+" "}
+                    </span>
+
+                </div>
+                <div className="full-track-button" onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                    {/*
+                        <div className="add-to-text">
+                            add full track to cart - (3 spots left)
+                        </div>
+                        */}
+                    <Button disabled color="primary" className="color">
+                        <div>{this.getFullTrackText()}</div>
+                    </Button>
+                </div>
+                <div className="seasons-button-container">
+                    <div className="season-button fall-season" onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                        <Button disabled color="primary" className="color" >
+                            {this.getFallText()}
+                        </Button>
+                        <div className="add-to-text">{this.props.fallSpots} spots left</div>
+
+                    </div>
+                    <div className="season-button winter-season" onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                        <Button disabled color="primary" className="color">
+                            <div>{this.getWinterText()}</div>
+                        </Button>
+                        <div className="add-to-text">{this.props.winterSpots} spots left</div>
+                    </div>
+                    <div className="season-button spring-season" onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                        <Button disabled color="primary" className="color">
+                            <div>{this.getSpringText()}</div>
+                        </Button>
+                        <div className="add-to-text">{this.props.springSpots} spots left</div>
+
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     renderRoblox() {
@@ -249,180 +421,67 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-
                 <div className="full-track">
                     <div className="season-name">
                         FULL YEAR (September - June)
                     </div>
                 </div>
-
-                <div className="bottom-container-new">
-                    <div className="full-track-button" onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
-                        {/*
-                        <div className="add-to-text">
-                            add full track to cart - (3 spots left)
-                        </div>
-                        */}
-                        <Button disabled color="primary" className="color">
-                            <div><span className="price-text">+ Full Track <span className="former-price">$1024</span> $155 (or $40/month for 6 months)</span></div>
-                        </Button>
-                    </div>
-                    <div className="seasons-button-container">
-                        <div className="season-button fall-season" onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
-                            <Button disabled color="primary" className="color" >
-                                <div><span className="price-text">+ Fall $255</span></div>
-                            </Button>
-                        </div>
-                        <div className="season-button winter-season" onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
-                            <Button disabled color="primary" className="color">
-                                <div><span className="price-text">+ Winter $334</span></div>
-                            </Button>
-                        </div>
-                        <div className="season-button spring-season" onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
-                            <Button disabled color="primary" className="color">
-                                <div><span className="price-text">+ Spring $352</span></div>
-                            </Button>
-                        </div>
-                    </div>
-                </div>
+                {this.getButtonsHTML()}
 
                 <div className="track">
-
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
-                        <div className={
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            4,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "3D Modeling",
+                            "for Roblox",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            15,
+                            "Build Obstacle Courses",
+                            "in Roblox Studio",
+                            "fall"
+                        )}
 
-                            !this.state.fall?
-                                "season-start hide-me"
-                                :
-                                "season-start"
-                        }
-                             style={{left: "0%"}}>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Roblox",
+                            "Monetization",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            50,
+                            "Build Survival Games",
+                            "in Roblox Studio",
+                            "winter"
+                        )}
 
-                        </div>
-                        <div className={
-
-                            !this.state.fall?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "5%"}}>
-                            <div className="project-name mini-course">
-                                *Online Safety and<br></br>Anti-Bullying
-                            </div>
-
-                        </div>
-                        <div className={
-
-                            !this.state.fall?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "9%"}}>
-                            <div className="project-name">
-                                3D Modeling<br></br>for Roblox
-                            </div>
-
-                        </div>
-                        <div className={
-
-                            !this.state.fall?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "15%"}}>
-                            <div className="project-name">
-                                Build Obstacle Courses<br></br>in Roblox Studio
-                            </div>
-
-                        </div>
-
-
-                        <div className={
-
-                                !this.state.winter?
-                                    "season-start hide-me"
-                                :
-                                    "season-start"
-                        }
-                             style={{left: "33%"}}>
-
-                        </div>
-                        <div className={
-
-                            !this.state.winter?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "39%"}}>
-                            <div className="project-name">
-                                Roblox<br></br>Monetization
-                            </div>
-
-                        </div>
-                        <div className={
-
-                            !this.state.winter?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "50%"}}>
-                            <div className="project-name">
-                                Build Survival Games<br></br>in Roblox Studio
-                            </div>
-
-                        </div>
-
-
-                        <div className={
-
-                            !this.state.spring?
-                                "season-start hide-me"
-                                :
-                                "season-start"
-                        }
-                             style={{left: "66%"}}>
-
-                        </div>
-                        <div className={
-
-                            !this.state.spring?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "73%"}}>
-                        <div className="project-name">
-                            Game Design<br></br>Patterns
-                        </div>
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            73,
+                            "Game Design",
+                            "Patterns",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Build A.I. Characters",
+                            "in Roblox Studio",
+                            "spring"
+                        )}
 
                     </div>
-                        <div className={
-
-                            !this.state.spring?
-                                "project-start hide-me"
-                                :
-                                "project-start"
-                        }
-                             style={{left: "80%"}}>
-                        <div className="project-name">
-                            Build A.I. Characters<br></br>in Roblox Studio
-                        </div>
-
-                    </div>
-
-
-
                 </div>
             </div>
-
-
-
-    </div>
         )
     }
 
@@ -477,12 +536,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Fortnite-Inspired Game Design</div>
-
-                                <div className="track-label-description">
-                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.                    </div>
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -553,6 +606,14 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+
+                                <div className="backup-title">Fortnite-Inspired Game Design</div>
+
+                                <div className="track-label-description">
+                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.                    </div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -563,59 +624,52 @@ class Track extends React.Component {
                     </div>
 
                 </div>
+                {this.getButtonsHTML()}
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0px"}}>
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
 
-                        </div>
-                        <div className="project-start" style={{left: "5%"}}>
-                            <div className="project-name mini-course">
-                                *Online Safety and<br></br>Anti-Bullying
-                            </div>
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "Game Design &",
+                            "Fortnite Strategy",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            15,
+                            "Build a Virtual Reality",
+                            "Fortnite-Style World",
+                            "fall"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "9%"}}>
-                            <div className="project-name">
-                                Game Design &<br></br>Fortnite Strategy
-                            </div>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Build a Fortnite-",
+                            "Style Video Game",
+                            "winter"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "15%"}}>
-                            <div className="project-name">
-                                Build a Virtual Reality<br></br>Fortnite-Style World
-                            </div>
-
-                        </div>
-
-
-                        <div className="season-start" style={{left: "33%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "39%"}}>
-                            <div className="project-name">
-                                Build a Fortnite-<br></br>Style Video Game
-                            </div>
-
-                        </div>
-
-
-                        <div className="season-start" style={{left: "66%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "73%"}}>
-                            <div className="project-name">
-                                Fortnite-Style<br></br>3D Modeling
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "80%"}}>
-                            <div className="project-name">
-                                Build a Battlebus<br></br>AR Mobile Game
-                            </div>
-
-                        </div>
-
-
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            73,
+                            "Fortnite-Style",
+                            "3D Modeling",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Build a 'Battlebus'",
+                            "AR Mobile Game",
+                            "spring"
+                        )}
 
                     </div>
                 </div>
@@ -674,12 +728,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Advanced Coding</div>
-
-                                <div className="track-label-description">
-                                    We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.                    </div>
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -750,6 +798,13 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+                                <div className="backup-title">Advanced Coding</div>
+
+                                <div className="track-label-description">
+                                    We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.                    </div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -760,51 +815,51 @@ class Track extends React.Component {
                     </div>
 
                 </div>
+                {this.getButtonsHTML()}
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0px"}}>
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
 
-                        </div>
-                        <div className="project-start" style={{left: "5%"}}>
-                            <div className="project-name">
-                                Code a mobile game using<br></br>Java and Android Studio
-                            </div>
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "Code a mobile game using",
+                            "Java and Android Studio",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            22,
+                            "Code an Alexa Skill",
+                            "Quiz Game",
+                            "fall"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "22%"}}>
-                            <div className="project-name">
-                                Code an Alexa Skill<br></br>Quiz Game
-                            </div>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Code an AR Game using",
+                            "Java and Android Studio",
+                            "winter"
+                        )}
 
-                        </div>
-
-
-                        <div className="season-start" style={{left: "33%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "39%"}}>
-                            <div className="project-name">
-                                Code an AR Game using<br></br>Java and Android Studio                </div>
-                        </div>
-                        <div className="season-start" style={{left: "66%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "73%"}}>
-                            <div className="project-name">
-                                Code a Cryptocurrency<br></br>in Ethereum
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "80%"}}>
-                            <div className="project-name">
-                                Code an Encryption Program<br></br>in Python
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "90%"}}>
-                            <div className="project-name">
-                                Code a Facial<br></br>Recognition Program
-                            </div>
-                        </div>
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            73,
+                            "Code a Cryptocurrency",
+                            "in Ethereum",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Code an Encryption Program'",
+                            "in Python",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            90,
+                            "Code a Facial",
+                            "Recognition Program",
+                            "spring"
+                        )}
 
                     </div>
                 </div>
@@ -863,13 +918,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Minecraft Coding & Game Design</div>
-
-                                <div className="track-label-description">
-                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.
-                                </div>
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -941,6 +989,14 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+                                <div className="backup-title">Minecraft Coding & Game Design</div>
+
+                                <div className="track-label-description">
+                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -951,85 +1007,68 @@ class Track extends React.Component {
                     </div>
 
                 </div>
+                {this.getButtonsHTML()}
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0px"}}>
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
 
-                        </div>
-                        <div className="project-start" style={{left: "5%"}}>
-                            <div className="project-name mini-course">
-                                *Online Safety and<br></br>Anti-Bullying
-                            </div>
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "Level Design",
+                            "& Adventure Maps",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            20,
+                            "3D Modeling",
+                            "& 3D Printing",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            27,
+                            "Pixel Art Skins",
+                            "& Texture Packs",
+                            "fall"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "9%"}}>
-                            <div className="project-name">
-                                Level Design<br></br>
-                                & Adventure Maps
-                            </div>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Basic electronics",
+                            "and circuit design",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            50,
+                            "Boolean logic, redstone",
+                            "circuits and puzzles",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            58,
+                            "LUA scripting",
+                            "in Minecraft",
+                            "winter"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "20%"}}>
-                            <div className="project-name">
-                                3D Modeling <br></br>
-                                & 3D Printing
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "27%"}}>
-                            <div className="project-name">
-                                Pixel Art Skins <br></br>
-                                & Texture Packs
-                            </div>
-
-                        </div>
-
-
-
-
-                        <div className="season-start" style={{left: "33%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "40%"}}>
-                            <div className="project-name">
-                                Basic electronics<br></br>and circuit design
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "50%"}}>
-                            <div className="project-name">
-                                Boolean logic, redstone<br></br>
-                                circuits and puzzles
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "58%"}}>
-                            <div className="project-name">
-                                LUA scripting<br></br>
-                                in Minecraft
-                            </div>
-
-                        </div>
-
-
-
-
-
-                        <div className="season-start" style={{left: "66%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "73%"}}>
-                            <div className="project-name">
-                                Minecraft Modding<br></br>
-                                using Java
-                            </div>
-
-                        </div>
-
-
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            73,
+                            "Minecraft Modding",
+                            "using Java",
+                            "spring"
+                        )}
 
                     </div>
                 </div>
+
             </div>
         )
     }
@@ -1085,12 +1124,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Hardware Hacking & Electrical Engineering</div>
-
-                                <div className="track-label-description">
-                                    This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.                    </div>
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -1157,6 +1190,13 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+                                <div className="backup-title">Hardware Hacking & Electrical Engineering</div>
+
+                                <div className="track-label-description">
+                                    This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.                    </div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -1167,57 +1207,55 @@ class Track extends React.Component {
                     </div>
 
                 </div>
+                {this.getButtonsHTML()}
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0px"}}>
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
 
-                        </div>
-                        <div className="project-start" style={{left: "5%"}}>
-                            <div className="project-name">
-                                Learn to solder and use<br></br>a multi-meter
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "10%"}}>
-                            <div className="project-name">
-                                Solder a micro<br></br>game controller
-                            </div>
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "Learn to solder and use",
+                            "a multi-meter",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            10,
+                            "Solder a micro",
+                            "game controller",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            15,
+                            "Hack an Xbox controller",
+                            "to add mods and macros",
+                            "fall"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "15%"}}>
-                            <div className="project-name">
-                                Hack an Xbox controller<br></br>
-                                to add mods and macros
-                            </div>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Build a Remote-Control",
+                            "Tank Toy and Game",
+                            "winter"
+                        )}
 
-                        </div>
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            71,
+                            "Mod and Upgrade",
+                            "a Gaming PC",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            76,
+                            "Build a giant multi",
+                            "player arcade game",
+                            "spring"
+                        )}
 
-
-                        <div className="season-start" style={{left: "33%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "39%"}}>
-                            <div className="project-name">
-                                Build a Remote-Control<br></br>Tank Toy that shoots
-                            </div>
-
-                        </div>
-                        <div className="season-start" style={{left: "66%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "71%"}}>
-                            <div className="project-name">
-                                Mod and Upgrade<br></br>a Gaming PC
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "76%"}}>
-                <div className="project-name">
-                    Build a giant multi-<br></br>player arcade game
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-</div>
         )
     }
 
@@ -1272,13 +1310,6 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div>
-                                <div className="backup-title">Video Production & YouTube</div>
-
-                                <div className="track-label-description">
-                                    This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.
-                                </div>
-                            </div>
                             <div className="tag-section">
                                 <div className="skills-section">
                                     <div className="offered-at">Skills covered in this track</div>
@@ -1346,6 +1377,14 @@ class Track extends React.Component {
                                 </div>
 
                             </div>
+                            <div>
+                                <div className="backup-title">Video Production & YouTube</div>
+
+                                <div className="track-label-description">
+                                    This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -1356,76 +1395,76 @@ class Track extends React.Component {
                     </div>
 
                 </div>
+                {this.getButtonsHTML()}
                 <div className="track">
-                    <div className="track-line color">
-                        <div className="season-start" style={{left: "0px"}}>
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
 
-                        </div>
-                        <div className="project-start" style={{left: "5%"}}>
-                            <div className="project-name mini-course">
-                                *Online Safety and<br></br>Anti-Bullying
-                            </div>
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "Make a Let's Play Video",
+                            "for YouTube",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            20,
+                            "Branding and",
+                            "Graphic Design",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            27,
+                            "Video",
+                            "Editing",
+                            "fall"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "9%"}}>
-                            <div className="project-name">
-                                Make a Let's Play Video<br></br>for YouTube
-                            </div>
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Motion Graphics",
+                            "for Videos",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            46,
+                            "Cinematography and",
+                            "Camera Skills",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            58,
+                            "Sound Effects",
+                            "and Music Creation",
+                            "winter"
+                        )}
 
-                        </div>
-                        <div className="project-start" style={{left: "19%"}}>
-                            <div className="project-name">
-                                Branding and<br></br>Graphic Design
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "26%"}}>
-                            <div className="project-name">
-                                Video<br></br>
-                                Editing
-                            </div>
-                        </div>
-
-
-                        <div className="season-start" style={{left: "33%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "39%"}}>
-                            <div className="project-name">
-                                Motion Graphics<br></br>for Videos
-                            </div>
-                        </div>
-
-                        <div className="project-start" style={{left: "46%"}}>
-                            <div className="project-name">
-                                Cinematography and<br></br>Camera Skills
-                            </div>
-
-                        </div>
-                        <div className="project-start" style={{left: "58%"}}>
-                            <div className="project-name">
-                                Sound Effects<br></br>and Music Creation
-                            </div>
-
-                        </div>
-
-                        <div className="season-start" style={{left: "66%"}}>
-
-                        </div>
-                        <div className="project-start" style={{left: "72%"}}>
-                            <div className="project-name">
-                                Draw with Disney's<br></br>Principles of Animation
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "80%"}}>
-                            <div className="project-name">
-                                Create Whiteboard and<br></br>Stop-Motion Animations
-                            </div>
-                        </div>
-                        <div className="project-start" style={{left: "90%"}}>
-                            <div className="project-name">
-                                Add Audio to Videos<br></br>with Voice Acting
-                            </div>
-                        </div>
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            72,
+                            "Draw with Disney's",
+                            "Principles of Animation",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Create Whiteboard and",
+                            "Stop-Motion Animations",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            88,
+                            "Add Audio to Videos",
+                            "with Voice Acting",
+                            "spring"
+                        )}
 
                     </div>
                 </div>

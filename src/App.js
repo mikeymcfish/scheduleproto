@@ -123,7 +123,19 @@ class App extends Component {
             cart: [],
             loggedInUserID: 0,
             pickups: {},
-            warnedAboutPro: false
+            warnedAboutPro: false,
+            highlights: {
+                roblox: {
+                    fall: false,
+                    winter: false,
+                    spring: false
+                },
+                minecraft: {
+                    fall: false,
+                    winter: false,
+                    spring: false
+                }
+            }
 
         }
 
@@ -231,10 +243,10 @@ class App extends Component {
             //member test:
 
             console.log("loading test member data");
-            $.getJSON('/api/v1/scheduler/members.json', function (data) {
+            $.getJSON('./api/v1/scheduler/members.json', function (data) {
                 _this.setState(
                     {
-                        members: data.members
+                        // members: data.members
                     }
                 );
                 //TEMP SHOW BUTTON.
@@ -700,7 +712,6 @@ class App extends Component {
         //     "");
     }
 
-
     refreshOverlays(newLocation) {
         // var firstMember = this.getLoggedInMember();
         // this.highlightAllPickUpDays(firstMember.school, newLocation);
@@ -711,7 +722,6 @@ class App extends Component {
         // })
 
     }
-
 
     logInMember(memberKey) {
 
@@ -1033,7 +1043,6 @@ class App extends Component {
 
     };
 
-
     changeView = ({target}) => {
 
         if (target.hasAttribute("data-view")) {
@@ -1265,7 +1274,6 @@ class App extends Component {
         }
     }
 
-
     setTracksToView(age=null, day=null, location=null)  {
 
         var ageToCheck = age;
@@ -1404,11 +1412,9 @@ class App extends Component {
             else topic = "UNKNOWN";
 
             console.log("TRACKS found topic " + topic);
-            // topic="roblox";
-            // season="spring";
-            tracksListing[topic][season] = thisDaysFilteredEvents[i];
-            // Object.defineProperty(tracksListing, 'roblox', {'spring' : '5'});
-            // tracksListing[topic][season].push(thisDaysFilteredEvents[i]);
+            if (this.showOrHide(topic)) {
+                tracksListing[topic][season] = thisDaysFilteredEvents[i];
+            }
 
         }
 
@@ -1425,10 +1431,14 @@ class App extends Component {
             console.log(topic);
             if (tracksListing[topic]['spring'].name===undefined) continue;
             combinedSeasons.push({
+                topic: topic,
                 title: tracksListing[topic]['spring'].name,
                 copy: tracksListing[topic]['spring'].description,
                 ages: tracksListing[topic]['spring'].age,
                 dates: tracksListing[topic]['spring'].days,
+                fallDates: tracksListing[topic]['fall'].datesString,
+                winterDates: tracksListing[topic]['winter'].datesString,
+                springDates: tracksListing[topic]['spring'].datesString,
                 time: tracksListing[topic]['spring'].startTime,
                 originalPrice:
                     this.calculateCost(tracksListing[topic]['spring']) +
@@ -1462,7 +1472,12 @@ class App extends Component {
                 isInCart: -1,
                 spotsLeft: 0,
                 addToCart: tracksListing[topic]['fall'].addToCart,
-                memberName: "Mikey"
+                memberName: "Mikey",
+                fallWeeks: this.calculateWeeks(tracksListing[topic]['fall']),
+                winterWeeks: this.calculateWeeks(tracksListing[topic]['winter']),
+                springWeeks: this.calculateWeeks(tracksListing[topic]['spring']),
+                location: this.state.filterLocation,
+                dayOfWeek: this.state.filterDayOfWeek
 
             });
             // for (var season in tracksListing[topic]) {
@@ -1471,7 +1486,7 @@ class App extends Component {
             // }
         }
 
-        console.log(combinedSeasons[0]);
+        // console.log(combinedSeasons[0]);
 
 
         this.setState({
@@ -1479,24 +1494,64 @@ class App extends Component {
         });
     }
 
+    // generateDatesList(days) {
+    //     var dayString = "";
+    //     // days.forEach((months, index) => {
+    //     //     dayString+=months + ": ";
+    //     //     for (var i=0; i<days[months].length; i++) {
+    //     //         dayString+=days[months][i] +",";
+    //     //     }
+    //     //     dayString+=" ";
+    //     //
+    //     // });
+    //     // var obj = JSON.parse(days);
+    //     // obj.forEach((months, index) => {
+    //     // console.log("DATES-X----");
+    //     // });
+    //     console.log(days);
+    //
+    //     Object.keys(days).forEach(function (key){
+    //         console.log("DATES-X-: "+days.toString());
+    //         console.log("DATES-X-: "+days[key]);
+    //     });
+    //     // Object.days.forEach(function (key){
+    //     //     console.log("DATES-X-: "+key);
+    //     // });
+    //
+    //
+    //     // for (var i=0; i<days.length; i++) {
+    //     //     console.log("DAYS - " + i);
+    //     // }
+    //     //
+    //     // days.map(function(months, index){
+    //     //     dayString += months;
+    //     // });
+    //     // dayString = days[0][0];
+    //     // console.log(days);
+    //     return dayString;
+    //
+    // }
+
     calculateCost(event, discount=0) {
-        // var count;
-        // // for (var i=0; i<event.days.length; i++) {
-        // //     count+=event.days[i].length;
-        // // }
-        // for (var month in event.days) {
-        //     count+=month.length
-        // }
-        // console.log('COST count is: ' + count);
-        // console.log('COST price is: ' + parseInt(event.price));
-        // return (count*(parseInt(event.price)-discount));
+
         console.log("COST - number of days - " + (parseInt(event.price)/55));
+        var roundedNum = 0;
         if (event.location=="Brooklyn") {
-            return ((parseInt(event.price)/55) * (55-discount));
+            roundedNum= ((parseInt(event.price)/55) * (55-discount));
         } else if (event.location=="TriBeCa") {
-            return ((parseInt(event.price)/65) * (65-discount));
+            roundedNum= ((parseInt(event.price)/65) * (65-discount));
         }
-        return parseInt(event.price);
+        return Math.round(roundedNum * 100) / 100;
+    }
+
+    calculateWeeks(event) {
+        var roundedNum = 0;
+        if (event.location=="Brooklyn") {
+            roundedNum= ((parseInt(event.price)/55));
+        } else if (event.location=="TriBeCa") {
+            roundedNum= ((parseInt(event.price)/65));
+        }
+        return Math.round(roundedNum * 100) / 100;
     }
 
     calculatePaymentPlanPrice(event, months) {
@@ -1505,7 +1560,8 @@ class App extends Component {
         this.calculateCost(event['winter'],5) +
         this.calculateCost(event['fall'],5);
         console.log("COST - payment plan for 6 months: " + Math.ceil(trackCost/months));
-        return Math.ceil(trackCost/months);
+        return Math.round((trackCost/months) * 100) / 100;
+
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
@@ -1721,21 +1777,6 @@ class App extends Component {
         thisDay.find(".date-icon").show();
 
 
-        //disabled the overlay
-        //
-        //
-        // this.addOverlay(
-        //     this.getDayObject(
-        //         this.getMonthName(thisDayString[0]),
-        //         thisDayString[1]
-        //     ),
-        //     this.getMonthName(thisDayString[0]),
-        //     "owned",
-        //     "",
-        //     "CART",
-        //     ""
-        // );
-
     }
 
     getDayTitleString(str) {
@@ -1744,6 +1785,54 @@ class App extends Component {
 
         return date.format("dddd, MMMM Do");
 
+    }
+
+    showOrHide(topic) {
+        if (topic=="roblox") {
+            if (this.state.filter9to11 && this.state.filter7to9) {
+                return false;
+            }
+            return true;
+        } else if (topic=="minecraft") {
+            if (this.state.filter7to9) {
+                return false;
+            }
+            return true;
+
+        } else if (topic=="fortnite") {
+            if (this.state.filter9to11 && this.state.filter12to14) {
+                return false;
+            }
+            if (this.state.filterLocation=="Brooklyn") {
+                return true;
+            }
+            return false;
+
+        } else if (topic=="coding") {
+            if (this.state.filter9to11 && this.state.filter12to14) {
+                return false;
+            }
+            if (this.state.filterLocation=="Brooklyn") {
+                return true;
+            }
+            return false;
+
+        } else if (topic=="video") {
+            if (this.state.filter7to9) {
+                return false;
+            }
+            return true;
+
+        } else if (topic=="hardware") {
+            if (this.state.filter12to14) {
+                return false;
+            }
+            if (this.state.filterLocation=="Brooklyn") {
+                return true;
+            }
+            return false;
+
+        }
     }
 
     showRoblox() {
@@ -2095,47 +2184,64 @@ class App extends Component {
 
                                 {/*TRACKS BEGIN*/}
                                 <div className="allTracks">
-                                    {this.showRoblox()?
-                                        <Track topic="Roblox">
-                                        </Track>
-                                    :
-                                       ""
-                                    }
 
-                                    {this.showFortnite()?
-                                        <Track topic="Fortnite">
-                                        </Track>
-                                        :
-                                        ""
-                                    }
+                                    {this.state.viewingDayEvents.map(
+                                        function(name, index) {
+                                            console.log( "forEach:" + name );
+                                            return (
 
-                                    {this.showMinecraft()?
-                                        <Track topic="Minecraft">
-                                        </Track>
-                                        :
-                                        ""
-                                    }
+                                                <Track
+                                                    topic={name.topic}
+                                                    title={name.title}
+                                                    tags={
+                                                        [
+                                                            {text: "Code", tagType: "red"},
+                                                            {text: "Fun", tagType: "blue"},
+                                                            {text: "Magic", tagType: "green"}
+                                                        ]
+                                                    }
+                                                    copy={name.copy}
+                                                    ages={name.ages}
+                                                    dates={name.dates}
+                                                    time="no time"
+                                                    originalPrice={name.originalPrice}
+                                                    price={name.trackPrice}
+                                                    trackPrice={name.trackPrice}
+                                                    trackSpots="4"
+                                                    trackInCart={-1}
+                                                    trackDoesOwn={-1}
+                                                    fallPrice={name.fallPrice}
+                                                    winterPrice={name.winterPrice}
+                                                    springPrice={name.springPrice}
+                                                    trackPaymentPlanPrice = {name.trackPaymentPlanPrice}
+                                                    fallSpots={name.fallSpots}
+                                                    winterSpots={name.winterSpots}
+                                                    springSpots={name.springSpots}
+                                                    fallWeeks={name.fallWeeks}
+                                                    winterWeeks={name.winterWeeks}
+                                                    springWeeks={name.springWeeks}
+                                                    fallInCart={-1}
+                                                    winterInCart={-1}
+                                                    springInCart={-1}
+                                                    fallDoesOwn={false}
+                                                    winterDoesOwn={false}
+                                                    springDoesOwn={false}
+                                                    fallDates={name.fallDates}
+                                                    winterDates={name.winterDates}
+                                                    springDates={name.springDates}
+                                                    location={name.location}
+                                                    dayOfWeek={name.dayOfWeek}
 
-                                    {this.showCoding()?
-                                        <Track topic="Coding">
-                                        </Track>
-                                        :
-                                        ""
-                                    }
+                                                    doesOwn={false}
+                                                    isInCart={-1}
+                                                    spotsLeft="5"
+                                                    memberName = "Mikey"
 
-                                    {this.showVideo()?
-                                        <Track topic="Video">
-                                        </Track>
-                                        :
-                                        ""
-                                    }
+                                                />
 
-                                    {this.showHardware()?
-                                        <Track topic="Hardware">
-                                        </Track>
-                                        :
-                                        ""
-                                    }
+                                            );
+                                        }
+                                    )}
 
                                 </div>
 
