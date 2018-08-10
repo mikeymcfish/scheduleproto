@@ -12,7 +12,8 @@ import Button from 'material-ui/Button';
 
 class Track extends React.Component {
 
-    constructor() {
+
+constructor() {
         super();
 
         this.state = {
@@ -35,11 +36,14 @@ class Track extends React.Component {
         this.changeSpringHighlight = this.changeSpringHighlight.bind(this);
         this.highlightFullTrack = this.highlightFullTrack.bind(this);
         this.removeAllHighlights = this.removeAllHighlights.bind(this);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
 
 
-    }
 
-    handleAddToCart = (topic) => {
+}
+
+    handleAddToCart() {
+
 
         //find whichever states are true and add those
         if (this.state.fall) {
@@ -47,24 +51,31 @@ class Track extends React.Component {
                 fallInCart: true
             });
             this.props.addToCart(this.props.fallEvent);
+            console.log("CART-X-adding-FALL");
+
         }
         if (this.state.winter) {
             this.setState({
                 winterInCart: true
             });
             this.props.addToCart(this.props.winterEvent);
+            console.log("CART-X-adding-WINTER");
+
         }
         if (this.state.spring) {
             this.setState({
                 springInCart: true
             });
             this.props.addToCart(this.props.springEvent);
+            console.log("CART-X-adding-SPRING");
+
         }
 
         // this.setState({
         //     inCart: true
         // });
         // this.props.addToCart(event);
+
     }
 
     changeFallHighlight() {
@@ -139,60 +150,107 @@ class Track extends React.Component {
     }
 
     getFullTrackText() {
-        return (
-            <div className="price-text button-price-container">
-                <div className="button-left-container">
-                    <div className="">full track</div>
-                </div>
-                <div className="button-right-container">
-                    <div className="">${this.props.springPrice}</div>
-                    <div classname="">save ${this.props.originalPrice-this.props.trackPrice}!</div>
-                </div>
-            </div>
 
-        )
+        if (this.state.fallInCart && this.state.winterInCart && this.state.springInCart) {
+            return (
+                <div className="price-text button-price-container">
+                    FULL SEASON IN CART
+                </div>
+            );
+        } else {
+
+            return (
+                <div className="price-text button-price-container">
+                    <div className="button-left-container">
+                        <div className="">full track</div>
+                    </div>
+                    <div className="button-right-container">
+                        <div className="">${this.props.trackPrice}</div>
+                        <div classname="">save ${this.props.originalPrice - this.props.trackPrice}!</div>
+                    </div>
+                </div>
+            );
+
+        }
     }
 
     getFallText() {
-        return (
-            <div className="price-text button-price-container">
-                <div className="button-left-container">
-                    <div className="">fall season</div>
-                    <div className="">{this.props.fallWeeks} weeks</div>
-                </div>
-                <div className="button-right-container">
-                    <div className="">${this.props.fallPrice}</div>
-                </div>
-            </div>
 
-        )
+        if (this.state.fallInCart) {
+            return (
+                <div className="price-text button-price-container">
+                    FALL SEASON IN CART
+                </div>
+            );
+        } else {
+
+            return (
+                <div className="price-text button-price-container">
+                    <div className="button-left-container">
+                        <div className="">fall season</div>
+                        <div className="">{this.props.fallWeeks} weeks</div>
+                    </div>
+                    <div className="button-right-container">
+                        <div className="">${this.props.fallPrice}</div>
+                    </div>
+                </div>
+            );
+
+        }
+
+
     }
 
     getWinterText() {
-        return (
-            <div className="price-text button-price-container">
-                <div className="button-left-container">
-                    <div className="">winter season</div>
-                    <div className="">{this.props.winterWeeks} weeks</div>
+
+        if (this.state.winterInCart) {
+            return (
+                <div className="price-text button-price-container">
+                    WINTER SEASON IN CART
                 </div>
-                <div className="button-right-container">
-                    <div className="">${this.props.winterPrice}</div>
+            );
+        } else {
+
+            return (
+                <div className="price-text button-price-container">
+                    <div className="button-left-container">
+                        <div className="">winter season</div>
+                        <div className="">{this.props.winterWeeks} weeks</div>
+                    </div>
+                    <div className="button-right-container">
+                        <div className="">${this.props.winterPrice}</div>
+                    </div>
                 </div>
-            </div>        )
+            );
+
+        }
+
     }
 
     getSpringText() {
-        return (
-            <div className="price-text button-price-container">
-                <div className="button-left-container">
-                    <div className="">spring season</div>
-                    <div className="">{this.props.springWeeks} weeks</div>
+
+        if (this.state.springInCart) {
+            return (
+                <div className="price-text button-price-container">
+                    SPRING SEASON IN CART
                 </div>
-                <div className="button-right-container">
-                    <div className="">${this.props.springPrice}</div>
+            );
+        } else {
+
+            return (
+                <div className="price-text button-price-container">
+                    <div className="button-left-container">
+                        <div className="">spring season</div>
+                        <div className="">{this.props.springWeeks} weeks</div>
+                    </div>
+                    <div className="button-right-container">
+                        <div className="">${this.props.springPrice}</div>
+                    </div>
                 </div>
-            </div>
-        )
+            );
+
+        }
+
     }
 
     getSeasonHTML(left, season) {
@@ -276,31 +334,41 @@ class Track extends React.Component {
                     </span>
 
                 </div>
-                <div className="full-track-button" onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                <div
+                    className= {
+                        (this.state.fallInCart && this.state.winterInCart && this.state.springInCart)?
+                            "full-track-button in-cart-2"
+                            :
+                            "full-track-button"
+                    }
+                    onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
                     {/*
                         <div className="add-to-text">
                             add full track to cart - (3 spots left)
                         </div>
                         */}
-                    <Button disabled color="primary" className="color"  onClick={this.handleAddToCart(topic)}>
+                    <Button disabled color="primary" className="color">
                         <div>{this.getFullTrackText()}</div>
                     </Button>
                 </div>
                 <div className="seasons-button-container">
-                    <div className="season-button fall-season" onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                    <div className={this.state.fallInCart? "season-button fall-season in-cart-2" : "season-button fall-season"}
+                         onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
                         <Button disabled color="primary" className="color" >
                             {this.getFallText()}
                         </Button>
                         <div className="add-to-text">{this.props.fallSpots} spots left</div>
 
                     </div>
-                    <div className="season-button winter-season" onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                    <div className={this.state.winterInCart? "season-button winter-season in-cart-2" : "season-button winter-season "}
+                         onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
                         <Button disabled color="primary" className="color">
                             <div>{this.getWinterText()}</div>
                         </Button>
                         <div className="add-to-text">{this.props.winterSpots} spots left</div>
                     </div>
-                    <div className="season-button spring-season" onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()}>
+                    <div className={this.state.springInCart? "season-button spring-season in-cart-2" : "season-button spring-season "}
+                         onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
                         <Button disabled color="primary" className="color">
                             <div>{this.getSpringText()}</div>
                         </Button>
@@ -1505,8 +1573,5 @@ class Track extends React.Component {
     }
 
 }
-
-
-
 
 export default Track;

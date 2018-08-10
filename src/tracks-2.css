@@ -24,6 +24,7 @@ body {
 
     --button-shadow: 4px 4px 2px rgba(0,0,0,.6);
     --button-shadow-pressed: 2px 2px 1px rgba(0,0,0,.6);
+    --button-shadow-selected: 2px 2px 1px rgba(0,0,0,.3) inset;
     /*//, 2px 2px 0px rgba(0,0,0,.05) inset;*/
     --button-shadow-inverse: 0px -3px 10px rgba(0,0,0,.3);
     --floating-shadow: -1px -1px 5px 0 rgba(0, 0, 0, .5);
@@ -625,63 +626,63 @@ div .age12to14 {
 /*all images go here*/
 
 #roblox-fall .inner-photo {
-    background-image: url("img/roblox-fall.png");
+    background-image: url("img/roblox-fall-resized.png");
 }
 #roblox-winter .inner-photo {
-    background-image: url("img/roblox-winter.png");
+    background-image: url("img/roblox-winter-resized.png");
 }
 #roblox-spring .inner-photo {
-    background-image: url("img/roblox-spring.png");
+    background-image: url("img/roblox-spring-resized.png");
 }
 
 #hardware-fall .inner-photo {
-    background-image: url("img/hardware-fall.png");
+    background-image: url("img/hardware-fall-resized.png");
 }
 #hardware-winter .inner-photo {
-    background-image: url("img/hardware-winter.png");
+    background-image: url("img/hardware-winter-resized.png");
 }
 #hardware-spring .inner-photo {
-    background-image: url("img/hardware-spring.png");
+    background-image: url("img/hardware-spring-resized.png");
 }
 
 #minecraft-fall .inner-photo {
-    background-image: url("img/minecraft-fall.png");
+    background-image: url("img/minecraft-fall-resized.png");
 }
 #minecraft-winter .inner-photo {
-    background-image: url("img/minecraft-winter.png");
+    background-image: url("img/minecraft-winter-resized.png");
 }
 #minecraft-spring .inner-photo {
-    background-image: url("img/minecraft-spring.png");
+    background-image: url("img/minecraft-spring-resized.png");
 }
 
 #fortnite-fall .inner-photo {
-    background-image: url("img/fortnite-fall.png");
+    background-image: url("img/fortnite-fall-resized.png");
 }
 #fortnite-winter .inner-photo {
-    background-image: url("img/fortnite-winter.png");
+    background-image: url("img/fortnite-winter-resized.png");
 }
 #fortnite-spring .inner-photo {
-    background-image: url("img/fortnite-spring.png");
+    background-image: url("img/fortnite-spring-resized.png");
 }
 
 #coding-fall .inner-photo {
-    background-image: url("img/coding-fall.png");
+    background-image: url("img/coding-fall-resized.png");
 }
 #coding-winter .inner-photo {
-    background-image: url("img/coding-winter.png");
+    background-image: url("img/coding-winter-resized.png");
 }
 #coding-spring .inner-photo {
-    background-image: url("img/coding-spring.png");
+    background-image: url("img/coding-spring-resized.png");
 }
 
 #video-fall .inner-photo {
-    background-image: url("img/video-fall.png");
+    background-image: url("img/video-fall-resized.png");
 }
 #video-winter .inner-photo {
-    background-image: url("img/video-winter.png");
+    background-image: url("img/video-winter-resized.png");
 }
 #video-spring .inner-photo {
-    background-image: url("img/video-spring.png");
+    background-image: url("img/video-spring-resized.png");
 }
 
 @media screen and (max-width: 500px) {
@@ -1827,4 +1828,14 @@ div:not(.track-line) {
 }
 .list-of-skills .age12to14 {
     display: none;
+}
+.in-cart-2 {
+    filter: brightness(80%);
+    /*opacity: .5;*/
+    box-shadow: none;
+    pointer-events: none;
+    /*color: #666;*/
+}
+.in-cart-2 Button{
+    box-shadow: var(--button-shadow-selected);
 }

@@ -78,13 +78,13 @@ class App extends Component {
             filter9to11: true,
             filter12to14: true,
             filterAllAges: true,
-            filterDayOfWeek: "Mondays",
+            filterDayOfWeek: "(not set)",
             eventFilter: "events",
-            filterLocation: "Brooklyn",
-            currentLocation: "Brooklyn",
-            currentAgeGroup: "age 7 to 9",
+            filterLocation: "(not set)",
+            currentLocation: "(not set)",
+            currentAgeGroup: "(not set)",
             currentView: "week",
-            currentDayOfWeek: "Mondays",
+            currentDayOfWeek: "(not set)",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -438,8 +438,10 @@ class App extends Component {
 
     addToCart = (event) => {
 
-        //check if OK
+        console.log("CART-X-adding an event to cart: id="+event.id);
 
+        //check if OK
+        if (event==null) return;
 
         if (!isLive) this.addInCart(event.id);
         this.clearCalendar();
@@ -1281,7 +1283,7 @@ class App extends Component {
         var dayToCheck = day;
         dayToCheck==null?  dayToCheck = this.state.filterDayOfWeek : dayToCheck=dayToCheck;
         var locationToCheck = location;
-        locationToCheck==null?  locationToCheck = this.state.currentLocation : locationToCheck=locationToCheck;
+        locationToCheck==null?  locationToCheck = this.state.filterLocation : locationToCheck=locationToCheck;
 
         console.log("TRACKS - setting tracks to view")
         var thisDaysEvents = [];
@@ -1306,9 +1308,9 @@ class App extends Component {
                 }
                 // check location
                 var locationMatched = false;
-                if (thisDaysEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()
-                    && ageMatched) {
+                if (thisDaysEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()) {
                     locationMatched = true;
+                    console.log("MATCH-CHECK: " + thisDaysEvents[i].location.toUpperCase() + " matches " + locationToCheck.toUpperCase());
                 }
                 // check day of week
                 // split id by underscore, get index 1, check for match first three letters MON, TUE, etc.
@@ -1327,13 +1329,6 @@ class App extends Component {
                     console.log('TRACKS - matched id ' + thisDaysEvents[i].length);
                 }
             }
-
-
-            thisDaysFilteredEvents.sort(function(a,b) {
-                return a.priority - b.priority;
-            });
-            var firstEventDates = thisDaysFilteredEvents[0].daystring;
-            var firstDay = this.getFirstDayFromFullString(firstEventDates);
 
 
         } catch (e) {
@@ -1418,13 +1413,6 @@ class App extends Component {
 
         }
 
-        //console.log("TRACKS-X-"+tracksListing.roblox.spring.name);
-    //     title="Test"
-    //     copy="test copy"
-    //     ages="9-11"
-    //
-
-
         var combinedSeasons = [];
 
         for (var topic in tracksListing) {
@@ -1473,26 +1461,16 @@ class App extends Component {
                 doesOwn: false,
                 isInCart: -1,
                 spotsLeft: 0,
-                addToCart: addToCart,
-                // addFallToCart: this.addToCart(tracksListing[topic]['fall']),
-                // addWinterToCart: tracksListing[topic]['winter'].addToCart,
-                // addSpringToCart: tracksListing[topic]['spring'].addToCart,
+
                 memberName: "Mikey",
                 fallWeeks: this.calculateWeeks(tracksListing[topic]['fall']),
                 winterWeeks: this.calculateWeeks(tracksListing[topic]['winter']),
                 springWeeks: this.calculateWeeks(tracksListing[topic]['spring']),
-                location: locationToCheck,
-                dayOfWeek: dayToCheck
+                location: tracksListing[topic]['fall'].location,
+                dayOfWeek: dayToCheck,
 
             });
-            // for (var season in tracksListing[topic]) {
-            //     console.log(season);
-            //     console.log("TRACKS-X-"+tracksListing[topic][season].name);
-            // }
         }
-
-        // console.log(combinedSeasons[0]);
-
 
         this.setState({
             viewingDayEvents: combinedSeasons
@@ -1540,10 +1518,13 @@ class App extends Component {
     calculateCost(event, discount=0) {
 
         console.log("COST - number of days - " + (parseInt(event.price)/55));
-        var roundedNum = 0;
-        if (event.location=="Brooklyn") {
+        var roundedNum = -1;
+        if (event.location.toUpperCase()==="BROOKLYN") {
+            console.log("MATCH TO BROOKLYN");
             roundedNum= ((parseInt(event.price)/55) * (55-discount));
-        } else if (event.location=="TriBeCa") {
+        }
+        else if (event.location.toUpperCase()==="TRIBECA") {
+            console.log("MATCH TO TRIBECA");
             roundedNum= ((parseInt(event.price)/65) * (65-discount));
         }
         return Math.round(roundedNum * 100) / 100;
@@ -1551,9 +1532,10 @@ class App extends Component {
 
     calculateWeeks(event) {
         var roundedNum = 0;
-        if (event.location=="Brooklyn") {
+        console.log("MATCH-CHECK location-->"+event.location);
+        if (event.location==="Brooklyn") {
             roundedNum= ((parseInt(event.price)/55));
-        } else if (event.location=="TriBeCa") {
+        } else if (event.location==="TriBeCa") {
             roundedNum= ((parseInt(event.price)/65));
         }
         return Math.round(roundedNum * 100) / 100;
@@ -1950,6 +1932,9 @@ class App extends Component {
         //format it
         return Math.round(price*100)/100;
     }
+    handleClick() {
+        console.log('XXX clickity');
+    }
 
     render() {
 
@@ -1990,6 +1975,7 @@ class App extends Component {
         this.state.selectedMemberKey!="" ? memberName = this.state.members[this.state.selectedMemberKey].name : memberName = "";
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         this.listEvents = [];
+        // var addThisToCart(e) = this.addToCart(e);
         return (
             <div className="App">
                 {isLive ? "" : <TopLinks></TopLinks>}
@@ -1998,11 +1984,11 @@ class App extends Component {
 
                         <h1 className="heading">
                             <div className="filtering-header">
-
+                                <div className="text-center"><span className="def-no-hover">
+                                    {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span></div>
                                 <div className="change-age-btn" onClick={this.changeAge}
                                      data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
-                                    <div className="text-right"><span className="def-no-hover">
-                                    {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span
+                                    <div className="text-right"><span
                                         className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
                                     </div>
                                     <div className="text-right filtering-hover-text">
@@ -2236,6 +2222,10 @@ class App extends Component {
                                                     springDates={name.springDates}
                                                     location={name.location}
                                                     dayOfWeek={name.dayOfWeek}
+                                                    addToCart={this.addToCart}
+                                                    fallEvent= {name.fallEvent}
+                                                    winterEvent= {name.winterEvent}
+                                                    springEvent= {name.springEvent}
 
                                                     doesOwn={false}
                                                     isInCart={-1}
@@ -2245,7 +2235,7 @@ class App extends Component {
                                                 />
 
                                             );
-                                        }
+                                        }, this
                                     )}
 
                                 </div>
