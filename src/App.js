@@ -1467,17 +1467,22 @@ class App extends Component {
                 fallDoesOwn: false,
                 winterDoesOwn: false,
                 springDoesOwn: false,
-
+                fallEvent: tracksListing[topic]['fall'],
+                winterEvent: tracksListing[topic]['winter'],
+                springEvent: tracksListing[topic]['spring'],
                 doesOwn: false,
                 isInCart: -1,
                 spotsLeft: 0,
-                addToCart: tracksListing[topic]['fall'].addToCart,
+                addToCart: addToCart,
+                // addFallToCart: this.addToCart(tracksListing[topic]['fall']),
+                // addWinterToCart: tracksListing[topic]['winter'].addToCart,
+                // addSpringToCart: tracksListing[topic]['spring'].addToCart,
                 memberName: "Mikey",
                 fallWeeks: this.calculateWeeks(tracksListing[topic]['fall']),
                 winterWeeks: this.calculateWeeks(tracksListing[topic]['winter']),
                 springWeeks: this.calculateWeeks(tracksListing[topic]['spring']),
-                location: this.state.filterLocation,
-                dayOfWeek: this.state.filterDayOfWeek
+                location: locationToCheck,
+                dayOfWeek: dayToCheck
 
             });
             // for (var season in tracksListing[topic]) {

@@ -24,7 +24,11 @@ class Track extends React.Component {
             winter: true,
             spring: true,
             highlightTrack: "",
-            highlightAll: false
+            highlightAll: false,
+            fallInCart: false,
+            trackInCart: false,
+            winterInCart: false,
+            springInCart: false
         }
         this.changeFallHighlight = this.changeFallHighlight.bind(this);
         this.changeWinterHighlight = this.changeWinterHighlight.bind(this);
@@ -33,6 +37,34 @@ class Track extends React.Component {
         this.removeAllHighlights = this.removeAllHighlights.bind(this);
 
 
+    }
+
+    handleAddToCart = (topic) => {
+
+        //find whichever states are true and add those
+        if (this.state.fall) {
+            this.setState({
+                fallInCart: true
+            });
+            this.props.addToCart(this.props.fallEvent);
+        }
+        if (this.state.winter) {
+            this.setState({
+                winterInCart: true
+            });
+            this.props.addToCart(this.props.winterEvent);
+        }
+        if (this.state.spring) {
+            this.setState({
+                springInCart: true
+            });
+            this.props.addToCart(this.props.springEvent);
+        }
+
+        // this.setState({
+        //     inCart: true
+        // });
+        // this.props.addToCart(event);
     }
 
     changeFallHighlight() {
@@ -213,7 +245,7 @@ class Track extends React.Component {
 
     }
 
-    getButtonsHTML() {
+    getButtonsHTML(topic) {
         return (
             <div className="bottom-container-new">
                 <div className="dates-list">
@@ -250,7 +282,7 @@ class Track extends React.Component {
                             add full track to cart - (3 spots left)
                         </div>
                         */}
-                    <Button disabled color="primary" className="color">
+                    <Button disabled color="primary" className="color"  onClick={this.handleAddToCart(topic)}>
                         <div>{this.getFullTrackText()}</div>
                     </Button>
                 </div>
@@ -426,7 +458,7 @@ class Track extends React.Component {
                         FULL YEAR (September - June)
                     </div>
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("roblox")}
 
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
@@ -624,7 +656,7 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("fortnite")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
@@ -815,7 +847,7 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("coding")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
@@ -1007,7 +1039,7 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("minecraft")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
@@ -1207,7 +1239,7 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("hardware")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
@@ -1395,7 +1427,7 @@ class Track extends React.Component {
                     </div>
 
                 </div>
-                {this.getButtonsHTML()}
+                {this.getButtonsHTML("video")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 

@@ -22,11 +22,15 @@ body {
     font-family: Helvetica;
     color: var(--font-color);
 
-    --button-shadow: 4px 4px 2px rgba(0,0,0,.5);
+    --button-shadow: 4px 4px 2px rgba(0,0,0,.6);
     --button-shadow-pressed: 2px 2px 1px rgba(0,0,0,.6);
     /*//, 2px 2px 0px rgba(0,0,0,.05) inset;*/
     --button-shadow-inverse: 0px -3px 10px rgba(0,0,0,.3);
     --floating-shadow: -1px -1px 5px 0 rgba(0, 0, 0, .5);
+    --project-stop-shadow:  -2px -2px 0px rgba(0, 0, 0, 0.15) inset;
+    --season-stop-shadow: -3px -3px 0px rgba(0, 0, 0, 0.15) inset;
+    --subway-icon-shadow: -6px -6px 0px rgba(0, 0, 0, 0.15) inset;
+
 
     --highlight-color: white;
     --faded-color: #ccc;
@@ -51,7 +55,7 @@ body {
     border-radius: 100%;
     font-size: 66px;
     background-color: rgb(255, 61, 61);
-    box-shadow: -12px -16px 0px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: -4px -4px 0px rgba(0, 0, 0, 0.15) inset;
     flex-shrink: 0;
     /*flex-grow:3;*/
     color: white;
@@ -331,7 +335,7 @@ body {
     width: 35px;
     height: 35px;
     border: 3px solid var(--stop-outline-color);
-    box-shadow: -6px -8px 0px rgba(0, 0, 0, 0.15) inset, -5px 0 0px var(--background-color);
+    box-shadow: var(--season-stop-shadow), -5px 0 0px var(--background-color);
 
 }
 
@@ -344,7 +348,7 @@ body {
     position: absolute;
     top:-5px;
     border: 3px solid var(--stop-outline-color);
-    box-shadow: -3px -3px 0px rgba(0, 0, 0, 0.15) inset;
+    box-shadow:var(--project-stop-shadow)
 
 }
 
@@ -389,7 +393,7 @@ body {
     flex-direction: row;
     font-size: 13px;
     align-content: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     /*flex-wrap: wrap;*/
     margin: auto;
@@ -402,7 +406,7 @@ body {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-right: auto;
     margin-left: auto;
     flex-wrap: wrap;
@@ -436,15 +440,16 @@ body {
 }
 .list-of-skills div {
     align-content: flex-start;
-    justify-content: flex-start;
+    /*justify-content: flex-start;*/
+    flex-grow:.11;
     height:18px;
     width: auto;
     line-height: 19px;
-    margin:8px 8px 0px 0px;
+    /*margin:8px 8px 0px 0px;*/
     background-color: orange;
     color:white;
     padding: 0px 10px 0px 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     /*flex-grow: 1;*/
     text-align: center;
     font-weight: 100;
@@ -452,6 +457,10 @@ body {
     /*border-style:solid;*/
     border-width: 1px;
     border-color: #999;
+    /*filter: brightness(1.15);*/
+    box-shadow: var(--project-stop-shadow);
+    margin:auto;
+
 }
 
 
@@ -703,7 +712,7 @@ div .age12to14 {
     border-radius: 100%;
     font-size: 60px;
     background-color: rgb(255, 61, 61);
-    box-shadow: -12px -16px 0px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: var(--subway-icon-shadow);
     flex-shrink: 0;
     /*flex-grow:3;*/
     color: white;
@@ -1234,7 +1243,7 @@ div .age12to14 {
 .screen-time-icon {
     background: url(img/screen.svg);
     background-size: cover;
-    width:20px;
+    width:22px;
     height:18px;
     margin-right:5px;
 }
@@ -1644,6 +1653,7 @@ div .age12to14 {
     /*-ms-transition:background-color .5s;*/
     /*-o-transition: background-color .5s;*/
     transition:background-color 0.3s, border-color 0.3s, box-shadow 1s;
+
     /*opacity:.8;*/
 }
 .hide-me .project-name{
@@ -1717,6 +1727,8 @@ div .age12to14 {
 .hide-dates {
     color: #858585;
     transition: color 0.25s;
+
+
 }
 .first-track:hover .dates-list{
     /*display: flex;*/
@@ -1803,4 +1815,16 @@ div:not(.track-line) {
     border-width:1px;
     border-color: rgba(255,255,255,.4);
     font-weight:200;
+}
+.inner-photo {
+    /*filter: drop-shadow(6px 6px 2px rgba(0,0,0,0.1));*/
+}
+.list-of-skills .age7to9 {
+    display: none;
+}
+.list-of-skills .age9to11 {
+    display: none;
+}
+.list-of-skills .age12to14 {
+    display: none;
 }
