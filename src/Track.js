@@ -37,7 +37,7 @@ class Track extends React.Component {
         this.highlightFullTrack = this.highlightFullTrack.bind(this);
         this.removeAllHighlights = this.removeAllHighlights.bind(this);
         this.handleAddToCart = this.handleAddToCart.bind(this);
-
+        this.handleAddTrackToCart = this.handleAddTrackToCart.bind(this);
 
 
 }
@@ -84,38 +84,10 @@ class Track extends React.Component {
             console.log("CART-X-adding-SPRING");
 
         }
-        //
-        // if (this.state.fall) {
-        //     this.setState({
-        //         fallInCart: true
-        //     });
-        //     this.props.addToCart(this.props.fallEvent);
-        //     console.log("CART-X-adding-FALL");
-        //
-        // }
-        // if (this.state.winter) {
-        //     this.setState({
-        //         winterInCart: true
-        //     });
-        //     this.props.addToCart(this.props.winterEvent);
-        //     console.log("CART-X-adding-WINTER");
-        //
-        // }
-        // if (this.state.spring) {
-        //     this.setState({
-        //         springInCart: true
-        //     });
-        //     this.props.addToCart(this.props.springEvent);
-        //     console.log("CART-X-adding-SPRING");
-        //
-        // }
+    }
 
-
-        // this.setState({
-        //     inCart: true
-        // });
-        // this.props.addToCart(event);
-
+    handleAddTrackToCart() {
+        this.props.addThreeToCart(this.props.fallEvent,this.props.winterEvent,this.props.springEvent);
     }
 
     checkCart() {
@@ -393,14 +365,14 @@ class Track extends React.Component {
                 </div>
                 <div
                     className= {
-                        (this.state.fallInCart && this.state.winterInCart && this.state.springInCart)?
+                        (this.props.fallInCart>=0 && this.props.winterInCart>=0 && this.props.springInCart>=0)?
                             "full-track-button in-cart-2"
                             :
                             "full-track-button"
                     }
                     onMouseEnter={this.highlightFullTrack.bind()}
                     onMouseLeave={this.removeAllHighlights.bind()}
-                    onClick ={this.handleAddToCart.bind()}
+                    onClick ={this.handleAddTrackToCart.bind()}
                 >
                     {/*
                         <div className="add-to-text">

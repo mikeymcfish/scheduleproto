@@ -66,6 +66,8 @@ class App extends Component {
         this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
         this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.addThreeToCart = this.addThreeToCart.bind(this);
+
 
         this.listEvents = [];
 
@@ -448,42 +450,35 @@ class App extends Component {
 
     addToCart = (event) => {
 
-        // console.log("CART-X-adding an event to cart: id="+event.id);
-        //
-        // //check if OK
-        // if (event==null) return;
-        //
-        // if (!isLive) this.addInCart(event.id);
-        // this.clearCalendar();
-        //
-        // //add to hq
-        // this.sendToCartAPI(event);
-        // this.checkForLockedFilters();
+        console.log("CART-X-adding an event to cart: id="+event.id);
 
-        this.addThreeToCart(event,event,event);
+        //check if OK
+        if (event==null) return;
+
+        if (!isLive) this.addInCart(event.id);
+        this.clearCalendar();
+
+        //add to hq
+        this.sendToCartAPI(event);
+        this.checkForLockedFilters();
+
     }
 
     addThreeToCart = (event1,event2,event3) => {
 
-        console.log("CART-X-adding an event to cart: id="+event1.id);
-
-        //check if OK
-        if (event1==null) return;
-
-        if (!isLive) this.addInCart(event1.id);
-        this.clearCalendar();
-
-        //add to hq
-        if (this.sendToCartAPI(event1)) {
-            console.log("CART-Z-event 1 returned");
-            if (this.sendToCartAPI(event2)) {
-                console.log("CART-Z-event 2 returned");
-                if (this.sendToCartAPI(event3)) {
-                    console.log("CART-Z-event 3 returned");
-                }
-            }
-        }
-        this.checkForLockedFilters();
+        this.sendToCartAPI(event1,event2,event3);
+        //     console.log("CART-Z-event 1 returned");
+        //     if (!isLive) this.addInCart(event1.id);
+        //     if (this.sendToCartAPI(event2)) {
+        //         console.log("CART-Z-event 2 returned");
+        //         if (!isLive) this.addInCart(event2.id);
+        //         if (this.sendToCartAPI(event3)) {
+        //             console.log("CART-Z-event 3 returned");
+        //             if (!isLive) this.addInCart(event3.id);
+        //         }
+        //     }
+        // }
+        // this.checkForLockedFilters();
 
     }
 
@@ -530,7 +525,7 @@ class App extends Component {
         }
     }
 
-    async sendToCartAPI(event) {
+    async sendToCartAPI(event, event2=null, event3=null) {
 
         var _this = this;
         console.log("CART-X-sending to cart API");
@@ -545,9 +540,14 @@ class App extends Component {
                 //let responseJson = await response.json();
                     console.log("CART-X-got response A");
 
-                    _this.rebuildCart(data.cart);
-                    return(true);
-                window.getUpdatedCart();
+
+                    if (event2!=null) {
+                        _this.sendToCartAPI(event2, event3);
+                    } else {
+                        _this.rebuildCart(data.cart);
+                        window.getUpdatedCart();
+                    }
+
             });
             ///// update my cart with response.json.
 
@@ -560,11 +560,13 @@ class App extends Component {
             '/api/v1/scheduler/add_to_cart?product_id=' + event.id,
                 function (data) {
                 //let responseJson = await response.json();
-                    console.log("CART-X-sending got respons B");
-
-                    _this.rebuildCart(data.cart);
-                    return(true);
-                window.getUpdatedCart();
+                    console.log("CART-X-sending got response B");
+                    if (event2!=null) {
+                        _this.sendToCartAPI(event2, event3);
+                    } else {
+                        _this.rebuildCart(data.cart);
+                        window.getUpdatedCart();
+                    }
             });
 
         } finally  {
@@ -2309,9 +2311,9 @@ class App extends Component {
                                                     fallWeeks={name.fallWeeks}
                                                     winterWeeks={name.winterWeeks}
                                                     springWeeks={name.springWeeks}
-                                                    fallInCart={name.fallInCart}
-                                                    winterInCart={name.winterInCart}
-                                                    springInCart={name.springInCart}
+                                                    fallInCart={this.state.cart.indexOf(name.fallEvent.id)}
+                                                    winterInCart={this.state.cart.indexOf(name.winterEvent.id)}
+                                                    springInCart={this.state.cart.indexOf(name.springEvent.id)}
                                                     fallDoesOwn={false}
                                                     winterDoesOwn={false}
                                                     springDoesOwn={false}
@@ -2321,6 +2323,7 @@ class App extends Component {
                                                     location={name.location}
                                                     dayOfWeek={name.dayOfWeek}
                                                     addToCart={this.addToCart}
+                                                    addThreeToCart={this.addThreeToCart}
                                                     fallEvent= {name.fallEvent}
                                                     winterEvent= {name.winterEvent}
                                                     springEvent= {name.springEvent}
