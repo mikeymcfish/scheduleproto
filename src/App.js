@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
@@ -29,8 +28,9 @@ import Track from './Track';
 import ListView from './calendar/list';
 
 import isLive from "./isLive.js";
-import TrackSelection from "./TrackSelection";
+import showAsMember from "./DEV_showAsMember.js";
 
+import TrackSelection from "./TrackSelection";
 
 // TODO
 // - look through all series (only get after # xxx)
@@ -45,6 +45,8 @@ class App extends Component {
         super();
 
         console.log("I am live? " + isLive);
+
+
 
         this.toggleSeries = this.toggleSeries.bind(this);
         this.toggleProSeries = this.toggleProSeries.bind(this);
@@ -124,6 +126,7 @@ class App extends Component {
             loggedInUserID: 0,
             pickups: {},
             warnedAboutPro: false,
+            numberOfCartItems: 0,
             highlights: {
                 roblox: {
                     fall: false,
@@ -135,9 +138,13 @@ class App extends Component {
                     winter: false,
                     spring: false
                 }
-            }
+            },
+            filtersLocked: false,
+            numberOfEvents: "no tracks"
 
         }
+
+
 
         //global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
@@ -244,11 +251,14 @@ class App extends Component {
 
             console.log("loading test member data");
             $.getJSON('./api/v1/scheduler/members.json', function (data) {
-                _this.setState(
-                    {
-                        // members: data.members
-                    }
-                );
+                if (showAsMember) {
+                    _this.setState(
+                        {
+                            members: data.members
+                        }
+                    );
+                }
+
                 //TEMP SHOW BUTTON.
                 _this.getCartCall();
                 _this.loadScheduleData();
@@ -315,17 +325,17 @@ class App extends Component {
     }
 
     clearCalendar() {
-        console.log("$$ clearing overlays");
-        $(".overlay")
-            .not(".holiday")
-            .not(".birthday")
-            .not(".in-cart")
-            .remove();
-
-
-        $(".highlighted").removeClass("highlighted");
-
-        $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
+        // console.log("$$ clearing overlays");
+        // $(".overlay")
+        //     .not(".holiday")
+        //     .not(".birthday")
+        //     .not(".in-cart")
+        //     .remove();
+        //
+        //
+        // $(".highlighted").removeClass("highlighted");
+        //
+        // $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
 
 
     }
@@ -438,21 +448,47 @@ class App extends Component {
 
     addToCart = (event) => {
 
-        console.log("CART-X-adding an event to cart: id="+event.id);
+        // console.log("CART-X-adding an event to cart: id="+event.id);
+        //
+        // //check if OK
+        // if (event==null) return;
+        //
+        // if (!isLive) this.addInCart(event.id);
+        // this.clearCalendar();
+        //
+        // //add to hq
+        // this.sendToCartAPI(event);
+        // this.checkForLockedFilters();
+
+        this.addThreeToCart(event,event,event);
+    }
+
+    addThreeToCart = (event1,event2,event3) => {
+
+        console.log("CART-X-adding an event to cart: id="+event1.id);
 
         //check if OK
-        if (event==null) return;
+        if (event1==null) return;
 
-        if (!isLive) this.addInCart(event.id);
+        if (!isLive) this.addInCart(event1.id);
         this.clearCalendar();
 
         //add to hq
-        this.sendToCartAPI(event);
+        if (this.sendToCartAPI(event1)) {
+            console.log("CART-Z-event 1 returned");
+            if (this.sendToCartAPI(event2)) {
+                console.log("CART-Z-event 2 returned");
+                if (this.sendToCartAPI(event3)) {
+                    console.log("CART-Z-event 3 returned");
+                }
+            }
+        }
+        this.checkForLockedFilters();
 
     }
 
     rebuildCart(data) {
-        console.log("rebuilding cart with "+data);
+        console.log("CART-Z- rebuilding cart with "+data);
         try {
             if (data.length > 0) {
                 this.setState({
@@ -463,15 +499,26 @@ class App extends Component {
                     this.addInCart(val);
                 });
 
+            } else {
+                this.setState({
+                    cart: []
+                });
             }
+
+            console.log("CART-X- trying to set the cart icon number");
+            $('#cart-count')
+                .text(data.length)
+                .show();
 
         } catch (e) {
             console.log("problem updating cart.")
         }
+        this.checkForLockedFilters();
+
     }
 
     async getCartCall() {
-
+        console.log("CART-X-getCartCall");
         var _this = this;
         try {
             $.getJSON('api/v1/scheduler/cart', function (data) {
@@ -486,6 +533,7 @@ class App extends Component {
     async sendToCartAPI(event) {
 
         var _this = this;
+        console.log("CART-X-sending to cart API");
         try {
             // let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
             //     this.state.members[this.state.selectedMemberKey].id
@@ -495,7 +543,10 @@ class App extends Component {
                 _this.state.members[this.state.selectedMemberKey].id
                 , function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
+                    console.log("CART-X-got response A");
+
+                    _this.rebuildCart(data.cart);
+                    return(true);
                 window.getUpdatedCart();
             });
             ///// update my cart with response.json.
@@ -503,17 +554,23 @@ class App extends Component {
             // this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
+            console.log("CART-X-error in sendtocartAPI");
+
             $.getJSON(
             '/api/v1/scheduler/add_to_cart?product_id=' + event.id,
                 function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
+                    console.log("CART-X-sending got respons B");
+
+                    _this.rebuildCart(data.cart);
+                    return(true);
                 window.getUpdatedCart();
             });
 
         } finally  {
             console.log("api call did nothing.");
         }
+        return false;
 
         // try {
         //     let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
@@ -575,6 +632,7 @@ class App extends Component {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
             $(".filter-view").css("display", "none");
+            $(".filter-day-of-week").css("display", "none");
 
             if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
                 _this.clearCalendar();
@@ -633,7 +691,8 @@ class App extends Component {
         this.runJquery();
         this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
-        this.setTracksToView();
+
+        // FIND ME I CHANGED THIS
     }
 
     //YouTube Production
@@ -643,7 +702,66 @@ class App extends Component {
     }
 
     componentDidMount() {
+        console.log("this is the app:",this);
         this.runJquery();
+        // this.myRef = React.createRef();
+        this.myRef = React.createRef();
+        if (!isLive) {
+
+            this.setState(
+                {
+                    filterDayOfWeek: "(unset)",
+                    filterLocation: "Brooklyn",
+                    currentLocation: "Brooklyn",
+                    currentAgeGroup: "age 9 to 11",
+                    currentDayOfWeek: "(unset)"
+                }
+            );
+        };
+        this.checkForLockedFilters();
+
+
+    }
+
+    checkForLockedFilters() {
+        console.log("CART-Z-checking for locked filters");
+        if (this.state.cart.length > 0) {
+            this.setState({
+                filtersLocked:true
+            });
+            var firstCart=this.state.cart[0];
+            var firstThreeOfDay = firstCart.toUpperCase().split("_")[1].slice(0,2).toUpperCase();
+            var dayToSet = "Mondays";
+            if (firstThreeOfDay == "MON") {
+                dayToSet = "Mondays";
+            } else if (firstThreeOfDay == "TUE") {
+                dayToSet = "Tuesdays";
+            } else if (firstThreeOfDay == "WED") {
+                dayToSet = "Wednesdays";
+            } else if (firstThreeOfDay == "THU") {
+                dayToSet = "Thursdays";
+            } else if (firstThreeOfDay == "FRI") {
+                dayToSet = "Fridays";
+            }
+            for (var i=0; i<global.allEvents.length; i++) {
+                if (global.allEvents[i].id == firstCart) {
+                    //set filters to match.
+                    this.setState({
+                        filterDayOfWeek: dayToSet,
+                        filterLocation: global.allEvents[i].location,
+                        currentLocation: global.allEvents[i].location,
+                        currentAgeGroup: global.allEvents[i].location.age,
+                        currentDayOfWeek: dayToSet,
+                    })
+                }
+            }
+        }
+        else {
+            this.setState({
+                filtersLocked: false
+            });
+        }
+        ReactTooltip.rebuild();
     }
 
     componentDidUpdate() {
@@ -652,7 +770,6 @@ class App extends Component {
         ReactTooltip.rebuild();
         //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
-        // this.setTracksToView();
 
     }
 
@@ -727,9 +844,10 @@ class App extends Component {
 
     logInMember(memberKey) {
 
-        console.log("changing member");
+        console.log("FILTER-Z- changing member");
         if (this.state.members.length <0 ) {
             console.log("aborting no member list");
+            this.setTracksToView();
             return;
         }
         var firstMember = {};
@@ -759,6 +877,9 @@ class App extends Component {
         this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
         this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
+        console.log("FILTER-Z- ive found the age " + firstMember.age);
+        this.setTracksToView(null,null,firstMember.defaultLocation,firstMember.age);
+
 
     }
 
@@ -778,6 +899,8 @@ class App extends Component {
                 filter9to11: true,
                 filter12to14: true,
             });
+            //refilter with new age.
+
             this.setFilterAgeByAge(this.state.members[this.state.selectedMemberKey].age);
         }
     }
@@ -875,13 +998,12 @@ class App extends Component {
             })
         }
 
-        this.setTracksToView();
-
+    //
     }
 
     setFilterAgeByGroup(group) {
         this.clearCalendar();
-        console.log("filter age by " + group);
+        console.log("FILTERING-X- filter age by " + group);
         if (group == "age 7 to 9") {
             this.setState({
                 filter7to9: false,
@@ -903,7 +1025,6 @@ class App extends Component {
                 filter12to14: false
             })
         }
-        this.setTracksToView();
 
     }
 
@@ -949,7 +1070,7 @@ class App extends Component {
 
     changeAge = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.state.filtersLocked) {
             ReactTooltip.rebuild();
             return;
         }
@@ -971,16 +1092,23 @@ class App extends Component {
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.logInMember(member);
+                    this.setFilterAgeByGroup($(target).attr("data-age-group"));
                     return;
                 }
             }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
+            console.log("FILTER-X- changing age to " + $(target).attr("data-age-group"));
+            this.setTracksToView($(target).attr("data-age-group"));
+            // this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
-        } else {
+        }
+        else {
             $(".filter-age")
                 .css("display", "flex");
         }
+
+
+
 
 
     };
@@ -989,12 +1117,8 @@ class App extends Component {
 
         console.log("TRACKS changing day of week BEGIN");
         console.log("TRACKS clicked " + $(target).attr("data-day-of-week"));
-
-        if (this.state.cart.length > 0) {
-            ReactTooltip.rebuild();
-            return;
-        }
-
+        if (target.hasAttribute("daya-day-of-week") &&
+            (target.attr("daya-day-of-week")===undefined)) return;
         if (target.hasAttribute("data-day-of-week")) {
             this.setState(
                 {
@@ -1005,22 +1129,23 @@ class App extends Component {
                 .css("display", "none");
 
             this.refreshOverlays($(target).attr("data-day-of-week"));
+            console.log("TRACKS day is now " + this.state.filterDayOfWeek);
+            console.log("FILTER-X- changing day of week to " + $(target).attr("data-day-of-week"));
+
+            this.setTracksToView(null,$(target).attr("data-day-of-week"),null);
 
         } else {
             $(".filter-day-of-week")
                 .css("display", "flex");
         }
         this.clearCalendar();
-        console.log("TRACKS day is now " + this.state.filterDayOfWeek);
-        console.log("TRACKS changing day of week END");
 
-        this.setTracksToView(null,$(target).attr("data-day-of-week"),null);
 
     };
 
     changeLocation = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.state.filtersLocked) {
             ReactTooltip.rebuild();
             return;
         }
@@ -1035,13 +1160,15 @@ class App extends Component {
                 .css("display", "none");
 
             this.refreshOverlays($(target).attr("data-location"));
+            console.log("FILTER-X- changing location to " + $(target).attr("data-location"));
+            this.setTracksToView(null,null,$(target).attr("data-location"));
 
         } else {
             $(".filter-location")
                 .css("display", "flex");
         }
         this.clearCalendar();
-        this.setTracksToView(null,null,$(target).attr("data-location"));
+
 
     };
 
@@ -1255,17 +1382,24 @@ class App extends Component {
 
     }
 
-    doesAgeMatchEvent(ageGroup) {
+    doesAgeMatchEvent(ageGroup,actualage) {
 
-        var myAge = this.state.currentSelectedMembersAge;
+        var myAge = 0;
+        actualage > 0 ? myAge = actualage : myAge = this.state.currentSelectedMembersAge;
+        console.log("FILTER-Z- checking doesagematchevent() for " + myAge +" to age agroup " + ageGroup);
 
         if (ageGroup == "AGE 7 TO 9" && (myAge <= 9 && myAge >= 7)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 7-9");
             return true;
         }
         else if (ageGroup == "AGE 9 TO 11" && (myAge <= 11 && myAge >= 9)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 9-11");
+
             return true;
         }
         else if (ageGroup == "AGE 12 TO 14" && (myAge <= 14 && myAge >= 12)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 12-14");
+
             return true;
         }
         else if (ageGroup == "AGE 7 TO 14") {
@@ -1276,7 +1410,8 @@ class App extends Component {
         }
     }
 
-    setTracksToView(age=null, day=null, location=null)  {
+    setTracksToView(age=null, day=null, location=null, actualage=0)  {
+
 
         var ageToCheck = age;
         ageToCheck==null?  ageToCheck = this.state.currentAgeGroup : ageToCheck=ageToCheck;
@@ -1285,7 +1420,7 @@ class App extends Component {
         var locationToCheck = location;
         locationToCheck==null?  locationToCheck = this.state.filterLocation : locationToCheck=locationToCheck;
 
-        console.log("TRACKS - setting tracks to view")
+        console.log("*FILTER-Z- using these filters: age-" + ageToCheck + ", loc-" + locationToCheck + ", day-" + dayToCheck + ", actual-" + actualage);
         var thisDaysEvents = [];
         var thisDaysFilteredEvents = [];
 
@@ -1298,7 +1433,8 @@ class App extends Component {
                 // console.log("TRACKS checking" + i);
                 var ageMatched = false;
                 if (this.state.loggedIn) {
-                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
+                    var actualAgeToCheck = actualage>0? actualAgeToCheck = actualAgeToCheck : actualAgeToCheck = this.state.currentSelectedMembersAge;
+                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase(),actualAgeToCheck);
                 } else {
                     ageMatched =
                         (
@@ -1306,6 +1442,10 @@ class App extends Component {
                             || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
                         );
                 }
+
+                ///RESET AGE MATCH, WILL CHECK LATER WITH SHOW OR HIDE
+                // ageMatched=true;
+
                 // check location
                 var locationMatched = false;
                 if (thisDaysEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()) {
@@ -1316,17 +1456,17 @@ class App extends Component {
                 // split id by underscore, get index 1, check for match first three letters MON, TUE, etc.
                 var dayOfWeekMatched = false;
                 var firstThreeOfDay = thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2);
-                if (firstThreeOfDay === dayToCheck.toUpperCase().slice(0,2))
+                if (firstThreeOfDay == dayToCheck.toUpperCase().slice(0,2))
                     dayOfWeekMatched = true;
                 console.log("TRACKS - filtered day: " +  " - " + dayToCheck.toUpperCase().slice(0,2));
                 ageMatched? console.log("TRACKS age matched") : "";
                 locationMatched? console.log("TRACKS location matched") : "";
                 dayOfWeekMatched? console.log("TRACKS day matched " + thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2)): "";
-
+                //console.log("FILTER-X- matching status for " + thisDaysEvents[i].id+ ": "+ ageMatched + " " + locationMatched + " " + dayOfWeekMatched);
 
                 if (ageMatched && locationMatched && dayOfWeekMatched) {
                     thisDaysFilteredEvents.push(thisDaysEvents[i]);
-                    console.log('TRACKS - matched id ' + thisDaysEvents[i].length);
+                    console.log('TRACKS - matched id ' + thisDaysEvents[i].id);
                 }
             }
 
@@ -1407,7 +1547,9 @@ class App extends Component {
             else topic = "UNKNOWN";
 
             console.log("TRACKS found topic " + topic);
-            if (this.showOrHide(topic)) {
+
+            console.log("*FILTER-Z- filtering with showorhide() and age " + actualage);
+            if (this.showOrHide(topic, ageToCheck, locationToCheck, dayToCheck, actualage)) {
                 tracksListing[topic][season] = thisDaysFilteredEvents[i];
             }
 
@@ -1418,6 +1560,10 @@ class App extends Component {
         for (var topic in tracksListing) {
             console.log(topic);
             if (tracksListing[topic]['spring'].name===undefined) continue;
+            var isFallInCart = this.state.cart.indexOf(tracksListing[topic]['fall'].id);
+            var isWinterInCart = this.state.cart.indexOf(tracksListing[topic]['winter'].id);
+            var isSpringInCart = this.state.cart.indexOf(tracksListing[topic]['spring'].id);
+
             combinedSeasons.push({
                 topic: topic,
                 title: tracksListing[topic]['spring'].name,
@@ -1449,9 +1595,9 @@ class App extends Component {
                 fallSpots: tracksListing[topic]['fall'].spotsLeft,
                 winterSpots: tracksListing[topic]['winter'].spotsLeft,
                 springSpots: tracksListing[topic]['spring'].spotsLeft,
-                fallInCart: -1,
-                winterInCart: -1,
-                springInCart: -1,
+                fallInCart: isFallInCart,
+                winterInCart: isWinterInCart,
+                springInCart: isSpringInCart,
                 fallDoesOwn: false,
                 winterDoesOwn: false,
                 springDoesOwn: false,
@@ -1472,7 +1618,12 @@ class App extends Component {
             });
         }
 
+        var eventCount = "no track";
+        if (combinedSeasons.length==1) eventCount = "1 track";
+        else if (combinedSeasons.length>1) eventCount = combinedSeasons.length + " tracks";
+
         this.setState({
+            numberOfEvents: eventCount,
             viewingDayEvents: combinedSeasons
         });
     }
@@ -1704,7 +1855,7 @@ class App extends Component {
     addInCart(eventID) {
         var inCart = [];
 
-        $("[data-event-id='" + eventID + "']").addClass("in-my-cart");
+        $("[data-event-id='" + eventID + "']").addClass("in-cart-2");
         // $(".inCartLabel").addClass("in-my-cart");
 
 
@@ -1774,109 +1925,69 @@ class App extends Component {
 
     }
 
-    showOrHide(topic) {
+    showOrHide(topic, age, location, day, actualage) {
+
+        //HARDCODING WHETHER ITS AVAILABLE FOR A SPECIFIC PERSON THAT IS SHOWING
+
+        var testAge = actualage;
+        if (actualage > 0 ) {
+            testAge = actualage;
+        } else if (this.state.currentSelectedMembersAge>0) {
+            testAge = this.state.currentSelectedMembersAge;
+        } else if (age == "age 7 to 9") {
+            testAge = 8;
+        } else if (age == "age 9 to 11") {
+            testAge = 10;
+        } else if (age == "age 12 to 14") {
+            testAge = 13;
+        }
+
+        console.log("*FILTER-Z- matching topic "+topic+" to age " + testAge);
+
         if (topic=="roblox") {
-            if (this.state.filter9to11 && this.state.filter7to9) {
+            if (testAge > 11){
                 return false;
             }
             return true;
         } else if (topic=="minecraft") {
-            if (this.state.filter7to9) {
+            if (testAge > 9) {
                 return false;
             }
             return true;
 
         } else if (topic=="fortnite") {
-            if (this.state.filter9to11 && this.state.filter12to14) {
+            if (testAge < 9) {
                 return false;
             }
-            if (this.state.filterLocation=="Brooklyn") {
+            if (location=="Brooklyn") {
                 return true;
             }
             return false;
 
         } else if (topic=="coding") {
-            if (this.state.filter9to11 && this.state.filter12to14) {
+            if (testAge < 9) {
                 return false;
             }
-            if (this.state.filterLocation=="Brooklyn") {
+            if (location=="Brooklyn") {
                 return true;
             }
             return false;
 
         } else if (topic=="video") {
-            if (this.state.filter7to9) {
+            if (testAge > 9) {
                 return false;
             }
             return true;
 
         } else if (topic=="hardware") {
-            if (this.state.filter12to14) {
+            if (testAge < 12) {
                 return false;
             }
-            if (this.state.filterLocation=="Brooklyn") {
+            if (location=="Brooklyn") {
                 return true;
             }
             return false;
-
         }
-    }
-
-    showRoblox() {
-        // if filtering then that means dont show that age, so you return false to now show it.
-        //show only if either 9-11 ot 7-9 AND not 12-14.
-        if (this.state.filter9to11 && this.state.filter7to9) {
-            return false;
-        }
-        return true;
-    }
-
-    showMinecraft() {
-        if (this.state.filter7to9) {
-            return false;
-        }
-        return true;
-    }
-
-    showFortnite() {
-        // Also need to check location
-        if (this.state.filter9to11 && this.state.filter12to14) {
-            return false;
-        }
-        if (this.state.filterLocation=="Brooklyn") {
-            return true;
-        }
-        return false;
-    }
-
-    showCoding() {
-        // Also need to check location, only in brooklyn
-        if (this.state.filter9to11 && this.state.filter12to14) {
-            return false;
-        }
-        if (this.state.filterLocation=="Brooklyn") {
-            return true;
-        }
-        return false;
-    }
-
-    showVideo() {
-        // Also need to check location, only in brooklyn
-        if (this.state.filter7to9) {
-            return false;
-        }
-        return true;
-    }
-
-    showHardware() {
-        // Also need to check location, only in brooklyn
-        if (this.state.filter12to14) {
-            return false;
-        }
-        if (this.state.filterLocation=="Brooklyn") {
-            return true;
-        }
-        return false;
     }
 
     getMonthName(num) {
@@ -1975,9 +2086,8 @@ class App extends Component {
         this.state.selectedMemberKey!="" ? memberName = this.state.members[this.state.selectedMemberKey].name : memberName = "";
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         this.listEvents = [];
-        // var addThisToCart(e) = this.addToCart(e);
         return (
-            <div className="App">
+            <div className="App" ref={this.myRef} >
                 {isLive ? "" : <TopLinks></TopLinks>}
                 <div className="full-page-container">
                     <div className="container w-container">
@@ -1985,13 +2095,31 @@ class App extends Component {
                         <h1 className="heading">
                             <div className="filtering-header">
                                 <div className="text-center"><span className="def-no-hover">
-                                    {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span></div>
-                                <div className="change-age-btn" onClick={this.changeAge}
-                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
-                                    <div className="text-right"><span
-                                        className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
+                                    {this.state.isJSONloaded ? "Showing" : "Loading"} {this.state.numberOfEvents} in </span></div>
+                                <div className="change-location-btn" onClick={this.changeLocation}
+                                     data-tip={this.state.filtersLocked? "You may only add items to the cart for one location at a time." : ""}
+                                >
+                                    <div className="text-center"><span
+                                        className="editable-heading">{this.state.currentLocation} </span></div>
+                                    <div className="filtering-hover-text">
+                                        <div>click to change</div>
                                     </div>
-                                    <div className="text-right filtering-hover-text">
+                                    <div className="filter-selection-box filter-location">
+                                        <div className="filter-option set-location-btn" data-location="Brooklyn">
+                                            Brooklyn
+                                        </div>
+                                        <div className="filter-option set-location-btn" data-location="TriBeCa">
+                                            TriBeCa
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="text-center">for</div>
+                                <div className="change-age-btn" onClick={this.changeAge}
+                                     data-tip={this.state.filtersLocked? "You may only add items to the cart for one member at a time." : ""}>
+                                    <div className="text-center"><span
+                                        className="editable-heading">{this.state.currentAgeGroup}</span>
+                                    </div>
+                                    <div className="filtering-hover-text">
                                         <div className={this.state.selectedMemberKey != "" ? "member-type" : ""}>
                                             click to change
                                         </div>
@@ -2004,31 +2132,11 @@ class App extends Component {
                                         )}
                                     </div>
                                 </div>
-                                <div className="text-center"> in</div>
-                                <div className="change-location-btn" onClick={this.changeLocation}
-                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
-                                >
-                                    <div className="text-left"><span
-                                        className="editable-heading">{this.state.currentLocation} </span></div>
-                                    <div className="text-center filtering-hover-text">
-                                        <div>click to change</div>
-                                    </div>
-                                    <div className="filter-selection-box filter-location">
-                                        <div className="filter-option set-location-btn" data-location="Brooklyn">
-                                            Brooklyn
-                                        </div>
-                                        <div className="filter-option set-location-btn" data-location="TriBeCa">
-                                            TriBeCa
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="text-center" style={{marginLeft: "10px"}}>  on</div>
-                                <div className="change-day-of-week-btn" onClick={this.changeDayOfWeek}
-                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
-                                >
-                                    <div className="text-left"><span
+                                <div className="text-center">on</div>
+                                <div className="change-day-of-week-btn" onClick={this.changeDayOfWeek}>
+                                    <div className="text-center"><span
                                         className="editable-heading">{this.state.currentDayOfWeek} </span></div>
-                                    <div className="text-center filtering-hover-text">
+                                    <div className="filtering-hover-text">
                                         <div>click to change</div>
                                     </div>
                                     <div className="filter-selection-box filter-day-of-week">
@@ -2050,20 +2158,10 @@ class App extends Component {
                                     </div>
                                 </div>
 
-                                {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
-                                {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
-                                {/*<div className="text-item-center filtering-hover-text">*/}
-                                {/*<div>click to change</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="filter-selection-box filter-view">*/}
-                                {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
-                                {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
                             </div>
                             <div className="age-notification">
                                 {this.state.selectedMemberKey != "" ?
-                                    <div className="age-note">NOTE: We're showing you only events for members
+                                    <div className="age-note">NOTE: We're automatically filtering for
                                         age {this.state.members[this.state.selectedMemberKey].age}. If this is
                                         not {this.state.members[this.state.selectedMemberKey].name}'s correct age <a
                                             href={"member/" + this.state.members[this.state.selectedMemberKey].id + "/pedit"}><span
@@ -2211,9 +2309,9 @@ class App extends Component {
                                                     fallWeeks={name.fallWeeks}
                                                     winterWeeks={name.winterWeeks}
                                                     springWeeks={name.springWeeks}
-                                                    fallInCart={-1}
-                                                    winterInCart={-1}
-                                                    springInCart={-1}
+                                                    fallInCart={name.fallInCart}
+                                                    winterInCart={name.winterInCart}
+                                                    springInCart={name.springInCart}
                                                     fallDoesOwn={false}
                                                     winterDoesOwn={false}
                                                     springDoesOwn={false}
@@ -2226,6 +2324,7 @@ class App extends Component {
                                                     fallEvent= {name.fallEvent}
                                                     winterEvent= {name.winterEvent}
                                                     springEvent= {name.springEvent}
+                                                    cart = {this.state.cart}
 
                                                     doesOwn={false}
                                                     isInCart={-1}
@@ -2464,59 +2563,6 @@ class App extends Component {
                                     </div>
 
                                     <div className="big-day-container">
-
-
-                                        {this.state.viewingDayEvents.map(
-                                            function(name, index) {
-                                                console.log( "forEach:" + name );
-                                                return (
-
-                                                    <TrackSelection
-                                                        title={name.title}
-                                                        tags={
-                                                            [
-                                                                {text: "Code", tagType: "red"},
-                                                                {text: "Fun", tagType: "blue"},
-                                                                {text: "Magic", tagType: "green"}
-                                                            ]
-                                                        }
-                                                        copy={name.copy}
-                                                        ages={name.ages}
-                                                        dates={name.dates}
-                                                        time="no time"
-                                                        originalPrice={name.originalPrice}
-                                                        price={name.trackPrice}
-                                                        trackPrice={name.trackPrice}
-                                                        trackSpots="4"
-                                                        trackInCart={-1}
-                                                        trackDoesOwn={-1}
-                                                        fallPrice={name.fallPrice}
-                                                        winterPrice={name.winterPrice}
-                                                        springPrice={name.springPrice}
-                                                        trackPaymentPlanPrice = {name.trackPaymentPlanPrice}
-                                                        fallSpots="3"
-                                                        winterSpots="3"
-                                                        springSpots="3"
-                                                        fallInCart={-1}
-                                                        winterInCart={-1}
-                                                        springInCart={-1}
-                                                        fallDoesOwn={false}
-                                                        winterDoesOwn={false}
-                                                        springDoesOwn={false}
-
-                                                        doesOwn={false}
-                                                        isInCart={-1}
-                                                        spotsLeft="5"
-                                                        memberName = "Mikey"
-
-                                                    />
-
-                                                );
-                                            }
-                                        )}
-
-
-
 
 
 

@@ -10,8 +10,10 @@ import seriesJSON from "./series.json";
 
 var _this = this;
 
+// ReactDOM.render(<App ref={(ourComponent) => {window.ourComponent = ourComponent}} />, document.getElementById("app"));
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+
+ReactDOM.render(<App ref={(scheduleApp) => {window.scheduleApp = scheduleApp}}/>, document.getElementById('root'));
 
 
 registerServiceWorker();

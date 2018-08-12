@@ -2428,7 +2428,7 @@ container-hover {
 
 .change-age-btn {
     align-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
@@ -2436,14 +2436,14 @@ container-hover {
 }
 
 .change-location-btn {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     overflow: visible;
     /*width: 140px;*/
 }
 .change-day-of-week-btn {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     overflow: visible;
@@ -2465,6 +2465,7 @@ container-hover {
     cursor: pointer;
     font-size: 12px;
     font-weight: 800;
+    margin:auto;
     margin-top: 5px;
 }
 
@@ -2588,11 +2589,14 @@ container-hover {
     justify-content: center;
     height: 65px;
     overflow: visible;
+    width:64%;
+    font-size:25px;
     /*margin-right:-60px;*/
+    /*margin-left:-30px;*/
 }
 .filtering-header .text-center {
-    margin-left:10px;
-    margin-right:10px;
+    margin-left:5px;
+    margin-right:5px;
 }
 
 @media (max-width: 950px) {
@@ -2746,17 +2750,16 @@ hr {
     line-height: 18px;
     font-weight: 400;
     font-style: italic;
-    margin-top: 20px;
-    margin-bottom:15px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    width:60%;
 }
 .change-birthday:hover {
     text-decoration: underline !important;
     color: blue;
     cursor: pointer;
 }
-.filtering-header {
-    font-size:36px;
-}
+
 .show-only-week .monthly-view {
     /*display: none;*/
 }

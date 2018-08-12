@@ -13,7 +13,7 @@ import Button from 'material-ui/Button';
 class Track extends React.Component {
 
 
-constructor() {
+    constructor() {
         super();
 
         this.state = {
@@ -42,39 +42,83 @@ constructor() {
 
 }
 
-    handleAddToCart() {
+    componentDidUpdate() {
+        $(".in-cart-2").removeClass(".in-cart-2");
+        console.log("CART-Z- component did update");
+    }
 
+    componentDidMount() {
+        this.props.cart.forEach((event, index) => {
+
+            if (event==this.props.fallEvent.id) {
+                this.setState({fallInCart: true});
+            }
+            if (event==this.props.winterEvent.id) {
+                this.setState({winterEvent: true});
+            }
+            if (event==this.props.springEvent.id) {
+                this.setState({springEvent: true});
+            }
+
+        });
+    }
+
+    handleAddToCart() {
 
         //find whichever states are true and add those
         if (this.state.fall) {
-            this.setState({
-                fallInCart: true
-            });
+
             this.props.addToCart(this.props.fallEvent);
             console.log("CART-X-adding-FALL");
 
         }
         if (this.state.winter) {
-            this.setState({
-                winterInCart: true
-            });
+
             this.props.addToCart(this.props.winterEvent);
             console.log("CART-X-adding-WINTER");
 
         }
         if (this.state.spring) {
-            this.setState({
-                springInCart: true
-            });
+
             this.props.addToCart(this.props.springEvent);
             console.log("CART-X-adding-SPRING");
 
         }
+        //
+        // if (this.state.fall) {
+        //     this.setState({
+        //         fallInCart: true
+        //     });
+        //     this.props.addToCart(this.props.fallEvent);
+        //     console.log("CART-X-adding-FALL");
+        //
+        // }
+        // if (this.state.winter) {
+        //     this.setState({
+        //         winterInCart: true
+        //     });
+        //     this.props.addToCart(this.props.winterEvent);
+        //     console.log("CART-X-adding-WINTER");
+        //
+        // }
+        // if (this.state.spring) {
+        //     this.setState({
+        //         springInCart: true
+        //     });
+        //     this.props.addToCart(this.props.springEvent);
+        //     console.log("CART-X-adding-SPRING");
+        //
+        // }
+
 
         // this.setState({
         //     inCart: true
         // });
         // this.props.addToCart(event);
+
+    }
+
+    checkCart() {
 
     }
 
@@ -125,6 +169,11 @@ constructor() {
     }
 
     render() {
+
+        //
+        // if (this.props.fallInCart>0) this.setState({fallInCart: true});
+        // if (this.props.winterInCart>0) this.setState({winterInCart: true});
+        // if (this.props.springInCart>0) this.setState({springInCart: true});
         if (this.props.topic=="roblox") {
             return(this.renderRoblox())
         }
@@ -153,20 +202,20 @@ constructor() {
 
         if (this.state.fallInCart && this.state.winterInCart && this.state.springInCart) {
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     FULL SEASON IN CART
                 </div>
             );
         } else {
 
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     <div className="button-left-container">
                         <div className="">full track</div>
                     </div>
                     <div className="button-right-container">
                         <div className="">${this.props.trackPrice}</div>
-                        <div classname="">save ${this.props.originalPrice - this.props.trackPrice}!</div>
+                        <div className="">save ${this.props.originalPrice - this.props.trackPrice}!</div>
                     </div>
                 </div>
             );
@@ -178,14 +227,14 @@ constructor() {
 
         if (this.state.fallInCart) {
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     FALL SEASON IN CART
                 </div>
             );
         } else {
 
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     <div className="button-left-container">
                         <div className="">fall season</div>
                         <div className="">{this.props.fallWeeks} weeks</div>
@@ -205,14 +254,14 @@ constructor() {
 
         if (this.state.winterInCart) {
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     WINTER SEASON IN CART
                 </div>
             );
         } else {
 
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     <div className="button-left-container">
                         <div className="">winter season</div>
                         <div className="">{this.props.winterWeeks} weeks</div>
@@ -231,14 +280,14 @@ constructor() {
 
         if (this.state.springInCart) {
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     SPRING SEASON IN CART
                 </div>
             );
         } else {
 
             return (
-                <div className="price-text button-price-container">
+                <div className="price-text-2 button-price-container">
                     <div className="button-left-container">
                         <div className="">spring season</div>
                         <div className="">{this.props.springWeeks} weeks</div>
@@ -274,6 +323,14 @@ constructor() {
 
             </div>
         )
+    }
+
+    isInCart(event) {
+
+        for (var i=0; i< this.props.cart.length; i++) {
+            if (event.id==this.props.cart[i]) return true;
+        }
+        return false;
     }
 
     getProjectHTML(left, description_line1, description_line2="", season, isMini=false) {
@@ -341,7 +398,10 @@ constructor() {
                             :
                             "full-track-button"
                     }
-                    onMouseEnter={this.highlightFullTrack.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
+                    onMouseEnter={this.highlightFullTrack.bind()}
+                    onMouseLeave={this.removeAllHighlights.bind()}
+                    onClick ={this.handleAddToCart.bind()}
+                >
                     {/*
                         <div className="add-to-text">
                             add full track to cart - (3 spots left)
@@ -352,23 +412,36 @@ constructor() {
                     </Button>
                 </div>
                 <div className="seasons-button-container">
-                    <div className={this.state.fallInCart? "season-button fall-season in-cart-2" : "season-button fall-season"}
-                         onMouseEnter={this.changeFallHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
+                    <div
+                        className={this.isInCart(this.props.fallEvent)? "season-button fall-season in-cart-2" : "season-button fall-season"}
+                        onMouseEnter={this.changeFallHighlight.bind()}
+                        onMouseLeave={this.removeAllHighlights.bind()}
+                        onClick ={this.handleAddToCart.bind()}
+                        data-event-id={this.props.fallEvent.id}
+                    >
                         <Button disabled color="primary" className="color" >
                             {this.getFallText()}
                         </Button>
                         <div className="add-to-text">{this.props.fallSpots} spots left</div>
 
                     </div>
-                    <div className={this.state.winterInCart? "season-button winter-season in-cart-2" : "season-button winter-season "}
-                         onMouseEnter={this.changeWinterHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
+                    <div className={this.isInCart(this.props.winterEvent)? "season-button winter-season in-cart-2" : "season-button winter-season "}
+                         onMouseEnter={this.changeWinterHighlight.bind()}
+                         onMouseLeave={this.removeAllHighlights.bind()}
+                         onClick ={this.handleAddToCart.bind()}
+                         data-event-id={this.props.winterEvent.id}
+                        >
                         <Button disabled color="primary" className="color">
                             <div>{this.getWinterText()}</div>
                         </Button>
                         <div className="add-to-text">{this.props.winterSpots} spots left</div>
                     </div>
-                    <div className={this.state.springInCart? "season-button spring-season in-cart-2" : "season-button spring-season "}
-                         onMouseEnter={this.changeSpringHighlight.bind()} onMouseLeave={this.removeAllHighlights.bind()} onClick ={this.handleAddToCart.bind()}>
+                    <div className={this.isInCart(this.props.springEvent)? "season-button spring-season in-cart-2" : "season-button spring-season "}
+                         onMouseEnter={this.changeSpringHighlight.bind()}
+                         onMouseLeave={this.removeAllHighlights.bind()}
+                         onClick ={this.handleAddToCart.bind()}
+                         data-event-id={this.props.springEvent.id}
+                        >
                         <Button disabled color="primary" className="color">
                             <div>{this.getSpringText()}</div>
                         </Button>
@@ -382,7 +455,7 @@ constructor() {
 
     renderRoblox() {
         return(
-            <div className="first-track break-page" id="roblox-track">
+            <div className="new-track break-page" id="roblox-track">
 
                 <div className="track-photos roblox-color">
                     <div className="left-container">
@@ -1334,8 +1407,8 @@ constructor() {
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "Build a Remote-Control",
-                            "Tank Toy and Game",
+                            "Hack a LASER Tag Game",
+                            "Into a LASER Tank Game",
                             "winter"
                         )}
 
