@@ -82,13 +82,13 @@ class App extends Component {
             filter9to11: true,
             filter12to14: true,
             filterAllAges: true,
-            filterDayOfWeek: "(not set)",
+            filterDayOfWeek: "(Select One)",
             eventFilter: "events",
-            filterLocation: "(not set)",
-            currentLocation: "(not set)",
-            currentAgeGroup: "(not set)",
+            filterLocation: "(Select One)",
+            currentLocation: "(Select One)",
+            currentAgeGroup: "(Select One)",
             currentView: "week",
-            currentDayOfWeek: "(not set)",
+            currentDayOfWeek: "(Select One)",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -167,6 +167,8 @@ class App extends Component {
 
 
          */
+
+
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
             console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
@@ -502,13 +504,14 @@ class App extends Component {
 
             console.log("CART-X- trying to set the cart icon number");
             $('#cart-count')
-                .text(data.length)
+                .text("+")
                 .show();
 
         } catch (e) {
             console.log("problem updating cart.")
         }
-        this.checkForLockedFilters();
+
+        this.checkForLockedFilters(data);
 
     }
 
@@ -617,6 +620,7 @@ class App extends Component {
                 isJSONloaded: true
             }
         );
+        this.getCartCall();
 
         console.log("done.");
     }
@@ -693,7 +697,7 @@ class App extends Component {
         this.runJquery();
         this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
-
+        this.checkForLockedFilters();
         // FIND ME I CHANGED THIS
     }
 
@@ -708,30 +712,37 @@ class App extends Component {
         this.runJquery();
         // this.myRef = React.createRef();
         this.myRef = React.createRef();
-        if (!isLive) {
-
-            this.setState(
-                {
-                    filterDayOfWeek: "(unset)",
-                    filterLocation: "Brooklyn",
-                    currentLocation: "Brooklyn",
-                    currentAgeGroup: "age 9 to 11",
-                    currentDayOfWeek: "(unset)"
-                }
-            );
-        };
-        this.checkForLockedFilters();
+        // if (!isLive) {
+        //
+        //     this.setState(
+        //         {
+        //             filterDayOfWeek: "(unset)",
+        //             filterLocation: "Brooklyn",
+        //             currentLocation: "Brooklyn",
+        //             currentAgeGroup: "age 9 to 11",
+        //             currentDayOfWeek: "(unset)"
+        //         }
+        //     );
+        // };
+        // this.checkForLockedFilters();
 
 
     }
 
-    checkForLockedFilters() {
-        console.log("CART-Z-checking for locked filters");
-        if (this.state.cart.length > 0) {
+    checkForLockedFilters(data=null) {
+        var useCart = this.state.cart;
+        if (!isLive) {
+            // this.setState({
+            //     cart:["series_Wednesday_3_133"]
+            // });
+            // useCart = ["series_Wednesday_3_133"];
+        }
+        console.log("CART-Z-checking for locked filters, cart is " + useCart.length);
+        if (useCart.length > 0) {
             this.setState({
                 filtersLocked:true
             });
-            var firstCart=this.state.cart[0];
+            var firstCart=useCart[0];
             var firstThreeOfDay = firstCart.toUpperCase().split("_")[1].slice(0,2).toUpperCase();
             var dayToSet = "Mondays";
             if (firstThreeOfDay == "MON") {
@@ -745,14 +756,15 @@ class App extends Component {
             } else if (firstThreeOfDay == "FRI") {
                 dayToSet = "Fridays";
             }
-            for (var i=0; i<global.allEvents.length; i++) {
-                if (global.allEvents[i].id == firstCart) {
+            for (var i=0; i<global.allEvents.events.length; i++) {
+                if (global.allEvents.events[i].id == firstCart) {
                     //set filters to match.
+                    console.log("ZZZ - " + i);
                     this.setState({
                         filterDayOfWeek: dayToSet,
-                        filterLocation: global.allEvents[i].location,
-                        currentLocation: global.allEvents[i].location,
-                        currentAgeGroup: global.allEvents[i].location.age,
+                        filterLocation: global.allEvents.events[i].location,
+                        currentLocation: global.allEvents.events[i].location,
+                        currentAgeGroup: global.allEvents.events[i].age,
                         currentDayOfWeek: dayToSet,
                     })
                 }
@@ -1620,7 +1632,7 @@ class App extends Component {
             });
         }
 
-        var eventCount = "no track";
+        var eventCount = "no tracks";
         if (combinedSeasons.length==1) eventCount = "1 track";
         else if (combinedSeasons.length>1) eventCount = combinedSeasons.length + " tracks";
 
@@ -1960,9 +1972,6 @@ class App extends Component {
         } else if (topic=="fortnite") {
             if (testAge < 9) {
                 return false;
-            }
-            if (location=="Brooklyn") {
-                return true;
             }
             return false;
 

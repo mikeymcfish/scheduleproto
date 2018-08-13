@@ -13,7 +13,6 @@ class TopLinks extends React.Component {
         };
         this.setLoggedIn = this.setLoggedIn.bind(this);
 
-
     }
 
     componentDidUpdate() {
