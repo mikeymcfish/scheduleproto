@@ -381,6 +381,12 @@ class Track extends React.Component {
 
                     :
 
+                    this.props.springSpots<=0 || this.props.winterSpots<=0 || this.props.fallSpots<=0?
+
+                        <div></div>
+
+                    :
+
                     <div
                         className={
                             (this.props.fallInCart >= 0 && this.props.winterInCart >= 0 && this.props.springInCart >= 0) ?
