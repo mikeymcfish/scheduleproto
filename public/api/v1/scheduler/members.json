@@ -6,10 +6,12 @@
       "memberType": "classic",
       "birthday": "2005-13-1",
       "school": "P.S. 29",
-      "age": 11,
+      "age": 9,
       "defaultLocation": "Brooklyn",
       "ownedEvents": [
-
+        "series_Monday_3_127",
+        "series_Monday_3_126",
+        "series_Monday_3_128"
       ]
     },
     {
@@ -20,6 +22,18 @@
       "school": "P.S. 150",
       "age": 8,
       "defaultLocation": "TriBeCa",
+      "ownedEvents": [
+
+      ]
+    },
+    {
+      "name": "BooBear Downtown",
+      "id": 232,
+      "memberType": "premium",
+      "birthday": "2001-1-12",
+      "school": "P.S. 150",
+      "age": 13,
+      "defaultLocation": "Brooklyn",
       "ownedEvents": [
 
       ]

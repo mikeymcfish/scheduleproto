@@ -1,0 +1,4405 @@
+{
+  "metaData": {
+    "holidays": [
+      {
+        "month": "September",
+        "day": 7,
+        "title": "Open House",
+        "subTitle": "3p-5p",
+        "backgroundColor": "rgba(255,255,0,1)",
+        "icon": ""
+      },
+      {
+        "month": "September",
+        "day": 8,
+        "title": "Open House",
+        "subTitle": "3-5p",
+        "backgroundColor": "rgba(255,255,0,1)",
+        "icon": ""
+      },
+      {
+        "month": "September",
+        "day": 9,
+        "title": "Open House",
+        "subTitle": "10a-12p",
+        "backgroundColor": "rgba(255,255,0,1)",
+        "icon": ""
+      }
+    ],
+    "pickUpDays": {
+      "Brooklyn": {
+        "mon": [
+          "P.S. 29",
+          "P.S. 261",
+          "P.S. 8"
+        ],
+        "tue": [
+          "P.S. 29",
+          "Brooklyn Heights Montessori",
+          "St. Anne's"
+        ],
+        "wed": [
+          "P.S. 261",
+          "Brooklyn Friends",
+          "P.S. 32"
+        ],
+        "thu": [
+          "P.S. 58",
+          "Brooklyn Friends",
+          "P.S. 32"
+        ],
+        "fri": [
+          "P.S. 58",
+          "Packer Collegiate",
+          "P.S. 8"
+        ]
+      },
+      "TriBeCa": {
+        "mon": [
+          "P.S. 234"
+        ],
+        "tue": [
+          "P.S. 234"
+        ],
+        "wed": [
+          "P.S. 89"
+        ],
+        "thu": [
+          "P.S. 150",
+          "Village Community School"
+        ],
+        "fri": []
+      }
+    }
+  },
+  "closedDays": {
+    "September": [
+      10,
+      11,
+      19,
+      10,
+      11,
+      19
+    ],
+    "October": [
+      8,
+      31,
+      8,
+      31
+    ],
+    "November": [
+      2,
+      5,
+      6,
+      12,
+      21,
+      22,
+      23,
+      2,
+      5,
+      6,
+      12,
+      21,
+      22,
+      23
+    ],
+    "December": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      31,
+      24,
+      25,
+      26,
+      27,
+      28,
+      31
+    ],
+    "January": [
+      1,
+      21,
+      1,
+      21
+    ],
+    "February": [
+      5,
+      18,
+      19,
+      20,
+      21,
+      22,
+      5,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "April": [
+      19,
+      22,
+      23,
+      24,
+      25,
+      26,
+      19,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "May": [
+      27,
+      27
+    ],
+    "June": [
+      4,
+      4
+    ]
+  },
+  "events": [
+    {
+      "id": "series_Tuesday_3_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4557",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4567",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4576",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "520.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4595",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "650.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4586",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_120",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.\r\nSeason projects include: Online safety & anti-bullying, 3D modeling for Roblox, Roblox stuff",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4603",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4615",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "June": [
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4649",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4673",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4638",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4616",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "June": [
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_121",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4661",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/6, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4684",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "770.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4718",
+      "datesString": "12\/5, 12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4745",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4706",
+      "datesString": "12\/3, 12\/10, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4685",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_122",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4732",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_123",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4758",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          12,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_123",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4785",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_123",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "585.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4759",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          12,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_123",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "585.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4776",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_123",
+      "name": "Roblox Coding & Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4805",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_124",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4807",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_124",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4842",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_124",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4808",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_124",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4829",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_124",
+      "name": "Roblox Coding & Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4855",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_125",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4868",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_125",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4902",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_125",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4869",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_125",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4890",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_125",
+      "name": "Roblox Coding & Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4914",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 0,
+      "image": "\/images\/event\/series\/4925",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/5, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          5,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4953",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4971",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "585.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4926",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/5, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          5,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "650.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4943",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "585.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4954",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4972",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_126",
+      "name": "Minecraft Coding & Game Design: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online. \r\nProjects include: Online Safety and Anti-Bullying, Level Design & Adventure Maps, 3D Modeling & 3D Printing, Pixel Art Skins & Texture Packs",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/4993",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 2,
+      "image": "\/images\/event\/series\/5005",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5038",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5064",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5006",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5027",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5039",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5065",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_127",
+      "name": "Minecraft Coding & Game Design: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Basic electronics and circuit design, Boolean logic, redstone circuits and puzzles, LUA scripting in Minecraft",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5090",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 0,
+      "image": "\/images\/event\/series\/5103",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5106",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5108",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5104",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "650.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5105",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5107",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5109",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_128",
+      "name": "Minecraft Coding & Game Design: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.\r\nProjects include: Minecraft Modding using Java",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5110",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5200",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/5, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          5,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5209",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5228",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5229",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "585.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5219",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_129",
+      "name": "Video Production & YouTube: Fall Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Online Safety and Anti-Bullying, Make a Let's Play Video for YouTube, Branding and Graphic Design, Video Editing",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5230",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5261",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5272",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          5,
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5296",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5309",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5284",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_130",
+      "name": "Video Production & YouTube: Winter Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Motion Graphics for Videos, Cinematography and Camera Skills, Sound Effects and Music Creation",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5310",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5336",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5347",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5369",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5380",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_4_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5357",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_4_131",
+      "name": "Video Production & YouTube: Spring Season",
+      "age": "age 7 to 9",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.\r\nProjects include: Draw with Disney's Principles of Animation, Create Whiteboard and Stop-Motion Animations, Add Audio to Videos with Voice Acting",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5381",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5402",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/5, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          5,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5411",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5431",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5440",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5464",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "650.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5412",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_132",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5441",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5475",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5486",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5508",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5522",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5548",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5487",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_133",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Build a Fortnite- Style Video Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "845.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5523",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5561",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5562",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5564",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5565",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5567",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_4_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "650.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5563",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_4_134",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.\r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5566",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_135",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5638",
+      "datesString": "9\/17, 9\/24, 10\/1, 10\/15, 10\/22, 10\/29, 11\/5, 11\/19, 11\/26",
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          1,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          5,
+          19,
+          26
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_135",
+      "name": "Fortnite-Inspired Game Design: Fall Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Online Safety and Anti-Bullying, Game Design & Fortnite Strategy, Build a Virtual Reality Fortnite-Style World",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5637",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_136",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Build a Fortnite- Style Video Game\tSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5655",
+      "datesString": "12\/3, 12\/10, 12\/17, 1\/7, 1\/14, 1\/28, 2\/4, 2\/11, 2\/25, 3\/4, 3\/11",
+      "days": {
+        "December": [
+          3,
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_136",
+      "name": "Fortnite-Inspired Game Design: Winter Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Build a Fortnite- Style Video Game\tSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5656",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_137",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5679",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/15, 4\/29, 5\/6, 5\/13, 5\/20, 6\/3, 6\/10",
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          15,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20
+        ],
+        "June": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_137",
+      "name": "Fortnite-Inspired Game Design: Spring Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online. \r\nSeason projects include: Fortnite-Style 3D Modeling, Build a Battlebus AR Mobile Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5680",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_138",
+      "name": "Advanced Coding: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a mobile game using Java and Android Studio, Code an Alexa Skill Quiz Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5704",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_138",
+      "name": "Advanced Coding: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a mobile game using Java and Android Studio, Code an Alexa Skill Quiz Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "495.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5702",
+      "datesString": "9\/12, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/28",
+      "days": {
+        "September": [
+          12,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_138",
+      "name": "Advanced Coding: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a mobile game using Java and Android Studio, Code an Alexa Skill Quiz Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5703",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_139",
+      "name": "Advanced Coding: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a Cryptocurrency in Ethereum, Code an Encryption Program in Python, Code a Facial Recognition Program",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5776",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_139",
+      "name": "Advanced Coding: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a Cryptocurrency in Ethereum, Code an Encryption Program in Python, Code a Facial Recognition Program",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5817",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/10, 4\/17, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12",
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          10,
+          17
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_139",
+      "name": "Advanced Coding: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code a Cryptocurrency in Ethereum, Code an Encryption Program in Python, Code a Facial Recognition Program",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5778",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_140",
+      "name": "Advanced Coding: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code an AR Game using Java and Android Studio",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5739",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_140",
+      "name": "Advanced Coding: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code an AR Game using Java and Android Studio",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5740",
+      "datesString": "12\/5, 12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/6, 3\/13",
+      "days": {
+        "December": [
+          5,
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_140",
+      "name": "Advanced Coding: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.\r\nSeason projects include: Code an AR Game using Java and Android Studio",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5741",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_141",
+      "name": "Advanced Coding: Fall Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required. Season projects include: Code a mobile game using Java and Android Studio, Code an Alexa Skill Quiz Game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5818",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/29",
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          29
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_142",
+      "name": "Advanced Coding: Winter Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required. Season projects include: Code an AR Game using Java and Android Studio\t",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5829",
+      "datesString": "12\/6, 12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/7, 3\/14",
+      "days": {
+        "December": [
+          6,
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_143",
+      "name": "Advanced Coding: Spring Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required. Season projects include: Code a Cryptocurrency in Ethereum, Code an Encryption Program in Python, Code a Facial Recognition Program\t",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5842",
+      "datesString": "3\/21, 3\/28, 4\/4, 4\/11, 4\/18, 5\/2, 5\/9, 5\/16, 5\/23, 5\/30, 6\/13",
+      "days": {
+        "March": [
+          21,
+          28
+        ],
+        "April": [
+          4,
+          11,
+          18
+        ],
+        "May": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "June": [
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_144",
+      "name": "Hardware Hacking & Electrical Engineering: Fall Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: \r\n Learn to solder and use a multi-meter, Solder a micro game controller, Hack an Xbox controller to add mods and macros",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5854",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/9, 10\/16, 10\/23, 10\/30, 11\/13, 11\/20, 11\/27",
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          13,
+          20,
+          27
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_144",
+      "name": "Hardware Hacking & Electrical Engineering: Fall Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: \r\n Learn to solder and use a multi-meter, Solder a micro game controller, Hack an Xbox controller to add mods and macros",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5853",
+      "datesString": "9\/14, 9\/21, 9\/28, 10\/5, 10\/12, 10\/19, 10\/26, 11\/2, 11\/9, 11\/16, 11\/30",
+      "days": {
+        "September": [
+          14,
+          21,
+          28
+        ],
+        "October": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "November": [
+          2,
+          9,
+          16,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_145",
+      "name": "Hardware Hacking & Electrical Engineering: Winter Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Build a Remote-Control Tank Toy that shoots",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5874",
+      "datesString": "12\/4, 12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/12, 2\/26, 3\/5, 3\/12",
+      "days": {
+        "December": [
+          4,
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          12,
+          26
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_145",
+      "name": "Hardware Hacking & Electrical Engineering: Winter Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Build a Remote-Control Tank Toy that shoots",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "715.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5875",
+      "datesString": "12\/7, 12\/14, 12\/21, 1\/4, 1\/11, 1\/18, 1\/25, 2\/1, 2\/8, 2\/15, 3\/1, 3\/8, 3\/15",
+      "days": {
+        "December": [
+          7,
+          14,
+          21
+        ],
+        "January": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "February": [
+          1,
+          8,
+          15
+        ],
+        "March": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_146",
+      "name": "Hardware Hacking & Electrical Engineering: Spring Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Mod and Upgrade a Gaming PC, Build a giant multi- player arcade game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "550.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5898",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/9, 4\/16, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28",
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          9,
+          16,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_146",
+      "name": "Hardware Hacking & Electrical Engineering: Spring Season",
+      "age": "age 12 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Mod and Upgrade a Gaming PC, Build a giant multi- player arcade game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5899",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    }
+  ]
+}

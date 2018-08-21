@@ -13,7 +13,6 @@ class TopLinks extends React.Component {
         };
         this.setLoggedIn = this.setLoggedIn.bind(this);
 
-
     }
 
     componentDidUpdate() {
@@ -31,7 +30,7 @@ class TopLinks extends React.Component {
         return (
             <div className="link-bar">
                 <div className="version-number">
-                    Pixel Scheduler v1.0.0
+                    Pixel Scheduler v2.0.1
                 </div>
                 <div className="top-link">
                     sign up for membership

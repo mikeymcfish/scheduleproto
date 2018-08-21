@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-
 import './webflow.css';
 import './App.css';
 import './Span-styles.css';
+import styles from './tracks-2.css';
 import $ from 'jquery';
 import Month from './Month';
 import CheckIcon from './icons/CheckIcon';
@@ -20,18 +20,33 @@ import Divider from 'material-ui/Divider';
 import MDSpinner from "react-md-spinner";
 import './garland.css';
 import './creeper.css';
+import default_data from './json/data.json';
+
+
+import Track from './Track';
 
 import ListView from './calendar/list';
 
 import isLive from "./isLive.js";
+import showAsMember from "./DEV_showAsMember.js";
+
+import TrackSelection from "./TrackSelection";
+
+// TODO
+// - look through all series (only get after # xxx)
+// - filter by age
 
 class App extends Component {
 
     constructor() {
 
+
+
         super();
 
         console.log("I am live? " + isLive);
+
+
 
         this.toggleSeries = this.toggleSeries.bind(this);
         this.toggleProSeries = this.toggleProSeries.bind(this);
@@ -40,35 +55,40 @@ class App extends Component {
         this.toggleSpecial = this.toggleSpecial.bind(this);
         this.changeAge = this.changeAge.bind(this);
         this.changeLocation = this.changeLocation.bind(this);
+        this.changeDayOfWeek = this.changeDayOfWeek.bind(this);
         this.changeView = this.changeView.bind(this);
         this.openAlert = this.openAlert.bind(this);
         this.confirmAddToCart = this.confirmAddToCart.bind(this);
         this.closeAlert = this.closeAlert.bind(this);
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
-        this.setViewDay = this.setViewDay.bind(this);
+        // this.setViewDay = this.setViewDay.bind(this);
         this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
         this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.addThreeToCart = this.addThreeToCart.bind(this);
+
 
         this.listEvents = [];
 
         this.state = {
-            filterDropIn: false,
+            filterDropIn: true,
             filterSpecial: false,
             filterSeries: false,
-            filterProSeries: false,
+            filterProSeries: true,
             filterParties: true,
             filterCamp: false,
             filter7to9: false,
             filter9to11: true,
             filter12to14: true,
             filterAllAges: true,
+            filterDayOfWeek: "(Select One)",
             eventFilter: "events",
-            filterLocation: "Brooklyn",
-            currentLocation: "Brooklyn",
-            currentAgeGroup: "age 7 to 9",
+            filterLocation: "(Select One)",
+            currentLocation: "(Select One)",
+            currentAgeGroup: "(Select One)",
             currentView: "week",
+            currentDayOfWeek: "(Select One)",
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
@@ -107,9 +127,27 @@ class App extends Component {
             cart: [],
             loggedInUserID: 0,
             pickups: {},
-            warnedAboutPro: false
+            warnedAboutPro: false,
+            numberOfCartItems: 0,
+            highlights: {
+                roblox: {
+                    fall: false,
+                    winter: false,
+                    spring: false
+                },
+                minecraft: {
+                    fall: false,
+                    winter: false,
+                    spring: false
+                }
+            },
+            filtersLocked: false,
+            numberOfEvents: "no tracks",
+            ownedEvents:[]
 
         }
+
+
 
         //global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
@@ -130,6 +168,8 @@ class App extends Component {
 
 
          */
+
+
 
         $.getJSON('api/v1/scheduler/auth'+(!isLive? ".json" : ""), function (data) {
             console.log("received auth user: " + data.user_id + " with access token: " + data.access_token);
@@ -158,25 +198,39 @@ class App extends Component {
             this.allDataLoaded();
         } catch (e) {
             console.log("falling back on new data");
-            $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
-                global.allEvents = data;
-                //TODO 'DAYSTRING' for all
-                _this.parseDateListToString(global.allEvents);
+            if (isLive) {
+                $.getJSON('api/v1/scheduler/all' + (!isLive ? ".json" : ""), function (data) {
+                    global.allEvents = data;
+                    //TODO 'DAYSTRING' for all
+                    _this.parseDateListToString(global.allEvents);
 
-                //async
-                _this.convertEventsToByDay(global.allEvents.events);
-                _this.allDataLoaded();
-                sessionStorage.setItem('all_events', global.allEvents);
-                sessionStorage.setItem('events_by_day', global.eventsByDay);
+                    //async
+                    _this.convertEventsToByDay(global.allEvents.events);
+                    _this.allDataLoaded();
+                    sessionStorage.setItem('all_events', global.allEvents);
+                    sessionStorage.setItem('events_by_day', global.eventsByDay);
 
-                // // _this.addHolidays();
-                //
-                // if (_this.state.loggedInUserID != 0) {
-                //     _this.logInMember("0");
-                // }
+                    // // _this.addHolidays();
+                    //
+                    // if (_this.state.loggedInUserID != 0) {
+                    //     _this.logInMember("0");
+                    // }
+
+                });
+            } else {
+                    console.log("JSON - using default data");
+
+                    global.allEvents = default_data;
+                    _this.parseDateListToString(global.allEvents);
+                    //async
+                    _this.convertEventsToByDay(global.allEvents.events);
+                    _this.allDataLoaded();
+                    sessionStorage.setItem('all_events', global.allEvents);
+                    sessionStorage.setItem('events_by_day', global.eventsByDay);
 
 
-            });
+            }
+
         }
     }
 
@@ -201,12 +255,15 @@ class App extends Component {
             //member test:
 
             console.log("loading test member data");
-            $.getJSON('/api/v1/scheduler/members.json', function (data) {
-                _this.setState(
-                    {
-                        members: data.members
-                    }
-                );
+            $.getJSON('./api/v1/scheduler/members.json', function (data) {
+                if (showAsMember) {
+                    _this.setState(
+                        {
+                            members: data.members
+                        }
+                    );
+                }
+
                 //TEMP SHOW BUTTON.
                 _this.getCartCall();
                 _this.loadScheduleData();
@@ -273,17 +330,17 @@ class App extends Component {
     }
 
     clearCalendar() {
-        console.log("$$ clearing overlays");
-        $(".overlay")
-            .not(".holiday")
-            .not(".birthday")
-            .not(".in-cart")
-            .remove();
-
-
-        $(".highlighted").removeClass("highlighted");
-
-        $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
+        // console.log("$$ clearing overlays");
+        // $(".overlay")
+        //     .not(".holiday")
+        //     .not(".birthday")
+        //     .not(".in-cart")
+        //     .remove();
+        //
+        //
+        // $(".highlighted").removeClass("highlighted");
+        //
+        // $(".in-cart,.owned,.series-list").removeClass(".day-under-overlay");
 
 
     }
@@ -396,24 +453,40 @@ class App extends Component {
 
     addToCart = (event) => {
 
+        console.log("CART-X-adding an event to cart: id="+event.id);
+
         //check if OK
-
-        if (this.checkProSeriesForPreReqs(event)==false && this.state.warnedAboutPro==false) {
-            console.log("YOU CANT ADD THIS YET");
-            return;
-
-        }
+        if (event==null) return;
 
         if (!isLive) this.addInCart(event.id);
         this.clearCalendar();
 
         //add to hq
         this.sendToCartAPI(event);
+        this.checkForLockedFilters();
+
+    }
+
+    addThreeToCart = (event1,event2,event3) => {
+
+        this.sendToCartAPI(event1,event2,event3);
+        //     console.log("CART-Z-event 1 returned");
+        //     if (!isLive) this.addInCart(event1.id);
+        //     if (this.sendToCartAPI(event2)) {
+        //         console.log("CART-Z-event 2 returned");
+        //         if (!isLive) this.addInCart(event2.id);
+        //         if (this.sendToCartAPI(event3)) {
+        //             console.log("CART-Z-event 3 returned");
+        //             if (!isLive) this.addInCart(event3.id);
+        //         }
+        //     }
+        // }
+        // this.checkForLockedFilters();
 
     }
 
     rebuildCart(data) {
-        console.log("rebuilding cart with "+data);
+        console.log("CART-Z- rebuilding cart with "+data);
         try {
             if (data.length > 0) {
                 this.setState({
@@ -424,15 +497,27 @@ class App extends Component {
                     this.addInCart(val);
                 });
 
+            } else {
+                this.setState({
+                    cart: []
+                });
             }
+
+            console.log("CART-X- trying to set the cart icon number");
+            $('#cart-count')
+                .text("+")
+                .show();
 
         } catch (e) {
             console.log("problem updating cart.")
         }
+
+        this.checkForLockedFilters(data);
+
     }
 
     async getCartCall() {
-
+        console.log("CART-X-getCartCall");
         var _this = this;
         try {
             $.getJSON('api/v1/scheduler/cart', function (data) {
@@ -444,9 +529,10 @@ class App extends Component {
         }
     }
 
-    async sendToCartAPI(event) {
+    async sendToCartAPI(event, event2=null, event3=null) {
 
         var _this = this;
+        console.log("CART-X-sending to cart API");
         try {
             // let response = await $.get('/api/v1/scheduler/add_to_cart?product_id=' + event.id +"&member_id=" +
             //     this.state.members[this.state.selectedMemberKey].id
@@ -456,25 +542,41 @@ class App extends Component {
                 _this.state.members[this.state.selectedMemberKey].id
                 , function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
-                window.getUpdatedCart();
+                    console.log("CART-X-got response A");
+
+
+                    if (event2!=null) {
+                        _this.sendToCartAPI(event2, event3);
+                    } else {
+                        _this.rebuildCart(data.cart);
+                        window.getUpdatedCart();
+                    }
+
             });
             ///// update my cart with response.json.
 
             // this.getCartCall();
             // return responseJson.movies;
         } catch (error) {
+            console.log("CART-X-error in sendtocartAPI");
+
             $.getJSON(
             '/api/v1/scheduler/add_to_cart?product_id=' + event.id,
                 function (data) {
                 //let responseJson = await response.json();
-                _this.rebuildCart(data.cart);
-                window.getUpdatedCart();
+                    console.log("CART-X-sending got response B");
+                    if (event2!=null) {
+                        _this.sendToCartAPI(event2, event3);
+                    } else {
+                        _this.rebuildCart(data.cart);
+                        window.getUpdatedCart();
+                    }
             });
 
         } finally  {
             console.log("api call did nothing.");
         }
+        return false;
 
         // try {
         //     let response = await fetch('/api/v1/scheduler/add_to_cart?product_id='+event.id);
@@ -519,6 +621,7 @@ class App extends Component {
                 isJSONloaded: true
             }
         );
+        this.getCartCall();
 
         console.log("done.");
     }
@@ -536,13 +639,14 @@ class App extends Component {
             $(".filter-location").css("display", "none");
             $(".filter-age").css("display", "none");
             $(".filter-view").css("display", "none");
+            $(".filter-day-of-week").css("display", "none");
 
             if (!$(event.target).closest('.month-sidebar').length && !$(event.target).closest('.big-day').length) {
                 _this.clearCalendar();
-                _this.setState({
-                    viewingDay: "none",
-                    viewingDayEvents: [],
-                });
+                // _this.setState({
+                //     viewingDay: "none",
+                //     viewingDayEvents: [],
+                // });
             }
         });
         $('.change-age-btn').unbind("hover");
@@ -557,6 +661,12 @@ class App extends Component {
         }, function () {
             $('.change-location-btn > .filtering-hover-text').css("color", "#333");
         });
+        $('.change-day-of-week-btn').unbind("hover");
+        $('.change-day-of-week-btn').hover(function () {
+            $('.change-day-of-week-btn > .filtering-hover-text').css("color", "blue");
+        }, function () {
+            $('.change-day-of-week-btn> .filtering-hover-text').css("color", "#333");
+        });
         $('.change-view-btn').unbind("hover");
         $('.change-view-btn').hover(function () {
             $('.change-view-btn > .filtering-hover-text').css("color", "blue");
@@ -570,17 +680,17 @@ class App extends Component {
                 if ($(this).hasClass('highlighted')) {
                     $(this).removeClass("highlighted");
                     _this.clearCalendar();
-                    _this.setState({
-                        viewingDay: "none",
-                        viewingDayEvents: [],
-                    });
+                    // _this.setState({
+                    //     viewingDay: "none",
+                    //     viewingDayEvents: [],
+                    // });
                 } else {
                     var child = $(this).find("[data-month!='undefined']");
                     _this.clearCalendar();
                     $('.highlighted').removeClass("highlighted");
                     _this.addASeriesOverlay("");
                     $(this).addClass("highlighted");
-                    _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
+                    // _this.setViewDay(child.attr("data-month"), child.attr("data-daynum"));
                     _this.scrollView($(this));
                 }
             });
@@ -588,6 +698,8 @@ class App extends Component {
         this.runJquery();
         this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
+        this.checkForLockedFilters();
+        // FIND ME I CHANGED THIS
     }
 
     //YouTube Production
@@ -597,7 +709,74 @@ class App extends Component {
     }
 
     componentDidMount() {
+        console.log("this is the app:",this);
         this.runJquery();
+        // this.myRef = React.createRef();
+        this.myRef = React.createRef();
+        // if (!isLive) {
+        //
+        //     this.setState(
+        //         {
+        //             filterDayOfWeek: "(unset)",
+        //             filterLocation: "Brooklyn",
+        //             currentLocation: "Brooklyn",
+        //             currentAgeGroup: "age 9 to 11",
+        //             currentDayOfWeek: "(unset)"
+        //         }
+        //     );
+        // };
+        // this.checkForLockedFilters();
+
+
+    }
+
+    checkForLockedFilters(data=null) {
+        var useCart = this.state.cart;
+        if (!isLive) {
+            // this.setState({
+            //     cart:["series_Wednesday_3_133"]
+            // });
+            // useCart = ["series_Wednesday_3_133"];
+        }
+        console.log("CART-Z-checking for locked filters, cart is " + useCart.length);
+        if (useCart.length > 0) {
+            this.setState({
+                filtersLocked:true
+            });
+            var firstCart=useCart[0];
+            var firstThreeOfDay = firstCart.toUpperCase().split("_")[1].slice(0,2).toUpperCase();
+            var dayToSet = "Mondays";
+            if (firstThreeOfDay == "MON") {
+                dayToSet = "Mondays";
+            } else if (firstThreeOfDay == "TUE") {
+                dayToSet = "Tuesdays";
+            } else if (firstThreeOfDay == "WED") {
+                dayToSet = "Wednesdays";
+            } else if (firstThreeOfDay == "THU") {
+                dayToSet = "Thursdays";
+            } else if (firstThreeOfDay == "FRI") {
+                dayToSet = "Fridays";
+            }
+            for (var i=0; i<global.allEvents.events.length; i++) {
+                if (global.allEvents.events[i].id == firstCart) {
+                    //set filters to match.
+                    console.log("ZZZ - " + i);
+                    this.setState({
+                        filterDayOfWeek: dayToSet,
+                        filterLocation: global.allEvents.events[i].location,
+                        currentLocation: global.allEvents.events[i].location,
+                        currentAgeGroup: global.allEvents.events[i].age,
+                        currentDayOfWeek: dayToSet,
+                    })
+                }
+            }
+        }
+        else {
+            this.setState({
+                filtersLocked: false
+            });
+        }
+        ReactTooltip.rebuild();
     }
 
     componentDidUpdate() {
@@ -667,24 +846,23 @@ class App extends Component {
         //     "");
     }
 
-
     refreshOverlays(newLocation) {
         // var firstMember = this.getLoggedInMember();
         // this.highlightAllPickUpDays(firstMember.school, newLocation);
-        this.setState({
-            viewingDay: "none",
-            viewingDayEvents: []
-
-        })
+        // this.setState({
+        //     viewingDay: "none",
+        //     viewingDayEvents: []
+        //
+        // })
 
     }
 
-
     logInMember(memberKey) {
 
-        console.log("changing member");
+        console.log("FILTER-Z- changing member");
         if (this.state.members.length <0 ) {
             console.log("aborting no member list");
+            this.setTracksToView();
             return;
         }
         var firstMember = {};
@@ -707,13 +885,17 @@ class App extends Component {
             currentAgeGroup: firstMember.name.split(" ")[0],
             currentLocation: firstMember.defaultLocation,
             filterLocation: firstMember.defaultLocation,
-            selectedMemberKey: firstKey
+            selectedMemberKey: firstKey,
+            ownedEvents: firstMember.ownedEvents
         });
         this.setFilterAgeByAge(firstMember.age);
         this.setMembershipType(firstMember.memberType);
         this.addOwnedDays(firstMember.ownedEvents);
         this.addMemberBirthday(firstMember);
         this.highlightAllPickUpDays(firstMember.school, firstMember.defaultLocation);
+        console.log("FILTER-Z- ive found the age " + firstMember.age);
+        this.setTracksToView(null,null,firstMember.defaultLocation,firstMember.age);
+
 
     }
 
@@ -733,6 +915,8 @@ class App extends Component {
                 filter9to11: true,
                 filter12to14: true,
             });
+            //refilter with new age.
+
             this.setFilterAgeByAge(this.state.members[this.state.selectedMemberKey].age);
         }
     }
@@ -830,11 +1014,12 @@ class App extends Component {
             })
         }
 
+    //
     }
 
     setFilterAgeByGroup(group) {
         this.clearCalendar();
-        console.log("filter age by " + group);
+        console.log("FILTERING-X- filter age by " + group);
         if (group == "age 7 to 9") {
             this.setState({
                 filter7to9: false,
@@ -856,6 +1041,7 @@ class App extends Component {
                 filter12to14: false
             })
         }
+
     }
 
     setMembershipType(type) {
@@ -900,7 +1086,7 @@ class App extends Component {
 
     changeAge = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.state.filtersLocked) {
             ReactTooltip.rebuild();
             return;
         }
@@ -922,22 +1108,60 @@ class App extends Component {
             for (var member in Object.keys(this.state.members)) {
                 if (this.state.members[member].name.split(" ")[0].toUpperCase() == $(target).attr("data-age-group").toUpperCase()) {
                     this.logInMember(member);
+                    this.setFilterAgeByGroup($(target).attr("data-age-group"));
                     return;
                 }
             }
-            this.setFilterAgeByGroup($(target).attr("data-age-group"));
+            console.log("FILTER-X- changing age to " + $(target).attr("data-age-group"));
+            this.setTracksToView($(target).attr("data-age-group"));
+            // this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
-        } else {
+        }
+        else {
             $(".filter-age")
                 .css("display", "flex");
         }
+
+
+
+
+
+    };
+
+    changeDayOfWeek = ({target}) => {
+
+        console.log("TRACKS changing day of week BEGIN");
+        console.log("TRACKS clicked " + $(target).attr("data-day-of-week"));
+        if (target.hasAttribute("daya-day-of-week") &&
+            (target.attr("daya-day-of-week")===undefined)) return;
+        if (target.hasAttribute("data-day-of-week")) {
+            this.setState(
+                {
+                    currentDayOfWeek: $(target).attr("data-day-of-week"),
+                    filterDayOfWeek: $(target).attr("data-day-of-week")
+                });
+            $(".filter-day-of-week")
+                .css("display", "none");
+
+            this.refreshOverlays($(target).attr("data-day-of-week"));
+            console.log("TRACKS day is now " + this.state.filterDayOfWeek);
+            console.log("FILTER-X- changing day of week to " + $(target).attr("data-day-of-week"));
+
+            this.setTracksToView(null,$(target).attr("data-day-of-week"),null);
+
+        } else {
+            $(".filter-day-of-week")
+                .css("display", "flex");
+        }
+        this.clearCalendar();
+
 
     };
 
     changeLocation = ({target}) => {
 
-        if (this.state.cart.length > 0) {
+        if (this.state.filtersLocked) {
             ReactTooltip.rebuild();
             return;
         }
@@ -952,12 +1176,15 @@ class App extends Component {
                 .css("display", "none");
 
             this.refreshOverlays($(target).attr("data-location"));
+            console.log("FILTER-X- changing location to " + $(target).attr("data-location"));
+            this.setTracksToView(null,null,$(target).attr("data-location"));
 
         } else {
             $(".filter-location")
                 .css("display", "flex");
         }
         this.clearCalendar();
+
 
     };
 
@@ -1171,17 +1398,24 @@ class App extends Component {
 
     }
 
-    doesAgeMatchEvent(ageGroup) {
+    doesAgeMatchEvent(ageGroup,actualage) {
 
-        var myAge = this.state.currentSelectedMembersAge;
+        var myAge = 0;
+        actualage > 0 ? myAge = actualage : myAge = this.state.currentSelectedMembersAge;
+        console.log("FILTER-Z- checking doesagematchevent() for " + myAge +" to age agroup " + ageGroup);
 
         if (ageGroup == "AGE 7 TO 9" && (myAge <= 9 && myAge >= 7)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 7-9");
             return true;
         }
         else if (ageGroup == "AGE 9 TO 11" && (myAge <= 11 && myAge >= 9)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 9-11");
+
             return true;
         }
         else if (ageGroup == "AGE 12 TO 14" && (myAge <= 14 && myAge >= 12)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 12-14");
+
             return true;
         }
         else if (ageGroup == "AGE 7 TO 14") {
@@ -1192,62 +1426,307 @@ class App extends Component {
         }
     }
 
-    setViewDay(month, day, singleEvent = null) {
+    setTracksToView(age=null, day=null, location=null, actualage=0)  {
 
+
+        var ageToCheck = age;
+        ageToCheck==null?  ageToCheck = this.state.currentAgeGroup : ageToCheck=ageToCheck;
+        var dayToCheck = day;
+        dayToCheck==null?  dayToCheck = this.state.filterDayOfWeek : dayToCheck=dayToCheck;
+        var locationToCheck = location;
+        locationToCheck==null?  locationToCheck = this.state.filterLocation : locationToCheck=locationToCheck;
+
+        console.log("*FILTER-Z- using these filters: age-" + ageToCheck + ", loc-" + locationToCheck + ", day-" + dayToCheck + ", actual-" + actualage);
         var thisDaysEvents = [];
         var thisDaysFilteredEvents = [];
 
         try {
-            thisDaysEvents = global.eventsByDay[month][day];
+            thisDaysEvents = global.allEvents.events;
+            console.log("TRACKS - found " + thisDaysEvents.length + " total events");
             for (var i = 0; i < thisDaysEvents.length; i++) {
-                console.log("found " + thisDaysEvents.length + " events on the selected day");
 
-
-                //check if matches current filters:
-
-
-                if (thisDaysEvents[i].type == "series" && this.state.filterSeries) continue;
-                if (thisDaysEvents[i].type == "pro-series" && this.state.filterProSeries) continue;
-                if (thisDaysEvents[i].type == "special" && this.state.filterSpecial) continue;
-                if (thisDaysEvents[i].type == "drop-in" && this.state.filterDropIn) continue;
-
-
+                // check age
+                // console.log("TRACKS checking" + i);
                 var ageMatched = false;
                 if (this.state.loggedIn) {
-                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase());
+                    var actualAgeToCheck = actualage>0? actualAgeToCheck = actualAgeToCheck : actualAgeToCheck = this.state.currentSelectedMembersAge;
+                    ageMatched = this.doesAgeMatchEvent(thisDaysEvents[i].age.toUpperCase(),actualAgeToCheck);
                 } else {
                     ageMatched =
                         (
-                            thisDaysEvents[i].age.toUpperCase() == this.state.currentAgeGroup.toUpperCase()
+                            thisDaysEvents[i].age.toUpperCase() == ageToCheck.toUpperCase()
                             || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
                         );
                 }
-                if (thisDaysEvents[i].location.toUpperCase() == this.state.currentLocation.toUpperCase()
-                    && ageMatched) {
 
-                    if (thisDaysEvents[i].type=="series" || thisDaysEvents[i].type=="pro-series") thisDaysFilteredEvents.unshift(thisDaysEvents[i]);
-                    else thisDaysFilteredEvents.push(thisDaysEvents[i]);
+                ///RESET AGE MATCH, WILL CHECK LATER WITH SHOW OR HIDE
+                // ageMatched=true;
+
+                // check location
+                var locationMatched = false;
+                if (thisDaysEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()) {
+                    locationMatched = true;
+                    console.log("MATCH-CHECK: " + thisDaysEvents[i].location.toUpperCase() + " matches " + locationToCheck.toUpperCase());
+                }
+                // check day of week
+                // split id by underscore, get index 1, check for match first three letters MON, TUE, etc.
+                var dayOfWeekMatched = false;
+                var firstThreeOfDay = thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2);
+                if (firstThreeOfDay == dayToCheck.toUpperCase().slice(0,2))
+                    dayOfWeekMatched = true;
+                console.log("TRACKS - filtered day: " +  " - " + dayToCheck.toUpperCase().slice(0,2));
+                ageMatched? console.log("TRACKS age matched") : "";
+                locationMatched? console.log("TRACKS location matched") : "";
+                dayOfWeekMatched? console.log("TRACKS day matched " + thisDaysEvents[i].id.toUpperCase().split("_")[1].slice(0,2)): "";
+                //console.log("FILTER-X- matching status for " + thisDaysEvents[i].id+ ": "+ ageMatched + " " + locationMatched + " " + dayOfWeekMatched);
+
+                if (ageMatched && locationMatched && dayOfWeekMatched) {
+                    thisDaysFilteredEvents.push(thisDaysEvents[i]);
+                    console.log('TRACKS - matched id ' + thisDaysEvents[i].id);
                 }
             }
-            thisDaysFilteredEvents.sort(function(a,b) {
-                return a.priority - b.priority;
-            });
-            var firstEventDates = thisDaysFilteredEvents[0].daystring;
-            var firstDay = this.getFirstDayFromFullString(firstEventDates);
 
 
         } catch (e) {
+                console.log("TRACKS FAILED " + e);
+        }
+
+        //take all events and combine into tracks.
+        //series ID last digits should be the same, split _ [2] and [3]
+
+        var tracksListing = {
+            "minecraft" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "roblox" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "video" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "fortnite" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "coding" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "hardware" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "UNKNOWN" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            }
+         };
+        for (i=0; i<thisDaysFilteredEvents.length; i++) {
+            // var trackSeriesId = thisDaysFilteredEvents[i].id.split("_");
+            // var endIDString = trackSeriesId[2] + "_" + trackSeriesId[3];
+            var season;
+            if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("SPRING")>0)
+                season="spring";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("WINTER")>0)
+                season="winter";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FALL")>0)
+                season="fall";
+            else season = "UNKNOWN";
+
+            console.log("TRACKS found season " + season);
+
+
+            //check the name of the series
+            var topic;
+            if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ROBLOX")>=0)
+                topic="roblox";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("MINECRAFT")>=0)
+                topic="minecraft";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("HARDWARE")>=0)
+                topic="hardware";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("VIDEO")>=0)
+                topic="video";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FORTNITE")>=0)
+                topic="fortnite";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ADVANCED")>=0)
+                topic="coding";
+            else topic = "UNKNOWN";
+
+            console.log("TRACKS found topic " + topic);
+
+            console.log("*FILTER-Z- filtering with showorhide() and age " + actualage);
+            if (this.showOrHide(topic, ageToCheck, locationToCheck, dayToCheck, actualage)) {
+                tracksListing[topic][season] = thisDaysFilteredEvents[i];
+            }
 
         }
 
-        if (singleEvent) {
-            thisDaysFilteredEvents = [singleEvent];
+        var combinedSeasons = [];
+
+        for (var topic in tracksListing) {
+            console.log(topic);
+            if (tracksListing[topic]['spring'].name===undefined) continue;
+            var isFallInCart = this.state.cart.indexOf(tracksListing[topic]['fall'].id);
+            var isWinterInCart = this.state.cart.indexOf(tracksListing[topic]['winter'].id);
+            var isSpringInCart = this.state.cart.indexOf(tracksListing[topic]['spring'].id);
+
+            var doesOwnFall = this.state.ownedEvents.indexOf(tracksListing[topic]['fall'].id)>=0;
+            var doesOwnWinter = this.state.ownedEvents.indexOf(tracksListing[topic]['winter'].id)>=0;
+            var doesOwnSpring = this.state.ownedEvents.indexOf(tracksListing[topic]['spring'].id)>=0;
+            //
+            // var ownedEvents = this.state.ownedEvents;
+            // var allEvents = global.allEvents.events;
+            // for (var i = 0; i < ownedEvents.length; i++) {
+            //     console.log("OWNED-- i have " + ownedEvents.length + " events");
+            //     for (var j = 0; j < Object.keys(allEvents).length; j++) {
+            //         if (allEvents[j].id == ownedEvents[i]) {
+
+            combinedSeasons.push({
+                topic: topic,
+                title: tracksListing[topic]['spring'].name,
+                copy: tracksListing[topic]['spring'].description,
+                ages: tracksListing[topic]['spring'].age,
+                dates: tracksListing[topic]['spring'].days,
+                fallDates: tracksListing[topic]['fall'].datesString,
+                winterDates: tracksListing[topic]['winter'].datesString,
+                springDates: tracksListing[topic]['spring'].datesString,
+                time: tracksListing[topic]['spring'].startTime,
+                originalPrice:
+                    this.calculateCost(tracksListing[topic]['spring']) +
+                    this.calculateCost(tracksListing[topic]['winter']) +
+                    this.calculateCost(tracksListing[topic]['fall'])
+                ,
+                price: tracksListing[topic]['spring'].price,
+                trackPrice:
+                    this.calculateCost(tracksListing[topic]['spring'],5) +
+                    this.calculateCost(tracksListing[topic]['winter'],5) +
+                    this.calculateCost(tracksListing[topic]['fall'],5)
+                ,
+                trackSpots: '0',
+                trackInCart: -1,
+                trackDoesOwn: -1,
+                fallPrice: this.calculateCost(tracksListing[topic]['fall']),
+                winterPrice: this.calculateCost(tracksListing[topic]['winter']),
+                springPrice: this.calculateCost(tracksListing[topic]['spring']),
+                trackPaymentPlanPrice: this.calculatePaymentPlanPrice(tracksListing[topic],6),
+                fallSpots: tracksListing[topic]['fall'].spotsLeft,
+                winterSpots: tracksListing[topic]['winter'].spotsLeft,
+                springSpots: tracksListing[topic]['spring'].spotsLeft,
+                fallInCart: isFallInCart,
+                winterInCart: isWinterInCart,
+                springInCart: isSpringInCart,
+                doesOwnFall:doesOwnFall,
+                doesOwnWinter:doesOwnWinter,
+                doesOwnSpring:doesOwnSpring,
+                fallEvent: tracksListing[topic]['fall'],
+                winterEvent: tracksListing[topic]['winter'],
+                springEvent: tracksListing[topic]['spring'],
+                doesOwn: false,
+                isInCart: -1,
+                spotsLeft: 0,
+
+                memberName: "Mikey",
+                fallWeeks: this.calculateWeeks(tracksListing[topic]['fall']),
+                winterWeeks: this.calculateWeeks(tracksListing[topic]['winter']),
+                springWeeks: this.calculateWeeks(tracksListing[topic]['spring']),
+                location: tracksListing[topic]['fall'].location,
+                dayOfWeek: dayToCheck,
+
+            });
         }
+
+        var eventCount = "no tracks";
+        if (combinedSeasons.length==1) eventCount = "1 track";
+        else if (combinedSeasons.length>1) eventCount = combinedSeasons.length + " tracks";
 
         this.setState({
-            viewingDay: month + " " + day,
-            viewingDayEvents: thisDaysFilteredEvents
+            numberOfEvents: eventCount,
+            viewingDayEvents: combinedSeasons
         });
+    }
+
+    // generateDatesList(days) {
+    //     var dayString = "";
+    //     // days.forEach((months, index) => {
+    //     //     dayString+=months + ": ";
+    //     //     for (var i=0; i<days[months].length; i++) {
+    //     //         dayString+=days[months][i] +",";
+    //     //     }
+    //     //     dayString+=" ";
+    //     //
+    //     // });
+    //     // var obj = JSON.parse(days);
+    //     // obj.forEach((months, index) => {
+    //     // console.log("DATES-X----");
+    //     // });
+    //     console.log(days);
+    //
+    //     Object.keys(days).forEach(function (key){
+    //         console.log("DATES-X-: "+days.toString());
+    //         console.log("DATES-X-: "+days[key]);
+    //     });
+    //     // Object.days.forEach(function (key){
+    //     //     console.log("DATES-X-: "+key);
+    //     // });
+    //
+    //
+    //     // for (var i=0; i<days.length; i++) {
+    //     //     console.log("DAYS - " + i);
+    //     // }
+    //     //
+    //     // days.map(function(months, index){
+    //     //     dayString += months;
+    //     // });
+    //     // dayString = days[0][0];
+    //     // console.log(days);
+    //     return dayString;
+    //
+    // }
+
+    calculateCost(event, discount=0) {
+
+        console.log("COST - number of days - " + (parseInt(event.price)/55));
+        var roundedNum = -1;
+        if (event.location.toUpperCase()==="BROOKLYN") {
+            console.log("MATCH TO BROOKLYN");
+            roundedNum= ((parseInt(event.price)/55) * (55-discount));
+        }
+        else if (event.location.toUpperCase()==="TRIBECA") {
+            console.log("MATCH TO TRIBECA");
+            roundedNum= ((parseInt(event.price)/65) * (65-discount));
+        }
+        return Math.round(roundedNum * 100) / 100;
+    }
+
+    calculateWeeks(event) {
+        var roundedNum = 0;
+        console.log("MATCH-CHECK location-->"+event.location);
+        if (event.location==="Brooklyn") {
+            roundedNum= ((parseInt(event.price)/55));
+        } else if (event.location==="TriBeCa") {
+            roundedNum= ((parseInt(event.price)/65));
+        }
+        return Math.round(roundedNum * 100) / 100;
+    }
+
+    calculatePaymentPlanPrice(event, months) {
+        var trackCost =
+        this.calculateCost(event['spring'],5) +
+        this.calculateCost(event['winter'],5) +
+        this.calculateCost(event['fall'],5);
+        console.log("COST - payment plan for 6 months: " + Math.ceil(trackCost/months));
+        return Math.round((trackCost/months) * 100) / 100;
+
     }
 
     addOverlay(day, month, addclass, color, title, subtitle) {
@@ -1333,11 +1812,13 @@ class App extends Component {
         ownedEvents = eventIDs;
         var allEvents = global.allEvents.events;
         for (var i = 0; i < ownedEvents.length; i++) {
-            console.log("** i have " + ownedEvents.length + " events");
+            console.log("OWNED-- i have " + ownedEvents.length + " events");
             for (var j = 0; j < Object.keys(allEvents).length; j++) {
                 if (allEvents[j].id == ownedEvents[i]) {
                     //match
-                    console.log("** match " + allEvents[j].daystring);
+                    console.log("OWNED-- match " + allEvents[j].daystring);
+                    //check if SERIES or if Makerspace
+
 
                     //check if its more than one day:
                     var thisDayFullString = allEvents[j].daystring;
@@ -1345,7 +1826,7 @@ class App extends Component {
 
                     if (thisDayFullString.indexOf(",") > 0) {
 
-                        console.log("** multi day");
+                        console.log("OWNED-- multi day");
 
                         var multiDays = thisDayFullString.split(",");
 
@@ -1403,7 +1884,7 @@ class App extends Component {
     addInCart(eventID) {
         var inCart = [];
 
-        $("[data-event-id='" + eventID + "']").addClass("in-my-cart");
+        $("[data-event-id='" + eventID + "']").addClass("in-cart-2");
         // $(".inCartLabel").addClass("in-my-cart");
 
 
@@ -1463,21 +1944,6 @@ class App extends Component {
         thisDay.find(".date-icon").show();
 
 
-        //disabled the overlay
-        //
-        //
-        // this.addOverlay(
-        //     this.getDayObject(
-        //         this.getMonthName(thisDayString[0]),
-        //         thisDayString[1]
-        //     ),
-        //     this.getMonthName(thisDayString[0]),
-        //     "owned",
-        //     "",
-        //     "CART",
-        //     ""
-        // );
-
     }
 
     getDayTitleString(str) {
@@ -1486,6 +1952,68 @@ class App extends Component {
 
         return date.format("dddd, MMMM Do");
 
+    }
+
+    showOrHide(topic, age, location, day, actualage) {
+
+        //HARDCODING WHETHER ITS AVAILABLE FOR A SPECIFIC PERSON THAT IS SHOWING
+
+        var testAge = actualage;
+        if (actualage > 0 ) {
+            testAge = actualage;
+        } else if (this.state.currentSelectedMembersAge>0) {
+            testAge = this.state.currentSelectedMembersAge;
+        } else if (age == "age 7 to 9") {
+            testAge = 8;
+        } else if (age == "age 9 to 11") {
+            testAge = 10;
+        } else if (age == "age 12 to 14") {
+            testAge = 13;
+        }
+
+        console.log("*FILTER-Z- matching topic "+topic+" to age " + testAge);
+
+        if (topic=="roblox") {
+            if (testAge > 11){
+                return false;
+            }
+            return true;
+        } else if (topic=="minecraft") {
+            if (testAge > 9) {
+                return false;
+            }
+            return true;
+
+        } else if (topic=="fortnite") {
+            if (testAge < 9) {
+                return false;
+            }
+            return true;
+
+        } else if (topic=="coding") {
+            if (testAge < 9) {
+                return false;
+            }
+            if (location=="Brooklyn") {
+                return true;
+            }
+            return false;
+
+        } else if (topic=="video") {
+            if (testAge > 9) {
+                return false;
+            }
+            return true;
+
+        } else if (topic=="hardware") {
+            if (testAge < 12) {
+                return false;
+            }
+            if (location=="Brooklyn") {
+                return true;
+            }
+            return false;
+        }
     }
 
     getMonthName(num) {
@@ -1541,6 +2069,9 @@ class App extends Component {
         //format it
         return Math.round(price*100)/100;
     }
+    handleClick() {
+        console.log('XXX clickity');
+    }
 
     render() {
 
@@ -1582,40 +2113,21 @@ class App extends Component {
         this.state.selectedMemberKey!="" ? willCheckForDoesOwn = this.state.members[this.state.selectedMemberKey].ownedEvents : willCheckForDoesOwn = [];
         this.listEvents = [];
         return (
-            <div className="App">
+            <div className="App" ref={this.myRef} >
                 {isLive ? "" : <TopLinks></TopLinks>}
                 <div className="full-page-container">
                     <div className="container w-container">
 
                         <h1 className="heading">
                             <div className="filtering-header">
-
-                                <div className="change-age-btn" onClick={this.changeAge}
-                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one member at a time." : ""}>
-                                    <div className="text-right"><span className="def-no-hover">
-                                    {this.state.isJSONloaded ? "Showing" : "Loading"} events for </span><span
-                                        className="editable-heading editable-age-group">{this.state.currentAgeGroup}</span>
-                                    </div>
-                                    <div className="text-right filtering-hover-text">
-                                        <div className={this.state.selectedMemberKey != "" ? "member-type" : ""}>
-                                            {this.state.selectedMemberKey != "" ? this.state.members[this.state.selectedMemberKey].memberType.toUpperCase() : "click to change"}
-                                        </div>
-                                    </div>
-                                    <div className="filter-selection-box filter-age">
-                                        {/*//ageSelectionOptions*/}
-                                        {listOfAgeSelections.map((selection, index) =>
-                                            <div className="filter-option set-age-btn"
-                                                 data-age-group={selection}>{selection}</div>
-                                        )}
-                                    </div>
-                                </div>
-                                <div className="text-center"> in</div>
+                                <div className="text-center"><span className="def-no-hover">
+                                    {this.state.isJSONloaded ? "Showing" : "Loading"} {this.state.numberOfEvents} in </span></div>
                                 <div className="change-location-btn" onClick={this.changeLocation}
-                                     data-tip={this.state.cart.length > 0 ? "You may only add items to the cart for one location at a time." : ""}
+                                     data-tip={this.state.filtersLocked? "You may only add items to the cart for one location at a time." : ""}
                                 >
-                                    <div className="text-left"><span
+                                    <div className="text-center"><span
                                         className="editable-heading">{this.state.currentLocation} </span></div>
-                                    <div className="text-center filtering-hover-text">
+                                    <div className="filtering-hover-text">
                                         <div>click to change</div>
                                     </div>
                                     <div className="filter-selection-box filter-location">
@@ -1627,21 +2139,55 @@ class App extends Component {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="text-center">for</div>
+                                <div className="change-age-btn" onClick={this.changeAge}
+                                     data-tip={this.state.filtersLocked? "You may only add items to the cart for one member at a time." : ""}>
+                                    <div className="text-center"><span
+                                        className="editable-heading">{this.state.currentAgeGroup}</span>
+                                    </div>
+                                    <div className="filtering-hover-text">
+                                        <div className={this.state.selectedMemberKey != "" ? "member-type" : ""}>
+                                            click to change
+                                        </div>
+                                    </div>
+                                    <div className="filter-selection-box filter-age">
+                                        {/*//ageSelectionOptions*/}
+                                        {listOfAgeSelections.map((selection, index) =>
+                                            <div className="filter-option set-age-btn"
+                                                 data-age-group={selection}>{selection}</div>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="text-center">on</div>
+                                <div className="change-day-of-week-btn" onClick={this.changeDayOfWeek}>
+                                    <div className="text-center"><span
+                                        className="editable-heading">{this.state.currentDayOfWeek} </span></div>
+                                    <div className="filtering-hover-text">
+                                        <div>click to change</div>
+                                    </div>
+                                    <div className="filter-selection-box filter-day-of-week">
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Mondays">
+                                            Mondays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Tuesdays">
+                                            Tuesdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Wednesdays">
+                                            Wednesdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Thursdays">
+                                            Thursdays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Fridays">
+                                            Fridays
+                                        </div>
+                                    </div>
+                                </div>
 
-                                {/*<div className="change-view-btn space-me-5" onClick={this.changeView}>*/}
-                                {/*<div className="text-left"> for the <span className="editable-heading">{this.state.currentView}</span></div>*/}
-                                {/*<div className="text-item-center filtering-hover-text">*/}
-                                {/*<div>click to change</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="filter-selection-box filter-view">*/}
-                                {/*<div className="filter-option set-view-btn" data-view="year">year</div>*/}
-                                {/*<div className="filter-option set-view-btn" data-view="week">week</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
                             </div>
                             <div className="age-notification">
                                 {this.state.selectedMemberKey != "" ?
-                                    <div className="age-note">NOTE: We're showing you only events for members
+                                    <div className="age-note">NOTE: We're automatically filtering for
                                         age {this.state.members[this.state.selectedMemberKey].age}. If this is
                                         not {this.state.members[this.state.selectedMemberKey].name}'s correct age <a
                                             href={"member/" + this.state.members[this.state.selectedMemberKey].id + "/pedit"}><span
@@ -1681,26 +2227,26 @@ class App extends Component {
                                         {seriesFilterIcon}
                                     </div>
                                     <div className="filter-circle-label">
-                                        Series
+                                        Tracks
                                     </div>
                                 </div>
-                                <div className="filter-circle-container">
-                                    <div className="filter-circle-filled pro-series-color"
-                                         onClick={this.toggleProSeries}>
-                                        {proSeriesFilterIcon}
-                                    </div>
-                                    <div className="filter-circle-label">
-                                        Pro Series
-                                    </div>
-                                </div>
-                                <div className="filter-circle-container" onClick={this.toggleCamp}>
-                                    <div className="filter-circle-filled camp-color">
-                                        {campFilterIcon}
-                                    </div>
-                                    <div className="filter-circle-label">
-                                        Camp
-                                    </div>
-                                </div>
+                                {/*<div className="filter-circle-container">*/}
+                                    {/*<div className="filter-circle-filled pro-series-color"*/}
+                                         {/*onClick={this.toggleProSeries}>*/}
+                                        {/*{proSeriesFilterIcon}*/}
+                                    {/*</div>*/}
+                                    {/*<div className="filter-circle-label">*/}
+                                        {/*Pro Series*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                                {/*<div className="filter-circle-container" onClick={this.toggleCamp}>*/}
+                                    {/*<div className="filter-circle-filled camp-color">*/}
+                                        {/*{campFilterIcon}*/}
+                                    {/*</div>*/}
+                                    {/*<div className="filter-circle-label">*/}
+                                        {/*Camp*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
                                 <div className="filter-circle-container" onClick={this.toggleDropin}>
                                     <div className="filter-circle-filled drop-in-color">
                                         {dropInFilterIcon}
@@ -1744,15 +2290,89 @@ class App extends Component {
                                         {partiesFilterIcon}
                                     </div>
                                     <div className="filter-circle-label disabled">
-                                        Parties<br/><span style={{fontSize: "80%"}}><a href="http://www.pixelacademy.org/birthdays/" className="birthday-link">(coming soon)</a></span>
+                                        Weekends<br/><span style={{fontSize: "80%"}}>(coming soon)</span>
                                     </div>
                                 </div>
 
                             </div>
                             <div className="page-container">
 
-                                    <div className="month-sidebar">
-                                        <Month name="September" numDays="30" skipDays="5"
+                                {/*TRACKS BEGIN*/}
+                                <div className="allTracks">
+
+                                    {this.state.viewingDayEvents.map(
+                                        function(name, index) {
+                                            console.log( "forEach:" + name );
+                                            return (
+
+                                                <Track
+                                                    topic={name.topic}
+                                                    title={name.title}
+                                                    tags={
+                                                        [
+                                                            {text: "Code", tagType: "red"},
+                                                            {text: "Fun", tagType: "blue"},
+                                                            {text: "Magic", tagType: "green"}
+                                                        ]
+                                                    }
+                                                    copy={name.copy}
+                                                    ages={name.ages}
+                                                    dates={name.dates}
+                                                    time="no time"
+                                                    originalPrice={name.originalPrice}
+                                                    price={name.trackPrice}
+                                                    trackPrice={name.trackPrice}
+                                                    trackSpots="4"
+                                                    trackInCart={-1}
+                                                    trackDoesOwn={-1}
+                                                    fallPrice={name.fallPrice}
+                                                    winterPrice={name.winterPrice}
+                                                    springPrice={name.springPrice}
+                                                    trackPaymentPlanPrice = {name.trackPaymentPlanPrice}
+                                                    fallSpots={name.fallSpots}
+                                                    winterSpots={name.winterSpots}
+                                                    springSpots={name.springSpots}
+                                                    fallWeeks={name.fallWeeks}
+                                                    winterWeeks={name.winterWeeks}
+                                                    springWeeks={name.springWeeks}
+                                                    fallInCart={this.state.cart.indexOf(name.fallEvent.id)}
+                                                    winterInCart={this.state.cart.indexOf(name.winterEvent.id)}
+                                                    springInCart={this.state.cart.indexOf(name.springEvent.id)}
+                                                    doesOwnFall={name.doesOwnFall}
+                                                    doesOwnWinter={name.doesOwnWinter}
+                                                    doesOwnSpring={name.doesOwnSpring}
+                                                    fallDates={name.fallDates}
+                                                    winterDates={name.winterDates}
+                                                    springDates={name.springDates}
+                                                    location={name.location}
+                                                    dayOfWeek={name.dayOfWeek}
+                                                    addToCart={this.addToCart}
+                                                    addThreeToCart={this.addThreeToCart}
+                                                    fallEvent= {name.fallEvent}
+                                                    winterEvent= {name.winterEvent}
+                                                    springEvent= {name.springEvent}
+                                                    cart = {this.state.cart}
+                                                    memberName = {
+                                                        this.state.members.length>0?
+                                                        this.state.members[this.state.selectedMemberKey].name
+                                                            :
+                                                        ""
+                                                    }
+
+                                                />
+
+                                            );
+                                        }, this
+                                    )}
+
+                                </div>
+
+
+                                {/*Month sidebar:*/}
+                                {/*
+
+                                <div className="month-sidebar">
+                                        <Month name="September" numDays="30" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1767,7 +2387,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["September"] : []}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="October" numDays="31" skipDays="0"
+                                        <Month name="October" numDays="31" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1782,7 +2402,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["October"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="November" numDays="30" skipDays="3"
+                                        <Month name="November" numDays="30" skipDays="4"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1797,7 +2417,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["November"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="December" numDays="31" skipDays="5"
+                                        <Month name="December" numDays="31" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1813,7 +2433,7 @@ class App extends Component {
                                                listEvents={ this.listEvents }
                                         />
 
-                                        <Month name="January" numDays="31" skipDays="1"
+                                        <Month name="January" numDays="31" skipDays="2"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1828,7 +2448,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["January"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="February" numDays="28" skipDays="4"
+                                        <Month name="February" numDays="28" skipDays="5"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1843,7 +2463,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["February"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="March" numDays="31" skipDays="4"
+                                        <Month name="March" numDays="31" skipDays="5"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1858,7 +2478,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["March"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="April" numDays="30" skipDays="0"
+                                        <Month name="April" numDays="30" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1873,7 +2493,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["April"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="May" numDays="31" skipDays="2"
+                                        <Month name="May" numDays="31" skipDays="3"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1888,7 +2508,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["May"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="June" numDays="30" skipDays="5"
+                                        <Month name="June" numDays="30" skipDays="6"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1903,7 +2523,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["June"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="July" numDays="31" skipDays="0"
+                                        <Month name="July" numDays="31" skipDays="1"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1918,7 +2538,7 @@ class App extends Component {
                                                events={this.state.isJSONloaded ? global.eventsByDay["July"]:[]}
                                                listEvents={ this.listEvents }
                                         />
-                                        <Month name="August" numDays="31" skipDays="3"
+                                        <Month name="August" numDays="31" skipDays="4"
                                                filterDropIn={this.state.filterDropIn}
                                                filterSpecial={this.state.filterSpecial}
                                                filterSeries={this.state.filterSeries}
@@ -1939,6 +2559,8 @@ class App extends Component {
 
 
                                     </div>
+
+                                    */}
 
 
 
@@ -1967,44 +2589,10 @@ class App extends Component {
                                         }
 
                                     </div>
-                                    <ListView
-                                        allEvents={ this.listEvents }
-                                        hide={ this.state.viewingDayEvents.length > 0 }
-                                        setViewDay={ this.setViewDay }
-                                    />
+
                                     <div className="big-day-container">
 
-                                        {this.state.viewingDayEvents.map((event, index) =>
 
-                                            <BigDay
-                                                title={event.name}
-                                                tags={
-                                                    [
-                                                        {text: "Code", tagType: "red"},
-                                                        {text: "Fun", tagType: "blue"},
-                                                        {text: "Magic", tagType: "green"}
-                                                    ]
-                                                }
-                                                copy={event.description}
-                                                ages={event.age}
-                                                dates={event.daystring}
-                                                time={event.startTime}
-                                                originalPrice={event.price}
-                                                price={this.getMemberPricing(event.price, event.type)}
-                                                //TODO
-                                                doesOwn={willCheckForDoesOwn.indexOf(event.id)}
-                                                isInCart={this.state.cart.indexOf(event.id)}
-                                                spotsLeft={event.spotsLeft}
-                                                eventObj={event}
-                                                image={event.image}
-                                                type={event.type}
-                                                addOverlay={this.addASeriesOverlay}
-                                                hideOverlays={this.hideSeriesOverlays}
-                                                addToCart={this.addToCart}
-                                                memberName = {memberName}
-
-                                            />
-                                        )}
 
                                     </div>
 
