@@ -61,7 +61,7 @@ body {
     /*flex-grow:3;*/
     color: white;
     font-weight: 900;
-    line-height: 100px;
+    line-height: 92px;
 }
 
 .first-track {
@@ -1515,19 +1515,19 @@ div .age12to14 {
 }
 
 .season-button Button {
-    width:100%;
-    margin:auto;
-    padding:8px;
-    height:auto;
-    min-height: unset;
-    /*margin-left:30px;*/
-    /*cursor: pointer;*/
-    pointer-events: none;
-    box-shadow:  var(--button-shadow);
-    font-size:100%;
-    transition: box-shadow 0s;
+     width:100%;
+     margin:auto;
+     padding:8px;
+     height:auto;
+     min-height: unset;
+     /*margin-left:30px;*/
+     /*cursor: pointer;*/
+     pointer-events: none;
+     box-shadow:  var(--button-shadow);
+     font-size:100%;
+     transition: box-shadow 0s;
 
-}
+ }
 .season-button:hover Button {
     /*box-shadow: 2px 2px 0px rgba(0,0,0,.3);*/
     filter: brightness(1.1);
@@ -1666,6 +1666,34 @@ div .age12to14 {
     margin-top:16px;
     width:32%;
 }
+.owned-event-button {
+    /*width:100%;*/
+    /*margin:auto;*/
+    padding:8px;
+    height:auto;
+    min-height: unset;
+    /*margin-left:30px;*/
+    /*cursor: pointer;*/
+    pointer-events: none;
+    /*box-shadow:  var(--button-shadow);*/
+    font-size:100%;
+    transition: box-shadow 0s;
+    /*margin-top:16px;*/
+    width:32%;
+    align-self: center;
+    margin:auto;
+
+}
+.sold-out-event{
+    pointer-events: none;
+    box-shadow: none;
+
+}
+.sold-out-event button{
+    pointer-events: none;
+    box-shadow: none;
+    background-color: #999 !important;
+}
 
 .allTracks #fortnite-track {
     padding-bottom:95px;
@@ -1690,7 +1718,7 @@ div .age12to14 {
 
 
 .dates-list {
-    font-size: 85%;
+    font-size: 80%;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -1746,7 +1774,7 @@ div .age12to14 {
 
 .dates-preface {
     font-weight:400;
-    font-size:120%;
+    font-size:100%;
     /*color: #333;*/
 }
 div:not(.track-line) {
@@ -1852,4 +1880,11 @@ div:not(.track-line) {
 }
 .tip-class {
     font-size:20px;
+}
+.seasons-button {
+    cursor: pointer;
+}
+.owned-event {
+    pointer-events: none;
+    background-color: grey;
 }

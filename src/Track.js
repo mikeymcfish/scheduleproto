@@ -45,6 +45,15 @@ class Track extends React.Component {
     componentDidUpdate() {
         $(".in-cart-2").removeClass(".in-cart-2");
         console.log("CART-Z- component did update");
+        // if (this.props.fallDoesOwn) {
+        //     $(".season-button.fall-season").addClass("owned-event");
+        // }
+        // if (this.props.winterDoesOwn) {
+        //     $(".season-button.winter-season").addClass("owned-event");
+        // }
+        // if (this.props.springDoesOwn) {
+        //     $(".season-button.spring-season").addClass("owned-event");
+        // }
     }
 
     componentDidMount() {
@@ -61,6 +70,7 @@ class Track extends React.Component {
             }
 
         });
+
     }
 
     handleAddToCart() {
@@ -363,63 +373,166 @@ class Track extends React.Component {
                     </span>
 
                 </div>
-                <div
-                    className= {
-                        (this.props.fallInCart>=0 && this.props.winterInCart>=0 && this.props.springInCart>=0)?
-                            "full-track-button in-cart-2"
-                            :
-                            "full-track-button"
-                    }
-                    onMouseEnter={this.highlightFullTrack.bind()}
-                    onMouseLeave={this.removeAllHighlights.bind()}
-                    onClick ={this.handleAddTrackToCart.bind()}
-                >
-                    {/*
+
+                {this.props.doesOwnFall && this.props.doesOwnWinter && this.props.doesOwnSpring ?
+
+                    <div></div>
+
+
+                    :
+
+                    <div
+                        className={
+                            (this.props.fallInCart >= 0 && this.props.winterInCart >= 0 && this.props.springInCart >= 0) ?
+                                "full-track-button in-cart-2"
+                                :
+                                "full-track-button"
+                        }
+                        onMouseEnter={this.highlightFullTrack.bind()}
+                        onMouseLeave={this.removeAllHighlights.bind()}
+                        onClick={this.handleAddTrackToCart.bind()}
+                    >
+                        {/*
                         <div className="add-to-text">
                             add full track to cart - (3 spots left)
                         </div>
                         */}
-                    <Button disabled color="primary" className="color">
-                        <div>{this.getFullTrackText()}</div>
-                    </Button>
-                </div>
+                        <Button disabled color="primary" className="color">
+                            <div>{this.getFullTrackText()}</div>
+                        </Button>
+                    </div>
+                }
                 <div className="seasons-button-container">
-                    <div
-                        className={this.isInCart(this.props.fallEvent)? "season-button fall-season in-cart-2" : "season-button fall-season"}
-                        onMouseEnter={this.changeFallHighlight.bind()}
-                        onMouseLeave={this.removeAllHighlights.bind()}
-                        onClick ={this.handleAddToCart.bind()}
+
+                    {this.props.doesOwnFall ?
+
+                        this.props.memberName==""?
+
+                            <div className={"owned-event-button"}>You are reserved for the fall season.</div>
+
+                            :
+
+                            <div className={"owned-event-button"}>{this.props.memberName} is reserved for the fall season</div>
+
+
+                        :
+                        this.props.fallSpots>0?
+
+                        <div
+                            className={this.isInCart(this.props.fallEvent)? "season-button fall-season in-cart-2" : "season-button fall-season"}
+                            onMouseEnter={this.changeFallHighlight.bind()}
+                            onMouseLeave={this.removeAllHighlights.bind()}
+                            onClick ={this.handleAddToCart.bind()}
+                            data-event-id={this.props.fallEvent.id}
+                        >
+                            <Button disabled color="primary" className="color" >
+                                {this.getFallText()}
+                            </Button>
+                            <div className="add-to-text">{this.props.fallSpots} spots left</div>
+
+                        </div>
+                        :
+
+                        <div
+                        className={"season-button fall-season sold-out-event"}
                         data-event-id={this.props.fallEvent.id}
-                    >
-                        <Button disabled color="primary" className="color" >
-                            {this.getFallText()}
-                        </Button>
-                        <div className="add-to-text">{this.props.fallSpots} spots left</div>
-
-                    </div>
-                    <div className={this.isInCart(this.props.winterEvent)? "season-button winter-season in-cart-2" : "season-button winter-season "}
-                         onMouseEnter={this.changeWinterHighlight.bind()}
-                         onMouseLeave={this.removeAllHighlights.bind()}
-                         onClick ={this.handleAddToCart.bind()}
-                         data-event-id={this.props.winterEvent.id}
                         >
                         <Button disabled color="primary" className="color">
-                            <div>{this.getWinterText()}</div>
+                        <div>{this.getFallText()}</div>
                         </Button>
-                        <div className="add-to-text">{this.props.winterSpots} spots left</div>
-                    </div>
-                    <div className={this.isInCart(this.props.springEvent)? "season-button spring-season in-cart-2" : "season-button spring-season "}
-                         onMouseEnter={this.changeSpringHighlight.bind()}
-                         onMouseLeave={this.removeAllHighlights.bind()}
-                         onClick ={this.handleAddToCart.bind()}
-                         data-event-id={this.props.springEvent.id}
-                        >
-                        <Button disabled color="primary" className="color">
-                            <div>{this.getSpringText()}</div>
-                        </Button>
-                        <div className="add-to-text">{this.props.springSpots} spots left</div>
+                        <div className="add-to-text">SOLD OUT!</div>
 
-                    </div>
+                        </div>
+
+
+                    }
+
+                    {this.props.doesOwnWinter ?
+
+                        this.props.memberName == "" ?
+
+                            <div className={"owned-event-button"}>You are reserved for the winter season.</div>
+
+                            :
+
+                            <div className={"owned-event-button"}>{this.props.memberName} is reserved for the winter
+                                season</div>
+
+
+                        :
+
+                        this.props.winterSpots > 0 ?
+
+
+                        <div
+                            className={this.isInCart(this.props.winterEvent) ? "season-button winter-season in-cart-2" : "season-button winter-season "}
+                            onMouseEnter={this.changeWinterHighlight.bind()}
+                            onMouseLeave={this.removeAllHighlights.bind()}
+                            onClick={this.handleAddToCart.bind()}
+                            data-event-id={this.props.winterEvent.id}
+                        >
+                            <Button disabled color="primary" className="color">
+                                <div>{this.getWinterText()}</div>
+                            </Button>
+                            <div className="add-to-text">{this.props.winterSpots} spots left</div>
+                        </div>
+
+                            :
+
+                            <div
+                                className={"season-button winter-season sold-out-event"}
+                                data-event-id={this.props.winterEvent.id}
+                            >
+                                <Button disabled color="primary" className="color">
+                                    <div>{this.getWinterText()}</div>
+                                </Button>
+                                <div className="add-to-text">SOLD OUT!</div>
+
+                            </div>
+                    }
+                    {this.props.doesOwnSpring ?
+
+                        this.props.memberName == "" ?
+
+                            <div className={"owned-event-button"}>You are reserved for the spring season.</div>
+
+                            :
+
+                            <div className={"owned-event-button"}>{this.props.memberName} is reserved for the spring
+                                season</div>
+
+                        :
+
+                        this.props.springSpots > 0 ?
+
+                            <div
+                                className={this.isInCart(this.props.springEvent) ? "season-button spring-season in-cart-2" : "season-button spring-season "}
+                                onMouseEnter={this.changeSpringHighlight.bind()}
+                                onMouseLeave={this.removeAllHighlights.bind()}
+                                onClick={this.handleAddToCart.bind()}
+                                data-event-id={this.props.springEvent.id}
+                            >
+                                <Button disabled color="primary" className="color">
+                                    <div>{this.getSpringText()}</div>
+                                </Button>
+                                <div className="add-to-text">{this.props.springSpots} spots left</div>
+
+                            </div>
+
+                            :
+                            <div
+                                className={"season-button spring-season sold-out-event"}
+                                data-event-id={this.props.springEvent.id}
+                            >
+                                <Button disabled color="primary" className="color">
+                                    <div>{this.getSpringText()}</div>
+                                </Button>
+                                <div className="add-to-text">SOLD OUT!</div>
+
+                            </div>
+
+
+                    }
                 </div>
             </div>
         )

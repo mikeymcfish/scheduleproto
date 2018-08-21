@@ -142,7 +142,8 @@ class App extends Component {
                 }
             },
             filtersLocked: false,
-            numberOfEvents: "no tracks"
+            numberOfEvents: "no tracks",
+            ownedEvents:[]
 
         }
 
@@ -884,7 +885,8 @@ class App extends Component {
             currentAgeGroup: firstMember.name.split(" ")[0],
             currentLocation: firstMember.defaultLocation,
             filterLocation: firstMember.defaultLocation,
-            selectedMemberKey: firstKey
+            selectedMemberKey: firstKey,
+            ownedEvents: firstMember.ownedEvents
         });
         this.setFilterAgeByAge(firstMember.age);
         this.setMembershipType(firstMember.memberType);
@@ -1578,6 +1580,17 @@ class App extends Component {
             var isWinterInCart = this.state.cart.indexOf(tracksListing[topic]['winter'].id);
             var isSpringInCart = this.state.cart.indexOf(tracksListing[topic]['spring'].id);
 
+            var doesOwnFall = this.state.ownedEvents.indexOf(tracksListing[topic]['fall'].id)>=0;
+            var doesOwnWinter = this.state.ownedEvents.indexOf(tracksListing[topic]['winter'].id)>=0;
+            var doesOwnSpring = this.state.ownedEvents.indexOf(tracksListing[topic]['spring'].id)>=0;
+            //
+            // var ownedEvents = this.state.ownedEvents;
+            // var allEvents = global.allEvents.events;
+            // for (var i = 0; i < ownedEvents.length; i++) {
+            //     console.log("OWNED-- i have " + ownedEvents.length + " events");
+            //     for (var j = 0; j < Object.keys(allEvents).length; j++) {
+            //         if (allEvents[j].id == ownedEvents[i]) {
+
             combinedSeasons.push({
                 topic: topic,
                 title: tracksListing[topic]['spring'].name,
@@ -1612,9 +1625,9 @@ class App extends Component {
                 fallInCart: isFallInCart,
                 winterInCart: isWinterInCart,
                 springInCart: isSpringInCart,
-                fallDoesOwn: false,
-                winterDoesOwn: false,
-                springDoesOwn: false,
+                doesOwnFall:doesOwnFall,
+                doesOwnWinter:doesOwnWinter,
+                doesOwnSpring:doesOwnSpring,
                 fallEvent: tracksListing[topic]['fall'],
                 winterEvent: tracksListing[topic]['winter'],
                 springEvent: tracksListing[topic]['spring'],
@@ -1799,11 +1812,13 @@ class App extends Component {
         ownedEvents = eventIDs;
         var allEvents = global.allEvents.events;
         for (var i = 0; i < ownedEvents.length; i++) {
-            console.log("** i have " + ownedEvents.length + " events");
+            console.log("OWNED-- i have " + ownedEvents.length + " events");
             for (var j = 0; j < Object.keys(allEvents).length; j++) {
                 if (allEvents[j].id == ownedEvents[i]) {
                     //match
-                    console.log("** match " + allEvents[j].daystring);
+                    console.log("OWNED-- match " + allEvents[j].daystring);
+                    //check if SERIES or if Makerspace
+
 
                     //check if its more than one day:
                     var thisDayFullString = allEvents[j].daystring;
@@ -1811,7 +1826,7 @@ class App extends Component {
 
                     if (thisDayFullString.indexOf(",") > 0) {
 
-                        console.log("** multi day");
+                        console.log("OWNED-- multi day");
 
                         var multiDays = thisDayFullString.split(",");
 
@@ -1973,7 +1988,7 @@ class App extends Component {
             if (testAge < 9) {
                 return false;
             }
-            return false;
+            return true;
 
         } else if (topic=="coding") {
             if (testAge < 9) {
@@ -2323,9 +2338,9 @@ class App extends Component {
                                                     fallInCart={this.state.cart.indexOf(name.fallEvent.id)}
                                                     winterInCart={this.state.cart.indexOf(name.winterEvent.id)}
                                                     springInCart={this.state.cart.indexOf(name.springEvent.id)}
-                                                    fallDoesOwn={false}
-                                                    winterDoesOwn={false}
-                                                    springDoesOwn={false}
+                                                    doesOwnFall={name.doesOwnFall}
+                                                    doesOwnWinter={name.doesOwnWinter}
+                                                    doesOwnSpring={name.doesOwnSpring}
                                                     fallDates={name.fallDates}
                                                     winterDates={name.winterDates}
                                                     springDates={name.springDates}
@@ -2337,11 +2352,12 @@ class App extends Component {
                                                     winterEvent= {name.winterEvent}
                                                     springEvent= {name.springEvent}
                                                     cart = {this.state.cart}
-
-                                                    doesOwn={false}
-                                                    isInCart={-1}
-                                                    spotsLeft="5"
-                                                    memberName = "Mikey"
+                                                    memberName = {
+                                                        this.state.members.length>0?
+                                                        this.state.members[this.state.selectedMemberKey].name
+                                                            :
+                                                        ""
+                                                    }
 
                                                 />
 

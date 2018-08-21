@@ -2589,10 +2589,10 @@ container-hover {
     justify-content: center;
     height: 65px;
     overflow: visible;
-    width:64%;
-    font-size:21px;
+    width:70%;
+    font-size:25px;
     /*margin-right:-60px;*/
-    /*margin-left:-30px;*/
+    margin-left:-30px;
 }
 .filtering-header .text-center {
     margin-left:5px;
