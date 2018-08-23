@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e16ad2c-8c93-4ddb-84b0-f67a8efb6c91" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MakerspaceButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MakerspaceMonth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MakerspaceSection.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Track.js" afterPath="$PROJECT_DIR$/src/Track.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/api/v1/scheduler/members.json" afterPath="$PROJECT_DIR$/public/api/v1/scheduler/members.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/json/data.json" afterPath="$PROJECT_DIR$/src/json/data.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tracks-2.css" afterPath="$PROJECT_DIR$/src/tracks-2.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,43 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="2123" column="71" lean-forward="false" selection-start-line="2123" selection-start-column="64" selection-end-line="2123" selection-end-column="71" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="n#!!block;n#clearCalendar#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#setFilterAgeByAge#0;n#App#0" expanded="false" />
-                <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
-                <element signature="e#48774#49660#0" expanded="false" />
-                <element signature="e#62586#63022#0" expanded="false" />
-                <element signature="e#72906#74117#0" expanded="false" />
-                <element signature="e#75015#75486#0" expanded="false" />
-                <element signature="e#75628#77346#0" expanded="false" />
-                <marker date="1534886698854" expanded="true" signature="15043:15103" ph="..." />
-                <marker date="1534886698854" expanded="true" signature="58744:58813" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="members.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/api/v1/scheduler/members.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="1681" column="14" lean-forward="false" selection-start-line="1681" selection-start-column="14" selection-end-line="1681" selection-end-column="14" />
+              <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -69,18 +44,28 @@
       <file leaf-file-name="DEV_showAsMember.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DEV_showAsMember.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+            <state relative-caret-position="30">
+              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Track.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="1879" column="28" lean-forward="false" selection-start-line="1879" selection-start-column="28" selection-end-line="1879" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Track.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Track.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="385" column="35" lean-forward="true" selection-start-line="385" selection-start-column="35" selection-end-line="385" selection-end-column="35" />
+            <state relative-caret-position="52">
+              <caret line="209" column="33" lean-forward="false" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="33" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="n#!!block;n#constructor#0;n#Track#0" expanded="false" />
@@ -96,12 +81,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/api/v1/scheduler/all.json">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="640" column="35" lean-forward="false" selection-start-line="640" selection-start-column="35" selection-end-line="640" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="180">
+              <caret line="1936" column="0" lean-forward="false" selection-start-line="1936" selection-start-column="0" selection-end-line="1936" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#!!block;n#clearCalendar#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#setFilterAgeByAge#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#doesAgeMatchEvent#0;n#App#0" expanded="false" />
+                <element signature="n#!!block;n#setTracksToView#0;n#App#0" expanded="false" />
+                <element signature="e#48821#49707#0" expanded="false" />
+                <element signature="e#64274#64710#0" expanded="false" />
+                <element signature="e#74272#79963#0" expanded="false" />
+                <element signature="e#76725#77196#0" expanded="false" />
+                <element signature="e#77338#79056#0" expanded="false" />
+                <element signature="e#86042#90507#0" expanded="false" />
+                <element signature="e#90753#91203#0" expanded="false" />
+                <marker date="1535039327944" expanded="true" signature="15134:15194" ph="..." />
+                <marker date="1535039327944" expanded="true" signature="60432:60501" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakerspaceSection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MakerspaceSection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="205" column="48" lean-forward="false" selection-start-line="205" selection-start-column="48" selection-end-line="205" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakerspaceMonth.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MakerspaceMonth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakerspaceButton.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MakerspaceButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="53" column="55" lean-forward="false" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,20 +146,18 @@
       <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/json/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2349">
-              <caret line="1894" column="32" lean-forward="false" selection-start-line="1894" selection-start-column="13" selection-end-line="1894" selection-end-column="32" />
-              <folding>
-                <element signature="e#44265#44493#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="26">
+              <caret line="168" column="32" lean-forward="false" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isLive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/isLive.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -130,38 +165,45 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cart-se</find>
-      <find>allEvents</find>
-      <find>dates-</find>
-      <find>filtering-</find>
-      <find>subway-icon</find>
-      <find>members</find>
-      <find>owned</find>
-      <find>addOwnedDays</find>
-      <find>printOwnedDay</find>
-      <find>addowned</find>
-      <find>settrac</find>
-      <find>does</find>
-      <find>settracks</find>
-      <find>data</find>
-      <find>viewingDayEvents</find>
-      <find>buttons</find>
-      <find>selectedMemberKey</find>
-      <find>series_Monday</find>
-      <find>series_Monday_3_</find>
-      <find>series_Monday_3_126</find>
-      <find>series_Monday_3_127</find>
-      <find>series_Monday_3_128</find>
+      <find>MakerspaceSection</find>
+      <find>dates</find>
+      <find>catch</find>
+      <find>.map</find>
+      <find>button</find>
+      <find>getFallText</find>
+      <find>viewingDayMakerspace</find>
       <find>season-bu</find>
-      <find>memberName</find>
-      <find>owned-event</find>
-      <find>spotsL</find>
-      <find>spots</find>
+      <find>--button-shadow-pre</find>
+      <find>subway-icon</find>
+      <find>.color</find>
+      <find>is fortnite</find>
+      <find>MakerspaceSe</find>
+      <find>getButtonsHTML</find>
+      <find>isLive</find>
+      <find>handleadd</find>
+      <find>checkForLockedFilters</find>
+      <find>addtocart</find>
+      <find>addToCart</find>
+      <find>cart</find>
+      <find>fallincart</find>
+      <find>makerspacesec</find>
+      <find>state.own</find>
+      <find>class=</find>
+      <find>owned-</find>
+      <find>makerspacese</find>
+      <find>in-cart-2</find>
       <find>maker</find>
-      <find>winterSpots</find>
-      <find>showing</find>
+      <find>sold ou</find>
+      <find>in-cart-</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;br&gt;&lt;/br&gt;</replace>
@@ -200,13 +242,17 @@
         <option value="$PROJECT_DIR$/src/TopLinks.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/json/data.json" />
+        <option value="$PROJECT_DIR$/src/Track.js" />
+        <option value="$PROJECT_DIR$/src/MakerspaceMonth" />
         <option value="$PROJECT_DIR$/public/api/v1/scheduler/members.json" />
+        <option value="$PROJECT_DIR$/src/MakerspaceMonth.js" />
+        <option value="$PROJECT_DIR$/src/MakerspaceSection.js" />
         <option value="$PROJECT_DIR$/src/tracks-2.css" />
         <option value="$PROJECT_DIR$/src/DEV_showAsMember.js" />
+        <option value="$PROJECT_DIR$/src/json/data.json" />
+        <option value="$PROJECT_DIR$/src/MakerspaceButton.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/isLive.js" />
-        <option value="$PROJECT_DIR$/src/Track.js" />
       </list>
     </option>
   </component>
@@ -228,8 +274,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
-    <option name="y" value="192" />
+    <option name="x" value="-24" />
+    <option name="y" value="142" />
     <option name="width" value="1389" />
     <option name="height" value="684" />
   </component>
@@ -255,11 +301,6 @@
             <path>
               <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
               <item name="scheduleproto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scheduleproto" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="scheduleproto" type="b2602c69:ProjectViewProjectNode" />
@@ -306,18 +347,18 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="isl&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/isLive.js&#10;track&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/Track.js&#10;tracks-&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/tracks-2.css&#10;member&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/DEV_showAsMember.js&#10;members&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/public/api/v1/scheduler/members.json&#10;showorhi&#9;null&#9;null&#10;top&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/TopLinks.js&#10;app.css&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/App.css&#10;index&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/calendar/list/index.js&#10;islive&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/isLive.js&#10;bigday&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/BigDay.js&#10;app.&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/App.css&#10;track-&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/tracks-2.css&#10;bigda&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/BigDay.js&#10;lis&#9;null&#9;null&#10;read&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/README.md&#10;Series&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/series.json" />
+    <property name="SearchEverywhereHistoryKey" value="islive&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/isLive.js&#10;data&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/json/data.json&#10;isl&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/isLive.js&#10;track&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/Track.js&#10;tracks-&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/tracks-2.css&#10;member&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/DEV_showAsMember.js&#10;members&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/public/api/v1/scheduler/members.json&#10;showorhi&#9;null&#9;null&#10;top&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/TopLinks.js&#10;app.css&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/App.css&#10;index&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/calendar/list/index.js&#10;bigday&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/BigDay.js&#10;app.&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/App.css&#10;track-&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/tracks-2.css&#10;bigda&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/BigDay.js&#10;lis&#9;null&#9;null&#10;read&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/README.md&#10;Series&#9;FILE&#9;file:///Users/mikefischthal/WebstormProjects/scheduleproto/src/series.json" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/json" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/calendar/list" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/json" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -415,7 +456,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171198000" />
+    <option name="totallyTimeSpent" value="186144000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -427,8 +468,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="192" width="1389" height="684" extended-state="0" />
-    <editor active="true" />
+    <frame x="-24" y="142" width="1389" height="684" extended-state="0" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953104" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
@@ -438,7 +478,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3387534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21752042" sideWeight="0.5012658" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21752042" sideWeight="0.49873418" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -495,31 +535,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>1886</line>
+          <line>1931</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>1567</line>
+          <line>1568</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="73" />
+      <option name="time" value="74" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Spinner.js" />
-    <entry file="file://$PROJECT_DIR$/src/img/minecon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/img/vrkids.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/pumpkin.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -756,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,88 +796,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/json/data.json">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2349">
-          <caret line="1894" column="32" lean-forward="false" selection-start-line="1894" selection-start-column="13" selection-end-line="1894" selection-end-column="32" />
-          <folding>
-            <element signature="e#44265#44493#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/api/v1/scheduler/members.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="1681" column="14" lean-forward="false" selection-start-line="1681" selection-start-column="14" selection-end-line="1681" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DEV_showAsMember.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="60">
+          <caret line="4" column="90" lean-forward="true" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/api/v1/scheduler/all.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="640" column="35" lean-forward="false" selection-start-line="640" selection-start-column="35" selection-end-line="640" selection-end-column="35" />
+        <state relative-caret-position="-1633">
+          <caret line="2857" column="20" lean-forward="false" selection-start-line="2857" selection-start-column="13" selection-end-line="2857" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="90" lean-forward="true" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/isLive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="2123" column="71" lean-forward="false" selection-start-line="2123" selection-start-column="64" selection-end-line="2123" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#clearCalendar#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#setFilterAgeByAge#0;n#App#0" expanded="false" />
-            <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
-            <element signature="e#48774#49660#0" expanded="false" />
-            <element signature="e#62586#63022#0" expanded="false" />
-            <element signature="e#72906#74117#0" expanded="false" />
-            <element signature="e#75015#75486#0" expanded="false" />
-            <element signature="e#75628#77346#0" expanded="false" />
-            <marker date="1534886698854" expanded="true" signature="15043:15103" ph="..." />
-            <marker date="1534886698854" expanded="true" signature="58744:58813" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Track.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="385" column="35" lean-forward="true" selection-start-line="385" selection-start-column="35" selection-end-line="385" selection-end-column="35" />
+        <state relative-caret-position="52">
+          <caret line="209" column="33" lean-forward="false" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="n#!!block;n#constructor#0;n#Track#0" expanded="false" />
@@ -861,6 +826,100 @@
             <element signature="e#4707#4758#0" expanded="false" />
             <element signature="e#10274#11255#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/v1/scheduler/members.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MakerspaceSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="205" column="48" lean-forward="false" selection-start-line="205" selection-start-column="48" selection-end-line="205" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MakerspaceMonth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DEV_showAsMember.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="1879" column="28" lean-forward="false" selection-start-line="1879" selection-start-column="28" selection-end-line="1879" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="168" column="32" lean-forward="false" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MakerspaceButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="53" column="55" lean-forward="false" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="1936" column="0" lean-forward="false" selection-start-line="1936" selection-start-column="0" selection-end-line="1936" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#clearCalendar#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setFilterAgeByAge#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setFilterAgeByGroup#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#doesAgeMatchEvent#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setTracksToView#0;n#App#0" expanded="false" />
+            <element signature="e#48821#49707#0" expanded="false" />
+            <element signature="e#64274#64710#0" expanded="false" />
+            <element signature="e#74272#79963#0" expanded="false" />
+            <element signature="e#76725#77196#0" expanded="false" />
+            <element signature="e#77338#79056#0" expanded="false" />
+            <element signature="e#86042#90507#0" expanded="false" />
+            <element signature="e#90753#91203#0" expanded="false" />
+            <marker date="1535039327944" expanded="true" signature="15134:15194" ph="..." />
+            <marker date="1535039327944" expanded="true" signature="60432:60501" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

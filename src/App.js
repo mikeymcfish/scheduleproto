@@ -31,6 +31,7 @@ import isLive from "./isLive.js";
 import showAsMember from "./DEV_showAsMember.js";
 
 import TrackSelection from "./TrackSelection";
+import MakerspaceSection from "./MakerspaceSection";
 
 // TODO
 // - look through all series (only get after # xxx)
@@ -117,6 +118,7 @@ class App extends Component {
             },
             viewingDay: "none",
             viewingDayEvents: [],
+            viewingDayMakerspace: [],
             highlightedDays: "",
             currentSelectedMembersAge: 0,
             isJSONloaded: false,
@@ -713,18 +715,18 @@ class App extends Component {
         this.runJquery();
         // this.myRef = React.createRef();
         this.myRef = React.createRef();
-        // if (!isLive) {
-        //
-        //     this.setState(
-        //         {
-        //             filterDayOfWeek: "(unset)",
-        //             filterLocation: "Brooklyn",
-        //             currentLocation: "Brooklyn",
-        //             currentAgeGroup: "age 9 to 11",
-        //             currentDayOfWeek: "(unset)"
-        //         }
-        //     );
-        // };
+        if (!isLive) {
+
+            this.setState(
+                {
+                    filterDayOfWeek: "(unset)",
+                    filterLocation: "Brooklyn",
+                    currentLocation: "Brooklyn",
+                    currentAgeGroup: "age 9 to 11",
+                    currentDayOfWeek: "(unset)"
+                }
+            );
+        };
         // this.checkForLockedFilters();
 
 
@@ -1428,7 +1430,6 @@ class App extends Component {
 
     setTracksToView(age=null, day=null, location=null, actualage=0)  {
 
-
         var ageToCheck = age;
         ageToCheck==null?  ageToCheck = this.state.currentAgeGroup : ageToCheck=ageToCheck;
         var dayToCheck = day;
@@ -1571,6 +1572,7 @@ class App extends Component {
 
         }
 
+
         var combinedSeasons = [];
 
         for (var topic in tracksListing) {
@@ -1652,6 +1654,49 @@ class App extends Component {
         this.setState({
             numberOfEvents: eventCount,
             viewingDayEvents: combinedSeasons
+        });
+
+        this.setMakerspaceToView(ageToCheck,dayToCheck,locationToCheck,actualAgeToCheck);
+    }
+
+    setMakerspaceToView(age=null, day=null, location=null, actualage=0) {
+
+        var dayToCheck = day;
+        // dayToCheck==null?  dayToCheck = this.state.filterDayOfWeek : dayToCheck=dayToCheck;
+        // dayToCheck = dayToCheck + "s";
+        var locationToCheck = location;
+        // locationToCheck==null?  locationToCheck = this.state.filterLocation : locationToCheck=locationToCheck;
+
+        var allEvents = []
+        var makerspaceForThisDay = [];
+        try {
+            allEvents = global.allEvents.events;
+            for (var i = 0; i < allEvents.length; i++) {
+                console.log("MAKER - name is " + allEvents[i].id.toUpperCase().split("_")[0]);
+                if (allEvents[i].id.toUpperCase().split("_")[0]!="MAKER") continue;
+                var locationMatched = false;
+                if (allEvents[i].location.toUpperCase() == locationToCheck.toUpperCase()) {
+                    locationMatched = true;
+                }
+
+                var makerDay = allEvents[i].dayOfWeek + "s";
+                console.log("MAKER - checking " + dayToCheck + " - " + makerDay);
+
+                if (makerDay==dayToCheck && locationMatched) {
+                    console.log("MAKER - matched day of week " + dayToCheck);
+
+                    makerspaceForThisDay.push(allEvents[i]);
+                }
+
+            }
+        } catch ($e) {
+
+        }
+
+        console.log("MAKER - # of days: " + makerspaceForThisDay.length);
+
+        this.setState({
+           viewingDayMakerspace: makerspaceForThisDay
         });
     }
 
@@ -1884,7 +1929,7 @@ class App extends Component {
     addInCart(eventID) {
         var inCart = [];
 
-        $("[data-event-id='" + eventID + "']").addClass("in-cart-2");
+        $("[data-event-id='" + eventID + "']:not(.dont-add-in-cart").addClass("in-cart-2");
         // $(".inCartLabel").addClass("in-my-cart");
 
 
@@ -2365,7 +2410,27 @@ class App extends Component {
                                         }, this
                                     )}
 
+                                    <div className="allMakerspace">
+
+                                        { this.state.viewingDayMakerspace.length>0 ?
+
+                                            <MakerspaceSection
+                                                events={this.state.viewingDayMakerspace}
+                                                thisRef = {this}
+                                                addToCart={this.addToCart}
+                                                cart={this.state.cart}
+                                                ownedEvents={this.state.ownedEvents}
+                                            />
+
+                                            :
+
+                                            ""
+                                        }
+
+                                    </div>
+
                                 </div>
+
 
 
                                 {/*Month sidebar:*/}
