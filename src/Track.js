@@ -174,6 +174,9 @@ class Track extends React.Component {
         if (this.props.topic=="hardware") {
             return(this.renderHardware())
         }
+        if (this.props.topic=="climbing") {
+            return(this.renderClimbing())
+        }
         return (
             <div></div>
         )
@@ -292,6 +295,11 @@ class Track extends React.Component {
             showOrHideTest = !this.state.winter;
         } else if (season=="spring") {
             showOrHideTest = !this.state.spring;
+        } else if (this.props.topic=="climbing") {
+            if (season=="winter") {
+                showOrHideTest = false;
+            }
+            else showOrHideTest=true;
         }
         return (
             <div className={
@@ -323,6 +331,11 @@ class Track extends React.Component {
             showOrHideTest = !this.state.winter;
         } else if (season=="spring") {
             showOrHideTest = !this.state.spring;
+        }  else if (this.props.topic=="climbing") {
+            if (season=="winter") {
+                showOrHideTest = false;
+            }
+            else showOrHideTest=true;
         }
         return(
             <div className={
@@ -1729,6 +1742,144 @@ class Track extends React.Component {
                             "with Voice Acting",
                             "spring"
                         )}
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    renderClimbing() {
+        return (
+            <div className="new-track" id="climbing-track">
+                <div className="track-photos climbing-color">
+                    <div className="left-container">
+                        <div className="subway-icon color">
+                            <div>K</div>
+                        </div>
+                        <div className="under-track-title">Rock Climbing & Virtual Reality Video</div>
+                        <div className="screen-time-section">
+                            <div className="screen-time-icon"></div>
+                            <div>Mix on/off-screen time</div>
+                        </div>
+                    </div>
+
+                    <div className="season-photo" id="blank-image">
+                        <div className="inner-photo">
+                            <div className="color-overlay">
+
+                            </div>
+                        </div>
+                        <div className="photo-text">
+                            Fall Project
+                        </div>
+                    </div>
+                    <div className="season-photo" id="climbing-winter">
+                        <div className="inner-photo">
+                            <div className="color-overlay">
+                            </div>
+                        </div>
+                        <div className="photo-text">
+                            Winter Project
+                        </div>
+                    </div>
+                    <div className="season-photo" id="blank-image">
+                        <div className="inner-photo">
+                            <div className="color-overlay">
+
+                            </div>
+                        </div>
+                        <div className="photo-text">
+                            Spring Project
+                        </div>
+                    </div>
+
+                </div>
+                <div className="track-info">
+
+                    <div className="track-name">
+
+                        <div className="track-label">
+                            <div className="tag-section">
+                                <div className="skills-section">
+                                    <div className="offered-at">Skills covered in this track</div>
+                                    <div className="list-of-skills climbing-color">
+                                        <div className="skill">Rock Climbing</div>
+                                        <div className="skill">Physical Fitness</div>
+                                        <div className="skill">VR Techniques</div>
+                                        <div className="skill">VR Editing</div>
+                                        <div className="skill">VR Special Effects</div>
+                                        <div className="skill">Premier Pro</div>
+                                        <div className="age9to11">ages 9 - 11</div>
+
+                                    </div>
+
+                                </div>
+                                <div className="options-section">
+                                    <div className="location">
+                                        <div className="offered-at">Offered at Brooklyn Boulders</div>
+                                        <div className="ages-tags">
+                                            <div className="age">
+                                                <div className="age9to11 age-title">ages 9 - 11</div>
+                                                <div className="age-group">
+
+                                                    <div className="">Fri</div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div>
+                                <div className="backup-title"> -!- </div>
+
+                                <div className="track-label-description">
+                                    Spend the winter rock climbing indoors at Brooklyn Boulders and create a VR video to show off your skills! This special partnership season combines Brooklyn Boulders after-school climbing program with a Pixel Academy video production project to offer a one-of-a-kind experience! Taking place each afternoon at Brooklyn Boulders in Gowanus this is an extended two-hour program 4pm to 6pm to make time for climbing and video editing! This program is great for active kids that also have an interest in technology. By the end of the season, kids will create their own VR video of their climbing that can be shared on YouTube and viewed with a Goggle Cardboard.                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div className="track-photo climbing-fall">
+
+                    </div>
+                    <div className="track-details">
+                    </div>
+
+                </div>
+                {this.getButtonsHTML("climbing")}
+                <div className="track">
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
+
+                        {this.getSeasonHTML(0,"fall")}
+
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "VR Video Concepts and",
+                            "Story Boarding",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            46,
+                            "Cinematography and",
+                            "VR Camera Skills",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            58,
+                            "VR Editing using",
+                            "Premier Pro",
+                            "winter"
+                        )}
+
+                        {this.getSeasonHTML(66,"spring")}
+
 
                     </div>
                 </div>

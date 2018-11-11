@@ -4,8 +4,9 @@ body {
     --roblox-color: rgb(44, 206, 23);
     --fortnite-color: rgb(0, 79, 180);
     --coding-color: rgb(38, 180, 20);
-    --hardware-color: rgb(73, 73, 73);
+    --hardware-color: rgb(124, 124, 124);
     --video-color: rgb(255, 154, 200);
+    --climbing-color: rgb(81, 81, 81);
 
     --project-stop-color: white;
     --background-color: black;
@@ -99,6 +100,9 @@ body {
 #video-track .color-text {
     color:var(--video-color);
 }
+#climbing-track .color-text {
+    color:var(--climbing-color);
+}
 
 #minecraft-track .color {
     background-color: var(--minecraft-color);
@@ -107,7 +111,6 @@ body {
     color:white;
 
 }
-
 
 #minecraft-track .color {
     background-color: var(--minecraft-color);
@@ -120,6 +123,12 @@ body {
     background-color: var(--roblox-color);
     --season-stop-color: var(--roblox-color);
     --stop-outline-color: var(--roblox-color);
+    color:white;
+}
+#climbing-track .color {
+    background-color: var(--climbing-color);
+    --season-stop-color: var(--climbing-color);
+    --stop-outline-color: var(--climbing-color);
     color:white;
 }
 #fortnite-track .color {
@@ -487,6 +496,9 @@ body {
 .list-of-skills.hardware-color .skill {
     background-color: var(--hardware-color);
 }
+.list-of-skills.climbing-color .skill {
+    background-color: var(--climbing-color);
+}
 .location {
     display: flex;
     flex-direction: column;
@@ -687,6 +699,16 @@ div .age12to14 {
 }
 #video-spring .inner-photo {
     background-image: url("img/video-spring-resized.png");
+}
+
+#climbing-fall .inner-photo {
+    background-image: none;
+}
+#climbing-winter .inner-photo {
+    background-image: url("img/climbing-winter-resized.png");
+}
+#climbing-spring .inner-photo {
+    background-image: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -1635,6 +1657,16 @@ div .age12to14 {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--hardware-color) 67%);
 }
 
+#climbing-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--climbing-color), var(--climbing-color) 33%, var(--faded-color) 34%);
+}
+#climbing-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--climbing-color) 34%, var(--climbing-color) 66%,var(--faded-color) 67%);
+}
+#climbing-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--climbing-color) 67%);
+}
+
 #video-track .highlight-track-fall {
     background: linear-gradient(to right, var(--video-color), var(--video-color) 33%, var(--faded-color) 34%);
 }
@@ -2035,4 +2067,17 @@ div:not(.track-line) {
 }
 .owned-maker .add-to-text {
     font-style: normal !important;
+}
+#climbing-track .track .color {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--climbing-color) 34%, var(--climbing-color) 66%,var(--faded-color) 67%);
+}
+#climbing-track .season-start:first-child {
+    background-color: var(--faded-color);
+    border-color: var(--faded-color);
+    box-shadow: none;
+}
+#climbing-track .season-start:last-child {
+    background-color: var(--faded-color);
+    border-color: var(--faded-color);
+    box-shadow: none;
 }

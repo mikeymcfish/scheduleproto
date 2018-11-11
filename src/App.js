@@ -1526,6 +1526,11 @@ class App extends Component {
                 "winter":{},
                 "spring":{}
             },
+            "climbing" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
             "UNKNOWN" : {
                 "fall":{},
                 "winter":{},
@@ -1561,6 +1566,9 @@ class App extends Component {
                 topic="fortnite";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ADVANCED")>=0)
                 topic="coding";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("CLIMBING")>=0)
+                topic="climbing";
+
             else topic = "UNKNOWN";
 
             console.log("TRACKS found topic " + topic);
@@ -1750,6 +1758,10 @@ class App extends Component {
             console.log("MATCH TO TRIBECA");
             roundedNum= ((parseInt(event.price)/65) * (65-discount));
         }
+        else if (event.location.toUpperCase()==="BROOKLYN BOULDERS") {
+            console.log("MATCH TO BROOKLYN BOULDERS");
+            roundedNum= ((parseInt(event.price)/70) * (70-discount));
+        }
         return Math.round(roundedNum * 100) / 100;
     }
 
@@ -1759,6 +1771,8 @@ class App extends Component {
         if (event.location==="Brooklyn") {
             roundedNum= ((parseInt(event.price)/55));
         } else if (event.location==="TriBeCa") {
+            roundedNum= ((parseInt(event.price)/65));
+        } else if (event.location==="Brooklyn Boulders") {
             roundedNum= ((parseInt(event.price)/65));
         }
         return Math.round(roundedNum * 100) / 100;
@@ -2058,6 +2072,14 @@ class App extends Component {
                 return true;
             }
             return false;
+        } else if (topic=="climbing") {
+            if (testAge > 11){
+                return false;
+            }
+            if (location=="Brooklyn Boulders") {
+                return true;
+            }
+            return false;
         }
     }
 
@@ -2181,6 +2203,9 @@ class App extends Component {
                                         </div>
                                         <div className="filter-option set-location-btn" data-location="TriBeCa">
                                             TriBeCa
+                                        </div>
+                                        <div className="filter-option set-location-btn" data-location="Brooklyn Boulders">
+                                            Brooklyn Boulders
                                         </div>
                                     </div>
                                 </div>

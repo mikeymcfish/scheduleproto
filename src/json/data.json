@@ -12092,6 +12092,96 @@
           14
         ]
       }
+    },
+    {
+      "id": "series_Friday_3_147",
+      "name": "Climbing and VR: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn Boulders",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Mod and Upgrade a Gaming PC, Build a giant multi- player arcade game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "605.00",
+      "spotsLeft": 0,
+      "image": "\/images\/event\/series\/5899",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_148",
+      "name": "Climbing and VR: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn Boulders",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Mod and Upgrade a Gaming PC, Build a giant multi- player arcade game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "700.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/5899",
+      "datesString": "3\/22, 3\/29, 4\/5, 4\/12, 5\/3, 5\/10, 5\/17, 5\/24, 5\/31, 6\/7, 6\/14",
+      "days": {
+        "March": [
+          22,
+          29
+        ],
+        "April": [
+          5,
+          12
+        ],
+        "May": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "June": [
+          7,
+          14
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_149",
+      "name": "Climbing and VR: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn Boulders",
+      "sub-title": "Series",
+      "description": "This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.\r\nSeason projects include: Mod and Upgrade a Gaming PC, Build a giant multi- player arcade game",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "0",
+      "spotsLeft": 0,
+      "image": "\/images\/event\/series\/5899",
+      "datesString": "",
+      "days": {
+
+      }
     }
   ]
 }
