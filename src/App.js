@@ -1174,12 +1174,26 @@ class App extends Component {
                     currentLocation: $(target).attr("data-location"),
                     filterLocation: $(target).attr("data-location")
                 });
+            if ($(target).attr("data-location")=="Brooklyn Boulders") {
+                this.setState(
+                    {
+                        currentDayOfWeek: "Fridays",
+                        filterDayOfWeek: "Fridays",
+                        currentAgeGroup: "age 9 to 11"
+                    });
+                this.setTracksToView("age 9 to 11","Fridays",$(target).attr("data-location"));
+
+            } else {
+                this.setTracksToView(null,null,$(target).attr("data-location"));
+
+            }
+
             $(".filter-location")
                 .css("display", "none");
 
             this.refreshOverlays($(target).attr("data-location"));
             console.log("FILTER-X- changing location to " + $(target).attr("data-location"));
-            this.setTracksToView(null,null,$(target).attr("data-location"));
+            //this.setTracksToView(null,null,$(target).attr("data-location"));
 
         } else {
             $(".filter-location")
@@ -1601,15 +1615,28 @@ class App extends Component {
             //     for (var j = 0; j < Object.keys(allEvents).length; j++) {
             //         if (allEvents[j].id == ownedEvents[i]) {
 
+
+            //TEMP HARD CODING FOR CLIMBING ONLY 1 SEASON
+
+                var fallDs= tracksListing[topic]['fall'].datesString;
+                var winterDs= tracksListing[topic]['winter'].datesString;
+                var springDs= tracksListing[topic]['spring'].datesString;
+                if (topic=="climbing") {
+                    fallDs = "";
+                    springDs = "";
+                }
+
+            //END
+
             combinedSeasons.push({
                 topic: topic,
                 title: tracksListing[topic]['spring'].name,
                 copy: tracksListing[topic]['spring'].description,
                 ages: tracksListing[topic]['spring'].age,
                 dates: tracksListing[topic]['spring'].days,
-                fallDates: tracksListing[topic]['fall'].datesString,
-                winterDates: tracksListing[topic]['winter'].datesString,
-                springDates: tracksListing[topic]['spring'].datesString,
+                fallDates: fallDs,
+                winterDates: winterDs,
+                springDates: springDs,
                 time: tracksListing[topic]['spring'].startTime,
                 originalPrice:
                     this.calculateCost(tracksListing[topic]['spring']) +
@@ -1773,7 +1800,7 @@ class App extends Component {
         } else if (event.location==="TriBeCa") {
             roundedNum= ((parseInt(event.price)/65));
         } else if (event.location==="Brooklyn Boulders") {
-            roundedNum= ((parseInt(event.price)/65));
+            roundedNum= ((parseInt(event.price)/70));
         }
         return Math.round(roundedNum * 100) / 100;
     }

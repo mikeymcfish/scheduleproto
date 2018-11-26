@@ -1532,6 +1532,7 @@ class Track extends React.Component {
 
                     </div>
                 </div>
+
             </div>
         )
     }
@@ -1839,7 +1840,7 @@ class Track extends React.Component {
                                 <div className="backup-title"> -!- </div>
 
                                 <div className="track-label-description">
-                                    Spend the winter rock climbing indoors at Brooklyn Boulders and create a VR video to show off your skills! This special partnership season combines Brooklyn Boulders after-school climbing program with a Pixel Academy video production project to offer a one-of-a-kind experience! Taking place each afternoon at Brooklyn Boulders in Gowanus this is an extended two-hour program 4pm to 6pm to make time for climbing and video editing! This program is great for active kids that also have an interest in technology. By the end of the season, kids will create their own VR video of their climbing that can be shared on YouTube and viewed with a Goggle Cardboard.                                </div>
+                                    Spend the winter rock climbing indoors at Brooklyn Boulders and create a VR video to show off your skills! This special partnership season combines Brooklyn Boulders after-school climbing program with a Pixel Academy video production project to offer a one-of-a-kind experience! Taking place each afternoon at Brooklyn Boulders in Gowanus this is an extended two-hour program 4pm to 6pm to make time for climbing and video editing! This program is great for active kids that also have an interest in technology. By the end of the season, kids will create their own VR video of their climbing that can be shared on YouTube and viewed with a Google Cardboard. NO SCHOOL WALKOVERS.                               </div>
                             </div>
 
 
@@ -1883,6 +1884,7 @@ class Track extends React.Component {
 
                     </div>
                 </div>
+                <div className="spacer-me"></div>
             </div>
         )
     }
