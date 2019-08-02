@@ -64,9 +64,9 @@ class App extends Component {
         this.openFullDay = this.openFullDay.bind(this);
         this.closeFullDay = this.closeFullDay.bind(this);
         // this.setViewDay = this.setViewDay.bind(this);
-        this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
-        this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
-        this.addToCart = this.addToCart.bind(this);
+        // this.addASeriesOverlay = this.addASeriesOverlay.bind(this);
+        // this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
+        // this.addToCart = this.addToCart.bind(this);
         this.addThreeToCart = this.addThreeToCart.bind(this);
 
 
@@ -81,7 +81,8 @@ class App extends Component {
             filterCamp: false,
             filter7to9: false,
             filter9to11: true,
-            filter12to14: true,
+            filter11to13: true,
+            filter13to15: true,
             filterAllAges: true,
             filterDayOfWeek: "(Select One)",
             eventFilter: "events",
@@ -93,7 +94,8 @@ class App extends Component {
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
-                "age 12 to 14"
+                "age 11 to 13",
+                "age 13 to 15"
             ],
             selectedEvent: "",
             loggedIn: false,
@@ -417,42 +419,6 @@ class App extends Component {
 
     }
 
-    hideSeriesOverlays = () => {
-        this.clearCalendar();
-    }
-
-    addASeriesOverlay = (thisDayFullString) => {
-        //first remove all overlays
-
-        var allDays = thisDayFullString.split(",");
-
-        console.log("*** adding overlay " + thisDayFullString);
-
-        this.clearCalendar();
-
-        for (var i = 0; i < allDays.length; i++) {
-
-            var thisDayString = allDays[i].split("-");
-            var thisMonth = this.getMonthName(thisDayString[0]);
-            console.log(thisMonth, thisDayString[1]);
-            var thisDay = $('.day:has(> [data-month="' + thisMonth + '"][data-daynum="' + thisDayString[1] + '"])');
-            var thisDayRow = thisDay.css("grid-row-start");
-            var thisDayCol = thisDay.css("grid-column-start");
-            thisDay.addClass("day-under-overlay series-list");
-            var monthGrid = $('#year-calendar_' + thisMonth);
-            monthGrid.append(
-                "<div class='overlay' style='grid-row:" + thisDayRow + ";grid-column: " + thisDayCol + ";'>" +
-                "<div class='big-num'>" + (i + 1) +
-                "</div></div>"
-            );
-
-        }
-
-        var firstDay = this.getFirstDayFromFullString(thisDayFullString);
-        //this.scrollViewToCalendarDay(firstDay);
-
-    }
-
     addToCart = (event) => {
 
         console.log("CART-X-adding an event to cart: id="+event.id);
@@ -696,9 +662,9 @@ class App extends Component {
                     _this.scrollView($(this));
                 }
             });
-        this.addHolidays();
+        //this.addHolidays();
         this.runJquery();
-        this.doHardCodedOpenHouses();
+        //this.doHardCodedOpenHouses();
         $('.month-sidebar').show();
         this.checkForLockedFilters();
         // FIND ME I CHANGED THIS
@@ -792,24 +758,24 @@ class App extends Component {
 
     runJquery() {
         global.isUpdating = true;
-        console.log("jquery");
-        $('div:has(> #no-day)')
-            .addClass('no-day')
-            .removeClass('pick-up-available');
-        $('div:has(> .close-me)')
-            .addClass('closed')
-            .removeClass('pick-up-available');
-        // this.addOwnedDays();
+        // console.log("jquery");
+        // $('div:has(> #no-day)')
+        //     .addClass('no-day')
+        //     .removeClass('pick-up-available');
+        // $('div:has(> .close-me)')
+        //     .addClass('closed')
+        //     .removeClass('pick-up-available');
+        // // this.addOwnedDays();
         var myThis = this;
         $('.view-day').unbind("click");
         global.isUpdating = false;
 
     }
 
-    getDayObject(month, day) {
-        var thisDay = $('.day:has(> [data-month="' + month + '"][data-daynum="' + day + '"])');
-        return thisDay;
-    }
+    // getDayObject(month, day) {
+    //     var thisDay = $('.day:has(> [data-month="' + month + '"][data-daynum="' + day + '"])');
+    //     return thisDay;
+    // }
 
     addMemberBirthday(member) {
 
@@ -846,17 +812,6 @@ class App extends Component {
         //     "white",
         //     firstName + "'s " + nextAge + "th Birthday!",
         //     "");
-    }
-
-    refreshOverlays(newLocation) {
-        // var firstMember = this.getLoggedInMember();
-        // this.highlightAllPickUpDays(firstMember.school, newLocation);
-        // this.setState({
-        //     viewingDay: "none",
-        //     viewingDayEvents: []
-        //
-        // })
-
     }
 
     logInMember(memberKey) {
@@ -908,14 +863,15 @@ class App extends Component {
                 filterAllAges: !this.state.filterAllAges,
                 filter7to9: false,
                 filter9to11: false,
-                filter12to14: false,
+                filter11to13: false,
+                filter13to15: false,
             });
         } else {
             this.setState({
                 filterAllAges: !this.state.filterAllAges,
                 filter7to9: true,
-                filter9to11: true,
-                filter12to14: true,
+                filter11to13: true,
+                filter13to15: true,
             });
             //refilter with new age.
 
@@ -991,28 +947,56 @@ class App extends Component {
             this.setState({
                 filter7to9: false,
                 filter9to11: true,
-                filter12to14: true
+                filter11to13: true,
+                filter13to15: true
             })
         }
         else if (age <= 11) {
             this.setState({
                 filter7to9: true,
                 filter9to11: false,
-                filter12to14: true
+                filter11to13: true,
+                filter13to15: true
             })
         }
-        else if (age <= 14) {
+        else if (age <= 13) {
             this.setState({
                 filter7to9: true,
                 filter9to11: true,
-                filter12to14: false
+                filter11to13: false,
+                filter13to15: true
+            })
+        }
+        else if (age <= 15) {
+            this.setState({
+                filter7to9: true,
+                filter9to11: true,
+                filter11to13: true,
+                filter13to15: false
             })
         }
         if (age == 9) {
             this.setState({
                 filter7to9: false,
                 filter9to11: false,
-                filter12to14: true
+                filter11to13: true,
+                filter13to15: true
+            })
+        }
+        if (age == 11) {
+            this.setState({
+                filter7to9: true,
+                filter9to11: false,
+                filter11to13: false,
+                filter13to15: true
+            })
+        }
+        if (age == 13) {
+            this.setState({
+                filter7to9: true,
+                filter9to11: true,
+                filter11to13: false,
+                filter13to15: false
             })
         }
 
@@ -1026,21 +1010,31 @@ class App extends Component {
             this.setState({
                 filter7to9: false,
                 filter9to11: true,
-                filter12to14: true
+                filter11to13: true,
+                filter13to15: true
             })
         }
         else if (group == "age 9 to 11") {
             this.setState({
                 filter7to9: true,
                 filter9to11: false,
-                filter12to14: true
+                filter11to13: true,
+                filter13to15: true
             })
         }
-        else if (group == "age 12 to 14") {
+        else if (group == "age 11 to 13") {
             this.setState({
                 filter7to9: true,
                 filter9to11: true,
-                filter12to14: false
+                filter11to13: false,
+                filter13to15: true
+            })
+        }else if (group == "age 13 to 15") {
+            this.setState({
+                filter7to9: true,
+                filter9to11: true,
+                filter11to13: true,
+                filter13to15: false
             })
         }
 
@@ -1168,6 +1162,7 @@ class App extends Component {
             return;
         }
 
+        //FISH -> add the thing here for the older age groups not boulders
         if (target.hasAttribute("data-location")) {
             this.setState(
                 {
@@ -1203,6 +1198,18 @@ class App extends Component {
 
 
     };
+
+    refreshOverlays(newLocation) {
+        // var firstMember = this.getLoggedInMember();
+        // this.highlightAllPickUpDays(firstMember.school, newLocation);
+        // this.setState({
+        //     viewingDay: "none",
+        //     viewingDayEvents: []
+        //
+        // })
+
+    }
+
 
     changeView = ({target}) => {
 
@@ -1429,11 +1436,16 @@ class App extends Component {
 
             return true;
         }
-        else if (ageGroup == "AGE 12 TO 14" && (myAge <= 14 && myAge >= 12)) {
-            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 12-14");
+        else if (ageGroup == "AGE 11 TO 13" && (myAge <= 13 && myAge >= 11)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 11-13");
+            return true;
+        }
+        else if (ageGroup == "AGE 13 TO 15" && (myAge <= 15 && myAge >= 13)) {
+            console.log("FILTER-Z- doesagematchevent() for " + myAge + " matches 13-15");
 
             return true;
         }
+
         else if (ageGroup == "AGE 7 TO 14") {
             return true;
         }
@@ -1540,7 +1552,12 @@ class App extends Component {
                 "winter":{},
                 "spring":{}
             },
-            "climbing" : {
+            "deck" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
+            "pc" : {
                 "fall":{},
                 "winter":{},
                 "spring":{}
@@ -1572,16 +1589,18 @@ class App extends Component {
                 topic="roblox";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("MINECRAFT")>=0)
                 topic="minecraft";
-            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("HARDWARE")>=0)
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ENGINEERING")>=0)
                 topic="hardware";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("VIDEO")>=0)
                 topic="video";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FORTNITE")>=0)
                 topic="fortnite";
-            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("ADVANCED")>=0)
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("PYTHON")>=0)
                 topic="coding";
-            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("CLIMBING")>=0)
-                topic="climbing";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("DECK")>=0)
+                topic="skating";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("BUILD")>=0)
+                topic="pc";
 
             else topic = "UNKNOWN";
 
@@ -1775,6 +1794,8 @@ class App extends Component {
 
     calculateCost(event, discount=0) {
 
+        // FISH - THIS NEEDS CHANGING
+
         console.log("COST - number of days - " + (parseInt(event.price)/55));
         var roundedNum = -1;
         if (event.location.toUpperCase()==="BROOKLYN") {
@@ -1793,6 +1814,9 @@ class App extends Component {
     }
 
     calculateWeeks(event) {
+
+        // FISH - THIS NEEDS CHANGING
+
         var roundedNum = 0;
         console.log("MATCH-CHECK location-->"+event.location);
         if (event.location==="Brooklyn") {
@@ -2053,8 +2077,10 @@ class App extends Component {
             testAge = 8;
         } else if (age == "age 9 to 11") {
             testAge = 10;
-        } else if (age == "age 12 to 14") {
-            testAge = 13;
+        } else if (age == "age 11 to 13") {
+            testAge = 12;
+        } else if (age == "age 13 to 15") {
+            testAge = 14;
         }
 
         console.log("*FILTER-Z- matching topic "+topic+" to age " + testAge);
@@ -2071,19 +2097,16 @@ class App extends Component {
             return true;
 
         } else if (topic=="fortnite") {
-            if (testAge < 9) {
+            if (testAge < 9 || testAge > 13) {
                 return false;
             }
             return true;
 
         } else if (topic=="coding") {
-            if (testAge < 9) {
+            if (testAge < 9 || testAge > 13) {
                 return false;
             }
-            if (location=="Brooklyn") {
-                return true;
-            }
-            return false;
+            return true;
 
         } else if (topic=="video") {
             if (testAge > 9) {
@@ -2092,18 +2115,27 @@ class App extends Component {
             return true;
 
         } else if (topic=="hardware") {
-            if (testAge < 12) {
+            if (testAge < 9 || testAge > 13) {
                 return false;
             }
             if (location=="Brooklyn") {
                 return true;
             }
             return false;
-        } else if (topic=="climbing") {
-            if (testAge > 11){
+        }
+        else if (topic=="deck") {
+            if (testAge < 13) {
                 return false;
             }
-            if (location=="Brooklyn Boulders") {
+            if (location=="Brooklyn") {
+                return true;
+            }
+            return false;
+        }else if (topic=="pc") {
+            if (testAge < 9) {
+                return false;
+            }
+            if (location=="Brooklyn") {
                 return true;
             }
             return false;
@@ -2231,9 +2263,7 @@ class App extends Component {
                                         <div className="filter-option set-location-btn" data-location="TriBeCa">
                                             TriBeCa
                                         </div>
-                                        <div className="filter-option set-location-btn" data-location="Brooklyn Boulders">
-                                            Brooklyn Boulders
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div className="text-center">for</div>
