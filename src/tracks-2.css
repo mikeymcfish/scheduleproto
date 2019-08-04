@@ -108,6 +108,10 @@ body {
     color:var(--deck-color);
 }
 
+#deck-track {
+    margin-bottom: 200px;
+}
+
 #deck-track .color {
     background-color: var(--deck-color);
     --season-stop-color: var(--deck-color);
@@ -803,9 +807,9 @@ div .age12to14 {
 }
 
 .under-track-title {
-    font-family: ff-prater-serif-web, serif;
+    font-family: ff-prater-sans-web, sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 34px;
     text-align: center;
     width:100%;

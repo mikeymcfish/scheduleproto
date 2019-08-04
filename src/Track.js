@@ -1666,68 +1666,62 @@ class Track extends React.Component {
 
                         {this.getSeasonHTML(0,"fall")}
                         {this.getProjectHTML(
-                            5,
-                            "*Online Safety and",
-                            "Anti-Bullying",
-                            "fall",
-                            true
-                        )}
-                        {this.getProjectHTML(
-                            9,
-                            "Make a Let's Play Video",
-                            "for YouTube",
+                            8,
+                            "Deck design planning",
+                            "& skating basics",
                             "fall"
                         )}
                         {this.getProjectHTML(
-                            20,
-                            "Branding and",
-                            "Graphic Design",
+                            15,
+                            "Use drills and dremels",
+                            "to prepare your deck",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            21,
+                            "Mold and cast",
+                            "custom urethane wheels",
                             "fall"
                         )}
                         {this.getProjectHTML(
                             27,
-                            "Video",
-                            "Editing",
+                            "Field-test your",
+                            "custom wheels",
                             "fall"
                         )}
 
                         {this.getSeasonHTML(33,"winter")}
+
                         {this.getProjectHTML(
                             39,
-                            "Motion Graphics",
-                            "for Videos",
+                            "Assemble Arduino sensors",
+                            "& start soldering",
                             "winter"
                         )}
                         {this.getProjectHTML(
-                            46,
-                            "Cinematography and",
-                            "Camera Skills",
-                            "winter"
-                        )}
-                        {this.getProjectHTML(
-                            58,
-                            "Sound Effects",
-                            "and Music Creation",
+                            52,
+                            "Add code to control",
+                            "the Arduino",
                             "winter"
                         )}
 
                         {this.getSeasonHTML(66,"spring")}
                         {this.getProjectHTML(
                             72,
-                            "Draw with Disney's",
-                            "Principles of Animation",
+                            "Assemble deck electronics",
+                            "& fiber optics",
                             "spring"
                         )}
                         {this.getProjectHTML(
                             80,
-                            "Create Whiteboard and",
-                            "Stop-Motion Animations",
+                            "Paint a design with laser",
+                            "cut stencils and vinyl",
                             "spring"
                         )}
                         {this.getProjectHTML(
                             88,
-                            "Add Audio to Videos",
-                            "with Voice Acting",
+                            "Field-test your new",
+                            "custom skateboard",
                             "spring"
                         )}
 
