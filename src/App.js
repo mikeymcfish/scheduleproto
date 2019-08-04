@@ -579,6 +579,7 @@ class App extends Component {
                     daysOfEvents[month][event.days[month][day]].push(event);
                 }
 
+
             }
 
 
@@ -1450,6 +1451,7 @@ class App extends Component {
             return true;
         }
         else {
+            console.log("did not match an age");
             return false;
         }
     }
@@ -1487,7 +1489,7 @@ class App extends Component {
                 }
 
                 ///RESET AGE MATCH, WILL CHECK LATER WITH SHOW OR HIDE
-                // ageMatched=true;
+                 //ageMatched=true;
 
                 // check location
                 var locationMatched = false;
@@ -1598,7 +1600,7 @@ class App extends Component {
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("PYTHON")>=0)
                 topic="coding";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("DECK")>=0)
-                topic="skating";
+                topic="deck";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("BUILD")>=0)
                 topic="pc";
 
@@ -1610,6 +1612,7 @@ class App extends Component {
             if (this.showOrHide(topic, ageToCheck, locationToCheck, dayToCheck, actualage)) {
                 tracksListing[topic][season] = thisDaysFilteredEvents[i];
             }
+            console.log(thisDaysFilteredEvents);
 
         }
 
@@ -1658,16 +1661,13 @@ class App extends Component {
                 springDates: springDs,
                 time: tracksListing[topic]['spring'].startTime,
                 originalPrice:
-                    this.calculateCost(tracksListing[topic]['spring']) +
-                    this.calculateCost(tracksListing[topic]['winter']) +
-                    this.calculateCost(tracksListing[topic]['fall'])
+                    tracksListing[topic]['spring'].price +
+                    tracksListing[topic]['winter'].price +
+                    tracksListing[topic]['fall'].price
                 ,
                 price: tracksListing[topic]['spring'].price,
-                trackPrice:
-                    this.calculateCost(tracksListing[topic]['spring'],5) +
-                    this.calculateCost(tracksListing[topic]['winter'],5) +
-                    this.calculateCost(tracksListing[topic]['fall'],5)
-                ,
+                trackPrice:0,
+                fullTrackDiscount: 0.15,
                 trackSpots: '0',
                 trackInCart: -1,
                 trackDoesOwn: -1,
@@ -1690,7 +1690,6 @@ class App extends Component {
                 doesOwn: false,
                 isInCart: -1,
                 spotsLeft: 0,
-
                 memberName: "Mikey",
                 fallWeeks: this.calculateWeeks(tracksListing[topic]['fall']),
                 winterWeeks: this.calculateWeeks(tracksListing[topic]['winter']),
@@ -1796,37 +1795,16 @@ class App extends Component {
 
         // FISH - THIS NEEDS CHANGING
 
-        console.log("COST - number of days - " + (parseInt(event.price)/55));
-        var roundedNum = -1;
-        if (event.location.toUpperCase()==="BROOKLYN") {
-            console.log("MATCH TO BROOKLYN");
-            roundedNum= ((parseInt(event.price)/55) * (55-discount));
-        }
-        else if (event.location.toUpperCase()==="TRIBECA") {
-            console.log("MATCH TO TRIBECA");
-            roundedNum= ((parseInt(event.price)/65) * (65-discount));
-        }
-        else if (event.location.toUpperCase()==="BROOKLYN BOULDERS") {
-            console.log("MATCH TO BROOKLYN BOULDERS");
-            roundedNum= ((parseInt(event.price)/70) * (70-discount));
-        }
-        return Math.round(roundedNum * 100) / 100;
+        return Math.round(event.price * 100) / 100;
+
+
     }
 
     calculateWeeks(event) {
 
-        // FISH - THIS NEEDS CHANGING
+        var r = event.daystring.split(",");
 
-        var roundedNum = 0;
-        console.log("MATCH-CHECK location-->"+event.location);
-        if (event.location==="Brooklyn") {
-            roundedNum= ((parseInt(event.price)/55));
-        } else if (event.location==="TriBeCa") {
-            roundedNum= ((parseInt(event.price)/65));
-        } else if (event.location==="Brooklyn Boulders") {
-            roundedNum= ((parseInt(event.price)/70));
-        }
-        return Math.round(roundedNum * 100) / 100;
+        return r.length;
     }
 
     calculatePaymentPlanPrice(event, months) {
@@ -2307,6 +2285,9 @@ class App extends Component {
                                         </div>
                                         <div className="filter-option set-day-of-week-btn" data-day-of-week="Fridays">
                                             Fridays
+                                        </div>
+                                        <div className="filter-option set-day-of-week-btn" data-day-of-week="Saturdays">
+                                            Saturdays
                                         </div>
                                     </div>
                                 </div>

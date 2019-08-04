@@ -174,8 +174,11 @@ class Track extends React.Component {
         if (this.props.topic=="hardware") {
             return(this.renderHardware())
         }
-        if (this.props.topic=="climbing") {
-            return(this.renderClimbing())
+        if (this.props.topic=="deck") {
+            return(this.renderDeck())
+        }
+        if (this.props.topic=="pc") {
+            return(this.renderPC())
         }
         return (
             <div></div>
@@ -193,14 +196,21 @@ class Track extends React.Component {
             );
         } else {
 
+            var price = parseFloat(this.props.fallPrice) + parseFloat(this.props.winterPrice) + parseFloat(this.props.springPrice);
+            var discountAmount = parseFloat(this.props.fullTrackDiscount);
+
+            var newPrice = price - ( price * 0.15 );
+            var savings = price - newPrice;
+
+
             return (
                 <div className="price-text-2 button-price-container">
                     <div className="button-left-container">
                         <div className="">full track</div>
                     </div>
                     <div className="button-right-container">
-                        <div className="">${this.props.trackPrice}</div>
-                        <div className="">save ${this.props.originalPrice - this.props.trackPrice}!</div>
+                        <div className="">${newPrice}</div>
+                        <div className="">save ${savings}!</div>
                     </div>
                 </div>
             );
@@ -563,14 +573,11 @@ class Track extends React.Component {
 
                 <div className="track-photos roblox-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>R</div>
-                        </div>
-                        <div className="under-track-title">Roblox Coding & Game Design</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon-most"></div>
-                            <div>Mostly on-screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*/!*<div>R</div>*!/*/}
+                        {/*</div>*/}
+                        <div id="roblox-subway" className="subway-icon-image"></div>
+                        <div className="under-track-title">Roblox Game Design</div>
                     </div>
 
                     <div className="season-photo" id="roblox-fall">
@@ -583,25 +590,6 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="roblox-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="roblox-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -610,81 +598,80 @@ class Track extends React.Component {
 
                         <div className="track-label">
                             <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
+                                {/*<div className="skills-section">*/}
+                                    {/*<div className="offered-at">Skills covered in this track</div>*/}
 
-                                    <div className="list-of-skills roblox-color">
-                                        <div className="skill">3D Modeling</div>
-                                        <div className="skill">Game Design</div>
-                                        <div className="skill">LUA</div>
-                                        <div className="skill">Roblox Studio</div>
-                                        <div className="online-safety-tag">Online Safety</div>
-                                        <div className="age7to9">ages 7 - 9</div>
-                                        <div className="age9to11">ages 9 - 11</div>
+                                    {/*<div className="list-of-skills roblox-color">*/}
+                                        {/*<div className="skill">3D Modeling</div>*/}
+                                        {/*<div className="skill">Game Design</div>*/}
+                                        {/*<div className="skill">LUA</div>*/}
+                                        {/*<div className="skill">Roblox Studio</div>*/}
+                                        {/*<div className="online-safety-tag">Online Safety</div>*/}
+                                        {/*<div className="age7to9">ages 7 - 9</div>*/}
+                                        {/*<div className="age9to11">ages 9 - 11</div>*/}
 
-                                    </div>
+                                    {/*</div>*/}
 
 
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
+                                {/*</div>*/}
+                                {/*<div className="options-section">*/}
+                                    {/*<div className="location">*/}
+                                        {/*<div className="offered-at">Offered in Brooklyn</div>*/}
+                                        {/*<div className="ages-tags">*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age7to9 age-title">ages 7 - 9</div>*/}
+                                                {/*<div className="age-group">*/}
 
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
+                                                    {/*<div className="">Tue</div>*/}
+                                                    {/*<div className="">Wed</div>*/}
+                                                    {/*<div className="">Fri</div>*/}
 
-                                                </div>
+                                                {/*</div>*/}
 
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
+                                            {/*</div>*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age9to11 age-title">ages 9 - 11</div>*/}
+                                                {/*<div className="age-group">*/}
+                                                    {/*<div className="">Mon</div>*/}
+                                                    {/*<div className="">Thu</div>*/}
+                                                {/*</div>*/}
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="location">*/}
+                                        {/*<div className="offered-at">Offered in Tribeca</div>*/}
+                                        {/*<div className="ages-tags">*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age7to9 age-title">ages 7 - 9</div>*/}
+                                                {/*<div className="age-group">*/}
 
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
+                                                    {/*<div className="">Tue</div>*/}
+                                                    {/*<div className="">Wed</div>*/}
+                                                    {/*<div className="">Fri</div>*/}
 
-                                                </div>
+                                                {/*</div>*/}
 
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
+                                            {/*</div>*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age9to11 age-title">ages 9 - 11</div>*/}
+                                                {/*<div className="age-group">*/}
+                                                    {/*<div className="">Mon</div>*/}
+                                                    {/*<div className="">Thu</div>*/}
+                                                {/*</div>*/}
 
-                                            </div>
-                                        </div>
-                                    </div>
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
 
-                                </div>
+                                {/*</div>*/}
 
                             </div>
                             <div>
 
-                                <div className="backup-title">Roblox Coding & Game Design</div>
+                                <div className="backup-title">Roblox Game Design</div>
                                 <div className="track-label-description">
-                                    This track takes kids' love (and obsession) with Roblox and uses it to teach the fundamentals of game design, coding, and digital art. Over the course of 3 seasons, participants will create three different games in Roblox Studio, and along the way learn about 3D modeling and even how to sell their games! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Roblox with other kids online.
-                                </div>
+                                    This track takes kids’ love (and obsession) with Roblox and uses it to teach the fundamentals of game design, digital art, and animation. Over the course of three seasons, participants will create different games in Roblox Studio, and along the way learn about 3D modeling and animation!                                </div>
 
                             </div>
 
@@ -709,35 +696,29 @@ class Track extends React.Component {
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
                         {this.getSeasonHTML(0,"fall")}
                         {this.getProjectHTML(
-                            4,
-                            "*Online Safety and",
-                            "Anti-Bullying",
-                            "fall",
-                            true
-                        )}
-                        {this.getProjectHTML(
-                            9,
-                            "3D Modeling",
-                            "for Roblox",
+                            10,
+                            "3D",
+                            "Modeling",
                             "fall"
                         )}
                         {this.getProjectHTML(
-                            15,
+                            20,
                             "Build Obstacle Courses",
                             "in Roblox Studio",
                             "fall"
                         )}
 
+
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "Roblox",
-                            "Monetization",
+                            "Principles of",
+                            "Game Design",
                             "winter"
                         )}
                         {this.getProjectHTML(
                             50,
-                            "Build Survival Games",
+                            "Game Genres",
                             "in Roblox Studio",
                             "winter"
                         )}
@@ -745,13 +726,13 @@ class Track extends React.Component {
                         {this.getSeasonHTML(66,"spring")}
                         {this.getProjectHTML(
                             73,
-                            "Game Design",
-                            "Patterns",
+                            "Principles of",
+                            "Animation",
                             "spring"
                         )}
                         {this.getProjectHTML(
                             80,
-                            "Build A.I. Characters",
+                            "Creating Animations",
                             "in Roblox Studio",
                             "spring"
                         )}
@@ -767,14 +748,16 @@ class Track extends React.Component {
             <div className="new-track" id="fortnite-track">
                 <div className="track-photos fortnite-color-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>F</div>
-                        </div>
-                        <div className="under-track-title">Fortnite-Inspired Game Design</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon-most"></div>
-                            <div>Mostly on-screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>F</div>*/}
+                        {/*</div>*/}
+                        <div id="fortnite-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title">Fortnite Gaming & Game Design</div>
+                        {/*<div className="screen-time-section">*/}
+                            {/*<div className="screen-time-icon-most"></div>*/}
+                            {/*<div>50% Game Playing</div>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="season-photo" id="fortnite-fall">
@@ -787,25 +770,7 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="fortnite-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="fortnite-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
 
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -813,82 +778,14 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
 
-                                    <div className="list-of-skills fortnite-color">
-                                        <div className="skill">3D Modeling</div>
-                                        <div className="skill">C#</div>
-                                        <div className="skill">Unity</div>
-                                        <div className="skill">Virtual Reality</div>
-                                        <div className="skill">Augmented Reality</div>
-                                        <div className="online-safety-tag">Online Safety</div>
-                                        <div className="age9to11">ages 9 - 11</div>
-                                        <div className="age12to14">ages 12 - 14</div>
-
-                                    </div>
-
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                             <div>
 
-                                <div className="backup-title">Fortnite-Inspired Game Design</div>
+                                <div className="backup-title">Fortnite Gaming & Game Design</div>
 
                                 <div className="track-label-description">
-                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to build advanced video games in Unity! The seasons in this track focus on designing, 3D modeling and building Unity games that replicate elements of Fortnite-- and sprinkle in some advanced technology like Virtual Reality and Augmented Reality apps! This track also starts off with a segment on how to recognize and stand up to bullies when playing multi-player games online.                    </div>
+                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to learn professional elements of game design! The season’s track combines a mix of playing Fornite with friends and learning how to design, 3D model and build their own games using the elements of Fortnite! Keep in mind that unlike our other tracks, this track is about 50% playing Fortnite.
+                                </div>
                             </div>
 
 
@@ -906,13 +803,7 @@ class Track extends React.Component {
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
                         {this.getSeasonHTML(0,"fall")}
-                        {this.getProjectHTML(
-                            5,
-                            "*Online Safety and",
-                            "Anti-Bullying",
-                            "fall",
-                            true
-                        )}
+
                         {this.getProjectHTML(
                             9,
                             "Game Design &",
@@ -920,9 +811,9 @@ class Track extends React.Component {
                             "fall"
                         )}
                         {this.getProjectHTML(
-                            15,
-                            "Build a Virtual Reality",
-                            "Fortnite-Style World",
+                            20,
+                            "Playing Fortnite",
+                            "With Friends",
                             "fall"
                         )}
 
@@ -931,6 +822,12 @@ class Track extends React.Component {
                             39,
                             "Build a Fortnite-",
                             "Style Video Game",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            55,
+                            "Playing Fortnite",
+                            "With Friends",
                             "winter"
                         )}
 
@@ -942,9 +839,9 @@ class Track extends React.Component {
                             "spring"
                         )}
                         {this.getProjectHTML(
-                            80,
-                            "Build a 'Battlebus'",
-                            "AR Mobile Game",
+                            85,
+                            "Playing Fortnite",
+                            "With Friends",
                             "spring"
                         )}
 
@@ -959,14 +856,13 @@ class Track extends React.Component {
             <div className="new-track break-page" id="coding-track">
                 <div className="track-photos coding-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>C</div>
-                        </div>
-                        <div className="under-track-title">Advanced Coding</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon-most"></div>
-                            <div>Mostly on-screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>C</div>*/}
+                        {/*</div>*/}
+                        <div id="coding-subway" className="subway-icon-image"></div>
+                        <div className="under-track-title">Raspberry Pi
+                            & Python Coding</div>
+
                     </div>
 
                     <div className="season-photo" id="coding-fall">
@@ -979,25 +875,7 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="coding-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="coding-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
 
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -1005,81 +883,14 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
-                                    <div className="list-of-skills coding-color">
-                                        <div className="skill">Java</div>
-                                        <div className="skill">Python</div>
-                                        <div className="skill">Android Studio</div>
-                                        <div className="skill">Machine Learning</div>
-                                        <div className="skill">Alexa Skills</div>
-                                        <div className="skill">Encryption</div>
-                                        <div className="online-safety-tag">Online Safety</div>
-                                        <div className="age9to11">ages 9 - 11</div>
-                                        <div className="age12to14">ages 12 - 14</div>
 
-                                    </div>
-
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                             <div>
-                                <div className="backup-title">Advanced Coding</div>
+                                <div className="backup-title">Raspberry Pi
+                                    & Python Coding</div>
 
                                 <div className="track-label-description">
-                                    We designed this track for kids that are passionate about learning to code! These seasons have specific, super-fun, games that participants will code in Java (Android Studio) or in or Python. With a focus on the future, we cover everything from Alexa skill coding to augmented reality apps and facial recognition! No prior coding knowledge is required.                    </div>
+                                    We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!
+                                </div>
                             </div>
 
 
@@ -1098,45 +909,40 @@ class Track extends React.Component {
 
                         {this.getSeasonHTML(0,"fall")}
                         {this.getProjectHTML(
-                            5,
-                            "Code a mobile game using",
-                            "Java and Android Studio",
+                            10,
+                            "Intro to the Raspberry",
+                            "Pi & Python",
                             "fall"
                         )}
                         {this.getProjectHTML(
-                            22,
-                            "Code an Alexa Skill",
-                            "Quiz Game",
+                            25,
+                            "Code a binary clock",
+                            "using RGB LEDs",
                             "fall"
                         )}
 
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "Code an AR Game using",
-                            "Java and Android Studio",
+                            "Code a camera to",
+                            "make animated GIFs",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            52,
+                            "Code the Pi for",
+                            "facial recognition(11-13 group only)",
                             "winter"
                         )}
 
                         {this.getSeasonHTML(66,"spring")}
                         {this.getProjectHTML(
-                            73,
-                            "Code a Cryptocurrency",
-                            "in Ethereum",
+                            70,
+                            "Code a voice assistant",
+                            "with custom skills",
                             "spring"
                         )}
-                        {this.getProjectHTML(
-                            80,
-                            "Code an Encryption Program'",
-                            "in Python",
-                            "spring"
-                        )}
-                        {this.getProjectHTML(
-                            90,
-                            "Code a Facial",
-                            "Recognition Program",
-                            "spring"
-                        )}
+
 
                     </div>
                 </div>
@@ -1149,14 +955,16 @@ class Track extends React.Component {
             <div className="new-track" id="minecraft-track">
                 <div className="track-photos minecraft-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>M</div>
-                        </div>
-                        <div className="under-track-title">Minecraft Coding & Game Design</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon"></div>
-                            <div>Mix on/off-screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>M</div>*/}
+                        {/*</div>*/}
+                        <div id="minecraft-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title">Minecraft Makerspace</div>
+                        {/*<div className="screen-time-section">*/}
+                            {/*<div className="screen-time-icon"></div>*/}
+                            {/*<div>Mix on/off-screen time</div>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="season-photo" id="minecraft-fall">
@@ -1169,25 +977,7 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="minecraft-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="minecraft-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
 
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -1195,82 +985,12 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
 
-                                    <div className="list-of-skills minecraft-color">
-                                        <div className="skill">3D Modeling</div>
-                                        <div className="skill">Javascript</div>
-                                        <div className="skill">LUA</div>
-                                        <div className="skill">Java</div>
-                                        <div className="skill">Digital Art</div>
-                                        <div className="skill">3D Printing</div>
-                                        <div className="skill">Electronics</div>
-                                        <div className="online-safety-tag">Online Safety</div>
-                                        <div className="age7to9">ages 7 - 9</div>
-
-                                    </div>
-
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                             <div>
-                                <div className="backup-title">Minecraft Coding & Game Design</div>
+                                <div className="backup-title">Minecraft Makerspace</div>
 
                                 <div className="track-label-description">
-                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding in LUA and Java, 3D modeling and printing, building electronic circuits, and creating logic-based puzzles using redstone in Minecraft! This track also starts off with an important segment to teach kids how to be safe and courteous when playing Minecraft with other kids online.
+                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding, 3D modeling and printing, electronic circuits, and logic-based puzzles. This track also is a great introduction to the Makerspace with projects utilizing the 3D printers, robots, and laser cutter!
                                 </div>
                             </div>
 
@@ -1289,13 +1009,7 @@ class Track extends React.Component {
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
                         {this.getSeasonHTML(0,"fall")}
-                        {this.getProjectHTML(
-                            5,
-                            "*Online Safety and",
-                            "Anti-Bullying",
-                            "fall",
-                            true
-                        )}
+
                         {this.getProjectHTML(
                             9,
                             "Level Design",
@@ -1318,28 +1032,34 @@ class Track extends React.Component {
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "Basic electronics",
-                            "and circuit design",
-                            "winter"
-                        )}
-                        {this.getProjectHTML(
-                            50,
-                            "Boolean logic, redstone",
+                            "Logic, redstone",
                             "circuits and puzzles",
                             "winter"
                         )}
                         {this.getProjectHTML(
+                            50,
+                            "LUA scripting a",
+                            "\"turtle\" in Minecraft",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
                             58,
-                            "LUA scripting",
-                            "in Minecraft",
+                            "Scripting a \"turtle\"",
+                            "robot in real life",
                             "winter"
                         )}
 
                         {this.getSeasonHTML(66,"spring")}
                         {this.getProjectHTML(
                             73,
-                            "Minecraft Modding",
-                            "using Java",
+                            "Minecraft Mod",
+                            "Art Design",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            90,
+                            "Create a Minecraft Mod",
+                            "of a custom block",
                             "spring"
                         )}
 
@@ -1355,14 +1075,18 @@ class Track extends React.Component {
             <div className="new-track break-page" id="hardware-track">
                 <div className="track-photos hardware-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>X</div>
-                        </div>
-                        <div className="under-track-title slightly-less-line-height">Hardware Hacking & Electrical Engineering</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon-little"></div>
-                            <div>Little screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>X</div>*/}
+                        {/*</div>*/}
+                        <div id="hardware-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title slightly-less-line-height">Engineering
+                            & Advanced
+                            Makerspace</div>
+                        {/*<div className="screen-time-section">*/}
+                            {/*<div className="screen-time-icon-little"></div>*/}
+                            {/*<div>Little screen time</div>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="season-photo" id="hardware-fall">
@@ -1375,25 +1099,7 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="hardware-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="hardware-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
 
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -1401,77 +1107,15 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
-                                    <div className="list-of-skills hardware-color">
-                                        <div className="skill">Electronics</div>
-                                        <div className="skill">Soldering</div>
-                                        <div className="skill">Engineering</div>
-                                        <div className="skill">PC Upgrading</div>
-                                        <div className="age12to14">ages 12 - 14</div>
 
-                                    </div>
-
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                             <div>
-                                <div className="backup-title">Hardware Hacking & Electrical Engineering</div>
+                                <div className="backup-title">Engineering
+                                    & Advanced
+                                    Makerspace</div>
 
                                 <div className="track-label-description">
-                                    This advanced track is designed to introduce our older kids to the art and science of electrical engineering. Each season offers a new perspective on designing and coding circuits, starting with our highly anticipated project to build, code, and solder an accessory that hacks an Xbox controller! No prior soldering knowledge is required.                    </div>
+                                    This advanced track is designed to introduce our older kids to the art and science of engineering and fabrication. Each season offers a new project that covers advanced Makerspace tools that are normally not accessible in the regular Makerspace!
+                                </div>
                             </div>
 
 
@@ -1490,43 +1134,57 @@ class Track extends React.Component {
 
                         {this.getSeasonHTML(0,"fall")}
                         {this.getProjectHTML(
-                            5,
-                            "Learn to solder and use",
-                            "a multi-meter",
-                            "fall"
-                        )}
-                        {this.getProjectHTML(
                             10,
-                            "Solder a micro",
-                            "game controller",
+                            "Advanced tools, safety,",
+                            "and materials",
                             "fall"
                         )}
                         {this.getProjectHTML(
-                            15,
-                            "Hack an Xbox controller",
-                            "to add mods and macros",
+                            20,
+                            "Build a phone stand",
+                            "out of wood & acrylic",
                             "fall"
                         )}
 
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "Hack a LASER Tag Game",
-                            "Into a LASER Tank Game",
+                            "CAD & Engineering",
+                            "Moving Parts",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            45,
+                            "Laser cutting",
+                            "gears",
+                            "winter"
+                        )}
+
+                        {this.getProjectHTML(
+                            55,
+                            "Build a crazy",
+                            "gumball machine",
                             "winter"
                         )}
 
                         {this.getSeasonHTML(66,"spring")}
+
                         {this.getProjectHTML(
-                            71,
-                            "Mod and Upgrade",
-                            "a Gaming PC",
+                            70,
+                            "Sculpt a custom",
+                            "flash drive design",
                             "spring"
                         )}
                         {this.getProjectHTML(
-                            76,
-                            "Build a giant multi",
-                            "player arcade game",
+                            75,
+                            "Mold & cast a custom",
+                            "resin flash drive",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            85,
+                            "Vacuuform custom" +
+                            "packaging",
                             "spring"
                         )}
 
@@ -1542,9 +1200,208 @@ class Track extends React.Component {
             <div className="new-track" id="video-track">
                 <div className="track-photos video-color">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>V</div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>V</div>*/}
+                        {/*</div>*/}
+                        <div id="video-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title">Video Production & YouTube</div>
+                        {/*<div className="screen-time-section">*/}
+                            {/*<div className="screen-time-icon"></div>*/}
+                            {/*<div>Mix on/off-screen time</div>*/}
+                        {/*</div>*/}
+                    </div>
+
+                    <div className="season-photo" id="video-fall">
+                        <div className="inner-photo">
+                            <div className="color-overlay">
+
+                            </div>
                         </div>
+                        <div className="photo-text">
+                            Fall Project
+                        </div>
+                    </div>
+
+
+                </div>
+                <div className="track-info">
+
+                    <div className="track-name">
+
+                        <div className="track-label">
+                            {/*<div className="tag-section">*/}
+                                {/*<div className="skills-section">*/}
+                                    {/*<div className="offered-at">Skills covered in this track</div>*/}
+                                    {/*<div className="list-of-skills video-color">*/}
+                                        {/*<div className="skill">Cinematography</div>*/}
+                                        {/*<div className="skill">YouTube</div>*/}
+                                        {/*<div className="skill">Video Editing</div>*/}
+                                        {/*<div className="skill">Stop-Motion</div>*/}
+                                        {/*<div className="mini-course">Online Safety</div>*/}
+                                        {/*<div className="age7to9">ages 7 - 9</div>*/}
+
+                                    {/*</div>*/}
+
+                                {/*</div>*/}
+                                {/*<div className="options-section">*/}
+                                    {/*<div className="location">*/}
+                                        {/*<div className="offered-at">Offered in Brooklyn</div>*/}
+                                        {/*<div className="ages-tags">*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age7to9 age-title">ages 7 - 9</div>*/}
+                                                {/*<div className="age-group">*/}
+
+                                                    {/*<div className="">Tue</div>*/}
+                                                    {/*<div className="">Wed</div>*/}
+                                                    {/*<div className="">Fri</div>*/}
+
+                                                {/*</div>*/}
+
+                                            {/*</div>*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age9to11 age-title">ages 9 - 11</div>*/}
+                                                {/*<div className="age-group">*/}
+                                                    {/*<div className="">Mon</div>*/}
+                                                    {/*<div className="">Thu</div>*/}
+                                                {/*</div>*/}
+
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="location">*/}
+                                        {/*<div className="offered-at">Offered in Tribeca</div>*/}
+                                        {/*<div className="ages-tags">*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age7to9 age-title">ages 7 - 9</div>*/}
+                                                {/*<div className="age-group">*/}
+
+                                                    {/*<div className="">Tue</div>*/}
+                                                    {/*<div className="">Wed</div>*/}
+                                                    {/*<div className="">Fri</div>*/}
+
+                                                {/*</div>*/}
+
+                                            {/*</div>*/}
+                                            {/*<div className="age">*/}
+                                                {/*<div className="age9to11 age-title">ages 9 - 11</div>*/}
+                                                {/*<div className="age-group">*/}
+                                                    {/*<div className="">Mon</div>*/}
+                                                    {/*<div className="">Thu</div>*/}
+                                                {/*</div>*/}
+
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+
+                                {/*</div>*/}
+
+                            {/*</div>*/}
+                            <div>
+                                <div className="backup-title">Video Production & YouTube</div>
+
+                                <div className="track-label-description">
+                                    This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div className="track-photo video-fall">
+
+                    </div>
+                    <div className="track-details">
+                    </div>
+
+                </div>
+                {this.getButtonsHTML("video")}
+                <div className="track">
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
+
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "Make a Let's Play Video",
+                            "for YouTube",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            20,
+                            "Branding and",
+                            "Graphic Design",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            27,
+                            "Video",
+                            "Editing",
+                            "fall"
+                        )}
+
+                        {this.getSeasonHTML(33,"winter")}
+                        {this.getProjectHTML(
+                            39,
+                            "Motion Graphics",
+                            "for Videos",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            46,
+                            "Cinematography and",
+                            "Camera Skills",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            58,
+                            "Sound Effects",
+                            "and Music Creation",
+                            "winter"
+                        )}
+
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            72,
+                            "Draw with Disney's",
+                            "Principles of Animation",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Create Whiteboard and",
+                            "Stop-Motion Animations",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            88,
+                            "Add Audio to Videos",
+                            "with Voice Acting",
+                            "spring"
+                        )}
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    renderPC() {
+        return (
+            <div className="new-track" id="video-track">
+                <div className="track-photos video-color">
+                    <div className="left-container">
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>V</div>*/}
+                        {/*</div>*/}
+                        <div id="pc-subway" className="subway-icon-image"></div>
+
                         <div className="under-track-title">Video Production & YouTube</div>
                         <div className="screen-time-section">
                             <div className="screen-time-icon"></div>
@@ -1750,22 +1607,21 @@ class Track extends React.Component {
         )
     }
 
-    renderClimbing() {
+    renderDeck() {
         return (
-            <div className="new-track" id="climbing-track">
-                <div className="track-photos climbing-color">
+            <div className="new-track" id="deck-track">
+                <div className="track-photos deck">
                     <div className="left-container">
-                        <div className="subway-icon color">
-                            <div>K</div>
-                        </div>
-                        <div className="under-track-title">Rock Climbing & Virtual Reality Video</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon"></div>
-                            <div>Mix on/off-screen time</div>
-                        </div>
+                        {/*<div className="subway-icon color">*/}
+                            {/*<div>D</div>*/}
+                        {/*</div>*/}
+                        <div id="deck-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title">Deck Design: MakerSKATE</div>
+
                     </div>
 
-                    <div className="season-photo" id="blank-image">
+                    <div className="season-photo" id="deck-fall">
                         <div className="inner-photo">
                             <div className="color-overlay">
 
@@ -1775,25 +1631,7 @@ class Track extends React.Component {
                             Fall Project
                         </div>
                     </div>
-                    <div className="season-photo" id="climbing-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="blank-image">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
 
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
-                    </div>
 
                 </div>
                 <div className="track-info">
@@ -1801,93 +1639,104 @@ class Track extends React.Component {
                     <div className="track-name">
 
                         <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
-                                    <div className="list-of-skills climbing-color">
-                                        <div className="skill">Rock Climbing</div>
-                                        <div className="skill">Physical Fitness</div>
-                                        <div className="skill">VR Techniques</div>
-                                        <div className="skill">VR Editing</div>
-                                        <div className="skill">VR Special Effects</div>
-                                        <div className="skill">Premier Pro</div>
-                                        <div className="age9to11">ages 9 - 11</div>
 
-                                    </div>
-
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered at Brooklyn Boulders</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
                             <div>
-                                <div className="backup-title"> -!- </div>
+                                <div className="backup-title">Deck Design: MakerSKATE</div>
 
                                 <div className="track-label-description">
-                                    Spend the winter rock climbing indoors at Brooklyn Boulders and create a VR video to show off your skills! This special partnership season combines Brooklyn Boulders after-school climbing program with a Pixel Academy video production project to offer a one-of-a-kind experience! Taking place each afternoon at Brooklyn Boulders in Gowanus this is an extended two-hour program 4pm to 6pm to make time for climbing and video editing! This program is great for active kids that also have an interest in technology. By the end of the season, kids will create their own VR video of their climbing that can be shared on YouTube and viewed with a Google Cardboard. NO SCHOOL WALKOVERS.                               </div>
+                                    This limited time track gives you a chance to design and build your own tricked-out skateboard deck! Starting from a blank deck, you will use woodworking, laser cutting, and electronics to create your own skateboard deck that features fiber optic lights, motion sensors, a digital display, and custom wheels! PLUS, you’ll get time to practice skating at nearby skate ramps and parks!
+                                    <br></br>
+                                    Due to the advanced topics and limited space, an application is required to take this topic. This is a full-year track with all materials included.
+                                </div>
                             </div>
 
 
                         </div>
                     </div>
-                    <div className="track-photo climbing-fall">
+                    <div className="track-photo video-fall">
 
                     </div>
                     <div className="track-details">
                     </div>
 
                 </div>
-                {this.getButtonsHTML("climbing")}
+                {this.getButtonsHTML("deck")}
                 <div className="track">
                     <div className={"track-line color" + " " + this.state.highlightTrack}>
 
                         {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            5,
+                            "*Online Safety and",
+                            "Anti-Bullying",
+                            "fall",
+                            true
+                        )}
+                        {this.getProjectHTML(
+                            9,
+                            "Make a Let's Play Video",
+                            "for YouTube",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            20,
+                            "Branding and",
+                            "Graphic Design",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            27,
+                            "Video",
+                            "Editing",
+                            "fall"
+                        )}
 
                         {this.getSeasonHTML(33,"winter")}
                         {this.getProjectHTML(
                             39,
-                            "VR Video Concepts and",
-                            "Story Boarding",
+                            "Motion Graphics",
+                            "for Videos",
                             "winter"
                         )}
                         {this.getProjectHTML(
                             46,
                             "Cinematography and",
-                            "VR Camera Skills",
+                            "Camera Skills",
                             "winter"
                         )}
                         {this.getProjectHTML(
                             58,
-                            "VR Editing using",
-                            "Premier Pro",
+                            "Sound Effects",
+                            "and Music Creation",
                             "winter"
                         )}
 
                         {this.getSeasonHTML(66,"spring")}
-
+                        {this.getProjectHTML(
+                            72,
+                            "Draw with Disney's",
+                            "Principles of Animation",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Create Whiteboard and",
+                            "Stop-Motion Animations",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            88,
+                            "Add Audio to Videos",
+                            "with Voice Acting",
+                            "spring"
+                        )}
 
                     </div>
                 </div>
-                <div className="spacer-me"></div>
             </div>
         )
     }
+
 
 }
 

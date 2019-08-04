@@ -1,12 +1,16 @@
 
 body {
-    --minecraft-color: rgb(87, 178, 255);
-    --roblox-color: rgb(44, 206, 23);
-    --fortnite-color: rgb(0, 79, 180);
-    --coding-color: rgb(38, 180, 20);
-    --hardware-color: rgb(124, 124, 124);
-    --video-color: rgb(255, 154, 200);
+    --minecraft-color: rgb(241, 135, 33);
+    --roblox-color: rgb(28, 44, 88);
+    --fortnite-color: rgb(47, 78, 141);
+    --coding-color: rgb(241, 182, 28);
+    --hardware-color: rgb(71, 71, 72);
+    --video-color: rgb(190, 42, 38);
     --climbing-color: rgb(81, 81, 81);
+    --deck-color: rgb(35, 31, 32);
+
+
+
 
     --project-stop-color: white;
     --background-color: black;
@@ -100,14 +104,14 @@ body {
 #video-track .color-text {
     color:var(--video-color);
 }
-#climbing-track .color-text {
-    color:var(--climbing-color);
+#deck-track .color-text {
+    color:var(--deck-color);
 }
 
-#minecraft-track .color {
-    background-color: var(--minecraft-color);
-    --season-stop-color: var(--minecraft-color);
-    --stop-outline-color: var(--minecraft-color);
+#deck-track .color {
+    background-color: var(--deck-color);
+    --season-stop-color: var(--deck-color);
+    --stop-outline-color: var(--deck-color);
     color:white;
 
 }
@@ -202,6 +206,13 @@ body {
     color:white;
 
 }
+.deck-track.color {
+    background-color: var(--deck-color);
+    --season-stop-color: var(--deck-color);
+    --stop-outline-color: var(--deck-color);
+    color:white;
+
+}
 
 
 #roblox-track {
@@ -274,8 +285,8 @@ body {
     /*font-weight: normal;*/
     line-height: 140%;
     /*margin-top:15px;*/
-    padding-bottom:5px;
-    padding-top: 5px;
+    padding-bottom:15px;
+    padding-top: 15px;
     font-weight: 100;
     text-align: justify;
 
@@ -641,74 +652,117 @@ div .age12to14 {
 
 /*all images go here*/
 
+.subway-icon-image {
+    height:120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#roblox-subway {
+    background-image: url("img/2019/icons_icon_Roblox.png");
+}
+#fortnite-subway {
+    background-image: url("img/2019/icons_icon_Fortnite.png");
+}
+#video-subway {
+    background-image: url("img/2019/icons_icon_Video.png");
+}
+#coding-subway {
+    background-image: url("img/2019/icons_icon_Coding.png");
+}
+#deck-subway {
+    background-image: url("img/2019/icons_icon_deck.png");
+}
+#pc-subway {
+    background-image: url("img/2019/icons_icon_Coding.png");
+}
+#minecraft-subway {
+    background-image: url("img/2019/icons_icon_Minecraft.png");
+}
+
+#hardware-subway {
+    background-image: url("img/2019/icons_icon_X.png");
+}
+
 #roblox-fall .inner-photo {
-    background-image: url("img/roblox-fall-resized.png");
+    /*background-image: url("img/roblox-fall-resized.png");*/
+    background-image: url("img/2019/track_roblox.png");
+
 }
-#roblox-winter .inner-photo {
-    background-image: url("img/roblox-winter-resized.png");
-}
-#roblox-spring .inner-photo {
-    background-image: url("img/roblox-spring-resized.png");
-}
+/*#roblox-winter .inner-photo {*/
+    /*background-image: url("img/roblox-winter-resized.png");*/
+/*}*/
+/*#roblox-spring .inner-photo {*/
+    /*background-image: url("img/roblox-spring-resized.png");*/
+/*}*/
 
 #hardware-fall .inner-photo {
-    background-image: url("img/hardware-fall-resized.png");
+    background-image: url("img/2019/track_engineering.png");
 }
-#hardware-winter .inner-photo {
-    background-image: url("img/hardware-winter-resized.png");
-}
-#hardware-spring .inner-photo {
-    background-image: url("img/hardware-spring-resized.png");
-}
+/*#hardware-winter .inner-photo {*/
+    /*background-image: url("img/hardware-winter-resized.png");*/
+/*}*/
+/*#hardware-spring .inner-photo {*/
+    /*background-image: url("img/hardware-spring-resized.png");*/
+/*}*/
 
 #minecraft-fall .inner-photo {
-    background-image: url("img/minecraft-fall-resized.png");
+    background-image: url("img/2019/track_minecraft.png");
 }
-#minecraft-winter .inner-photo {
-    background-image: url("img/minecraft-winter-resized.png");
-}
-#minecraft-spring .inner-photo {
-    background-image: url("img/minecraft-spring-resized.png");
-}
+/*#minecraft-winter .inner-photo {*/
+    /*background-image: url("img/minecraft-winter-resized.png");*/
+/*}*/
+/*#minecraft-spring .inner-photo {*/
+    /*background-image: url("img/minecraft-spring-resized.png");*/
+/*}*/
 
 #fortnite-fall .inner-photo {
-    background-image: url("img/fortnite-fall-resized.png");
+    background-image: url("img/2019/track_fortnite.png");
 }
-#fortnite-winter .inner-photo {
-    background-image: url("img/fortnite-winter-resized.png");
-}
-#fortnite-spring .inner-photo {
-    background-image: url("img/fortnite-spring-resized.png");
-}
+/*#fortnite-winter .inner-photo {*/
+    /*background-image: url("img/fortnite-winter-resized.png");*/
+/*}*/
+/*#fortnite-spring .inner-photo {*/
+    /*background-image: url("img/fortnite-spring-resized.png");*/
+/*}*/
 
 #coding-fall .inner-photo {
-    background-image: url("img/coding-fall-resized.png");
+    background-image: url("img/2019/track_coding.png");
 }
-#coding-winter .inner-photo {
-    background-image: url("img/coding-winter-resized.png");
-}
-#coding-spring .inner-photo {
-    background-image: url("img/coding-spring-resized.png");
-}
+/*#coding-winter .inner-photo {*/
+    /*background-image: url("img/coding-winter-resized.png");*/
+/*}*/
+/*#coding-spring .inner-photo {*/
+    /*background-image: url("img/coding-spring-resized.png");*/
+/*}*/
 
 #video-fall .inner-photo {
-    background-image: url("img/video-fall-resized.png");
+    background-image: url("img/2019/track_video.png");
 }
-#video-winter .inner-photo {
-    background-image: url("img/video-winter-resized.png");
-}
-#video-spring .inner-photo {
-    background-image: url("img/video-spring-resized.png");
+/*#video-winter .inner-photo {*/
+    /*background-image: url("img/video-winter-resized.png");*/
+/*}*/
+/*#video-spring .inner-photo {*/
+    /*background-image: url("img/video-spring-resized.png");*/
+/*}*/
+
+/*#climbing-fall .inner-photo {*/
+    /*background-image: none;*/
+/*}*/
+/*#climbing-winter .inner-photo {*/
+    /*background-image: url("img/climbing-winter-resized.png");*/
+/*}*/
+/*#climbing-spring .inner-photo {*/
+    /*background-image: none;*/
+/*}*/
+
+#deck-fall .inner-photo {
+    background-image: url("img/2019/track_skate.png");
 }
 
-#climbing-fall .inner-photo {
-    background-image: none;
-}
-#climbing-winter .inner-photo {
-    background-image: url("img/climbing-winter-resized.png");
-}
-#climbing-spring .inner-photo {
-    background-image: none;
+#pc-fall .inner-photo {
+    background-image: url("img/2019/track_computer.png");
 }
 
 @media screen and (max-width: 500px) {
@@ -749,8 +803,10 @@ div .age12to14 {
 }
 
 .under-track-title {
+    font-family: ff-prater-serif-web, serif;
+    font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 34px;
     text-align: center;
     width:100%;
     min-width: 200px;
@@ -1676,6 +1732,16 @@ div .age12to14 {
 #video-track .highlight-track-spring {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--video-color) 67%);
 }
+
+#deck-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--deck-color), var(--deck-color) 33%, var(--faded-color) 34%);
+}
+#deck-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--deck-color) 34%, var(--deck-color) 66%,var(--faded-color) 67%);
+}
+#deck-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--deck-color) 67%);
+}
 .highlight-track-full {
     filter: brightness(1.1);
 }
@@ -1863,6 +1929,7 @@ div:not(.track-line) {
     /*height:100%;*/
     /*width:55%;*/
     /*padding-left:10px;*/
+    line-height: 25px;
 }
 .button-right-container div {
     margin:auto;
