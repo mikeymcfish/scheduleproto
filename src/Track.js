@@ -409,6 +409,7 @@ class Track extends React.Component {
                         <div></div>
 
                     :
+                        this.props.topic == "pc" ? <div></div> :
 
                     <div
                         className={
@@ -458,7 +459,6 @@ class Track extends React.Component {
                                 {this.getFallText()}
                             </Button>
                             <div className="add-to-text">{this.props.fallSpots} spots left</div>
-
                         </div>
                         :
 
@@ -671,7 +671,7 @@ class Track extends React.Component {
 
                                 <div className="backup-title">Roblox Game Design</div>
                                 <div className="track-label-description">
-                                    This track takes kids’ love (and obsession) with Roblox and uses it to teach the fundamentals of game design, digital art, and animation. Over the course of three seasons, participants will create different games in Roblox Studio, and along the way learn about 3D modeling and animation!                                </div>
+                                    This track takes kids’ love (and obsession) with Roblox and uses it to teach the <span className="bolded">fundamentals of game design, digital art, and animation</span>. Over the course of three seasons, participants will create different games in Roblox Studio, and along the way learn about 3D modeling and animation!                                </div>
 
                             </div>
 
@@ -784,7 +784,7 @@ class Track extends React.Component {
                                 <div className="backup-title">Fortnite Gaming & Game Design</div>
 
                                 <div className="track-label-description">
-                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to learn professional elements of game design! The season’s track combines a mix of playing Fornite with friends and learning how to design, 3D model and build their own games using the elements of Fortnite! Keep in mind that unlike our other tracks, this track is about 50% playing Fortnite.
+                                    Is Fortnite all your kid talks about? We designed this track to use their love of Fortnite to learn professional elements of game design! The season’s track combines a <span className="bolded">mix of playing Fornite with friends and learning how to design, 3D model and build their own games using the elements of Fortnite</span>! Keep in mind that unlike our other tracks, <span className="bolded">this track is about 50% playing Fortnite</span>.
                                 </div>
                             </div>
 
@@ -889,7 +889,7 @@ class Track extends React.Component {
                                     & Python Coding</div>
 
                                 <div className="track-label-description">
-                                    We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!
+                                    We designed this track for kids that are passionate about learning to code! These seasons are all about using the new <span className="bolded">Raspberry Pi and coding in Python</span> to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!
                                 </div>
                             </div>
 
@@ -990,7 +990,7 @@ class Track extends React.Component {
                                 <div className="backup-title">Minecraft Makerspace</div>
 
                                 <div className="track-label-description">
-                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an introduction to coding, 3D modeling and printing, electronic circuits, and logic-based puzzles. This track also is a great introduction to the Makerspace with projects utilizing the 3D printers, robots, and laser cutter!
+                                    Minecraft has been one of our staple tools in introducing kids to technology. This track is the culmination of our years of experience and curriculum perfection around a variety of Minecraft topics. The seasons in this track cover an <span className="bolded">introduction to coding, 3D modeling and printing, electronic circuits, and logic-based puzzles</span>. This track also is a great introduction to the Makerspace with projects utilizing the <span className="bolded">3D printers, robots, and laser cutter</span>!
                                 </div>
                             </div>
 
@@ -1114,7 +1114,7 @@ class Track extends React.Component {
                                     Makerspace</div>
 
                                 <div className="track-label-description">
-                                    This advanced track is designed to introduce our older kids to the art and science of engineering and fabrication. Each season offers a new project that covers advanced Makerspace tools that are normally not accessible in the regular Makerspace!
+                                    This advanced track is designed to introduce our older kids to <span className="bolded">the art and science of engineering and fabrication</span>. Each season offers a new project that covers advanced Makerspace tools that are normally not accessible in the regular Makerspace!
                                 </div>
                             </div>
 
@@ -1301,7 +1301,7 @@ class Track extends React.Component {
                                 <div className="backup-title">Video Production & YouTube</div>
 
                                 <div className="track-label-description">
-                                    This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.
+                                    This track focuses exclusively on the digital arts with each season covering new <span className="bolded">elements and techniques for creating videos</span>. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to <span className="bolded">record and edit live video, create motion graphics, effects, and music, and create stop-motion animations</span>!
                                 </div>
                             </div>
 
@@ -1394,215 +1394,148 @@ class Track extends React.Component {
 
     renderPC() {
         return (
-            <div className="new-track" id="video-track">
-                <div className="track-photos video-color">
+            <div className="new-track" id="pc-track">
+                <div className="track-photos pc-color">
                     <div className="left-container">
                         {/*<div className="subway-icon color">*/}
                             {/*<div>V</div>*/}
                         {/*</div>*/}
                         <div id="pc-subway" className="subway-icon-image"></div>
 
-                        <div className="under-track-title">Video Production & YouTube</div>
-                        <div className="screen-time-section">
-                            <div className="screen-time-icon"></div>
-                            <div>Mix on/off-screen time</div>
-                        </div>
+                        <div className="under-track-title smaller-title">Build a Gaming Computer</div>
+
                     </div>
 
-                    <div className="season-photo" id="video-fall">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Fall Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="video-winter">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Winter Project
-                        </div>
-                    </div>
-                    <div className="season-photo" id="video-spring">
-                        <div className="inner-photo">
-                            <div className="color-overlay">
-
-                            </div>
-                        </div>
-                        <div className="photo-text">
-                            Spring Project
-                        </div>
+                    <div className="pc-track-label-description">
+                        This special weekends program will teach kids how to <span className="bolded"> build their very own gaming computer from scratch</span>! They will learn about the different parts, how they work, and how they are assembled. At the end, they’ll be able to <span className="bolded">take home their brand new computer</span>! Each season, we’ll offer a computer at a different price-point. <span className="bolded">Price includes the cost of all the classes.  </span>
                     </div>
 
                 </div>
                 <div className="track-info">
 
-                    <div className="track-name">
+                    {/*<div className="track-name">*/}
 
-                        <div className="track-label">
-                            <div className="tag-section">
-                                <div className="skills-section">
-                                    <div className="offered-at">Skills covered in this track</div>
-                                    <div className="list-of-skills video-color">
-                                        <div className="skill">Cinematography</div>
-                                        <div className="skill">YouTube</div>
-                                        <div className="skill">Video Editing</div>
-                                        <div className="skill">Stop-Motion</div>
-                                        <div className="mini-course">Online Safety</div>
-                                        <div className="age7to9">ages 7 - 9</div>
+                        {/*<div className="track-label">*/}
 
-                                    </div>
+                            {/*<div>*/}
+                                {/*<div className="backup-title">Build a Gaming Computer</div>*/}
 
-                                </div>
-                                <div className="options-section">
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Brooklyn</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="location">
-                                        <div className="offered-at">Offered in Tribeca</div>
-                                        <div className="ages-tags">
-                                            <div className="age">
-                                                <div className="age7to9 age-title">ages 7 - 9</div>
-                                                <div className="age-group">
-
-                                                    <div className="">Tue</div>
-                                                    <div className="">Wed</div>
-                                                    <div className="">Fri</div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className="age">
-                                                <div className="age9to11 age-title">ages 9 - 11</div>
-                                                <div className="age-group">
-                                                    <div className="">Mon</div>
-                                                    <div className="">Thu</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div>
-                                <div className="backup-title">Video Production & YouTube</div>
-
-                                <div className="track-label-description">
-                                    This track focuses exclusively on the digital arts with each season covering new elements and techniques for creating videos. Instead of just watching YouTube videos, kids in this track will learn how to make their own! Kids will learn how to record and edit live video, create motion graphics, effects, and music, and create stop-motion animations! This track also starts off with an important segment to teach kids how to be safe and courteous when online.
-                                </div>
-                            </div>
+                                {/*<div className="track-label-description">*/}
+                                    {/*This special weekends program will teach kids how to <span className="bolded"> build their very own gaming computer from scratch</span>! They will learn about the different parts, how they work, and how they are assembled. At the end, they’ll be able to <span className="bolded">take home their brand new computer</span>! Each season, we’ll offer a computer at a different price-point. <span className="bolded">Price includes the cost of all the classes.  </span>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
 
 
-                        </div>
-                    </div>
-                    <div className="track-photo video-fall">
+                        {/*</div>*/}
+                    {/*</div>*/}
+                    <div className="track-photo pc-fall">
 
                     </div>
                     <div className="track-details">
                     </div>
 
                 </div>
-                {this.getButtonsHTML("video")}
-                <div className="track">
-                    <div className={"track-line color" + " " + this.state.highlightTrack}>
+                <div id="PC-table">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td id="pc-picture-fall"></td>
+                            <td id="pc-picture-winter"></td>
+                            <td id="pc-picture-spring"></td>
 
-                        {this.getSeasonHTML(0,"fall")}
-                        {this.getProjectHTML(
-                            5,
-                            "*Online Safety and",
-                            "Anti-Bullying",
-                            "fall",
-                            true
-                        )}
-                        {this.getProjectHTML(
-                            9,
-                            "Make a Let's Play Video",
-                            "for YouTube",
-                            "fall"
-                        )}
-                        {this.getProjectHTML(
-                            20,
-                            "Branding and",
-                            "Graphic Design",
-                            "fall"
-                        )}
-                        {this.getProjectHTML(
-                            27,
-                            "Video",
-                            "Editing",
-                            "fall"
-                        )}
+                        </tr>
+                        <tr>
+                            <td>processor</td>
+                            <td>intel i3</td>
+                            <td>intel i7 overclocked</td>
+                            <td>intel i5</td>
+                        </tr>
+                        <tr>
+                            <td>cooling</td>
+                            <td><span className="faded-text">standard fan</span></td>
+                            <td>Water cooled CPU</td>
+                            <td><span className="faded-text">standard fan</span></td>
+                        </tr>
+                        <tr>
+                            <td>storage</td>
+                            <td>1000 GB hard drive
+                            </td>
+                            <td>2000 GB hard drive
+                            </td>
+                            <td>1000 GB hard drive
+                            </td>
 
-                        {this.getSeasonHTML(33,"winter")}
-                        {this.getProjectHTML(
-                            39,
-                            "Motion Graphics",
-                            "for Videos",
-                            "winter"
-                        )}
-                        {this.getProjectHTML(
-                            46,
-                            "Cinematography and",
-                            "Camera Skills",
-                            "winter"
-                        )}
-                        {this.getProjectHTML(
-                            58,
-                            "Sound Effects",
-                            "and Music Creation",
-                            "winter"
-                        )}
+                        </tr>
+                        <tr>
+                            <td>M.2</td>
+                            <td><span className="faded-text">No solid state drive
+                            </span></td>
+                            <td>1000 GB M.2 SSD
+                            </td>
+                            <td>1000 GB M.2 SSD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>16 GB RAM
+                            </td>
+                            <td>16 GB RAM
+                            </td>
+                            <td>16 GB RAM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>graphics</td>
+                            <td>GeForce GTX 1050 2GB
+                            </td>
+                            <td>GeForce RTX 2070 8GB
+                            </td>
+                            <td>GeForce GTX 1660 6GB
+                            </td>
 
-                        {this.getSeasonHTML(66,"spring")}
-                        {this.getProjectHTML(
-                            72,
-                            "Draw with Disney's",
-                            "Principles of Animation",
-                            "spring"
-                        )}
-                        {this.getProjectHTML(
-                            80,
-                            "Create Whiteboard and",
-                            "Stop-Motion Animations",
-                            "spring"
-                        )}
-                        {this.getProjectHTML(
-                            88,
-                            "Add Audio to Videos",
-                            "with Voice Acting",
-                            "spring"
-                        )}
+                        </tr>
+                        <tr>
+                            <td>effects</td>
+                            <td><span className="faded-text">none</span></td>
+                            <td>Internal Case LEDs</td>
+                            <td>Internal Case LEDs</td>
+                        </tr>
+                    </table>
 
-                    </div>
                 </div>
+                {this.getButtonsHTML("pc")}
+                <div className="track">
+                    {/*<div className={"track-line color" + " " + this.state.highlightTrack}>*/}
+
+                        {/*{this.getSeasonHTML(0,"fall")}*/}
+
+                        {/*{this.getProjectHTML(*/}
+                            {/*9,*/}
+                            {/*"Budget Gaming",*/}
+                            {/*"i3 CPU, 2GB GPU",*/}
+                            {/*"fall"*/}
+                        {/*)}*/}
+
+                        {/*{this.getSeasonHTML(33,"winter")}*/}
+                        {/*{this.getProjectHTML(*/}
+                            {/*39,*/}
+                            {/*"Epic Gaming",*/}
+                            {/*"i9 overclocked, 8GB GPU",*/}
+                            {/*"winter"*/}
+                        {/*)}*/}
+
+                        {/*{this.getSeasonHTML(66,"spring")}*/}
+                        {/*{this.getProjectHTML(*/}
+                            {/*72,*/}
+                            {/*"Power Gaming",*/}
+                            {/*"i5 CPU, 6GB GPU",*/}
+                            {/*"spring"*/}
+                        {/*)}*/}
+
+                    {/*</div>*/}
+                </div>
+
+
             </div>
         )
     }
@@ -1644,10 +1577,13 @@ class Track extends React.Component {
                                 <div className="backup-title">Deck Design: MakerSKATE</div>
 
                                 <div className="track-label-description">
-                                    This limited time track gives you a chance to design and build your own tricked-out skateboard deck! Starting from a blank deck, you will use woodworking, laser cutting, and electronics to create your own skateboard deck that features fiber optic lights, motion sensors, a digital display, and custom wheels! PLUS, you’ll get time to practice skating at nearby skate ramps and parks!
+                                    <div>This <span className="bolded">limited time</span> track gives you a chance to <span className="bolded">design and build your own tricked-out skateboard deck!</span> Starting from a blank deck, you will use woodworking, laser cutting, and electronics to create your own skateboard deck that features fiber optic lights, motion sensors, a digital display, and custom wheels! PLUS, you’ll get time to practice skating at nearby skate ramps and parks!
+                                    </div>
                                     <br></br>
-                                    Due to the advanced topics and limited space, an application is required to take this topic. This is a full-year track with all materials included.
-                                </div>
+                                    <div className="description-smaller">
+                                        Due to the advanced topics and limited space, <a href="https://hq.pixelacademy.org/qr/skate">an application is required to take this topic (click here to apply)</a>. This is a full-year track with all materials included.
+                                    </div>
+                                    </div>
                             </div>
 
 

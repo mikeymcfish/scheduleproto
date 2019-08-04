@@ -8,6 +8,7 @@ body {
     --video-color: rgb(190, 42, 38);
     --climbing-color: rgb(81, 81, 81);
     --deck-color: rgb(35, 31, 32);
+    --pc-color: rgb(35, 31, 32);
 
 
 
@@ -107,6 +108,9 @@ body {
 #deck-track .color-text {
     color:var(--deck-color);
 }
+#pc-track .color-text {
+    color:var(--pc-color);
+}
 
 #deck-track {
     margin-bottom: 200px;
@@ -119,7 +123,13 @@ body {
     color:white;
 
 }
+#pc-track .color {
+    background-color: var(--pc-color);
+    --season-stop-color: var(--pc-color);
+    --stop-outline-color: var(--pc-color);
+    color:white;
 
+}
 #minecraft-track .color {
     background-color: var(--minecraft-color);
     --season-stop-color: var(--minecraft-color);
@@ -217,6 +227,13 @@ body {
     color:white;
 
 }
+.pc-track.color {
+    background-color: var(--pc-color);
+    --season-stop-color: var(--pc-color);
+    --stop-outline-color: var(--pc-color);
+    color:white;
+
+}
 
 
 #roblox-track {
@@ -291,6 +308,19 @@ body {
     /*margin-top:15px;*/
     padding-bottom:15px;
     padding-top: 15px;
+    font-weight: 100;
+    text-align: justify;
+
+}
+
+.pc-track-label-description {
+    /*font-size:65%;*/
+    /*font-weight: normal;*/
+    line-height: 140%;
+    /*margin-top:15px;*/
+    padding-bottom:15px;
+    padding-top: 15px;
+    padding-left: 30px;
     font-weight: 100;
     text-align: justify;
 
@@ -679,7 +709,8 @@ div .age12to14 {
     background-image: url("img/2019/icons_icon_deck.png");
 }
 #pc-subway {
-    background-image: url("img/2019/icons_icon_Coding.png");
+    background-image: url("img/2019/icons_icon_pc.png");
+    height:110px;
 }
 #minecraft-subway {
     background-image: url("img/2019/icons_icon_Minecraft.png");
@@ -768,6 +799,7 @@ div .age12to14 {
 #pc-fall .inner-photo {
     background-image: url("img/2019/track_computer.png");
 }
+
 
 @media screen and (max-width: 500px) {
 
@@ -1354,7 +1386,7 @@ div .age12to14 {
     padding-bottom:5px;
 }
 .bolded {
-    font-weight: 500;
+    font-weight: 800;
     color: #333;
 }
 /*START DEMO TRACK VERTICAL CSS*/
@@ -1746,6 +1778,17 @@ div .age12to14 {
 #deck-track .highlight-track-spring {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--deck-color) 67%);
 }
+
+#pc-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--pc-color), var(--pc-color) 33%, var(--faded-color) 34%);
+}
+#pc-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--pc-color) 34%, var(--pc-color) 66%,var(--faded-color) 67%);
+}
+#pc-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--pc-color) 67%);
+}
+
 .highlight-track-full {
     filter: brightness(1.1);
 }
@@ -2155,4 +2198,109 @@ div:not(.track-line) {
 .spacer-me {
     height:30px;
     margin-bottom: 100px;
+}
+.description-smaller {
+    font-size:95%;
+    font-style: italic;
+}
+
+
+
+/*#PC-table .table-row {*/
+    /*align-content: space-between;*/
+    /*justify-content: space-between;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*flex-direction: row;*/
+    /*background-color: blue;*/
+    /*width:100%;*/
+/*}*/
+
+/*#PC-table .table-row div {*/
+    /*padding-left:50px;*/
+    /*padding-right:50px;*/
+
+/*}*/
+/*#PC-table .table-row div:first-child {*/
+    /*width:50px;*/
+    /*background-color: green;*/
+    /*align-content: flex-start;*/
+    /*text-align: start;*/
+    /*!*align-self: flex-start;*!*/
+/*}*/
+
+#PC-table {
+    width:95%;
+    margin-top:-50px;
+    /*margin-bottom: 150px;*/
+    font-weight: 400;
+    font-size:95%;
+    margin-left:-15px;
+}
+
+#PC-table tr {
+    /*background-color: blue;*/
+    /*height:20px;*/
+    width:100%;
+
+}
+
+#PC-table td {
+    /*background-color: red;*/
+    padding:10px;
+    width:30%;
+    text-align: center;
+    /*border: 1px solid #afafaf;*/
+    /*background-color: red;*/
+
+}
+
+#PC-table td:first-child {
+    /*background-color: green;*/
+    width:10%;
+    text-align: right;
+    font-weight: 800;
+    border: none;
+
+}
+#pc-picture {
+    background-image: url("img/2019/track_computer.png");
+    width:100%;
+    height:270px;
+    background-position: -200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top:-100px;
+}
+#pc-picture-fall {
+    background-image: url("img/2019/track_computer.png");
+    width:100%;
+    height:270px;
+    background-position: -20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*margin-top:-100px;*/
+}
+#pc-picture-winter {
+    background-image: url("img/2019/track_computer.png");
+    /*width:30%;*/
+    height:270px;
+    background-position: -550px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#pc-picture-spring {
+    background-image: url("img/2019/track_computer.png");
+    /*width:30%;*/
+    height:270px;
+    background-position: -280px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.smaller-title {
+    font-size: 180%;
+    margin-top:0px;
+}
+.faded-text {
+    opacity: .5;
 }

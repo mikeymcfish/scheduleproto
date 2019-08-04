@@ -1110,7 +1110,19 @@ class App extends Component {
                 }
             }
             console.log("FILTER-X- changing age to " + $(target).attr("data-age-group"));
-            this.setTracksToView($(target).attr("data-age-group"));
+
+            if ($(target).attr("data-age-group")=="age 13 to 15") {
+                this.setState(
+                    {
+                        currentDayOfWeek: "Tuesdays",
+                        filterDayOfWeek: "Tuesdays",
+                        currentAgeGroup: "age 13 to 15",
+                        currentLocation: "Brooklyn"
+                    });
+                this.setTracksToView("age 13 to 15","Tuesdays","Brooklyn");
+
+            } else
+                this.setTracksToView($(target).attr("data-age-group"));
             // this.setFilterAgeByGroup($(target).attr("data-age-group"));
 
 
@@ -1471,6 +1483,7 @@ class App extends Component {
 
         try {
             thisDaysEvents = global.allEvents.events;
+            console.log(thisDaysEvents);
             console.log("TRACKS - found " + thisDaysEvents.length + " total events");
             for (var i = 0; i < thisDaysEvents.length; i++) {
 
@@ -1484,6 +1497,7 @@ class App extends Component {
                     ageMatched =
                         (
                             thisDaysEvents[i].age.toUpperCase() == ageToCheck.toUpperCase()
+                            || thisDaysEvents[i].age.toUpperCase() == "ALL AGES"
                             || thisDaysEvents[i].age.toUpperCase() == "AGE 7 TO 14"
                         );
                 }
@@ -1574,13 +1588,24 @@ class App extends Component {
             // var trackSeriesId = thisDaysFilteredEvents[i].id.split("_");
             // var endIDString = trackSeriesId[2] + "_" + trackSeriesId[3];
             var season;
-            if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("SPRING")>0)
+            // if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("SPRING")>0)
+            //     season="spring";
+            // else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("WINTER")>0)
+            //     season="winter";
+            // else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FALL")>0)
+            //     season="fall";
+            // else season = "UNKNOWN";
+
+
+            if (thisDaysFilteredEvents[i].session_number == 1)
                 season="spring";
-            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("WINTER")>0)
+            else if (thisDaysFilteredEvents[i].session_number == 2)
                 season="winter";
-            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("FALL")>0)
+            else if (thisDaysFilteredEvents[i].session_number == 3)
                 season="fall";
             else season = "UNKNOWN";
+
+            // console.log("SXS + " + thisDaysFilteredEvents[i].session_number);
 
             console.log("TRACKS found season " + season);
 
@@ -1700,6 +1725,7 @@ class App extends Component {
             });
         }
 
+        console.log(tracksListing);
         var eventCount = "no tracks";
         if (combinedSeasons.length==1) eventCount = "1 track";
         else if (combinedSeasons.length>1) eventCount = combinedSeasons.length + " tracks";
