@@ -41,13 +41,9 @@ class App extends Component {
 
     constructor() {
 
-
-
         super();
 
         console.log("I am live? " + isLive);
-
-
 
         this.toggleSeries = this.toggleSeries.bind(this);
         this.toggleProSeries = this.toggleProSeries.bind(this);
@@ -68,7 +64,6 @@ class App extends Component {
         // this.hideSeriesOverlays = this.hideSeriesOverlays.bind(this);
         // this.addToCart = this.addToCart.bind(this);
         this.addThreeToCart = this.addThreeToCart.bind(this);
-
 
         this.listEvents = [];
 
@@ -94,8 +89,7 @@ class App extends Component {
             ageSelectionOptions: [
                 "age 7 to 9",
                 "age 9 to 11",
-                "age 11 to 13",
-                "age 13 to 15"
+                "age 11 to 13"
             ],
             selectedEvent: "",
             loggedIn: false,
@@ -150,8 +144,6 @@ class App extends Component {
             ownedEvents:[]
 
         }
-
-
 
         //global.allEvents = seriesJSON;
         //TODO 'DAYSTRING' for all
@@ -754,19 +746,19 @@ class App extends Component {
         ReactTooltip.rebuild();
         //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
+        var elm = $("#coding-track");
+        elm.prependTo($("#start-of-tracks"));
+        var elm = $("#game-track");
+        elm.prependTo($("#start-of-tracks"));
+        // console.log("tried to move element");
 
     }
 
     runJquery() {
         global.isUpdating = true;
-        // console.log("jquery");
-        // $('div:has(> #no-day)')
-        //     .addClass('no-day')
-        //     .removeClass('pick-up-available');
-        // $('div:has(> .close-me)')
-        //     .addClass('closed')
-        //     .removeClass('pick-up-available');
-        // // this.addOwnedDays();
+
+
+
         var myThis = this;
         $('.view-day').unbind("click");
         global.isUpdating = false;
@@ -1578,6 +1570,11 @@ class App extends Component {
                 "winter":{},
                 "spring":{}
             },
+            "game" : {
+                "fall":{},
+                "winter":{},
+                "spring":{}
+            },
             "UNKNOWN" : {
                 "fall":{},
                 "winter":{},
@@ -1598,11 +1595,11 @@ class App extends Component {
 
 
             if (thisDaysFilteredEvents[i].session_number == 1)
-                season="spring";
+                season="fall";
             else if (thisDaysFilteredEvents[i].session_number == 2)
                 season="winter";
             else if (thisDaysFilteredEvents[i].session_number == 3)
-                season="fall";
+                season="spring";
             else season = "UNKNOWN";
 
             // console.log("SXS + " + thisDaysFilteredEvents[i].session_number);
@@ -1624,6 +1621,8 @@ class App extends Component {
                 topic="fortnite";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("PYTHON")>=0)
                 topic="coding";
+            else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("GAME")>=0)
+                topic="game";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("DECK")>=0)
                 topic="deck";
             else if (thisDaysFilteredEvents[i].name.toUpperCase().indexOf("BUILD")>=0)
@@ -2112,6 +2111,12 @@ class App extends Component {
             }
             return true;
 
+        }  else if (topic=="game") {
+            if (testAge < 9 || testAge > 13) {
+                return false;
+            }
+            return true;
+
         } else if (topic=="video") {
             if (testAge > 9) {
                 return false;
@@ -2432,7 +2437,7 @@ class App extends Component {
                             <div className="page-container">
 
                                 {/*TRACKS BEGIN*/}
-                                <div className="allTracks">
+                                <div className="allTracks" id="start-of-tracks">
 
                                     {this.state.viewingDayEvents.map(
                                         function(name, index) {

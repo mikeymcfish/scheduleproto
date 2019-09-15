@@ -175,10 +175,13 @@ class Track extends React.Component {
             return(this.renderHardware())
         }
         if (this.props.topic=="deck") {
-            return(this.renderDeck())
+            //return(this.renderDeck())
         }
         if (this.props.topic=="pc") {
             return(this.renderPC())
+        }
+        if (this.props.topic=="game") {
+            return(this.renderGame())
         }
         return (
             <div></div>
@@ -1658,6 +1661,120 @@ class Track extends React.Component {
                             88,
                             "Field-test your new",
                             "custom skateboard",
+                            "spring"
+                        )}
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    renderGame() {
+        return (
+            <div className="new-track" id="game-track">
+                <div className="track-photos game">
+                    <div className="left-container">
+                        {/*<div className="subway-icon color">*/}
+                        {/*<div>D</div>*/}
+                        {/*</div>*/}
+                        <div id="game-subway" className="subway-icon-image"></div>
+
+                        <div className="under-track-title">Advanced Game Design</div>
+
+                    </div>
+
+                    <div className="season-photo" id="game-fall">
+                        <div className="inner-photo">
+                            <div className="color-overlay">
+
+                            </div>
+                        </div>
+                        <div className="photo-text">
+                            Fall Project
+                        </div>
+                    </div>
+
+
+                </div>
+                <div className="track-info">
+
+                    <div className="track-name">
+
+                        <div className="track-label">
+
+                            <div>
+                                <div className="backup-title">Advanced Game Design</div>
+
+                                <div className="track-label-description">
+                                    <div>This <span className="bolded">brand new, advanced</span> track takes the art of game design to a whole new level. Using Unity, participants will learn the tricks of the trade that game developers use to create fun!
+                                        Starting with a foundation of game themes and the theory of fun, these kids will start to <span className="bolded">create an open world exploration game</span>. With constant attention to the user experience, they will learn how to create mind-blowing effects
+                                        like <span className="bolded">waterfalls, smoke, and fire using particle systems</span>. Towards the end of the track, participants will learn how to design a great graphical user interface (GUI)
+                                        and <span className="bolded">create an interactive experience with scripted dialog</span>! This is our most advanced game design class so far but all are welcome!
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div className="track-photo game-fall">
+
+                    </div>
+                    <div className="track-details">
+                    </div>
+
+                </div>
+                {this.getButtonsHTML("game")}
+                <div className="track">
+                    <div className={"track-line color" + " " + this.state.highlightTrack}>
+
+                        {this.getSeasonHTML(0,"fall")}
+                        {this.getProjectHTML(
+                            8,
+                            "Gameplay themes &",
+                            "theory of fun",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            15,
+                            "Linear versus",
+                            "Nonlinear games",
+                            "fall"
+                        )}
+                        {this.getProjectHTML(
+                            21,
+                            "Tricks of the trade",
+                            "for pro game design",
+                            "fall"
+                        )}
+
+                        {this.getSeasonHTML(33,"winter")}
+
+                        {this.getProjectHTML(
+                            39,
+                            "Creating particle effects",
+                            "like water, fire, and smoke",
+                            "winter"
+                        )}
+                        {this.getProjectHTML(
+                            52,
+                            "Creating and changing the",
+                            "laws of physics",
+                            "winter"
+                        )}
+
+                        {this.getSeasonHTML(66,"spring")}
+                        {this.getProjectHTML(
+                            72,
+                            "Creating a graphical",
+                            "interface",
+                            "spring"
+                        )}
+                        {this.getProjectHTML(
+                            80,
+                            "Creating Dialogue",
+                            "and interactions",
                             "spring"
                         )}
 

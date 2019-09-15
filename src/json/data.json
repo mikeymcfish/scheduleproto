@@ -110,6 +110,7 @@
       14,
       20,
       27,
+      31,
       1,
       5,
       6,
@@ -120,7 +121,8 @@
       19,
       20,
       26,
-      27
+      27,
+      31
     ],
     "November": [
       3,
@@ -321,7 +323,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "600.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6726",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -358,7 +360,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6728",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -396,7 +398,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6734",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -435,7 +437,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6732",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -473,7 +475,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6730",
       "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
       "day": "Friday",
@@ -512,7 +514,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "700.00",
-      "spotsLeft": 8,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6727",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -549,7 +551,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 5,
       "image": "\/images\/event\/series\/6729",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -626,7 +628,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 3,
       "image": "\/images\/event\/series\/6733",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -664,7 +666,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 5,
       "image": "\/images\/event\/series\/6731",
       "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
       "day": "Friday",
@@ -703,7 +705,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7470",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -779,7 +781,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7478",
       "datesString": "12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/4, 3\/11",
       "day": "Wednesday",
@@ -856,7 +858,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7480",
       "datesString": "12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/6, 3\/13",
       "day": "Friday",
@@ -933,7 +935,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/7473",
       "datesString": "12\/10, 12\/17, 1\/7, 1\/14, 1\/21, 1\/28, 2\/4, 2\/11, 2\/25, 3\/3, 3\/10",
       "day": "Tuesday",
@@ -1009,7 +1011,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7477",
       "datesString": "12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/5, 3\/12",
       "day": "Thursday",
@@ -1048,7 +1050,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7481",
       "datesString": "12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/6, 3\/13",
       "day": "Friday",
@@ -1087,7 +1089,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7584",
       "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
       "day": "Monday",
@@ -1165,7 +1167,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "780.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7594",
       "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/22, 4\/29, 5\/6, 5\/13, 5\/20, 5\/27, 6\/3, 6\/10, 6\/17",
       "day": "Wednesday",
@@ -1243,7 +1245,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7596",
       "datesString": "3\/20, 3\/27, 4\/3, 4\/24, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12, 6\/19",
       "day": "Friday",
@@ -1321,7 +1323,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7589",
       "datesString": "3\/17, 3\/24, 3\/31, 4\/7, 4\/21, 4\/28, 5\/5, 5\/12, 5\/19, 5\/26, 6\/2, 6\/16",
       "day": "Tuesday",
@@ -1400,7 +1402,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7587",
       "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
       "day": "Thursday",
@@ -1438,7 +1440,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7597",
       "datesString": "3\/20, 3\/27, 4\/3, 4\/24, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12, 6\/19",
       "day": "Friday",
@@ -1477,7 +1479,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 5,
       "image": "\/images\/event\/series\/6596",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -1515,7 +1517,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6597",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -1592,7 +1594,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "700.00",
-      "spotsLeft": 8,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6631",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -1707,7 +1709,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7111",
       "datesString": "12\/10, 12\/17, 1\/7, 1\/14, 1\/21, 1\/28, 2\/4, 2\/11, 2\/25, 3\/3, 3\/10",
       "day": "Tuesday",
@@ -1823,7 +1825,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7145",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -1938,7 +1940,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7180",
       "datesString": "3\/17, 3\/24, 3\/31, 4\/7, 4\/21, 4\/28, 5\/5, 5\/12, 5\/19, 5\/26, 6\/2, 6\/16",
       "day": "Tuesday",
@@ -2173,7 +2175,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "600.00",
-      "spotsLeft": 8,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6667",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -2210,7 +2212,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6668",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -2249,7 +2251,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6672",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -2287,7 +2289,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6703",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -2325,7 +2327,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 5,
       "image": "\/images\/event\/series\/6707",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -2363,7 +2365,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7704",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -2516,7 +2518,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7739",
       "datesString": "12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/5, 3\/12",
       "day": "Thursday",
@@ -2555,7 +2557,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7761",
       "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
       "day": "Monday",
@@ -2711,7 +2713,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7767",
       "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
       "day": "Thursday",
@@ -2749,7 +2751,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "600.00",
-      "spotsLeft": 8,
+      "spotsLeft": -1,
       "image": "\/images\/event\/series\/6838",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -2940,7 +2942,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6843",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -2979,7 +2981,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6844",
       "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
       "day": "Friday",
@@ -3561,7 +3563,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "600.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6918",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -3598,7 +3600,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6921",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -3637,7 +3639,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6920",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -3675,7 +3677,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6922",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -3713,7 +3715,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/7292",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -3789,7 +3791,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/7294",
       "datesString": "12\/10, 12\/17, 1\/7, 1\/14, 1\/21, 1\/28, 2\/4, 2\/11, 2\/25, 3\/3, 3\/10",
       "day": "Tuesday",
@@ -3866,7 +3868,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/7337",
       "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
       "day": "Monday",
@@ -3984,7 +3986,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/7341",
       "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
       "day": "Thursday",
@@ -4022,7 +4024,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "760.00",
-      "spotsLeft": 8,
+      "spotsLeft": 5,
       "image": "\/images\/event\/series\/6963",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -4050,6 +4052,44 @@
       }
     },
     {
+      "id": "series_Friday_3_165",
+      "name": "Raspberry Pi and Python Coding: Fall Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "760.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8548",
+      "datesString": "9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
+      "day": "Friday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          22
+        ],
+        "December": [
+          6
+        ]
+      }
+    },
+    {
       "id": "series_Monday_4_165",
       "name": "Raspberry Pi and Python Coding: Fall Season",
       "age": "age 9 to 11",
@@ -4060,7 +4100,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "800.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6962",
       "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
       "day": "Monday",
@@ -4125,6 +4165,45 @@
       }
     },
     {
+      "id": "series_Friday_3_166",
+      "name": "Raspberry Pi and Python Coding: Winter Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8641",
+      "datesString": "12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/6, 3\/13",
+      "day": "Friday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
       "id": "series_Monday_4_166",
       "name": "Raspberry Pi and Python Coding: Winter Season",
       "age": "age 9 to 11",
@@ -4135,7 +4214,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7856",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -4159,6 +4238,28 @@
         "March": [
           2,
           9
+        ]
+      }
+    },
+    {
+      "id": "series_Sunday_4_166",
+      "name": "Raspberry Pi and Python Coding: Winter Season",
+      "age": "age 9 to 11",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "70.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8656",
+      "datesString": "10\/13",
+      "day": "Sunday",
+      "session_number": 2,
+      "days": {
+        "October": [
+          13
         ]
       }
     },
@@ -4202,6 +4303,45 @@
       }
     },
     {
+      "id": "series_Friday_3_167",
+      "name": "Raspberry Pi and Python Coding: Spring Season",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "We designed this track for kids that are passionate about learning to code! These seasons are all about using the new Raspberry Pi and coding in Python to complete fun projects! No prior coding knowledge is required and participants get to keep their Pi!",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8629",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/24, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12, 6\/19",
+      "day": "Friday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          24
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12,
+          19
+        ]
+      }
+    },
+    {
       "id": "series_Monday_4_167",
       "name": "Raspberry Pi and Python Coding: Spring Season",
       "age": "age 9 to 11",
@@ -4212,7 +4352,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "840.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/7831",
       "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
       "day": "Monday",
@@ -4251,7 +4391,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "820.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6985",
       "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
       "day": "Friday",
@@ -4290,7 +4430,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "940.00",
-      "spotsLeft": 8,
+      "spotsLeft": 0,
       "image": "\/images\/event\/series\/6984",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -4522,7 +4662,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6407",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -4561,7 +4701,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 16,
       "image": "\/images\/event\/series\/6408",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -4599,7 +4739,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6409",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -4637,7 +4777,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6503",
       "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
       "day": "Monday",
@@ -4675,7 +4815,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "660.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6506",
       "datesString": "12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/4, 3\/11",
       "day": "Wednesday",
@@ -4790,7 +4930,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "720.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/6548",
       "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
       "day": "Monday",
@@ -4829,7 +4969,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "780.00",
-      "spotsLeft": 8,
+      "spotsLeft": 7,
       "image": "\/images\/event\/series\/6551",
       "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/22, 4\/29, 5\/6, 5\/13, 5\/20, 5\/27, 6\/3, 6\/10, 6\/17",
       "day": "Wednesday",
@@ -4946,7 +5086,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "700.00",
-      "spotsLeft": 8,
+      "spotsLeft": 1,
       "image": "\/images\/event\/series\/6394",
       "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
       "day": "Thursday",
@@ -4984,7 +5124,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "770.00",
-      "spotsLeft": 8,
+      "spotsLeft": 2,
       "image": "\/images\/event\/series\/7008",
       "datesString": "12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/5, 3\/12",
       "day": "Thursday",
@@ -5023,7 +5163,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "735.00",
-      "spotsLeft": 8,
+      "spotsLeft": 2,
       "image": "\/images\/event\/series\/7820",
       "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
       "day": "Thursday",
@@ -5061,7 +5201,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "760.00",
-      "spotsLeft": 5,
+      "spotsLeft": 1,
       "image": "\/images\/event\/series\/6469",
       "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
       "day": "Tuesday",
@@ -5176,7 +5316,7 @@
       "startTime": "10:00am",
       "tags": [],
       "price": "1010.00",
-      "spotsLeft": 3,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6450",
       "datesString": "10\/5, 10\/19, 10\/26, 11\/2, 11\/16, 11\/23",
       "day": "Saturday",
@@ -5205,7 +5345,7 @@
       "startTime": "10:00am",
       "tags": [],
       "price": "1360.00",
-      "spotsLeft": 2,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6456",
       "datesString": "4\/25, 5\/2, 5\/9, 5\/16, 5\/30, 6\/6",
       "day": "Saturday",
@@ -5236,7 +5376,7 @@
       "startTime": "10:00am",
       "tags": [],
       "price": "2220.00",
-      "spotsLeft": 3,
+      "spotsLeft": 4,
       "image": "\/images\/event\/series\/6462",
       "datesString": "1\/4, 1\/11, 1\/25, 2\/1, 2\/8, 3\/7, 3\/14",
       "day": "Saturday",
@@ -5268,7 +5408,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "760.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7020",
       "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
       "day": "Wednesday",
@@ -5307,7 +5447,7 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "710.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7268",
       "datesString": "12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/4, 3\/11",
       "day": "Wednesday",
@@ -5345,8 +5485,1182 @@
       "startTime": "4:00pm",
       "tags": [],
       "price": "855.00",
-      "spotsLeft": 8,
+      "spotsLeft": 6,
       "image": "\/images\/event\/series\/7279",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/22, 4\/29, 5\/6, 5\/13, 5\/20, 5\/27, 6\/3, 6\/10, 6\/17",
+      "day": "Wednesday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          22,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20,
+          27
+        ],
+        "June": [
+          3,
+          10,
+          17
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "600.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7928",
+      "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
+      "day": "Monday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          9,
+          16,
+          23
+        ],
+        "October": [
+          7,
+          21,
+          28
+        ],
+        "November": [
+          4,
+          18,
+          25
+        ],
+        "December": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7929",
+      "datesString": "9\/10, 9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
+      "day": "Tuesday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          10,
+          17,
+          24
+        ],
+        "October": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          12,
+          19,
+          26
+        ],
+        "December": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 12,
+      "image": "\/images\/event\/series\/7981",
+      "datesString": "9\/11, 9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
+      "day": "Wednesday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          11,
+          18,
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6,
+          13,
+          20,
+          27
+        ],
+        "December": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7982",
+      "datesString": "9\/12, 9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 10\/24, 11\/7, 11\/14, 11\/21, 12\/5",
+      "day": "Thursday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          12,
+          19,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17,
+          24
+        ],
+        "November": [
+          7,
+          14,
+          21
+        ],
+        "December": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7936",
+      "datesString": "9\/13, 9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
+      "day": "Friday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          13,
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          22
+        ],
+        "December": [
+          6
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_186",
+      "name": "Makerspace: Fall",
+      "age": "age 7 to 14",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "700.00",
+      "spotsLeft": 13,
+      "image": "\/images\/event\/series\/8137",
+      "datesString": "9\/9, 9\/16, 9\/23, 10\/7, 10\/21, 10\/28, 11\/4, 11\/18, 11\/25, 12\/2",
+      "day": "Monday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          9,
+          16,
+          23
+        ],
+        "October": [
+          7,
+          21,
+          28
+        ],
+        "November": [
+          4,
+          18,
+          25
+        ],
+        "December": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7997",
+      "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
+      "day": "Monday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          9,
+          16,
+          23
+        ],
+        "January": [
+          6,
+          13,
+          27
+        ],
+        "February": [
+          3,
+          10,
+          24
+        ],
+        "March": [
+          2,
+          9
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/7999",
+      "datesString": "12\/10, 12\/17, 1\/7, 1\/14, 1\/21, 1\/28, 2\/4, 2\/11, 2\/25, 3\/3, 3\/10",
+      "day": "Tuesday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8006",
+      "datesString": "12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/4, 3\/11",
+      "day": "Wednesday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          5,
+          12,
+          26
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8007",
+      "datesString": "12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/5, 3\/12",
+      "day": "Thursday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8000",
+      "datesString": "12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/6, 3\/13",
+      "day": "Friday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_187",
+      "name": "Makerspace: Winter",
+      "age": "age 7 to 14",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "770.00",
+      "spotsLeft": 13,
+      "image": "\/images\/event\/series\/7998",
+      "datesString": "12\/9, 12\/16, 12\/23, 1\/6, 1\/13, 1\/27, 2\/3, 2\/10, 2\/24, 3\/2, 3\/9",
+      "day": "Monday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          9,
+          16,
+          23
+        ],
+        "January": [
+          6,
+          13,
+          27
+        ],
+        "February": [
+          3,
+          10,
+          24
+        ],
+        "March": [
+          2,
+          9
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_3_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8065",
+      "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
+      "day": "Monday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          16,
+          23,
+          30
+        ],
+        "April": [
+          6,
+          20,
+          27
+        ],
+        "May": [
+          4,
+          11,
+          18
+        ],
+        "June": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8067",
+      "datesString": "3\/17, 3\/24, 3\/31, 4\/7, 4\/21, 4\/28, 5\/5, 5\/12, 5\/19, 5\/26, 6\/2, 6\/16",
+      "day": "Tuesday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          17,
+          24,
+          31
+        ],
+        "April": [
+          7,
+          21,
+          28
+        ],
+        "May": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "June": [
+          2,
+          16
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8068",
+      "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/22, 4\/29, 5\/6, 5\/13, 5\/20, 5\/27, 6\/3, 6\/10, 6\/17",
+      "day": "Wednesday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          18,
+          25
+        ],
+        "April": [
+          1,
+          8,
+          22,
+          29
+        ],
+        "May": [
+          6,
+          13,
+          20,
+          27
+        ],
+        "June": [
+          3,
+          10,
+          17
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8080",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
+      "day": "Thursday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          23,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "June": [
+          11,
+          18
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 14,
+      "image": "\/images\/event\/series\/8073",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/24, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12, 6\/19",
+      "day": "Friday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          24
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12,
+          19
+        ]
+      }
+    },
+    {
+      "id": "series_Monday_4_188",
+      "name": "Makerspace: Spring",
+      "age": "age 7 to 14",
+      "location": "TriBeCa",
+      "sub-title": "Series",
+      "description": "Classic Makerspace",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "840.00",
+      "spotsLeft": 13,
+      "image": "\/images\/event\/series\/8066",
+      "datesString": "3\/16, 3\/23, 3\/30, 4\/6, 4\/20, 4\/27, 5\/4, 5\/11, 5\/18, 6\/1, 6\/8, 6\/15",
+      "day": "Monday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          16,
+          23,
+          30
+        ],
+        "April": [
+          6,
+          20,
+          27
+        ],
+        "May": [
+          4,
+          11,
+          18
+        ],
+        "June": [
+          1,
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_190",
+      "name": "Advanced Game Design: Fall",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "600.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8505",
+      "datesString": "9\/17, 9\/24, 10\/8, 10\/15, 10\/22, 10\/29, 11\/12, 11\/19, 11\/26, 12\/3",
+      "day": "Tuesday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          17,
+          24
+        ],
+        "October": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "November": [
+          12,
+          19,
+          26
+        ],
+        "December": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_190",
+      "name": "Advanced Game Design: Fall",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "120.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8520",
+      "datesString": "10\/23, 10\/30",
+      "day": "Wednesday",
+      "session_number": 1,
+      "days": {
+        "October": [
+          23,
+          30
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_190",
+      "name": "Advanced Game Design: Fall",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "540.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8508",
+      "datesString": "9\/19, 9\/26, 10\/3, 10\/10, 10\/17, 11\/7, 11\/14, 11\/21, 12\/5",
+      "day": "Thursday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          19,
+          26
+        ],
+        "October": [
+          3,
+          10,
+          17
+        ],
+        "November": [
+          7,
+          14,
+          21
+        ],
+        "December": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_190",
+      "name": "Advanced Game Design: Fall",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8506",
+      "datesString": "9\/20, 9\/27, 10\/4, 10\/11, 10\/18, 10\/25, 11\/1, 11\/8, 11\/15, 11\/22, 12\/6",
+      "day": "Friday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          20,
+          27
+        ],
+        "October": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "November": [
+          1,
+          8,
+          15,
+          22
+        ],
+        "December": [
+          6
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_191",
+      "name": "Advanced Game Design: Winter",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8559",
+      "datesString": "12\/10, 12\/17, 1\/7, 1\/14, 1\/21, 1\/28, 2\/4, 2\/11, 2\/25, 3\/3, 3\/10",
+      "day": "Tuesday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          10,
+          17
+        ],
+        "January": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "February": [
+          4,
+          11,
+          25
+        ],
+        "March": [
+          3,
+          10
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_191",
+      "name": "Advanced Game Design: Winter",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8560",
+      "datesString": "12\/12, 12\/19, 1\/2, 1\/9, 1\/16, 1\/23, 1\/30, 2\/6, 2\/13, 2\/27, 3\/5, 3\/12",
+      "day": "Thursday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          12,
+          19
+        ],
+        "January": [
+          2,
+          9,
+          16,
+          23,
+          30
+        ],
+        "February": [
+          6,
+          13,
+          27
+        ],
+        "March": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_191",
+      "name": "Advanced Game Design: Winter",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8563",
+      "datesString": "12\/13, 12\/20, 1\/3, 1\/10, 1\/17, 1\/24, 1\/31, 2\/7, 2\/14, 2\/28, 3\/6, 3\/13",
+      "day": "Friday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          13,
+          20
+        ],
+        "January": [
+          3,
+          10,
+          17,
+          24,
+          31
+        ],
+        "February": [
+          7,
+          14,
+          28
+        ],
+        "March": [
+          6,
+          13
+        ]
+      }
+    },
+    {
+      "id": "series_Tuesday_3_192",
+      "name": "Advanced Game Design: Spring",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8594",
+      "datesString": "3\/17, 3\/24, 3\/31, 4\/7, 4\/21, 4\/28, 5\/5, 5\/12, 5\/19, 5\/26, 6\/2, 6\/16",
+      "day": "Tuesday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          17,
+          24,
+          31
+        ],
+        "April": [
+          7,
+          21,
+          28
+        ],
+        "May": [
+          5,
+          12,
+          19,
+          26
+        ],
+        "June": [
+          2,
+          16
+        ]
+      }
+    },
+    {
+      "id": "series_Thursday_3_192",
+      "name": "Advanced Game Design: Spring",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8595",
+      "datesString": "3\/19, 3\/26, 4\/2, 4\/23, 4\/30, 5\/7, 5\/14, 5\/21, 5\/28, 6\/11, 6\/18",
+      "day": "Thursday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          19,
+          26
+        ],
+        "April": [
+          2,
+          23,
+          30
+        ],
+        "May": [
+          7,
+          14,
+          21,
+          28
+        ],
+        "June": [
+          11,
+          18
+        ]
+      }
+    },
+    {
+      "id": "series_Friday_3_192",
+      "name": "Advanced Game Design: Spring",
+      "age": "age 9 to 11",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "720.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8599",
+      "datesString": "3\/20, 3\/27, 4\/3, 4\/24, 5\/1, 5\/8, 5\/15, 5\/22, 5\/29, 6\/5, 6\/12, 6\/19",
+      "day": "Friday",
+      "session_number": 3,
+      "days": {
+        "March": [
+          20,
+          27
+        ],
+        "April": [
+          3,
+          24
+        ],
+        "May": [
+          1,
+          8,
+          15,
+          22,
+          29
+        ],
+        "June": [
+          5,
+          12,
+          19
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_193",
+      "name": "Advanced Game Design: Fall",
+      "age": "age 11 to 13",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8537",
+      "datesString": "9\/18, 9\/25, 10\/2, 10\/16, 10\/23, 10\/30, 11\/6, 11\/13, 11\/20, 11\/27, 12\/4",
+      "day": "Wednesday",
+      "session_number": 1,
+      "days": {
+        "September": [
+          18,
+          25
+        ],
+        "October": [
+          2,
+          16,
+          23,
+          30
+        ],
+        "November": [
+          6,
+          13,
+          20,
+          27
+        ],
+        "December": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_194",
+      "name": "Advanced Game Design: Winter",
+      "age": "age 11 to 13",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "660.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8657",
+      "datesString": "12\/11, 12\/18, 1\/8, 1\/15, 1\/22, 1\/29, 2\/5, 2\/12, 2\/26, 3\/4, 3\/11",
+      "day": "Wednesday",
+      "session_number": 2,
+      "days": {
+        "December": [
+          11,
+          18
+        ],
+        "January": [
+          8,
+          15,
+          22,
+          29
+        ],
+        "February": [
+          5,
+          12,
+          26
+        ],
+        "March": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "id": "series_Wednesday_3_195",
+      "name": "Advanced Game Design: Spring",
+      "age": "age 11 to 13",
+      "location": "Brooklyn",
+      "sub-title": "Series",
+      "description": "TBD",
+      "type": "series",
+      "startTime": "4:00pm",
+      "tags": [],
+      "price": "780.00",
+      "spotsLeft": 8,
+      "image": "\/images\/event\/series\/8667",
       "datesString": "3\/18, 3\/25, 4\/1, 4\/8, 4\/22, 4\/29, 5\/6, 5\/13, 5\/20, 5\/27, 6\/3, 6\/10, 6\/17",
       "day": "Wednesday",
       "session_number": 3,

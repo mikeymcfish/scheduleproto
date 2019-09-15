@@ -9,6 +9,7 @@ body {
     --climbing-color: rgb(81, 81, 81);
     --deck-color: rgb(35, 31, 32);
     --pc-color: rgb(35, 31, 32);
+    --game-color: rgb(35, 31, 32);
 
 
 
@@ -105,6 +106,9 @@ body {
 #video-track .color-text {
     color:var(--video-color);
 }
+#game-track .color-text {
+    color:var(--game-color);
+}
 #deck-track .color-text {
     color:var(--deck-color);
 }
@@ -178,6 +182,14 @@ body {
 
 }
 
+#game-track .color {
+    background-color: var(--game-color);
+    --season-stop-color: var(--game-color);
+    --stop-outline-color: var(--game-color);
+    color:white;
+
+}
+
 #minecraft-track .color {
     background-color: var(--minecraft-color);
     --season-stop-color: var(--minecraft-color);
@@ -217,6 +229,13 @@ body {
     background-color: var(--video-color);
     --season-stop-color: var(--video-color);
     --stop-outline-color: var(--video-color);
+    color:white;
+
+}
+.game-track.color {
+    background-color: var(--game-color);
+    --season-stop-color: var(--game-color);
+    --stop-outline-color: var(--game-color);
     color:white;
 
 }
@@ -535,6 +554,9 @@ body {
 .list-of-skills.video-color .skill {
     background-color: var(--video-color);
 }
+.list-of-skills.game-color .skill {
+    background-color: var(--game-color);
+}
 .list-of-skills.coding-color .skill {
     background-color: var(--coding-color);
 }
@@ -702,6 +724,9 @@ div .age12to14 {
 #video-subway {
     background-image: url("img/2019/icons_icon_Video.png");
 }
+#game-subway {
+    background-image: url("img/2019/icons_icon_Game.png");
+}
 #coding-subway {
     background-image: url("img/2019/icons_icon_Coding.png");
 }
@@ -774,6 +799,9 @@ div .age12to14 {
 
 #video-fall .inner-photo {
     background-image: url("img/2019/track_video.png");
+}
+#game-fall .inner-photo {
+    background-image: url("img/2019/track_game.png");
 }
 /*#video-winter .inner-photo {*/
     /*background-image: url("img/video-winter-resized.png");*/
@@ -1760,8 +1788,8 @@ div .age12to14 {
 }
 
 #video-track .highlight-track-fall {
-    background: linear-gradient(to right, var(--video-color), var(--video-color) 33%, var(--faded-color) 34%);
-}
+     background: linear-gradient(to right, var(--video-color), var(--video-color) 33%, var(--faded-color) 34%);
+ }
 #video-track .highlight-track-winter {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--video-color) 34%, var(--video-color) 66%,var(--faded-color) 67%);
 }
@@ -1776,6 +1804,16 @@ div .age12to14 {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--deck-color) 34%, var(--deck-color) 66%,var(--faded-color) 67%);
 }
 #deck-track .highlight-track-spring {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--deck-color) 67%);
+}
+
+#game-track .highlight-track-fall {
+    background: linear-gradient(to right, var(--deck-color), var(--deck-color) 33%, var(--faded-color) 34%);
+}
+#game-track .highlight-track-winter {
+    background: linear-gradient(to right, var(--faded-color), var(--faded-color) 33%, var(--deck-color) 34%, var(--deck-color) 66%,var(--faded-color) 67%);
+}
+#game-track .highlight-track-spring {
     background: linear-gradient(to right, var(--faded-color), var(--faded-color) 66%, var(--deck-color) 67%);
 }
 
@@ -1845,23 +1883,27 @@ div .age12to14 {
 }
 
 .allTracks #fortnite-track {
-    padding-bottom:95px;
+    padding-bottom:90px;
 
 }
 .allTracks #coding-track {
-    padding-bottom:95px;
+    padding-bottom:90px;
 
 }
 .allTracks #video-track {
-    padding-bottom:95px;
+    padding-bottom:90px;
+
+}
+.allTracks #game-track {
+    padding-bottom:90px;
 
 }
 .allTracks #minecraft-track {
-    padding-bottom:95px;
+    padding-bottom:90px;
 
 }
 .allTracks #hardware-track {
-    padding-bottom:95px;
+    padding-bottom:90px;
 
 }
 

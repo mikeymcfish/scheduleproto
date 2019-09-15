@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e16ad2c-8c93-4ddb-84b0-f67a8efb6c91" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/temp.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Track.js" afterPath="$PROJECT_DIR$/src/Track.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/isLive.js" afterPath="$PROJECT_DIR$/src/isLive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_HOW_TO.html" afterPath="$PROJECT_DIR$/src/_HOW_TO.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/json/data.json" afterPath="$PROJECT_DIR$/src/json/data.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tracks-2.css" afterPath="$PROJECT_DIR$/src/tracks-2.css" />
     </list>
@@ -27,14 +28,14 @@
     <favorites_list name="scheduleproto" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52854514">
+    <splitter split-orientation="horizontal" split-proportion="0.83397686">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Track.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Track.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="891" column="135" lean-forward="false" selection-start-line="891" selection-start-column="135" selection-end-line="891" selection-end-column="135" />
+                <state relative-caret-position="522">
+                  <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                     <element signature="n#!!block;n#componentDidMount#0;n#Track#0" expanded="false" />
@@ -44,37 +45,37 @@
                     <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
-                    <element signature="n#!!block;n#render#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
-                    <element signature="e#5577#5757#0" expanded="false" />
+                    <element signature="e#5667#5847#0" expanded="false" />
                     <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
                     <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
-                    <element signature="e#10494#10923#0" expanded="false" />
-                    <element signature="e#13459#19107#0" expanded="false" />
-                    <element signature="e#15769#16554#0" expanded="false" />
-                    <element signature="e#16615#17121#0" expanded="false" />
-                    <element signature="e#17664#18494#0" expanded="false" />
-                    <element signature="e#18554#19060#0" expanded="false" />
+                    <element signature="e#10584#11013#0" expanded="false" />
+                    <element signature="e#13549#19197#0" expanded="false" />
+                    <element signature="e#15859#16644#0" expanded="false" />
+                    <element signature="e#16705#17211#0" expanded="false" />
+                    <element signature="e#17754#18584#0" expanded="false" />
+                    <element signature="e#18644#19150#0" expanded="false" />
                     <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
-                    <element signature="e#19267#20141#0" expanded="false" />
-                    <element signature="e#19737#20117#0" expanded="false" />
-                    <element signature="e#20320#24559#0" expanded="false" />
+                    <element signature="e#19357#20231#0" expanded="false" />
+                    <element signature="e#19827#20207#0" expanded="false" />
+                    <element signature="e#20410#24649#0" expanded="false" />
                     <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-                    <element signature="e#32363#32743#0" expanded="false" />
-                    <element signature="e#33876#35433#0" expanded="false" />
+                    <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+                    <element signature="e#32453#32833#0" expanded="false" />
+                    <element signature="e#33966#35523#0" expanded="false" />
                     <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-                    <element signature="e#36309#36692#0" expanded="false" />
+                    <element signature="e#36399#36782#0" expanded="false" />
                     <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
-                    <element signature="e#41239#41621#0" expanded="false" />
+                    <element signature="e#41329#41711#0" expanded="false" />
                     <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-                    <element signature="e#45889#46268#0" expanded="false" />
-                    <element signature="e#51719#54385#0" expanded="false" />
+                    <element signature="e#45979#46358#0" expanded="false" />
+                    <element signature="e#51809#54475#0" expanded="false" />
                     <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
-                    <element signature="e#59623#60805#0" expanded="false" />
+                    <element signature="e#59713#60895#0" expanded="false" />
                     <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
                   </folding>
                 </state>
@@ -84,43 +85,42 @@
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="1501" column="26" lean-forward="false" selection-start-line="1501" selection-start-column="26" selection-end-line="1501" selection-end-column="26" />
+                <state relative-caret-position="71">
+                  <caret line="742" column="9" lean-forward="false" selection-start-line="742" selection-start-column="9" selection-end-line="742" selection-end-column="9" />
                   <folding>
                     <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
-                    <element signature="e#14263#14569#0" expanded="false" />
+                    <element signature="e#14224#14530#0" expanded="false" />
                     <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
-                    <element signature="e#60020#60048#0" expanded="false" />
+                    <element signature="e#60126#60154#0" expanded="false" />
                     <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
                     <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-                    <element signature="e#88750#92943#0" expanded="false" />
-                    <element signature="e#93116#93910#0" expanded="false" />
-                    <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+                    <element signature="e#93397#94191#0" expanded="false" />
+                    <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
+          <file leaf-file-name="data.json" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/json/data.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="233">
-                  <caret line="5172" column="28" lean-forward="false" selection-start-line="5172" selection-start-column="28" selection-end-line="5172" selection-end-column="28" />
+                <state relative-caret-position="153">
+                  <caret line="2818" column="35" lean-forward="false" selection-start-line="2818" selection-start-column="13" selection-end-line="2818" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="isLive.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="isLive.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/isLive.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="45">
-                  <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -133,30 +133,43 @@
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2747">
+                <state relative-caret-position="375">
                   <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
                   <folding>
-                    <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+                    <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
+                    <element signature="e#14224#14530#0" expanded="false" />
+                    <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
+                    <element signature="e#60126#60154#0" expanded="false" />
+                    <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
+                    <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
+                    <element signature="e#89031#93224#0" expanded="false" />
+                    <element signature="e#93397#94191#0" expanded="false" />
+                    <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="tracks-2.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="322" column="19" lean-forward="false" selection-start-line="322" selection-start-column="19" selection-end-line="322" selection-end-column="19" />
+                <state relative-caret-position="270">
+                  <caret line="1905" column="21" lean-forward="false" selection-start-line="1905" selection-start-column="21" selection-end-line="1905" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_HOW_TO.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="_HOW_TO.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/_HOW_TO.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -165,7 +178,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
+                <state relative-caret-position="225">
                   <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
@@ -186,24 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>track-label-des</find>
-      <find>inner-</find>
-      <find>button-right</find>
-      <find>calculateWeeks</find>
-      <find>video</find>
-      <find>--video-color</find>
-      <find>discount</find>
-      <find>fullTrackDiscount</find>
-      <find>discoun</find>
-      <find>doesOwnFall</find>
-      <find>170</find>
-      <find>#deck-track</find>
-      <find>prater</find>
-      <find>&lt; 9</find>
-      <find>_</find>
-      <find>viewingDayEvents</find>
-      <find>budget</find>
-      <find>showOrHide</find>
       <find>&quot;SA&quot;</find>
       <find>icon</find>
       <find>color</find>
@@ -213,9 +208,27 @@
       <find>pc-track</find>
       <find>full</find>
       <find>unknown</find>
-      <find>ALL AG</find>
       <find>agetoch</find>
       <find>build a</find>
+      <find>ALL AG</find>
+      <find>FALL</find>
+      <find>new-track</find>
+      <find>addtocart</find>
+      <find>sendToCartAPI</find>
+      <find>getbutto</find>
+      <find>coding</find>
+      <find>render</find>
+      <find>13 - 15</find>
+      <find>Raspberry Pi</find>
+      <find>renderDe</find>
+      <find>11 to 13</find>
+      <find>allTracks</find>
+      <find>advan</find>
+      <find>all-track</find>
+      <find>allTrack</find>
+      <find>video</find>
+      <find>&lt;track</find>
+      <find>series_Wednesday_3_159</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;br&gt;&lt;/br&gt;</replace>
@@ -260,11 +273,13 @@
         <option value="$PROJECT_DIR$/src/MakerspaceButton.js" />
         <option value="$PROJECT_DIR$/build/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/_HOW_TO.html" />
-        <option value="$PROJECT_DIR$/src/Track.js" />
-        <option value="$PROJECT_DIR$/src/tracks-2.css" />
-        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$USER_HOME$/Library/Caches/Cleanup At Startup/Transmit/7A3BF976-421A-4065-B0A7-618CBCFA2187/.htaccess" />
+        <option value="$PROJECT_DIR$/src/temp.html" />
         <option value="$PROJECT_DIR$/src/json/data.json" />
+        <option value="$PROJECT_DIR$/src/Track.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/tracks-2.css" />
+        <option value="$PROJECT_DIR$/src/_HOW_TO.html" />
         <option value="$PROJECT_DIR$/src/isLive.js" />
       </list>
     </option>
@@ -286,10 +301,11 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="38" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-27" />
+    <option name="y" value="23" />
+    <option name="width" value="1214" />
+    <option name="height" value="859" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -334,6 +350,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -350,7 +367,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -477,12 +493,19 @@
       <workItem from="1562354629191" duration="1000" />
       <workItem from="1564424374629" duration="578000" />
       <workItem from="1564685328816" duration="2952000" />
-      <workItem from="1564748840092" duration="30385000" />
+      <workItem from="1564748840092" duration="32510000" />
+      <workItem from="1565294311069" duration="5420000" />
+      <workItem from="1565871128663" duration="131000" />
+      <workItem from="1566880525855" duration="68000" />
+      <workItem from="1567172743044" duration="738000" />
+      <workItem from="1567863062244" duration="98000" />
+      <workItem from="1568467163305" duration="102000" />
+      <workItem from="1568495575712" duration="7078000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231002000" />
+    <option name="totallyTimeSpent" value="246762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -494,17 +517,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="32" width="1440" height="877" extended-state="6" />
+    <frame x="-27" y="23" width="1214" height="859" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953104" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18955651" sideWeight="0.80759495" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17064847" sideWeight="0.80759495" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767403" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3387534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22317597" sideWeight="0.5012658" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15984654" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33617747" sideWeight="0.5012658" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16230367" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18188567" sideWeight="0.19240506" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -561,50 +585,380 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>2000</line>
+          <line>1999</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>1637</line>
+          <line>1636</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>1187</line>
+          <line>1179</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>1819</line>
-          <properties />
+          <line>1818</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="89" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
+            <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
+            <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22365">
+          <caret line="1491" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2305" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_HOW_TO.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/temp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10320">
+          <caret line="688" column="8" lean-forward="false" selection-start-line="688" selection-start-column="8" selection-end-line="688" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45086#45091#0" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45248#45253#0" expanded="false" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45411#45416#0" expanded="false" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#9;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#10;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Track.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#handleAddToCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeFallHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeWinterHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
+            <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
+            <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
+            <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
+            <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
+            <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
+            <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
+            <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
+            <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7620">
+          <caret line="508" column="17" lean-forward="false" selection-start-line="508" selection-start-column="17" selection-end-line="508" selection-end-column="58" />
+          <folding>
+            <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
+            <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
+            <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77580">
+          <caret line="5172" column="28" lean-forward="false" selection-start-line="5172" selection-start-column="28" selection-end-line="5172" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Track.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#handleAddToCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeFallHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeWinterHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
+            <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
+            <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
+            <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
+            <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
+            <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
+            <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
+            <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
+            <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7620">
+          <caret line="508" column="17" lean-forward="false" selection-start-line="508" selection-start-column="17" selection-end-line="508" selection-end-column="58" />
+          <folding>
+            <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
+            <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
+            <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/Cleanup At Startup/Transmit/7A3BF976-421A-4065-B0A7-618CBCFA2187/.htaccess" />
+    <entry file="file://$PROJECT_DIR$/src/Track.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#handleAddToCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeFallHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeWinterHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
+            <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
+            <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
+            <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
+            <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
+            <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
+            <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
+            <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
+            <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24045">
+          <caret line="1603" column="34" lean-forward="false" selection-start-line="1603" selection-start-column="34" selection-end-line="1603" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
+            <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
+            <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
+            <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77580">
+          <caret line="5172" column="28" lean-forward="false" selection-start-line="5172" selection-start-column="28" selection-end-line="5172" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/isLive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/Cleanup At Startup/Transmit/7A3BF976-421A-4065-B0A7-618CBCFA2187/.htaccess" />
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
-            <element signature="e#14263#14569#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
             <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
-            <element signature="e#60020#60048#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
             <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="e#88750#92943#0" expanded="false" />
-            <element signature="e#93116#93910#0" expanded="false" />
-            <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
           </folding>
         </state>
       </provider>
@@ -622,37 +976,37 @@
             <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
-            <element signature="e#5577#5757#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
             <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
-            <element signature="e#10494#10923#0" expanded="false" />
-            <element signature="e#13459#19107#0" expanded="false" />
-            <element signature="e#15769#16554#0" expanded="false" />
-            <element signature="e#16615#17121#0" expanded="false" />
-            <element signature="e#17664#18494#0" expanded="false" />
-            <element signature="e#18554#19060#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
             <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
-            <element signature="e#19267#20141#0" expanded="false" />
-            <element signature="e#19737#20117#0" expanded="false" />
-            <element signature="e#20320#24559#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
             <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-            <element signature="e#32363#32743#0" expanded="false" />
-            <element signature="e#33876#35433#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
             <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-            <element signature="e#36309#36692#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
             <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
-            <element signature="e#41239#41621#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
             <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-            <element signature="e#45889#46268#0" expanded="false" />
-            <element signature="e#51719#54385#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
             <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
-            <element signature="e#59623#60805#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
             <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
           </folding>
         </state>
@@ -681,37 +1035,37 @@
             <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
-            <element signature="e#5577#5757#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
             <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
-            <element signature="e#10494#10923#0" expanded="false" />
-            <element signature="e#13459#19107#0" expanded="false" />
-            <element signature="e#15769#16554#0" expanded="false" />
-            <element signature="e#16615#17121#0" expanded="false" />
-            <element signature="e#17664#18494#0" expanded="false" />
-            <element signature="e#18554#19060#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
             <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
-            <element signature="e#19267#20141#0" expanded="false" />
-            <element signature="e#19737#20117#0" expanded="false" />
-            <element signature="e#20320#24559#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
             <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-            <element signature="e#32363#32743#0" expanded="false" />
-            <element signature="e#33876#35433#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
             <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-            <element signature="e#36309#36692#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
             <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
-            <element signature="e#41239#41621#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
             <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-            <element signature="e#45889#46268#0" expanded="false" />
-            <element signature="e#51719#54385#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
             <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
-            <element signature="e#59623#60805#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
             <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
           </folding>
         </state>
@@ -723,19 +1077,18 @@
           <caret line="542" column="87" lean-forward="false" selection-start-line="542" selection-start-column="87" selection-end-line="542" selection-end-column="87" />
           <folding>
             <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
-            <element signature="e#14263#14569#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
             <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
-            <element signature="e#60020#60048#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
             <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="e#88750#92943#0" expanded="false" />
-            <element signature="e#93116#93910#0" expanded="false" />
-            <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
           </folding>
         </state>
       </provider>
@@ -744,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32010">
           <caret line="2134" column="0" lean-forward="false" selection-start-line="2134" selection-start-column="0" selection-end-line="2134" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,37 +1151,37 @@
             <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
-            <element signature="e#5577#5757#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
             <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
-            <element signature="e#10494#10923#0" expanded="false" />
-            <element signature="e#13459#19107#0" expanded="false" />
-            <element signature="e#15769#16554#0" expanded="false" />
-            <element signature="e#16615#17121#0" expanded="false" />
-            <element signature="e#17664#18494#0" expanded="false" />
-            <element signature="e#18554#19060#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
             <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
-            <element signature="e#19267#20141#0" expanded="false" />
-            <element signature="e#19737#20117#0" expanded="false" />
-            <element signature="e#20320#24559#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
             <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-            <element signature="e#32363#32743#0" expanded="false" />
-            <element signature="e#33876#35433#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
             <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-            <element signature="e#36309#36692#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
             <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
-            <element signature="e#41239#41621#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
             <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-            <element signature="e#45889#46268#0" expanded="false" />
-            <element signature="e#51719#54385#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
             <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
-            <element signature="e#59623#60805#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
             <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
           </folding>
         </state>
@@ -843,19 +1193,18 @@
           <caret line="542" column="87" lean-forward="false" selection-start-line="542" selection-start-column="87" selection-end-line="542" selection-end-column="87" />
           <folding>
             <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
-            <element signature="e#14263#14569#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
             <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
-            <element signature="e#60020#60048#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
             <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="e#88750#92943#0" expanded="false" />
-            <element signature="e#93116#93910#0" expanded="false" />
-            <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
           </folding>
         </state>
       </provider>
@@ -864,7 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +1236,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32010">
           <caret line="2134" column="0" lean-forward="false" selection-start-line="2134" selection-start-column="0" selection-end-line="2134" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,7 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,38 +1282,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9901">
           <caret line="2134" column="0" lean-forward="false" selection-start-line="2134" selection-start-column="0" selection-end-line="2134" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/Cleanup At Startup/Transmit/7A3BF976-421A-4065-B0A7-618CBCFA2187/.htaccess" />
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
+        <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_HOW_TO.html">
+    <entry file="file://$PROJECT_DIR$/src/temp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="322" column="19" lean-forward="false" selection-start-line="322" selection-start-column="19" selection-end-line="322" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="4801">
+          <caret line="688" column="8" lean-forward="false" selection-start-line="688" selection-start-column="8" selection-end-line="688" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45086#45091#0" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45248#45253#0" expanded="false" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#45411#45416#0" expanded="false" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#9;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#10;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Track.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="891" column="135" lean-forward="false" selection-start-line="891" selection-start-column="135" selection-end-line="891" selection-end-column="135" />
+        <state relative-caret-position="522">
+          <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="n#!!block;n#componentDidMount#0;n#Track#0" expanded="false" />
@@ -979,77 +1330,92 @@
             <element signature="n#!!block;n#changeSpringHighlight#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#highlightFullTrack#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#removeAllHighlights#0;n#Track#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getFullTrackText#0;n#Track#0" expanded="false" />
-            <element signature="e#5577#5757#0" expanded="false" />
+            <element signature="e#5667#5847#0" expanded="false" />
             <element signature="n#!!block;n#getFallText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getWinterText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSpringText#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getSeasonHTML#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#isInCart#0;n#Track#0" expanded="false" />
             <element signature="n#!!block;n#getProjectHTML#0;n#Track#0" expanded="false" />
-            <element signature="e#10494#10923#0" expanded="false" />
-            <element signature="e#13459#19107#0" expanded="false" />
-            <element signature="e#15769#16554#0" expanded="false" />
-            <element signature="e#16615#17121#0" expanded="false" />
-            <element signature="e#17664#18494#0" expanded="false" />
-            <element signature="e#18554#19060#0" expanded="false" />
+            <element signature="e#10584#11013#0" expanded="false" />
+            <element signature="e#13549#19197#0" expanded="false" />
+            <element signature="e#15859#16644#0" expanded="false" />
+            <element signature="e#16705#17211#0" expanded="false" />
+            <element signature="e#17754#18584#0" expanded="false" />
+            <element signature="e#18644#19150#0" expanded="false" />
             <element signature="n#!!block;n#renderRoblox#0;n#Track#0" expanded="false" />
-            <element signature="e#19267#20141#0" expanded="false" />
-            <element signature="e#19737#20117#0" expanded="false" />
-            <element signature="e#20320#24559#0" expanded="false" />
+            <element signature="e#19357#20231#0" expanded="false" />
+            <element signature="e#19827#20207#0" expanded="false" />
+            <element signature="e#20410#24649#0" expanded="false" />
             <element signature="n#!!block;n#renderFortnite#0;n#Track#0" expanded="false" />
-            <element signature="e#32363#32743#0" expanded="false" />
-            <element signature="e#33876#35433#0" expanded="false" />
+            <element signature="n#!!block;n#renderCoding#0;n#Track#0" expanded="false" />
+            <element signature="e#32453#32833#0" expanded="false" />
+            <element signature="e#33966#35523#0" expanded="false" />
             <element signature="n#!!block;n#renderMinecraft#0;n#Track#0" expanded="false" />
-            <element signature="e#36309#36692#0" expanded="false" />
+            <element signature="e#36399#36782#0" expanded="false" />
             <element signature="n#!!block;n#renderHardware#0;n#Track#0" expanded="false" />
-            <element signature="e#41239#41621#0" expanded="false" />
+            <element signature="e#41329#41711#0" expanded="false" />
             <element signature="n#!!block;n#renderVideo#0;n#Track#0" expanded="false" />
-            <element signature="e#45889#46268#0" expanded="false" />
-            <element signature="e#51719#54385#0" expanded="false" />
+            <element signature="e#45979#46358#0" expanded="false" />
+            <element signature="e#51809#54475#0" expanded="false" />
             <element signature="n#!!block;n#renderPC#0;n#Track#0" expanded="false" />
-            <element signature="e#59623#60805#0" expanded="false" />
+            <element signature="e#59713#60895#0" expanded="false" />
             <element signature="n#!!block;n#renderDeck#0;n#Track#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tracks-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="1905" column="21" lean-forward="false" selection-start-line="1905" selection-start-column="21" selection-end-line="1905" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="1501" column="26" lean-forward="false" selection-start-line="1501" selection-start-column="26" selection-end-line="1501" selection-end-column="26" />
+        <state relative-caret-position="71">
+          <caret line="742" column="9" lean-forward="false" selection-start-line="742" selection-start-column="9" selection-end-line="742" selection-end-column="9" />
           <folding>
             <element signature="n#!!block;n#highlightAllPickUpDays#0;n#App#0" expanded="false" />
-            <element signature="e#14263#14569#0" expanded="false" />
+            <element signature="e#14224#14530#0" expanded="false" />
             <element signature="n#!!block;n#addMemberBirthday#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMembershipType#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#setMakerspaceToView#0;n#App#0" expanded="false" />
-            <element signature="e#60020#60048#0" expanded="false" />
+            <element signature="e#60126#60154#0" expanded="false" />
             <element signature="n#!!block;n#addOwnedDays#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printOwnedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#addInCart#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#printCartedDay#0;n#App#0" expanded="false" />
             <element signature="n#!!block;n#getDayTitleString#0;n#App#0" expanded="false" />
-            <element signature="e#88750#92943#0" expanded="false" />
-            <element signature="e#93116#93910#0" expanded="false" />
-            <marker date="1564958441167" expanded="true" signature="62256:62325" ph="..." />
+            <element signature="e#93397#94191#0" expanded="false" />
+            <marker date="1568582358603" expanded="true" signature="62362:62431" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/json/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="5172" column="28" lean-forward="false" selection-start-line="5172" selection-start-column="28" selection-end-line="5172" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/isLive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_HOW_TO.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="2818" column="35" lean-forward="false" selection-start-line="2818" selection-start-column="13" selection-end-line="2818" selection-end-column="35" />
           <folding />
         </state>
       </provider>
