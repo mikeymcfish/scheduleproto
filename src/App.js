@@ -746,6 +746,8 @@ class App extends Component {
         ReactTooltip.rebuild();
         //this.runJquery();
         // if (global.isUpdating != true) this.runJquery();
+        var elm = $("#roblox-track");
+        elm.prependTo($("#start-of-tracks"));
         var elm = $("#coding-track");
         elm.prependTo($("#start-of-tracks"));
         var elm = $("#game-track");
