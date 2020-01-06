@@ -181,8 +181,10 @@ class App extends Component {
 
             }
 
-        });
-
+        }).fail(() => {
+          that.loadScheduleData();
+          that.getCartCall();
+        })
     }
 
     loadScheduleData() {
